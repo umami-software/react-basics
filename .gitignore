@@ -1,0 +1,23 @@
+# Common
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+*.swp
+*.log
+
+# Environment
+.idea
+.env
+.husky
+*.iml
+*.bat
+*.map
+
+# Project
+node_modules
+bin
+/dist/
+/demo/
