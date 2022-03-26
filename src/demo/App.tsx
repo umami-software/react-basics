@@ -1,5 +1,5 @@
 import { hot } from 'react-hot-loader/root';
-import Button from '../components/Button';
+import Button from 'components/input/Button';
 
 function App(): JSX.Element {
   return (

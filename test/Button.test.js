@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import Button from '../src/components/Button';
+import Button from '../src/components/input/Button';
 
 test('Button', async () => {
   const handleClick = jest.fn();
