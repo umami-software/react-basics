@@ -33,7 +33,7 @@ module.exports = {
         enforce: 'pre',
       },
       {
-        test: /\.(css|less)$/,
+        test: /\.css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
