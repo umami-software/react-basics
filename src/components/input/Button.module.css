@@ -1,12 +1,50 @@
 .button {
-  padding: 8px;
+  padding: 8px 16px;
   border: 0;
-  background-color: #eee;
-  border-radius: 8px;
-  line-height: 24px;
+  color: var(--gray900);
+  background-color: var(--gray100);
+  border-radius: 4px;
   font-size: 16px;
+  line-height: 24px;
 }
 
 .button:hover {
-  background-color: #fafafa;
+  background-color: var(--gray200);
+}
+
+.button.quiet {
+  color: var(--gray900);
+  background-color: transparent;
+}
+
+.button.quiet:hover {
+  background-color: var(--gray100);
+}
+
+.button.disabled {
+  color: var(--gray600);
+  background-color: var(--gray100);
+}
+
+.primary {
+  color: var(--gray50);
+  background-color: var(--primary400);
+}
+
+.primary:hover {
+  color: var(--gray50);
+  background-color: var(--primary500);
+}
+
+.primary.quiet:hover {
+  color: var(--gray900);
+}
+
+.secondary {
+  color: var(--gray50);
+  background-color: var(--gray900);
+}
+
+.secondary:hover {
+  background-color: var(--gray800);
 }
