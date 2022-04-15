@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, CSSProperties } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
@@ -6,14 +6,24 @@ export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'none';
   quiet?: boolean;
   disabled?: boolean;
+  className?: string;
+  style?: CSSProperties;
   onClick: () => void;
   children: ReactNode;
 }
 
-export function Button({ variant, quiet, disabled, children, onClick }: ButtonProps): ReactElement {
+export function Button({
+  variant,
+  quiet,
+  disabled,
+  className,
+  style,
+  children,
+  onClick,
+}: ButtonProps): ReactElement {
   return (
     <button
-      className={classNames(styles.button, {
+      className={classNames(styles.button, className, {
         [styles.primary]: variant === 'primary',
         [styles.secondary]: variant === 'secondary',
         [styles.quiet]: quiet,
@@ -22,6 +32,7 @@ export function Button({ variant, quiet, disabled, children, onClick }: ButtonPr
       type="button"
       onClick={onClick}
       disabled={disabled}
+      style={style}
     >
       {children}
     </button>

@@ -1,0 +1,41 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  line-height: 24px;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--gray900);
+  border: 1px solid var(--gray500);
+  border-radius: 4px;
+}
+
+.label {
+  margin-left: 10px;
+  user-select: none; /* disable text selection when clicking to toggle the checkbox */
+}
+
+.input {
+  position: absolute;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  bottom: 100%;
+  right: 100%;
+}
+
+.checkbox.checked .square {
+  color: var(--gray50);
+  background-color: var(--gray900);
+}
+
+.checkbox.disabled .square {
+  color: var(--gray600);
+  background-color: var(--gray100);
+}

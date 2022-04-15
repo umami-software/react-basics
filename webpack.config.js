@@ -51,16 +51,10 @@ module.exports = {
               importLoaders: 1,
             },
           },
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
         ],
       },
       {
-        test: /\.(jpg|jpeg|png|gif|mp3|svg|html)$/,
+        test: /\.(jpg|jpeg|png|gif|mp3|html)$/,
         use: {
           loader: 'file-loader',
           options: {

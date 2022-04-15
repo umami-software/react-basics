@@ -1,4 +1,5 @@
 import { Button, ButtonProps } from 'components/input/Button';
-import 'styles/global.css';
+import { Checkbox, CheckboxProps } from 'components/input/Checkbox';
+import { Icon, IconProps } from 'components/common/Icon';
 
-export { Button, ButtonProps };
+export { Button, ButtonProps, Checkbox, CheckboxProps, Icon, IconProps };
