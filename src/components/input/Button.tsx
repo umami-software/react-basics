@@ -1,13 +1,12 @@
-import { ReactElement, ReactNode, CSSProperties } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
+import { CommonProps } from 'types';
 import styles from './Button.module.css';
 
-export interface ButtonProps {
+export interface ButtonProps extends CommonProps {
   variant?: 'primary' | 'secondary' | 'none';
   quiet?: boolean;
   disabled?: boolean;
-  className?: string;
-  style?: CSSProperties;
   onClick: () => void;
   children: ReactNode;
 }

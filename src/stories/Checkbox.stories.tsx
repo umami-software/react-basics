@@ -9,9 +9,11 @@ export default {
 
 const Template: ComponentStory<typeof Checkbox> = args => <Checkbox {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  name: 'checkbox',
-  value: 'checkbox',
-  label: 'Checkbox',
-};
+export const storyDefault = Object.assign(Template.bind({}), {
+  storyName: 'default',
+  args: {
+    name: 'name',
+    value: 'value',
+    label: 'Checkbox',
+  },
+});

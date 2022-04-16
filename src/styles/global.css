@@ -1,4 +1,9 @@
 :root {
+  --std-line-height: 32px;
+  --std-border-radius: 4px;
+  --std-padding: 0 16px;
+  --std-input-width: 200px;
+
   --primary400: #2680eb;
   --primary500: #1473e6;
   --primary600: #0d66d0;

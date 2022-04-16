@@ -1,7 +1,7 @@
 import React, { useState, useRef, MutableRefObject, CSSProperties, ReactElement } from 'react';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
-import Check from 'assets/check.svg';
+import { Check } from 'icons';
 import styles from './Checkbox.module.css';
 
 export interface CheckboxProps {

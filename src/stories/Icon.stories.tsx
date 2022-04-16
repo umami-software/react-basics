@@ -8,9 +8,22 @@ export default {
   component: Icon,
 } as ComponentMeta<typeof Icon>;
 
-const Template: ComponentStory<typeof Icon> = args => <Icon {...args} />;
+const Template: ComponentStory<typeof Icon> = args => (
+  <div>
+    <Icon {...args} size="xsmall" />
+    <Icon {...args} size="small" />
+    <Icon {...args} size="medium" />
+    <Icon {...args} size="large" />
+    <Icon {...args} size="xlarge" />
+  </div>
+);
 
-export const Default = Template.bind({});
-Default.args = {
-  icon: <Check />,
-};
+export const storyDefault = Object.assign(Template.bind({}), {
+  storyName: 'default',
+  args: {
+    icon: <Check />,
+  },
+  parameters: {
+    controls: { disable: true },
+  },
+});

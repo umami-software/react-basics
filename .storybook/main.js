@@ -14,6 +14,17 @@ module.exports = {
   webpackFinal: async config => {
     config.resolve.modules = [...config.resolve.modules, path.resolve(__dirname, '../src')];
 
+    const cssLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.css'));
+
+    for (const { loader, options } of cssLoaderRule.use) {
+      if (loader?.includes('css-loader') && options) {
+        options.modules = {
+          mode: 'local',
+          localIdentName: '[name]__[local]--[hash:base64:5]',
+        };
+      }
+    }
+
     // Remove svg from existing rule
     const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = /\.svg$/;

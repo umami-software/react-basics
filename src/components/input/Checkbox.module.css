@@ -3,6 +3,8 @@
   align-items: center;
   position: relative;
   line-height: 24px;
+  gap: 10px;
+  box-sizing: border-box;
 }
 
 .square {
@@ -17,7 +19,6 @@
 }
 
 .label {
-  margin-left: 10px;
   user-select: none; /* disable text selection when clicking to toggle the checkbox */
 }
 

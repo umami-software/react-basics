@@ -1,0 +1,33 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  background: var(--gray50);
+  border: 1px solid var(--gray500);
+  border-radius: var(--std-border-radius);
+  width: 200px;
+  overflow: hidden;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.item {
+  font-size: var(--font-size-small);
+  font-weight: normal;
+  background: var(--gray50);
+  padding: 0 16px;
+  line-height: 32px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.item:hover {
+  background: var(--gray100);
+}
+
+.item.selected {
+  font-weight: 600;
+}
+
+.divider {
+  border-top: 1px solid var(--gray500);
+}

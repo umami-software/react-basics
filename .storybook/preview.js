@@ -1,3 +1,4 @@
+import '../src/styles/storybook.css';
 import '../src/styles/global.css';
 
 export const parameters = {
