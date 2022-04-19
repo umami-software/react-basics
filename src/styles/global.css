@@ -1,8 +1,9 @@
 :root {
-  --std-line-height: 32px;
-  --std-border-radius: 4px;
-  --std-padding: 0 16px;
-  --std-input-width: 200px;
+  --input-font-size: 16px;
+  --input-width: 200px;
+  --input-height: 32px;
+  --input-padding: 8px 16px;
+  --input-border-radius: 4px;
 
   --primary400: #2680eb;
   --primary500: #1473e6;

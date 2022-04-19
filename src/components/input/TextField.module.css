@@ -1,0 +1,13 @@
+.textfield {
+  height: var(--input-height);
+  padding: var(--input-padding);
+  border: 1px solid var(--gray500);
+  border-radius: var(--input-border-radius);
+  width: var(--input-width);
+  box-sizing: border-box;
+}
+
+.textfield:focus {
+  outline: none;
+  border: 1px solid var(--gray400);
+}

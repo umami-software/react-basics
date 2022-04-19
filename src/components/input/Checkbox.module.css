@@ -1,13 +1,13 @@
 .checkbox {
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
-  line-height: 24px;
+  line-height: var(--std-line-height);
   gap: 10px;
   box-sizing: border-box;
 }
 
-.square {
+.box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,12 +31,12 @@
   right: 100%;
 }
 
-.checkbox.checked .square {
+.checkbox.checked .box {
   color: var(--gray50);
   background-color: var(--gray900);
 }
 
-.checkbox.disabled .square {
+.checkbox.disabled .box {
   color: var(--gray600);
   background-color: var(--gray100);
 }

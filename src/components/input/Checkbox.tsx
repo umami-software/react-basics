@@ -48,7 +48,7 @@ export function Checkbox({
       })}
       style={style}
     >
-      <div className={styles.square} onClick={handleClick}>
+      <div className={styles.box} onClick={handleClick}>
         {ref?.current?.checked && <Icon icon={<Check />} size="small" />}
       </div>
       <label className={styles.label} htmlFor={name} onClick={handleClick}>

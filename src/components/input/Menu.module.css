@@ -3,7 +3,7 @@
   flex-direction: column;
   background: var(--gray50);
   border: 1px solid var(--gray500);
-  border-radius: var(--std-border-radius);
+  border-radius: var(--input-border-radius);
   width: 200px;
   overflow: hidden;
   z-index: 1;

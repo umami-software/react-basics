@@ -3,11 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: var(--std-line-height);
-  width: var(--std-input-width);
-  padding: var(--std-padding);
+  height: var(--input-height);
+  width: var(--input-width);
+  padding: var(--input-padding);
   border: 1px solid var(--gray500);
-  border-radius: var(--std-border-radius);
+  border-radius: var(--input-border-radius);
   gap: 10px;
   box-sizing: border-box;
 }
@@ -32,5 +32,5 @@
   left: 0;
   top: 100%;
   margin-top: 5px;
-  min-width: var(--std-input-width);
+  min-width: var(--input-width);
 }

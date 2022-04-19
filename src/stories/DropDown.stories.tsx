@@ -4,7 +4,7 @@ import { Dropdown } from 'components/input/Dropdown';
 import { MenuItem } from 'types';
 
 export default {
-  title: 'DropDown',
+  title: 'Dropdown',
   component: Dropdown,
 } as ComponentMeta<typeof Dropdown>;
 
