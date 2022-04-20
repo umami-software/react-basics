@@ -1,16 +1,21 @@
 import { useState, ReactElement, ReactEventHandler } from 'react';
 import classNames from 'classnames';
-import { MenuItem, CommonProps } from 'types';
+import { ListItem, CommonProps } from 'types';
 import styles from './Menu.module.css';
+
+export interface MenuItem extends ListItem {
+  divider?: boolean;
+}
 
 export interface MenuProps extends CommonProps {
   items: MenuItem[];
-  selectedKey?: string;
+  value?: string;
   onSelect: (key: string, e: ReactEventHandler) => void;
 }
 
-export function Menu({ items = [], selectedKey, className, onSelect }: MenuProps): ReactElement {
-  const [selected, setSelected] = useState(selectedKey);
+export function Menu(props: MenuProps): ReactElement {
+  const { items = [], value, className, onSelect } = props;
+  const [selected, setSelected] = useState(value);
 
   const handleSelect = (key, e) => {
     setSelected(key);
@@ -20,16 +25,16 @@ export function Menu({ items = [], selectedKey, className, onSelect }: MenuProps
   return (
     <div className={classNames(styles.menu, className)}>
       {items.map(item => {
-        const { key, label, divider } = item;
+        const { value: itemValue, label, divider } = item;
 
         return (
           <div
-            key={key}
+            key={value}
             className={classNames(styles.item, {
-              [styles.selected]: selected === key,
+              [styles.selected]: selected === itemValue,
               [styles.divider]: divider,
             })}
-            onClick={handleSelect.bind(null, key)}
+            onClick={handleSelect.bind(null, itemValue)}
           >
             {label}
           </div>

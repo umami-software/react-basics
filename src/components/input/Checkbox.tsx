@@ -1,13 +1,19 @@
-import React, { useState, useRef, MutableRefObject, CSSProperties, ReactElement } from 'react';
+import React, {
+  useState,
+  useRef,
+  MutableRefObject,
+  CSSProperties,
+  ReactElement,
+  ReactNode,
+} from 'react';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import { Check } from 'icons';
 import styles from './Checkbox.module.css';
 
 export interface CheckboxProps {
-  name: string;
-  value: any;
-  label?: string;
+  value: string;
+  label?: string | ReactNode;
   checked?: boolean;
   disabled?: boolean;
   className?: string;
@@ -15,17 +21,8 @@ export interface CheckboxProps {
   onChange: (checked: boolean) => void;
 }
 
-export function Checkbox({
-  name,
-  value,
-  label,
-  checked = false,
-  disabled = false,
-  className,
-  style,
-  onChange,
-}: CheckboxProps): ReactElement {
-  const [selected, setSelected] = useState(checked);
+export function Checkbox(props: CheckboxProps): ReactElement {
+  const { value, label, checked, disabled, className, style, onChange } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   const handleClick = e => {
@@ -33,36 +30,32 @@ export function Checkbox({
     ref?.current?.click();
   };
 
-  const handleChange = () => {
-    setSelected(state => {
-      onChange(!state);
-      return !state;
-    });
+  const handleChange = e => {
+    onChange(e.target.value);
   };
 
   return (
     <div
       className={classNames(styles.checkbox, className, {
-        [styles.checked]: selected,
+        [styles.checked]: checked,
         [styles.disabled]: disabled,
       })}
       style={style}
     >
       <div className={styles.box} onClick={handleClick}>
-        {ref?.current?.checked && <Icon icon={<Check />} size="small" />}
+        {checked && <Icon icon={<Check />} size="small" />}
       </div>
-      <label className={styles.label} htmlFor={name} onClick={handleClick}>
+      <label className={styles.label} onClick={handleClick}>
         {label}
       </label>
       <input
+        type="checkbox"
         ref={ref}
         className={styles.input}
-        type="checkbox"
-        name={name}
         value={value}
-        onChange={handleChange}
-        checked={selected}
+        checked={checked}
         disabled={disabled}
+        onChange={handleChange}
       />
     </div>
   );

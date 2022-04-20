@@ -1,0 +1,21 @@
+.group {
+  display: inline-flex;
+  height: var(--input-height);
+  border-radius: var(--input-border-radius);
+  border: 1px solid var(--gray500);
+  overflow: hidden;
+}
+
+.group .button {
+  border: 0;
+  border-radius: 0;
+}
+
+.group .button + .button {
+  border-left: 1px solid var(--gray500);
+}
+
+.group .button.selected {
+  color: var(--gray900);
+  font-weight: 600;
+}

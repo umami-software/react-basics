@@ -1,25 +1,23 @@
-.textfield {
+.textarea {
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
+.noresize {
+  resize: none;
+}
+
 .label {
   color: var(--gray800);
-  line-height: var(--input-height);
   font-size: var(--font-size-xsmall);
+  line-height: var(--input-height);
 }
 
 .input {
-  height: var(--input-height);
-  padding: var(--input-padding);
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);
   width: var(--input-width);
-  box-sizing: border-box;
-}
-
-.input:focus {
+  padding: var(--input-padding);
   outline: none;
-  border: 1px solid var(--gray400);
 }

@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dropdown } from 'components/input/Dropdown';
-import { MenuItem } from 'types';
+import { ListItem } from 'types';
 
 export default {
-  title: 'Dropdown',
+  title: 'Inputs/Dropdown',
   component: Dropdown,
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = args => {
-  const [key, setKey] = useState<string | undefined>();
+  const [selected, setSelected] = useState<string | undefined>(args.value);
 
-  return <Dropdown {...args} selectedKey={key} onChange={setKey} />;
+  return <Dropdown {...args} value={selected} onChange={setSelected} />;
 };
 
-const items: MenuItem[] = [
-  { key: 'one', label: 'One' },
-  { key: 'two', label: 'Two' },
-  { key: 'three', label: 'Three' },
+const items: ListItem[] = [
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' },
+  { value: 'three', label: 'Three' },
 ];
 
 export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
     items,
+  },
+});
+
+export const storyPreselect = Object.assign(Template.bind({}), {
+  storyName: 'preselected',
+  args: {
+    items,
+    value: 'two',
   },
 });

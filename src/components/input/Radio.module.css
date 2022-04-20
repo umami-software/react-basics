@@ -1,13 +1,15 @@
-.checkbox {
+.radio {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   height: var(--input-height);
+  width: var(--input-width);
   gap: 10px;
   box-sizing: border-box;
 }
 
-.box {
+.circle {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,20 +17,31 @@
   height: 16px;
   color: var(--gray900);
   border: 1px solid var(--gray500);
-  border-radius: 4px;
+  border-radius: 100%;
   background: var(--gray50);
 }
 
-.input {
-  position: absolute;
-  visibility: hidden;
-  height: 0;
-  width: 0;
-  bottom: 100%;
-  right: 100%;
+.label {
+  font-size: var(--font-size-normal);
 }
 
-.checkbox.disabled .box {
+.input {
+  display: none;
+}
+
+.radio.checked .circle:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  background: var(--gray800);
+}
+
+.radio.disabled .circle {
   color: var(--gray600);
   background-color: var(--gray100);
 }

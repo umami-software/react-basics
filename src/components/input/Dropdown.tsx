@@ -1,32 +1,28 @@
-import React, { useState, useRef, useMemo, ReactElement } from 'react';
+import React, { useState, useRef, useMemo, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
+import Label from 'components/input/Label';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import useDocumentClick from 'hooks/useDocumentClick';
 import { Chevron } from 'icons';
-import { CommonProps, MenuItem } from 'types';
+import { CommonProps, ListItem } from 'types';
 import styles from './Dropdown.module.css';
 
 export interface DropDownProps extends CommonProps {
-  items: MenuItem[];
-  selectedKey: any;
+  items: ListItem[];
+  value?: string;
+  label?: ReactNode;
   menuClassName?: string;
   onChange: (key: string) => void;
 }
 
-export function Dropdown({
-  items,
-  selectedKey,
-  className,
-  menuClassName,
-  style,
-  onChange,
-}: DropDownProps): ReactElement {
+export function Dropdown(props: DropDownProps): ReactElement {
+  const { items, value, label, className, menuClassName, style, onChange } = props;
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef(null);
-  const selectedItem = useMemo<MenuItem | undefined>(
-    () => items.find(({ key }) => key === selectedKey),
-    [items, selectedKey],
+  const selectedItem = useMemo<ListItem | undefined>(
+    () => items.find(n => n.value === value),
+    [items, value],
   );
 
   const handleShowMenu = () => {
@@ -53,7 +49,8 @@ export function Dropdown({
       style={style}
       onClick={handleShowMenu}
     >
-      <div className={styles.item}>
+      {label && <Label>{label}</Label>}
+      <div className={styles.input}>
         <div className={styles.text}>{selectedItem?.label}</div>
         <Icon icon={<Chevron />} size="small" />
       </div>
@@ -61,7 +58,7 @@ export function Dropdown({
         <Menu
           className={classNames(styles.menu, menuClassName)}
           items={items}
-          selectedKey={selectedItem?.key}
+          value={selectedItem?.value}
           onSelect={handleSelect}
         />
       )}

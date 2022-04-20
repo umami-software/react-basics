@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof Icon> = args => (
-  <div>
+  <div style={{ display: 'flex', gap: 20 }}>
     <Icon {...args} size="xsmall" />
     <Icon {...args} size="small" />
     <Icon {...args} size="medium" />

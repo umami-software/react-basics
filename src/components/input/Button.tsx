@@ -11,15 +11,9 @@ export interface ButtonProps extends CommonProps {
   children: ReactNode;
 }
 
-export function Button({
-  variant,
-  quiet,
-  disabled,
-  className,
-  style,
-  children,
-  onClick,
-}: ButtonProps): ReactElement {
+export function Button(props: ButtonProps): ReactElement {
+  const { variant, quiet, disabled, className, style, children, onClick } = props;
+
   return (
     <button
       className={classNames(styles.button, className, {

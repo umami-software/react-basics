@@ -8,18 +8,18 @@
   padding: var(--input-padding);
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);
+  background: var(--gray50);
   gap: 10px;
   box-sizing: border-box;
 }
 
-.item {
+.input {
   flex: 1;
   display: flex;
   justify-content: space-between;
   font-size: var(--font-size-small);
   flex-wrap: nowrap;
   white-space: nowrap;
-  line-height: var(--std-line-height);
   box-sizing: border-box;
 }
 

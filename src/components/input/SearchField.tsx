@@ -1,4 +1,5 @@
 import { ReactElement, useState, useEffect } from 'react';
+import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import useDebounce from 'hooks/useDebounce';
 import styles from './SearchField.module.css';
@@ -8,7 +9,8 @@ export interface SearchProps extends TextFieldProps {
   delay?: number;
 }
 
-export function SearchField({ delay = 0, value, onChange, ...props }: SearchProps): ReactElement {
+export function SearchField(props: SearchProps): ReactElement {
+  const { delay = 0, value, onChange, ...otherProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);
 
@@ -29,9 +31,12 @@ export function SearchField({ delay = 0, value, onChange, ...props }: SearchProp
 
   return (
     <div className={styles.searchfield}>
-      <TextField className={styles.input} value={search} onChange={handleChange} {...props} />
       <Search className={styles.magnifier} />
-      {search && <Close className={styles.close} onClick={resetSearch} />}
+      <TextField className={styles.input} value={search} onChange={handleChange} {...otherProps} />
+      <Close
+        className={classNames(styles.close, { [styles.visible]: search })}
+        onClick={resetSearch}
+      />
     </div>
   );
 }
