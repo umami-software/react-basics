@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import Label from 'components/input/Label';
+import FieldLabel from 'components/input/FieldLabel';
 import styles from './TextField.module.css';
 
 export interface TextFieldProps extends CommonProps {
@@ -23,7 +23,7 @@ export function TextField(props: TextFieldProps): ReactElement {
 
   return (
     <div className={classNames(styles.textfield, className)}>
-      {label && <Label>{label}</Label>}
+      {label && <FieldLabel>{label}</FieldLabel>}
       <input
         type="text"
         className={classNames(styles.input, className)}

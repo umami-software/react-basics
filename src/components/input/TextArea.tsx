@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import Label from 'components/input/Label';
+import FieldLabel from 'components/input/FieldLabel';
 import styles from './TextArea.module.css';
 
 export interface TextAreaProps extends CommonProps {
@@ -35,7 +35,7 @@ export function TextArea(props: TextAreaProps): ReactElement {
 
   return (
     <div className={classNames(styles.textarea, className)}>
-      {label && <Label>{label}</Label>}
+      {label && <FieldLabel>{label}</FieldLabel>}
       <textarea
         className={classNames(styles.input, className, { [styles.noresize]: resize })}
         style={style}

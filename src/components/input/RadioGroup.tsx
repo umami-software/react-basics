@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react';
 import classNames from 'classnames';
 import { CommonProps, ListItem } from 'types';
 import { RadioProps } from 'components/input/Radio';
-import Label from 'components/input/Label';
+import FieldLabel from 'components/input/FieldLabel';
 import Radio from 'components/input/Radio';
 import styles from './RadioGroup.module.css';
 
@@ -31,15 +31,16 @@ export function RadioGroup({
 
   return (
     <div className={classNames(styles.radiogroup, className)} style={style}>
-      {label && <Label>{label}</Label>}
+      {label && <FieldLabel>{label}</FieldLabel>}
       {items.map(({ value: itemValue, label: itemLabel }) => (
         <Radio
           key={itemValue}
-          label={itemLabel}
           value={itemValue}
           checked={selected !== undefined && itemValue === selected}
           onChange={handleSelect}
-        />
+        >
+          {itemLabel}
+        </Radio>
       ))}
     </div>
   );

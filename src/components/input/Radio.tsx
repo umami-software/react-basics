@@ -1,18 +1,18 @@
-import React, { MutableRefObject, ReactElement, ReactNode, useRef, useState } from 'react';
+import React, { MutableRefObject, ReactElement, ReactNode, useRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Radio.module.css';
 
 export interface RadioProps extends CommonProps {
   value?: string;
-  label?: string | ReactNode;
+  children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
   onChange: (value: string) => void;
 }
 
 export function Radio(props: RadioProps): ReactElement {
-  const { value, label, checked, disabled, className, style, onChange } = props;
+  const { value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   const handleClick = e => {
@@ -34,7 +34,7 @@ export function Radio(props: RadioProps): ReactElement {
       onClick={handleClick}
     >
       <div className={styles.circle} />
-      {label && <label className={styles.label}>{label}</label>}
+      {children && <label className={styles.label}>{children}</label>}
       <input
         type="radio"
         ref={ref}

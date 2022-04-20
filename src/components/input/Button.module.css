@@ -1,7 +1,7 @@
 .button {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--input-gap-size);
   padding: 8px 16px;
   color: var(--gray900);
   background-color: var(--gray50);

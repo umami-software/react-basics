@@ -3,7 +3,7 @@ export * from 'components/input/ButtonGroup';
 export * from 'components/input/Checkbox';
 export * from 'components/input/CheckboxGroup';
 export * from 'components/input/Dropdown';
-export * from 'components/input/Label';
+export * from 'components/input/FieldLabel';
 export * from 'components/input/Menu';
 export * from 'components/input/Radio';
 export * from 'components/input/RadioGroup';

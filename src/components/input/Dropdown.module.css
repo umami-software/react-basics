@@ -9,7 +9,7 @@
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);
   background: var(--gray50);
-  gap: 10px;
+  gap: var(--input-gap-size);
   box-sizing: border-box;
 }
 

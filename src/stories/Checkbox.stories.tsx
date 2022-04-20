@@ -15,21 +15,21 @@ const Template: ComponentStory<typeof Checkbox> = args => {
   return <Checkbox {...args} checked={checked} onChange={handleChange} />;
 };
 
-export const story1 = Object.assign(Template.bind({}), {
+export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
     name: 'name',
     value: 'value',
-    label: 'Checkbox',
+    children: 'Checkbox',
   },
 });
 
-export const story2 = Object.assign(Template.bind({}), {
+export const storyPreselect = Object.assign(Template.bind({}), {
   storyName: 'preselected',
   args: {
     name: 'name',
     value: 'value',
-    label: 'Checkbox',
+    children: 'Checkbox',
     checked: true,
   },
 });

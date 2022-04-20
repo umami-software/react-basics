@@ -4,7 +4,7 @@
   align-items: center;
   height: var(--input-height);
   width: var(--input-width);
-  gap: 10px;
+  gap: var(--input-gap-size);
   box-sizing: border-box;
 }
 
@@ -29,6 +29,11 @@
   display: none;
 }
 
+.radio.checked .circle {
+  background: var(--primary400);
+  border-color: var(--primary700);
+}
+
 .radio.checked .circle:before {
   content: '';
   position: absolute;
@@ -38,7 +43,7 @@
   width: 7px;
   height: 7px;
   border-radius: 100%;
-  background: var(--gray800);
+  background: var(--gray50);
 }
 
 .radio.disabled .circle {

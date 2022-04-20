@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
-import Label from 'components/input/Label';
+import FieldLabel from 'components/input/FieldLabel';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import useDocumentClick from 'hooks/useDocumentClick';
@@ -49,7 +49,7 @@ export function Dropdown(props: DropDownProps): ReactElement {
       style={style}
       onClick={handleShowMenu}
     >
-      {label && <Label>{label}</Label>}
+      {label && <FieldLabel>{label}</FieldLabel>}
       <div className={styles.input}>
         <div className={styles.text}>{selectedItem?.label}</div>
         <Icon icon={<Chevron />} size="small" />

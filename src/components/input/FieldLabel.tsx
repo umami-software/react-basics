@@ -1,13 +1,13 @@
 import { ReactNode, ReactElement } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import styles from './Label.module.css';
+import styles from './FieldLabel.module.css';
 
 export interface LabelProps extends CommonProps {
   children?: ReactNode;
 }
 
-export function Label(props: LabelProps): ReactElement {
+export function FieldLabel(props: LabelProps): ReactElement {
   const { children, className, style } = props;
 
   return (
@@ -17,4 +17,4 @@ export function Label(props: LabelProps): ReactElement {
   );
 }
 
-export default Label;
+export default FieldLabel;
