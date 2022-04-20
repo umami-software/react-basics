@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import classNames from 'classnames';
 import Button from './Button';
 import styles from './ButtonGroup.module.css';
@@ -9,10 +9,19 @@ export interface ButtonGroupProps extends CommonProps {
   selected?: string[];
   onClick: (value: string) => void;
   multiSelect?: boolean;
+  children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
-export function ButtonGroup(props: ButtonGroupProps) {
-  const { items = [], selected = [], multiSelect = false, className, style, onClick } = props;
+export function ButtonGroup(props: ButtonGroupProps): ReactElement {
+  const {
+    items = [],
+    selected = [],
+    multiSelect = false,
+    className,
+    style,
+    onClick,
+    children,
+  } = props;
   const [selectedItems, setSelectedItems] = useState(selected);
 
   const handleClick = value => {
@@ -28,20 +37,21 @@ export function ButtonGroup(props: ButtonGroupProps) {
 
   return (
     <div className={classNames(styles.group, className)} style={style}>
-      {items.map(item => {
-        const { label, value } = item;
-        return (
-          <Button
-            key={value}
-            className={classNames(styles.button, {
-              [styles.selected]: selectedItems.includes(value),
-            })}
-            onClick={handleClick.bind(null, value)}
-          >
-            {label}
-          </Button>
-        );
-      })}
+      {children ||
+        items.map(item => {
+          const { label, value } = item;
+          return (
+            <Button
+              key={value}
+              className={classNames(styles.button, {
+                [styles.selected]: selectedItems.includes(value),
+              })}
+              onClick={handleClick.bind(null, value)}
+            >
+              {label}
+            </Button>
+          );
+        })}
     </div>
   );
 }

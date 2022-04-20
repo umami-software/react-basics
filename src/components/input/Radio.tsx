@@ -4,6 +4,7 @@ import { CommonProps } from 'types';
 import styles from './Radio.module.css';
 
 export interface RadioProps extends CommonProps {
+  name?: string;
   value?: string;
   children?: ReactNode;
   checked?: boolean;
@@ -12,7 +13,7 @@ export interface RadioProps extends CommonProps {
 }
 
 export function Radio(props: RadioProps): ReactElement {
-  const { value, checked, disabled, className, style, onChange, children } = props;
+  const { name, value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   const handleClick = e => {
@@ -37,6 +38,7 @@ export function Radio(props: RadioProps): ReactElement {
       {children && <label className={styles.label}>{children}</label>}
       <input
         type="radio"
+        name={name}
         ref={ref}
         className={styles.input}
         value={value}

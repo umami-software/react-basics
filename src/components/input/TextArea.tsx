@@ -6,6 +6,7 @@ import styles from './TextArea.module.css';
 
 export interface TextAreaProps extends CommonProps {
   label?: string | ReactNode;
+  name?: string;
   value?: string;
   spellCheck?: boolean;
   readOnly?: boolean;
@@ -18,6 +19,7 @@ export interface TextAreaProps extends CommonProps {
 export function TextArea(props: TextAreaProps): ReactElement {
   const {
     label,
+    name,
     value,
     spellCheck,
     readOnly,
@@ -39,6 +41,7 @@ export function TextArea(props: TextAreaProps): ReactElement {
       <textarea
         className={classNames(styles.input, className, { [styles.noresize]: resize })}
         style={style}
+        name={name}
         value={value}
         spellCheck={spellCheck}
         readOnly={readOnly}

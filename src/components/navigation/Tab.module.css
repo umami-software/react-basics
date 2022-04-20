@@ -1,0 +1,17 @@
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--input-padding);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  user-select: none;
+}
+
+.tab.selected {
+  border-bottom: 2px solid var(--primary400);
+}
+
+.tab.disabled {
+  color: var(--gray500);
+}

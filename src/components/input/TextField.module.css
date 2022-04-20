@@ -4,12 +4,6 @@
   flex-direction: column;
 }
 
-.label {
-  color: var(--gray800);
-  line-height: var(--input-height);
-  font-size: var(--font-size-xsmall);
-}
-
 .input {
   height: var(--input-height);
   padding: var(--input-padding);

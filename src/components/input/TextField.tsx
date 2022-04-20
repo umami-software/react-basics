@@ -5,6 +5,7 @@ import FieldLabel from 'components/input/FieldLabel';
 import styles from './TextField.module.css';
 
 export interface TextFieldProps extends CommonProps {
+  name?: string;
   value: string;
   label?: ReactNode;
   spellCheck?: boolean;
@@ -15,8 +16,18 @@ export interface TextFieldProps extends CommonProps {
 }
 
 export function TextField(props: TextFieldProps): ReactElement {
-  const { value, label, spellCheck, readOnly, disabled, placeholder, className, style, onChange } =
-    props;
+  const {
+    name,
+    value,
+    label,
+    spellCheck,
+    readOnly,
+    disabled,
+    placeholder,
+    className,
+    style,
+    onChange,
+  } = props;
   const handleChange = e => {
     onChange(e.target.value, e);
   };
@@ -28,6 +39,7 @@ export function TextField(props: TextFieldProps): ReactElement {
         type="text"
         className={classNames(styles.input, className)}
         style={style}
+        name={name}
         value={value}
         spellCheck={spellCheck}
         readOnly={readOnly}

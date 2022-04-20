@@ -22,7 +22,7 @@
 }
 
 .label {
-  font-size: var(--font-size-normal);
+  user-select: none;
 }
 
 .input {

@@ -8,12 +8,6 @@
   resize: none;
 }
 
-.label {
-  color: var(--gray800);
-  font-size: var(--font-size-xsmall);
-  line-height: var(--input-height);
-}
-
 .input {
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);

@@ -5,6 +5,7 @@ import { Check } from 'icons';
 import styles from './Checkbox.module.css';
 
 export interface CheckboxProps {
+  name?: string;
   value: string;
   children?: ReactNode;
   checked?: boolean;
@@ -15,7 +16,7 @@ export interface CheckboxProps {
 }
 
 export function Checkbox(props: CheckboxProps): ReactElement {
-  const { value, checked, disabled, className, style, onChange, children } = props;
+  const { name, value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   const handleClick = e => {
@@ -38,9 +39,12 @@ export function Checkbox(props: CheckboxProps): ReactElement {
       <div className={styles.box} onClick={handleClick}>
         {checked && <Icon icon={<Check />} size="small" />}
       </div>
-      <label onClick={handleClick}>{children}</label>
+      <label className={styles.label} onClick={handleClick}>
+        {children}
+      </label>
       <input
         type="checkbox"
+        name={name}
         ref={ref}
         className={styles.input}
         value={value}

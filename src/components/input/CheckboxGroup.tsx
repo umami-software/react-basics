@@ -15,7 +15,7 @@ export interface CheckboxGroupProps extends CommonProps {
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
-  const { items = [], label, value = [], className, style, onChange } = props;
+  const { items = [], label, value = [], className, style, onChange, children } = props;
   const [selected, setSelected] = useState(value);
 
   const handleSelect = val => {
@@ -26,16 +26,17 @@ export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
   return (
     <div className={classNames(styles.checkboxgroup, className)} style={style}>
       {label && <FieldLabel>{label}</FieldLabel>}
-      {items.map(({ value: itemValue, label: itemLabel }) => (
-        <Checkbox
-          key={itemValue}
-          value={itemValue}
-          checked={selected?.includes(itemValue)}
-          onChange={handleSelect}
-        >
-          {itemLabel}
-        </Checkbox>
-      ))}
+      {children ||
+        items.map(({ value: itemValue, label: itemLabel }) => (
+          <Checkbox
+            key={itemValue}
+            value={itemValue}
+            checked={selected?.includes(itemValue)}
+            onChange={handleSelect}
+          >
+            {itemLabel}
+          </Checkbox>
+        ))}
     </div>
   );
 }

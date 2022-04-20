@@ -28,6 +28,10 @@
   right: 100%;
 }
 
+.label {
+  user-select: none;
+}
+
 .checkbox.checked .box {
   color: var(--gray50);
   background: var(--primary400);

@@ -4,6 +4,7 @@ import { CommonProps } from 'types';
 import styles from './Button.module.css';
 
 export interface ButtonProps extends CommonProps {
+  name?: string;
   variant?: 'primary' | 'secondary' | 'none';
   quiet?: boolean;
   disabled?: boolean;
@@ -12,7 +13,7 @@ export interface ButtonProps extends CommonProps {
 }
 
 export function Button(props: ButtonProps): ReactElement {
-  const { variant, quiet, disabled, className, style, children, onClick } = props;
+  const { name, variant, quiet, disabled, className, style, children, onClick } = props;
 
   return (
     <button
@@ -23,6 +24,7 @@ export function Button(props: ButtonProps): ReactElement {
         [styles.disabled]: disabled,
       })}
       type="button"
+      name={name}
       onClick={onClick}
       disabled={disabled}
       style={style}

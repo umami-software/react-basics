@@ -14,14 +14,8 @@ export interface RadioGroupProps extends CommonProps {
   children: ReactElement<RadioProps> | ReactElement<RadioProps>[];
 }
 
-export function RadioGroup({
-  items = [],
-  label,
-  value,
-  className,
-  style,
-  onChange,
-}: RadioGroupProps): ReactElement {
+export function RadioGroup(props: RadioGroupProps): ReactElement {
+  const { items = [], label, value, className, style, onChange, children } = props;
   const [selected, setSelected] = useState(value);
 
   const handleSelect = val => {
@@ -32,16 +26,17 @@ export function RadioGroup({
   return (
     <div className={classNames(styles.radiogroup, className)} style={style}>
       {label && <FieldLabel>{label}</FieldLabel>}
-      {items.map(({ value: itemValue, label: itemLabel }) => (
-        <Radio
-          key={itemValue}
-          value={itemValue}
-          checked={selected !== undefined && itemValue === selected}
-          onChange={handleSelect}
-        >
-          {itemLabel}
-        </Radio>
-      ))}
+      {children ||
+        items.map(({ value: itemValue, label: itemLabel }) => (
+          <Radio
+            key={itemValue}
+            value={itemValue}
+            checked={selected !== undefined && itemValue === selected}
+            onChange={handleSelect}
+          >
+            {itemLabel}
+          </Radio>
+        ))}
     </div>
   );
 }

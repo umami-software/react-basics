@@ -1,3 +1,4 @@
+export * from 'components/common/Icon';
 export * from 'components/input/Button';
 export * from 'components/input/ButtonGroup';
 export * from 'components/input/Checkbox';
@@ -10,5 +11,6 @@ export * from 'components/input/RadioGroup';
 export * from 'components/input/SearchField';
 export * from 'components/input/TextArea';
 export * from 'components/input/TextField';
-export * from 'components/common/Icon';
+export * from 'components/navigation/Tab';
+export * from 'components/navigation/Tabs';
 export * from './types';
