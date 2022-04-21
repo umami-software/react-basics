@@ -7,19 +7,21 @@ export interface ButtonProps extends CommonProps {
   name?: string;
   variant?: 'primary' | 'secondary' | 'none';
   quiet?: boolean;
+  outline?: boolean;
   disabled?: boolean;
   onClick: () => void;
   children: ReactNode;
 }
 
 export function Button(props: ButtonProps): ReactElement {
-  const { name, variant, quiet, disabled, className, style, children, onClick } = props;
+  const { name, variant, quiet, outline, disabled, className, style, children, onClick } = props;
 
   return (
     <button
       className={classNames(styles.button, className, {
         [styles.primary]: variant === 'primary',
         [styles.secondary]: variant === 'secondary',
+        [styles.outline]: outline,
         [styles.quiet]: quiet,
         [styles.disabled]: disabled,
       })}

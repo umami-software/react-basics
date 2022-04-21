@@ -28,3 +28,11 @@ export const storyDisabled = Object.assign(Template.bind({}), {
     items: [...items, { value: 'four', label: 'Four', disabled: true }],
   },
 });
+
+export const storyVertical = Object.assign(Template.bind({}), {
+  storyName: 'vertical orientation',
+  args: {
+    items,
+    vertical: true,
+  },
+});

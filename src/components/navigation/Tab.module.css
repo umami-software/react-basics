@@ -2,16 +2,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--gray900);
   padding: var(--input-padding);
   border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
   user-select: none;
 }
 
 .tab.selected {
+  color: var(--gray900);
   border-bottom: 2px solid var(--primary400);
 }
 
 .tab.disabled {
   color: var(--gray500);
+}
+
+.tab.vertical {
+  border: 0;
+  border-left: 2px solid transparent;
+}
+
+.tab.vertical.selected {
+  border: 0;
+  border-left: 2px solid var(--primary400);
 }

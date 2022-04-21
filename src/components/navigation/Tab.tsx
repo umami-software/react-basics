@@ -7,18 +7,20 @@ export interface TabProps extends CommonProps {
   value: string;
   selected?: boolean;
   disabled?: boolean;
+  vertical?: boolean;
   onClick: () => void;
   children?: ReactNode;
 }
 
 export function Tab(props: TabProps) {
-  const { value, selected, disabled, onClick, className, style, children } = props;
+  const { value, selected, disabled, vertical, onClick, className, style, children } = props;
 
   return (
     <div
       className={classNames(styles.tab, className, {
         [styles.selected]: selected,
         [styles.disabled]: disabled,
+        [styles.vertical]: vertical,
       })}
       style={style}
       onClick={disabled ? undefined : onClick.bind(null, value)}
