@@ -20,7 +20,6 @@ export function Button(props: ButtonProps): ReactElement {
     <button
       className={classNames(styles.button, className, {
         [styles.primary]: variant === 'primary',
-        [styles.secondary]: variant === 'secondary',
         [styles.outline]: outline,
         [styles.quiet]: quiet,
         [styles.disabled]: disabled,

@@ -53,12 +53,3 @@
 .button.primary.quiet:hover {
   color: var(--gray900);
 }
-
-.button.secondary {
-  color: var(--gray50);
-  background-color: var(--gray900);
-}
-
-.button.secondary:hover {
-  background-color: var(--gray800);
-}

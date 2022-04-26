@@ -5,6 +5,7 @@ import { Toggle } from '../index';
 export default {
   title: 'Inputs/Toggle',
   component: Toggle,
+  argTypes: { onChange: { action: 'yo' } },
 } as ComponentMeta<typeof Toggle>;
 
 const Template: ComponentStory<typeof Toggle> = args => {
@@ -18,6 +19,6 @@ const Template: ComponentStory<typeof Toggle> = args => {
 export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
-    label: 'Toggle',
+    children: 'Toggle',
   },
 });

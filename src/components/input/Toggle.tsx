@@ -9,7 +9,7 @@ export interface ToggleProps extends CommonProps {
   children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  onChange: (checked: boolean) => void;
+  onChange: (value: string, e?: Event) => void;
 }
 
 export function Toggle(props: ToggleProps): ReactElement {
@@ -22,7 +22,7 @@ export function Toggle(props: ToggleProps): ReactElement {
   };
 
   const handleChange = e => {
-    onChange(e.target.value);
+    onChange(e.target.value, e);
   };
 
   return (

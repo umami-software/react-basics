@@ -1,23 +1,24 @@
 .toggle {
-  position: relative;
+  display: inline-flex;
+  gap: var(--input-gap-size);
 }
 
 .switch {
   position: relative;
   border-radius: 40px;
   width: 40px;
-  height: 22px;
+  height: 24px;
   border: 1px solid var(--gray500);
-  box-sizing: border-box;
   background: var(--gray100);
+  box-sizing: border-box;
 }
 
 .switch:before {
   position: absolute;
   content: '';
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 1px;
+  transform: translateY(-50%);
   width: 20px;
   height: 20px;
   border: 1px solid var(--gray500);
@@ -33,7 +34,8 @@
 
 .toggle.checked .switch:before {
   left: auto;
-  right: 0;
+  right: 1px;
+  border: 1px solid var(--primary600);
 }
 
 .input {
