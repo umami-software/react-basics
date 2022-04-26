@@ -1,0 +1,54 @@
+.toggle {
+  position: relative;
+}
+
+.switch {
+  position: relative;
+  border-radius: 40px;
+  width: 40px;
+  height: 22px;
+  border: 1px solid var(--gray500);
+  box-sizing: border-box;
+  background: var(--gray100);
+}
+
+.switch:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--gray500);
+  border-radius: 100%;
+  background: var(--gray50);
+  box-sizing: border-box;
+}
+
+.toggle.checked .switch {
+  background: var(--primary400);
+  border: 1px solid var(--primary600);
+}
+
+.toggle.checked .switch:before {
+  left: auto;
+  right: 0;
+}
+
+.input {
+  position: absolute;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  bottom: 100%;
+  right: 100%;
+}
+
+.label {
+  user-select: none;
+}
+
+.disabled {
+  background: var(--gray100);
+}

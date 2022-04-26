@@ -16,11 +16,6 @@
   background-color: var(--gray100);
 }
 
-.button.solid {
-  color: var(--gray50);
-  background-color: var(--primary400);
-}
-
 .button.outline {
   border: 1px solid var(--primary400);
 }
@@ -32,7 +27,7 @@
 }
 
 .button.quiet:hover {
-  background-color: var(--gray100);
+  background-color: var(--gray200);
 }
 
 .button.disabled {

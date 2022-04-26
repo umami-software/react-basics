@@ -1,11 +1,9 @@
-import React, { useRef, MutableRefObject, ReactElement, ReactNode } from 'react';
-import classNames from 'classnames';
-import Icon from 'components/common/Icon';
-import { Check } from 'icons';
-import styles from './Checkbox.module.css';
+import React, { MutableRefObject, ReactElement, ReactNode, useRef } from 'react';
 import { CommonProps } from 'types';
+import styles from './Toggle.module.css';
+import classNames from 'classnames';
 
-export interface CheckboxProps extends CommonProps {
+export interface ToggleProps extends CommonProps {
   name?: string;
   value: string;
   children?: ReactNode;
@@ -14,7 +12,7 @@ export interface CheckboxProps extends CommonProps {
   onChange: (checked: boolean) => void;
 }
 
-export function Checkbox(props: CheckboxProps): ReactElement {
+export function Toggle(props: ToggleProps): ReactElement {
   const { name, value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
@@ -29,14 +27,14 @@ export function Checkbox(props: CheckboxProps): ReactElement {
 
   return (
     <div
-      className={classNames(styles.checkbox, className, {
+      className={classNames(styles.toggle, className, {
         [styles.checked]: checked,
         [styles.disabled]: disabled,
       })}
       style={style}
       onClick={handleClick}
     >
-      <div className={styles.box}>{checked && <Icon icon={<Check />} size="small" />}</div>
+      <div className={styles.switch} />
       <label className={styles.label}>{children}</label>
       <input
         type="checkbox"
@@ -52,4 +50,4 @@ export function Checkbox(props: CheckboxProps): ReactElement {
   );
 }
 
-export default Checkbox;
+export default Toggle;
