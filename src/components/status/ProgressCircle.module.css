@@ -1,0 +1,43 @@
+.progresscircle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.progresscircle svg {
+  fill: none;
+  stroke: var(--primary400);
+  width: 100px;
+  height: 100px;
+  stroke-width: 5px;
+  transform: rotate(-90deg);
+}
+
+.circle {
+  position: relative;
+}
+
+.track {
+  stroke: var(--gray200);
+}
+
+.fill {
+  stroke: var(--primary400);
+}
+
+.label {
+  font-size: var(--font-size-xsmall);
+  align-self: center;
+  line-height: var(--input-height);
+}
+
+.value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-large);
+}
