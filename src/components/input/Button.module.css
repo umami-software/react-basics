@@ -4,8 +4,8 @@
   gap: var(--input-gap-size);
   padding: 8px 16px;
   color: var(--gray900);
-  background-color: var(--gray50);
-  border: 1px solid var(--gray500);
+  background-color: var(--gray100);
+  border: 0;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
@@ -13,7 +13,7 @@
 }
 
 .button:hover {
-  background-color: var(--gray100);
+  background-color: var(--gray200);
 }
 
 .button.outline {
@@ -22,7 +22,6 @@
 
 .button.quiet {
   color: var(--gray900);
-  border: 0;
   background-color: transparent;
 }
 
