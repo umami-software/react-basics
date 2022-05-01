@@ -11,7 +11,14 @@ const Template: ComponentStory<typeof ProgressCircle> = args => <ProgressCircle 
 export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
-    label: 'Progress',
     value: 25,
+  },
+});
+
+export const storyNoLabel = Object.assign(Template.bind({}), {
+  storyName: 'no label',
+  args: {
+    value: 25,
+    showValueLabel: false,
   },
 });

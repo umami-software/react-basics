@@ -28,12 +28,6 @@
   stroke: var(--primary400);
 }
 
-.label {
-  font-size: var(--font-size-xsmall);
-  align-self: center;
-  line-height: var(--input-height);
-}
-
 .value {
   position: absolute;
   top: 50%;

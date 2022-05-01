@@ -15,7 +15,6 @@ export interface ProgressCircleProps extends CommonProps {
 
 export function ProgressCircle(props: ProgressCircleProps) {
   const {
-    label,
     value = 0,
     minValue = 0,
     maxValue = 100,
@@ -36,7 +35,6 @@ export function ProgressCircle(props: ProgressCircleProps) {
       className={classNames(styles.progresscircle, className, { [styles[labelPosition]]: true })}
       style={style}
     >
-      {label && <label className={styles.label}>{label}</label>}
       <div className={styles.circle}>
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle className={styles.track} cx="50" cy="50" r="45" />
