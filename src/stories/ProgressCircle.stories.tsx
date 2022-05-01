@@ -16,9 +16,9 @@ export const storyDefault = Object.assign(Template.bind({}), {
 });
 
 export const storyNoLabel = Object.assign(Template.bind({}), {
-  storyName: 'no label',
+  storyName: 'with label',
   args: {
     value: 25,
-    showValueLabel: false,
+    showValueLabel: true,
   },
 });

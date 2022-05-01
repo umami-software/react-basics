@@ -5,7 +5,7 @@ import styles from './ProgressBar.module.css';
 
 export interface ProgressBarProps extends CommonProps {
   label?: ReactNode;
-  value?: number;
+  value: number;
   valueLabel?: ReactNode;
   showValueLabel?: boolean;
   minValue?: number;
@@ -20,7 +20,7 @@ export function ProgressBar(props: ProgressBarProps) {
     minValue = 0,
     maxValue = 100,
     valueLabel,
-    showValueLabel = true,
+    showValueLabel = false,
     labelPosition = 'top',
     className,
     style,

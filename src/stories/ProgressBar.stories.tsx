@@ -11,16 +11,25 @@ const Template: ComponentStory<typeof ProgressBar> = args => <ProgressBar {...ar
 export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
-    label: 'Progress',
     value: 25,
+  },
+});
+
+export const storyLabels = Object.assign(Template.bind({}), {
+  storyName: 'with labels',
+  args: {
+    value: 25,
+    label: 'Progress',
+    showValueLabel: true,
   },
 });
 
 export const storyLabelPosition = Object.assign(Template.bind({}), {
   storyName: 'side label position',
   args: {
-    label: 'Progress',
-    labelPosition: 'side',
     value: 25,
+    label: 'Progress',
+    showValueLabel: true,
+    labelPosition: 'side',
   },
 });

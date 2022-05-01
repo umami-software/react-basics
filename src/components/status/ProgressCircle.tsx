@@ -18,7 +18,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
     minValue = 0,
     maxValue = 100,
     valueLabel,
-    showValueLabel = true,
+    showValueLabel = false,
     className,
     style,
   } = props;
