@@ -9,6 +9,8 @@
 }
 
 .input {
+  font-family: inherit;
+  font-size: var(--font-size-normal);
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);
   width: var(--input-width);

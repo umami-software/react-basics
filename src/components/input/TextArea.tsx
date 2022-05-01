@@ -8,11 +8,13 @@ export interface TextAreaProps extends CommonProps {
   label?: string | ReactNode;
   name?: string;
   value?: string;
+  defaultValue?: string;
+  rows?: number;
   spellCheck?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  resize?: boolean;
+  resizeable?: boolean;
   onChange: (value: string, e?: Event) => void;
 }
 
@@ -21,11 +23,13 @@ export function TextArea(props: TextAreaProps): ReactElement {
     label,
     name,
     value,
+    defaultValue,
+    rows = 2,
     spellCheck,
     readOnly,
     disabled,
     placeholder,
-    resize = false,
+    resizeable = false,
     className,
     style,
     onChange,
@@ -39,10 +43,12 @@ export function TextArea(props: TextAreaProps): ReactElement {
     <div className={classNames(styles.textarea, className)}>
       {label && <FieldLabel>{label}</FieldLabel>}
       <textarea
-        className={classNames(styles.input, className, { [styles.noresize]: resize })}
+        className={classNames(styles.input, className, { [styles.noresize]: !resizeable })}
         style={style}
         name={name}
         value={value}
+        defaultValue={defaultValue}
+        rows={rows}
         spellCheck={spellCheck}
         readOnly={readOnly}
         disabled={disabled}

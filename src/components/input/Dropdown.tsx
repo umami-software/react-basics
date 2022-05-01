@@ -4,7 +4,6 @@ import FieldLabel from 'components/input/FieldLabel';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import useDocumentClick from 'hooks/useDocumentClick';
-import { Chevron } from 'icons';
 import { CommonProps, ListItem } from 'types';
 import styles from './Dropdown.module.css';
 
@@ -52,7 +51,7 @@ export function Dropdown(props: DropDownProps): ReactElement {
       {label && <FieldLabel>{label}</FieldLabel>}
       <div className={styles.input}>
         <div className={styles.text}>{selectedItem?.label}</div>
-        <Icon icon={<Chevron />} size="small" />
+        <Icon icon="chevron-down" size="small" />
       </div>
       {showMenu && (
         <Menu

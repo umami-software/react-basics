@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../index';
-import { Check } from '../icons';
+import { Button, Icon } from '../index';
 
 export default {
   title: 'Inputs/Button',
@@ -46,7 +45,7 @@ export const storyWithIcon = Object.assign(Template.bind({}), {
   args: {
     children: (
       <>
-        <Check />
+        <Icon icon="checkmark" />
         <div>Button</div>
       </>
     ),
@@ -56,6 +55,6 @@ export const storyWithIcon = Object.assign(Template.bind({}), {
 export const storyIconOnly = Object.assign(Template.bind({}), {
   storyName: 'icon only',
   args: {
-    children: <Check />,
+    children: <Icon icon="checkmark" />,
   },
 });

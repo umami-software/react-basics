@@ -17,5 +17,5 @@
 
 .group .button.selected {
   color: var(--gray900);
-  font-weight: 600;
+  background: var(--gray100);
 }

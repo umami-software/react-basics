@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonGroup, ListItem } from '../index';
+import { ButtonGroup, Icon, ListItem } from '../index';
 
 export default {
   title: 'Inputs/ButtonGroup',
@@ -19,5 +19,28 @@ export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
     items,
+  },
+});
+
+export const storyQuiet = Object.assign(Template.bind({}), {
+  storyName: 'quiet',
+  args: {
+    items,
+    quiet: true,
+  },
+});
+
+export const storyMultiSelect = Object.assign(Template.bind({}), {
+  storyName: 'multi-select',
+  args: {
+    items,
+    multiSelect: true,
+  },
+});
+
+export const storyIcons = Object.assign(Template.bind({}), {
+  storyName: 'icons',
+  args: {
+    items: items.map(item => ({ ...item, label: <Icon icon="checkmark" size="medium" /> })),
   },
 });

@@ -10,7 +10,7 @@ module.exports = {
   mode: PRODUCTION ? 'production' : 'development',
   target: 'web',
   entry: {
-    lib: path.resolve(__dirname, 'src/index.ts'),
+    lib: path.resolve(__dirname, 'src/icons.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

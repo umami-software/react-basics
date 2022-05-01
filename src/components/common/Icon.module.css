@@ -3,33 +3,346 @@
   justify-content: center;
   align-items: center;
   vertical-align: middle;
+  position: relative;
+  font-size: var(--font-size-normal);
+  flex-shrink: 0;
 }
 
 .icon svg {
   fill: currentColor;
 }
 
+.xlarge,
 .xlarge > svg {
+  font-size: 48px;
   width: 48px;
   height: 48px;
 }
 
+.large,
 .large > svg {
+  font-size: 24px;
   width: 24px;
   height: 24px;
 }
 
+.medium,
 .medium > svg {
+  font-size: 16px;
   width: 16px;
   height: 16px;
 }
 
+.small,
 .small > svg {
+  font-size: 12px;
   width: 12px;
   height: 12px;
 }
 
+.xsmall,
 .xsmall > svg {
+  font-size: 10px;
   width: 10px;
   height: 10px;
+}
+
+.icon:before,
+.icon:after {
+  content: '';
+  position: absolute;
+  margin: auto;
+}
+
+.plus:before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.7em;
+  height: 0.1em;
+  background: currentColor;
+}
+
+.plus:after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.7em;
+  height: 0.1em;
+  transform: rotate(90deg);
+  background: currentColor;
+}
+
+.minus:before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.7em;
+  height: 0.1em;
+  background: currentColor;
+}
+
+.cross:before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.8em;
+  height: 0.1em;
+  transform: rotate(45deg);
+  background: currentColor;
+}
+
+.cross:after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.8em;
+  height: 0.1em;
+  margin: auto;
+  transform: rotate(-45deg);
+  background: currentColor;
+}
+
+.square:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border: 0.1em solid currentColor;
+  background: transparent;
+}
+
+.square.solid:before {
+  background: currentColor;
+}
+
+.circle:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 100%;
+  border: 0.1em solid currentColor;
+  background: transparent;
+}
+
+.circle.solid:before {
+  background: currentColor;
+}
+
+.checkmark:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0.1em;
+  width: 0.2em;
+  height: 0.6em;
+  border-right: 0.1em solid currentColor;
+  border-bottom: 0.1em solid currentColor;
+  transform: rotate(45deg);
+  background: transparent;
+}
+
+.search:before {
+  top: 0.1em;
+  left: 0.1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 100%;
+  border: 0.1em solid currentColor;
+  background: transparent;
+}
+
+.search:after {
+  bottom: 0.2em;
+  right: 0.1em;
+  width: 0.3em;
+  height: 0.1em;
+  transform: rotate(45deg);
+  background: currentColor;
+}
+
+.cancel:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.6em;
+  height: 0.6em;
+  border: 0.1em solid currentColor;
+  border-radius: 100%;
+  background: transparent;
+}
+
+.cancel:after {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0.7em;
+  height: 0.1em;
+  transform: rotate(-45deg);
+  background: currentColor;
+}
+
+.eye:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.2em;
+  height: 0.2em;
+  border: 0.05em solid currentColor;
+  border-radius: 100%;
+  background: transparent;
+}
+
+.eye:after {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border: 0.05em solid currentColor;
+  border-radius: 80% 15%;
+  transform: rotate(45deg);
+  background: transparent;
+}
+
+.chevron:before {
+  top: 0;
+  left: 0;
+  right: 0.3em;
+  bottom: 0;
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 0.1em solid currentColor;
+  border-bottom: 0.1em solid currentColor;
+  transform: rotate(-45deg);
+  background: transparent;
+}
+
+.chevron.up {
+  transform: rotate(-90deg);
+}
+
+.chevron.down {
+  transform: rotate(90deg);
+}
+
+.chevron.left {
+  transform: rotate(180deg);
+}
+
+.chevron.right {
+  transform: rotate(0);
+}
+
+.arrow:before {
+  top: 0;
+  left: 0.1em;
+  right: 0;
+  bottom: 0;
+  width: 0.4em;
+  height: 0.4em;
+  border-right: 0.1em solid currentColor;
+  border-bottom: 0.1em solid currentColor;
+  transform: rotate(-45deg);
+  background: transparent;
+}
+
+.arrow:after {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.7em;
+  height: 0.1em;
+  background: currentColor;
+}
+
+.arrow.up {
+  transform: rotate(-90deg);
+}
+
+.arrow.down {
+  transform: rotate(90deg);
+}
+
+.arrow.left {
+  transform: rotate(180deg);
+}
+
+.arrow.right {
+  transform: rotate(0);
+}
+
+.triangle:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  background: transparent;
+}
+
+.triangle.up:before {
+  border-left: 0.4em solid transparent;
+  border-right: 0.4em solid transparent;
+  border-bottom: 0.4em solid currentColor;
+}
+
+.triangle.down:before {
+  border-left: 0.4em solid transparent;
+  border-right: 0.4em solid transparent;
+  border-top: 0.4em solid currentColor;
+}
+
+.triangle.left:before {
+  border-top: 0.4em solid transparent;
+  border-bottom: 0.4em solid transparent;
+  border-right: 0.4em solid currentColor;
+}
+
+.triangle.right:before {
+  border-top: 0.4em solid transparent;
+  border-bottom: 0.4em solid transparent;
+  border-left: 0.4em solid currentColor;
+}
+
+.dots:before {
+  top: 0;
+  left: 0.1em;
+  bottom: 0;
+  width: 0.2em;
+  height: 0.2em;
+  background: currentColor;
+  border-radius: 100%;
+  box-shadow: 0.3em 0 0;
+}
+
+.dots:after {
+  top: 0;
+  right: 0.1em;
+  bottom: 0;
+  width: 0.2em;
+  height: 0.2em;
+  background: currentColor;
+  border-radius: 100%;
+}
+
+.dots.vertical {
+  transform: rotate(90deg);
 }

@@ -22,16 +22,18 @@
 }
 
 .magnifier {
+  color: var(--gray500);
   margin-left: 8px;
 }
 
 .close {
   visibility: hidden;
+  color: var(--gray500);
   margin-right: 8px;
 }
 
 .close:hover {
-  fill: var(--gray900);
+  color: var(--gray700);
 }
 
 .visible {
