@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ProgressCircle } from '../index';
+import { ProgressCircle } from '../../index';
 
 export default {
-  title: 'Inputs/ProgressCircle',
+  title: 'Status/ProgressCircle',
   component: ProgressCircle,
 } as ComponentMeta<typeof ProgressCircle>;
 

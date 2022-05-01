@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { TextField } from '../index';
+import { TextField } from '../../index';
 
 export default {
   title: 'Inputs/TextField',

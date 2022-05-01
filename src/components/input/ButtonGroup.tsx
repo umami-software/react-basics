@@ -7,8 +7,9 @@ import { CommonProps, ListItem } from 'types';
 export interface ButtonGroupProps extends CommonProps {
   items: ListItem[];
   selected?: string[];
+  quiet?: boolean;
   onClick: (value: string) => void;
-  multiSelect?: boolean;
+  selectionMode?: 'single' | 'multi' | 'none';
   children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
@@ -16,27 +17,30 @@ export function ButtonGroup(props: ButtonGroupProps): ReactElement {
   const {
     items = [],
     selected = [],
-    multiSelect = false,
+    selectionMode = 'single',
+    quiet,
+    children,
+    onClick,
     className,
     style,
-    onClick,
-    children,
   } = props;
   const [selectedItems, setSelectedItems] = useState(selected);
 
   const handleClick = value => {
-    if (multiSelect) {
-      setSelectedItems(state =>
-        state.includes(value) ? state.filter(n => n !== value) : state.concat(value),
-      );
-    } else {
-      setSelectedItems([value]);
+    if (selectionMode !== 'none') {
+      if (selectionMode === 'multi') {
+        setSelectedItems(state =>
+          state.includes(value) ? state.filter(n => n !== value) : state.concat(value),
+        );
+      } else {
+        setSelectedItems([value]);
+      }
     }
     onClick(value);
   };
 
   return (
-    <div className={classNames(styles.group, className)} style={style}>
+    <div className={classNames(styles.group, className, { [styles.quiet]: quiet })} style={style}>
       {children ||
         items.map(item => {
           const { label, value } = item;

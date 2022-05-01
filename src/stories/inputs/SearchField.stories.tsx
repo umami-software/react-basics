@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { SearchField } from '../index';
+import { SearchField } from '../../index';
 
 export default {
   title: 'Inputs/SearchField',

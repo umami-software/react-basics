@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Checkbox } from '../index';
+import { Checkbox } from '../../index';
 
 export default {
   title: 'Inputs/Checkbox',

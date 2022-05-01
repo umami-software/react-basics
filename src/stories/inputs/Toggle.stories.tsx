@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Toggle } from '../index';
+import { Toggle } from '../../index';
 
 export default {
   title: 'Inputs/Toggle',

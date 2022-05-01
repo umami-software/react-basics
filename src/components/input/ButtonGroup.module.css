@@ -17,5 +17,13 @@
 
 .group .button.selected {
   color: var(--gray900);
-  background: var(--gray100);
+  background: var(--gray200);
+}
+
+.quiet {
+  border: 0;
+}
+
+.quiet .button + .button {
+  border: 0;
 }

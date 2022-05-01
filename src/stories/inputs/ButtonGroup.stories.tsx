@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonGroup, Icon, ListItem } from '../index';
+import { ButtonGroup, Icon, ListItem } from '../../index';
 
 export default {
   title: 'Inputs/ButtonGroup',
@@ -34,7 +34,7 @@ export const storyMultiSelect = Object.assign(Template.bind({}), {
   storyName: 'multi-select',
   args: {
     items,
-    multiSelect: true,
+    selectionMode: 'multi',
   },
 });
 

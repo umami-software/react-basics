@@ -16,4 +16,5 @@ export * from 'components/navigation/Tab';
 export * from 'components/navigation/Tabs';
 export * from 'components/status/ProgressBar';
 export * from 'components/status/ProgressCircle';
+export * from 'components/status/Spinner';
 export * from './types';

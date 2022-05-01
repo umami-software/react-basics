@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, Tabs } from '../index';
+import { ListItem, Tabs } from '../../index';
 
 export default {
-  title: 'Inputs/Tabs',
+  title: 'Navigation/Tabs',
   component: Tabs,
 } as ComponentMeta<typeof Tabs>;
 

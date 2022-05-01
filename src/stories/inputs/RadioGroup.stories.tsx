@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, RadioGroup } from '../index';
+import { ListItem, RadioGroup } from '../../index';
 
 export default {
   title: 'Inputs/RadioGroup',

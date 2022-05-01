@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ProgressBar } from '../index';
+import { ProgressBar } from '../../index';
 
 export default {
-  title: 'Inputs/ProgressBar',
+  title: 'Status/ProgressBar',
   component: ProgressBar,
 } as ComponentMeta<typeof ProgressBar>;
 
