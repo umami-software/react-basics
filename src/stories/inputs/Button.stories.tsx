@@ -24,6 +24,14 @@ export const storyPrimary = Object.assign(Template.bind({}), {
   },
 });
 
+export const storySecondary = Object.assign(Template.bind({}), {
+  storyName: 'secondary',
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+  },
+});
+
 export const storyDisabled = Object.assign(Template.bind({}), {
   storyName: 'disabled',
   args: {
