@@ -2,10 +2,9 @@
   display: flex;
   align-items: center;
   gap: var(--input-gap-size);
-  padding: 8px 16px;
   color: var(--gray900);
-  background-color: var(--gray100);
-  border: 0;
+  background: var(--gray100);
+  border: 1px solid transparent;
   border-radius: 4px;
   font-size: 16px;
   line-height: 24px;
@@ -13,46 +12,55 @@
 }
 
 .button:hover {
-  background-color: var(--gray200);
-}
-
-.button.outline {
-  border: 1px solid var(--primary400);
-}
-
-.button.quiet {
-  color: var(--gray900);
-  background-color: transparent;
-}
-
-.button.quiet:hover {
-  background-color: var(--gray200);
+  background: var(--gray200);
 }
 
 .button.disabled {
-  color: var(--gray600) !important;
+  color: var(--gray500) !important;
+  border-color: transparent !important;
   background-color: var(--gray100) !important;
-}
-
-.button > svg {
-  width: 16px;
-  height: 16px;
+  pointer-events: none;
 }
 
 .button.primary {
   color: var(--gray50);
-  background-color: var(--primary400);
+  background: var(--primary400);
 }
 
 .button.primary:hover {
   color: var(--gray50);
-  background-color: var(--primary500);
-}
-
-.button.primary.quiet:hover {
-  color: var(--gray900);
+  background: var(--primary500);
 }
 
 .button.secondary {
   border: 1px solid var(--gray500);
+  background: transparent;
+}
+
+.button.secondary:hover {
+  background: var(--gray200);
+}
+
+.button.quiet {
+  color: var(--gray900);
+  background: transparent;
+}
+
+.button.quiet:hover {
+  background: var(--gray200);
+}
+
+.button.small {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.button.medium {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.button.large {
+  font-size: 24px;
+  padding: 14px 28px;
 }

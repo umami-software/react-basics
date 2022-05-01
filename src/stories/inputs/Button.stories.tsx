@@ -44,7 +44,7 @@ export const storyQuiet = Object.assign(Template.bind({}), {
   storyName: 'quiet',
   args: {
     children: 'Button',
-    quiet: true,
+    variant: 'quiet',
   },
 });
 
@@ -65,4 +65,23 @@ export const storyIconOnly = Object.assign(Template.bind({}), {
   args: {
     children: <Icon icon="checkmark" />,
   },
+});
+
+const SizesComponent: ComponentStory<typeof Button> = args => (
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
+    <Button {...args} size="small">
+      Small
+    </Button>
+    <Button {...args} size="medium">
+      Medium
+    </Button>
+    <Button {...args} size="large">
+      Large
+    </Button>
+  </div>
+);
+
+export const storySizes = Object.assign(SizesComponent.bind({}), {
+  storyName: 'sizes',
+  args: {},
 });
