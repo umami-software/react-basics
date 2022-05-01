@@ -13,6 +13,12 @@
   flex-basis: 50%;
 }
 
+.label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .value {
   text-align: right;
 }

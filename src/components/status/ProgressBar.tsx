@@ -36,7 +36,7 @@ export function ProgressBar(props: ProgressBarProps) {
       style={style}
     >
       {label && <label className={styles.label}>{label}</label>}
-      {showValueLabel && <div className={styles.value}>{valueLabel ?? value}</div>}
+      {showValueLabel && <div className={styles.value}>{valueLabel ?? `${value}%`}</div>}
       <div className={styles.track}>
         <div className={styles.fill} style={{ width: `${percentValue}%` }} />
       </div>

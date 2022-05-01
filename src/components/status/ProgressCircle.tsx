@@ -10,7 +10,6 @@ export interface ProgressCircleProps extends CommonProps {
   showValueLabel?: boolean;
   minValue?: number;
   maxValue?: number;
-  labelPosition: 'top' | 'side';
 }
 
 export function ProgressCircle(props: ProgressCircleProps) {
@@ -20,7 +19,6 @@ export function ProgressCircle(props: ProgressCircleProps) {
     maxValue = 100,
     valueLabel,
     showValueLabel = true,
-    labelPosition = 'top',
     className,
     style,
   } = props;
@@ -31,10 +29,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
   const offset = circumference - (percentValue / 100) * circumference;
 
   return (
-    <div
-      className={classNames(styles.progresscircle, className, { [styles[labelPosition]]: true })}
-      style={style}
-    >
+    <div className={classNames(styles.progresscircle, className)} style={style}>
       <div className={styles.circle}>
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle className={styles.track} cx="50" cy="50" r="45" />
