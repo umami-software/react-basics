@@ -8,7 +8,7 @@ export interface SpinnerProps extends CommonProps {
 }
 
 export function Spinner(props: SpinnerProps) {
-  const { size = 100, className, style } = props;
+  const { size = 64, className, style } = props;
   return (
     <div
       className={classNames(styles.spinner, className)}
@@ -19,15 +19,8 @@ export function Spinner(props: SpinnerProps) {
       }}
     >
       <svg className={styles.track} viewBox="25 25 50 50">
-        <circle
-          className={styles.fill}
-          cx="50"
-          cy="50"
-          r="20"
-          fill="none"
-          strokeWidth="2"
-          strokeMiterlimit="10"
-        />
+        <circle className={styles.track} cx="50" cy="50" r="20" />
+        <circle className={styles.fill} cx="50" cy="50" r="20" />
       </svg>
     </div>
   );

@@ -1,23 +1,29 @@
 .spinner {
   position: relative;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
-.track {
-  animation: spinner-rotate 2s linear infinite;
-  width: 100%;
-  height: 100%;
+.spinner svg {
   transform-origin: center center;
+  animation: spinner-rotate 1.6s linear infinite;
+}
+
+.track {
+  fill: none;
+  stroke: var(--gray200);
+  stroke-width: 0.15em;
 }
 
 .fill {
+  fill: none;
   stroke: var(--primary400);
-  stroke-linecap: round;
+  stroke-width: 0.15em;
+  stroke-linecap: square;
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
-  animation: spinner-dash 1.5s ease-in-out infinite;
+  animation: spinner-dash 1.2s ease-in-out infinite;
 }
 
 @keyframes spinner-rotate {
