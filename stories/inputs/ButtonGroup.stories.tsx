@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonGroup, Icon, ListItem } from '../../index';
+import { ButtonGroup, Icon, ListItem } from '../../src';
 
 export default {
   title: 'Inputs/ButtonGroup',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, Tabs } from '../../index';
+import { ListItem, Tabs } from '../../src';
 
 export default {
   title: 'Navigation/Tabs',

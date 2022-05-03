@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu, ListItem } from '../../index';
+import { ListItem, RadioGroup } from '../../src';
 
 export default {
-  title: 'Inputs/Menu',
-  component: Menu,
-} as ComponentMeta<typeof Menu>;
+  title: 'Inputs/RadioGroup',
+  component: RadioGroup,
+} as ComponentMeta<typeof RadioGroup>;
 
 const items: ListItem[] = [
   { value: 'one', label: 'One' },
@@ -13,26 +13,23 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof Menu> = args => <Menu {...args} />;
+const Template: ComponentStory<typeof RadioGroup> = args => <RadioGroup {...args} />;
 
 export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {
     items,
-  },
-});
-
-export const storyWithDivider = Object.assign(Template.bind({}), {
-  storyName: 'with divider',
-  args: {
-    items: [...items, { key: 'four', label: 'Four', divider: true }],
+    name: 'name',
+    label: 'Radio Group',
   },
 });
 
 export const storyPreselect = Object.assign(Template.bind({}), {
-  storyName: 'preselect',
+  storyName: 'preselected',
   args: {
     items,
+    name: 'name',
     value: 'three',
+    label: 'Radio Group',
   },
 });

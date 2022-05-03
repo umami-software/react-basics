@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Check from 'assets/check.svg';
-import { Icon, IconSizes } from '../index';
-import { CSSIcons } from '../constants';
+import { Check } from '../src/icons';
+import { Icon, IconSizes } from '../src';
+import { CSSIcons } from '../src/constants';
 
 export default {
   title: 'Icon',

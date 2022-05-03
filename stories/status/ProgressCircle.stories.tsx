@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ProgressCircle } from '../../index';
+import { ProgressCircle } from '../../src';
 
 export default {
   title: 'Status/ProgressCircle',
