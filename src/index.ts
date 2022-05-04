@@ -12,6 +12,7 @@ export * from 'components/input/SearchField';
 export * from 'components/input/TextArea';
 export * from 'components/input/TextField';
 export * from 'components/input/Toggle';
+export * from 'components/navigation/Breadcrumbs';
 export * from 'components/navigation/Tab';
 export * from 'components/navigation/Tabs';
 export * from 'components/status/Dots';

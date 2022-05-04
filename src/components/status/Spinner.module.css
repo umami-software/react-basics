@@ -25,17 +25,17 @@
   animation: spinner-dash 1.2s ease-in-out infinite;
 }
 
-.small {
+.small svg {
   width: 16px;
   height: 16px;
 }
 
-.medium {
+.medium svg {
   width: 32px;
   height: 32px;
 }
 
-.large {
+.large svg {
   width: 64px;
   height: 64px;
 }

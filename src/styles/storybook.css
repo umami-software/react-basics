@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 :root {
-  font-family: system-ui;
+  font-family: Inter, system-ui;
   font-size: 16px;
 }

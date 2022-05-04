@@ -10,7 +10,7 @@ export interface MenuItem extends ListItem {
 export interface MenuProps extends CommonProps {
   items: MenuItem[];
   value?: string;
-  onSelect: (key: string, e: ReactEventHandler) => void;
+  onSelect: (value: string, e: ReactEventHandler) => void;
 }
 
 export function Menu(props: MenuProps): ReactElement {
