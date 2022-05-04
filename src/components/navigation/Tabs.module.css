@@ -1,7 +1,7 @@
 .tabs {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.5em;
   border-bottom: 2px solid var(--gray200);
 }
 

@@ -36,6 +36,11 @@
   --green500: #268e6c;
   --green600: #12805c;
   --green700: #107154;
+
+  --orange400: #e68619;
+  --orange500: #da7b11;
+  --orange600: #cb6f10;
+  --orange700: #bd640d;
 }
 
 :not([data-theme='dark']) {

@@ -15,6 +15,7 @@ export * from 'components/input/Toggle';
 export * from 'components/navigation/Breadcrumbs';
 export * from 'components/navigation/Tab';
 export * from 'components/navigation/Tabs';
+export * from 'components/status/StatusLight';
 export * from 'components/status/Dots';
 export * from 'components/status/ProgressBar';
 export * from 'components/status/ProgressCircle';

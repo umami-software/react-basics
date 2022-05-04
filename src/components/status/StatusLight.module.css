@@ -1,0 +1,28 @@
+.statuslight {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background: var(--gray500);
+}
+
+.status.success {
+  background: var(--green400);
+}
+
+.status.warning {
+  background: var(--orange400);
+}
+
+.status.error {
+  background: var(--red400);
+}
+
+.status.active {
+  background: var(--blue400);
+}
