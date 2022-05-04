@@ -1,22 +1,29 @@
 .tabs {
   display: flex;
   align-items: center;
+  gap: 16px;
   border-bottom: 2px solid var(--gray200);
+}
+
+.tabs.quiet,
+.tabs.vertical.quiet {
+  border: 0;
 }
 
 .tabs.vertical {
   flex-direction: column;
   align-items: flex-start;
   border: 0;
+  gap: 0;
   border-left: 2px solid var(--gray200);
 }
 
 .tabs > div {
-  padding: var(--input-padding);
-  padding-left: 12px;
+  padding: 8px 0;
   margin: 0 0 -2px 0;
 }
 
 .tabs.vertical > div {
+  padding: 8px 16px;
   margin: 0 0 0 -2px;
 }

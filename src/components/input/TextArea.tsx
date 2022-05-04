@@ -29,7 +29,7 @@ export function TextArea(props: TextAreaProps): ReactElement {
     readOnly,
     disabled,
     placeholder,
-    resizeable = false,
+    resizeable = true,
     className,
     style,
     onChange,

@@ -10,23 +10,37 @@ export interface TabItem extends ListItem {
 
 export interface TabsProps extends CommonProps {
   items?: TabItem[];
+  selectedValue?: string;
   vertical?: boolean;
-  onClick: (value: string) => void;
+  quiet?: boolean;
+  onSelect: (value: string) => void;
   children?: ReactElement<TabProps> | ReactElement<TabProps>[];
 }
 
 export function Tabs(props: TabsProps) {
-  const [selected, setSelected] = useState();
-  const { items = [], vertical, className, style, onClick, children } = props;
+  const {
+    items = [],
+    selectedValue,
+    vertical,
+    quiet,
+    className,
+    style,
+    onSelect,
+    children,
+  } = props;
+  const [selected, setSelected] = useState(selectedValue);
 
   const handleClick = value => {
     setSelected(value);
-    onClick(value);
+    onSelect(value);
   };
 
   return (
     <div
-      className={classNames(styles.tabs, className, { [styles.vertical]: vertical })}
+      className={classNames(styles.tabs, className, {
+        [styles.vertical]: vertical,
+        [styles.quiet]: quiet,
+      })}
       style={style}
     >
       {children ||
