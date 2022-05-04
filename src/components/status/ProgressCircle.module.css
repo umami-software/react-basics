@@ -1,23 +1,14 @@
 .progresscircle {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .progresscircle svg {
   fill: none;
-  stroke: var(--primary400);
-  width: 100px;
-  height: 100px;
   stroke-width: 5px;
   transform: rotate(-90deg);
-}
-
-.circle {
-  position: relative;
 }
 
 .track {
@@ -34,4 +25,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: var(--font-size-large);
+}
+
+.small svg {
+  width: 16px;
+  height: 16px;
+}
+
+.medium svg {
+  width: 32px;
+  height: 32px;
+}
+
+.large svg {
+  width: 64px;
+  height: 64px;
 }

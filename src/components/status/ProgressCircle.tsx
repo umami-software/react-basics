@@ -10,6 +10,7 @@ export interface ProgressCircleProps extends CommonProps {
   showValueLabel?: boolean;
   minValue?: number;
   maxValue?: number;
+  size: 'small' | 'medium' | 'large';
 }
 
 export function ProgressCircle(props: ProgressCircleProps) {
@@ -19,6 +20,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
     maxValue = 100,
     valueLabel,
     showValueLabel = false,
+    size = 'large',
     className,
     style,
   } = props;
@@ -29,21 +31,26 @@ export function ProgressCircle(props: ProgressCircleProps) {
   const offset = circumference - (percentValue / 100) * circumference;
 
   return (
-    <div className={classNames(styles.progresscircle, className)} style={style}>
-      <div className={styles.circle}>
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle className={styles.track} cx="50" cy="50" r="45" />
-          <circle
-            className={styles.fill}
-            cx="50"
-            cy="50"
-            r="45"
-            strokeDasharray={`${circumference} ${circumference}`}
-            strokeDashoffset={offset}
-          />
-        </svg>
-        {showValueLabel && <div className={styles.value}>{valueLabel ?? value}</div>}
-      </div>
+    <div
+      className={classNames(styles.progresscircle, className, {
+        [styles.small]: size === 'small',
+        [styles.medium]: size === 'medium',
+        [styles.large]: size === 'large',
+      })}
+      style={style}
+    >
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle className={styles.track} cx="50" cy="50" r="45" />
+        <circle
+          className={styles.fill}
+          cx="50"
+          cy="50"
+          r="45"
+          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDashoffset={offset}
+        />
+      </svg>
+      {showValueLabel && <div className={styles.value}>{valueLabel ?? value}</div>}
     </div>
   );
 }

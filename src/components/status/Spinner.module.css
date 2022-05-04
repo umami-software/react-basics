@@ -6,24 +6,38 @@
 }
 
 .spinner svg {
+  fill: none;
+  font-size: 16px;
+  stroke-width: 0.15em;
   transform-origin: center center;
   animation: spinner-rotate 1.6s linear infinite;
 }
 
 .track {
-  fill: none;
   stroke: var(--gray200);
-  stroke-width: 0.15em;
 }
 
 .fill {
-  fill: none;
   stroke: var(--primary400);
-  stroke-width: 0.15em;
   stroke-linecap: square;
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
   animation: spinner-dash 1.2s ease-in-out infinite;
+}
+
+.small {
+  width: 16px;
+  height: 16px;
+}
+
+.medium {
+  width: 32px;
+  height: 32px;
+}
+
+.large {
+  width: 64px;
+  height: 64px;
 }
 
 @keyframes spinner-rotate {

@@ -12,6 +12,7 @@
 }
 
 .tabs > div {
+  padding: var(--input-padding);
   margin: 0 0 -2px 0;
 }
 

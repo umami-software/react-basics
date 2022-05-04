@@ -3,20 +3,20 @@ import { CommonProps } from 'types';
 import styles from './Spinner.module.css';
 
 export interface SpinnerProps extends CommonProps {
-  size?: number;
+  size?: 'small' | 'medium' | 'large';
   variant?: string;
 }
 
 export function Spinner(props: SpinnerProps) {
-  const { size = 64, className, style } = props;
+  const { size = 'medium', className, style } = props;
   return (
     <div
-      className={classNames(styles.spinner, className)}
-      style={{
-        width: `${size}px`,
-        height: `${size}px`,
-        ...style,
-      }}
+      className={classNames(styles.spinner, className, {
+        [styles.small]: size === 'small',
+        [styles.medium]: size === 'medium',
+        [styles.large]: size === 'large',
+      })}
+      style={style}
     >
       <svg className={styles.track} viewBox="25 25 50 50">
         <circle className={styles.track} cx="50" cy="50" r="20" />
