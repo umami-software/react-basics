@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Slider.module.css';
+import useCallbackRef from 'hooks/useCallbackRef';
 
 export interface SliderProps extends CommonProps {
   name?: string;
@@ -11,6 +12,7 @@ export interface SliderProps extends CommonProps {
   step?: number;
   buffered?: boolean;
   disabled?: boolean;
+  fill?: 'left' | 'right' | 'none';
   onChange: (value: number, e: MouseEvent) => void;
   onUpdate: (value: number, e: MouseEvent) => void;
 }
@@ -24,21 +26,24 @@ export function Slider(props: SliderProps) {
     step = 1,
     buffered = false,
     disabled = false,
+    fill = 'left',
     onChange,
     onUpdate,
     className,
     style,
   } = props;
   const [bufferedValue, setBufferedValue] = useState(value || 0);
+  const [ref, setRef] = useCallbackRef(null);
   const buffering = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
 
   const pct = bufferedValue / maxValue;
-  const offet =
+  const width =
     inputRef.current && thumbRef.current
-      ? (inputRef.current.clientWidth - thumbRef.current.clientWidth) * pct
+      ? inputRef.current.clientWidth - thumbRef.current.offsetWidth
       : 0;
+  const offet = width * pct;
 
   function handleChange(e) {
     const newValue = +e.currentTarget.value;
@@ -65,12 +70,17 @@ export function Slider(props: SliderProps) {
 
   return (
     <div
-      className={classNames(styles.slider, className, { [styles.disabled]: disabled })}
+      className={classNames(styles.slider, className, {
+        [styles.disabled]: disabled,
+        [styles.left]: fill === 'left',
+        [styles.right]: fill === 'right',
+      })}
       style={style}
+      ref={setRef}
     >
       <div className={styles.track} />
-      <div className={styles.fill} />
-      <div className={styles.thumb} style={{ left: `${offet}px` }} ref={thumbRef} />
+      <div className={styles.fill} style={{ width: `${offet}px` }} />
+      <div ref={thumbRef} className={styles.thumb} style={{ left: `${offet}px` }} />
       <input
         ref={inputRef}
         type="range"

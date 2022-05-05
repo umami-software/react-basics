@@ -8,6 +8,8 @@
 .slider input {
   width: 100%;
   opacity: 0.001;
+  margin: 0;
+  padding: 0;
 }
 
 .track,
@@ -20,6 +22,11 @@
   border-radius: 4px;
   background: var(--gray300);
   pointer-events: none;
+}
+
+.fill {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .thumb {
@@ -41,4 +48,15 @@
 
 .disabled .thumb {
   border-color: var(--gray400);
+}
+
+.left .fill {
+  background: var(--primary400);
+}
+
+.right .fill {
+  background: var(--gray300);
+}
+.right .track {
+  background: var(--primary400);
 }
