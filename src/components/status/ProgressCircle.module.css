@@ -7,7 +7,7 @@
 
 .progresscircle svg {
   fill: none;
-  stroke-width: 5px;
+  stroke-width: 8px;
   transform: rotate(-90deg);
 }
 
@@ -27,17 +27,23 @@
   font-weight: bold;
 }
 
+.small,
 .small svg {
-  width: 16px;
-  height: 16px;
-}
-
-.medium svg {
-  width: 32px;
-  height: 32px;
-}
-
-.large svg {
+  font-size: var(--font-size-small);
   width: 64px;
   height: 64px;
+}
+
+.medium,
+.medium svg {
+  font-size: var(--font-size-normal);
+  width: 96px;
+  height: 96px;
+}
+
+.large,
+.large svg {
+  font-size: var(--font-size-large);
+  width: 128px;
+  height: 128px;
 }

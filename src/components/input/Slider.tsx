@@ -33,7 +33,7 @@ export function Slider(props: SliderProps) {
     style,
   } = props;
   const [bufferedValue, setBufferedValue] = useState(value || 0);
-  const [ref, setRef] = useCallbackRef(null);
+  const [, setRef] = useCallbackRef(null);
   const buffering = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);

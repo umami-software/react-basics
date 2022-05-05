@@ -13,3 +13,10 @@ export const storyDefault = Object.assign(Template.bind({}), {
   storyName: 'default',
   args: {},
 });
+
+export const storyQuiet = Object.assign(Template.bind({}), {
+  storyName: 'quiet',
+  args: {
+    quiet: true,
+  },
+});

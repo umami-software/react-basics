@@ -4,12 +4,11 @@ import styles from './Spinner.module.css';
 
 export interface SpinnerProps extends CommonProps {
   size?: 'small' | 'medium' | 'large';
-  variant?: string;
   quiet?: boolean;
 }
 
 export function Spinner(props: SpinnerProps) {
-  const { size = 'medium', variant, quiet, className, style } = props;
+  const { size = 'large', quiet, className, style } = props;
   return (
     <div
       className={classNames(styles.spinner, className, {

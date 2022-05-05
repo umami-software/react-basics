@@ -50,7 +50,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
           strokeDashoffset={offset}
         />
       </svg>
-      {showValueLabel && <div className={styles.value}>{valueLabel ?? value}</div>}
+      {showValueLabel && <div className={styles.value}>{valueLabel ?? `${value}%`}</div>}
     </div>
   );
 }

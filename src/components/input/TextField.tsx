@@ -12,7 +12,7 @@ export interface TextFieldProps extends CommonProps {
   readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  onChange: (value: string, e?: Event) => void;
+  onChange?: (value: string, e?: Event) => void;
 }
 
 export function TextField(props: TextFieldProps): ReactElement {
@@ -29,7 +29,9 @@ export function TextField(props: TextFieldProps): ReactElement {
     onChange,
   } = props;
   const handleChange = e => {
-    onChange(e.target.value, e);
+    if (onChange) {
+      onChange(e.target.value, e);
+    }
   };
 
   return (
