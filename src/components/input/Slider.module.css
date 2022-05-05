@@ -1,0 +1,44 @@
+.slider {
+  position: relative;
+  display: flex;
+  width: var(--input-width);
+  height: var(--input-height);
+}
+
+.slider input {
+  width: 100%;
+  opacity: 0.001;
+}
+
+.track,
+.fill {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gray300);
+  pointer-events: none;
+}
+
+.thumb {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 100%;
+  background: var(--gray50);
+  border: 2px solid var(--gray600);
+  pointer-events: none;
+}
+
+.disabled .track,
+.disabled .fill {
+  background: var(--gray200);
+}
+
+.disabled .thumb {
+  border-color: var(--gray400);
+}

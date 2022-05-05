@@ -21,7 +21,7 @@ export function StatusLight(props: StatusLightProps) {
           [styles.error]: variant === 'error',
           [styles.active]: variant === 'active',
         })}
-        style={{ color }}
+        style={{ backgroundColor: color }}
       />
       {children}
     </div>

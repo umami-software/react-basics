@@ -9,6 +9,7 @@ export * from 'components/input/Menu';
 export * from 'components/input/Radio';
 export * from 'components/input/RadioGroup';
 export * from 'components/input/SearchField';
+export * from 'components/input/Slider';
 export * from 'components/input/TextArea';
 export * from 'components/input/TextField';
 export * from 'components/input/Toggle';

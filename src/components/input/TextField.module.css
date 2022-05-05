@@ -6,6 +6,7 @@
 
 .input {
   font-family: inherit;
+  font-size: var(--font-size-normal);
   height: var(--input-height);
   padding: var(--input-padding);
   border: 1px solid var(--gray500);

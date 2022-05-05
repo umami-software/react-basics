@@ -24,7 +24,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: var(--font-size-large);
+  font-weight: bold;
 }
 
 .small svg {

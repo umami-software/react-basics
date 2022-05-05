@@ -40,6 +40,10 @@
   height: 64px;
 }
 
+.quiet .track {
+  display: none;
+}
+
 @keyframes spinner-rotate {
   0% {
     transform: rotate(0deg);
