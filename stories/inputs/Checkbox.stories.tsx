@@ -7,7 +7,6 @@ import { makeStory } from '../utils';
 export default {
   title: 'Inputs/Checkbox',
   component: Checkbox,
-  argTypes: { onChange: { action: 'yo' } },
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = args => {

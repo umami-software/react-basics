@@ -5,11 +5,17 @@ import Icon from 'components/common/Icon';
 
 export interface BreadcrumbProps extends CommonProps {
   items: ListItem[];
+  divider?: 'chevron' | 'slash' | 'arrow' | 'none';
   onSelect?: () => void;
 }
 
 export function Breadcrumbs(props: BreadcrumbProps) {
-  const { items, className, style, onSelect } = props;
+  const { items, divider = 'chevron', className, style, onSelect } = props;
+  const icons = {
+    chevron: 'chevron-right',
+    slash: 'slash',
+    arrow: 'arrow-right',
+  };
 
   return (
     <ul className={classNames(styles.breadcrumbs, className)} style={style}>
@@ -21,7 +27,7 @@ export function Breadcrumbs(props: BreadcrumbProps) {
             <li key={value} onClick={!last ? onSelect?.bind(null, value) : undefined}>
               {label}
             </li>
-            {!last && <Icon icon="chevron-right" className={styles.divider} />}
+            {!last && <Icon icon={icons[divider]} className={styles.divider} />}
           </>
         );
       })}

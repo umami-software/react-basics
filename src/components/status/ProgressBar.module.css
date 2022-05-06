@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: space-between;
   width: fit-content;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .track {
@@ -11,7 +13,6 @@
   height: 8px;
   background: var(--gray300);
   flex-basis: 100%;
-  border-radius: 8px;
   overflow: hidden;
 }
 

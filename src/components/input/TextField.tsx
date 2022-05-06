@@ -5,6 +5,7 @@ import styles from './TextField.module.css';
 export interface TextFieldProps extends CommonProps {
   name?: string;
   value: string;
+  type?: 'text' | 'password';
   spellCheck?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
@@ -13,8 +14,18 @@ export interface TextFieldProps extends CommonProps {
 }
 
 export function TextField(props: TextFieldProps) {
-  const { name, value, spellCheck, readOnly, disabled, placeholder, className, style, onChange } =
-    props;
+  const {
+    name,
+    value,
+    type = 'text',
+    spellCheck,
+    readOnly,
+    disabled,
+    placeholder,
+    className,
+    style,
+    onChange,
+  } = props;
 
   const handleChange = e => {
     if (onChange) {
@@ -25,7 +36,7 @@ export function TextField(props: TextFieldProps) {
   return (
     <div className={classNames(styles.textfield, className)}>
       <input
-        type="text"
+        type={type}
         className={classNames(styles.input, className)}
         style={style}
         name={name}

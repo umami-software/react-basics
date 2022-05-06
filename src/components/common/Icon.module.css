@@ -194,31 +194,6 @@
   background: currentColor;
 }
 
-.eye:before {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 0.2em;
-  height: 0.2em;
-  border: 0.05em solid currentColor;
-  border-radius: 100%;
-  background: transparent;
-}
-
-.eye:after {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 0.5em;
-  height: 0.5em;
-  border: 0.05em solid currentColor;
-  border-radius: 80% 15%;
-  transform: rotate(45deg);
-  background: transparent;
-}
-
 .chevron:before {
   top: 0;
   left: -0.2em;
@@ -231,6 +206,7 @@
   transform: rotate(-45deg);
   background: transparent;
 }
+
 .chevron.up {
   transform: rotate(-90deg);
 }
@@ -241,10 +217,6 @@
 
 .chevron.left {
   transform: rotate(180deg);
-}
-
-.chevron.right {
-  transform: rotate(0);
 }
 
 .arrow:before {
@@ -293,32 +265,21 @@
   bottom: 0;
   width: 0;
   height: 0;
-  border: 0;
-  background: transparent;
-}
-
-.triangle.up:before {
-  border-left: 0.4em solid transparent;
   border-right: 0.4em solid transparent;
-  border-bottom: 0.4em solid currentColor;
+  border-left: 0.4em solid transparent;
+  border-bottom: calc(0.8em * 0.8660254) solid currentColor;
 }
 
 .triangle.down:before {
-  border-left: 0.4em solid transparent;
-  border-right: 0.4em solid transparent;
-  border-top: 0.4em solid currentColor;
+  transform: rotate(180deg);
 }
 
 .triangle.left:before {
-  border-top: 0.4em solid transparent;
-  border-bottom: 0.4em solid transparent;
-  border-right: 0.4em solid currentColor;
+  transform: rotate(-90deg);
 }
 
 .triangle.right:before {
-  border-top: 0.4em solid transparent;
-  border-bottom: 0.4em solid transparent;
-  border-left: 0.4em solid currentColor;
+  transform: rotate(90deg);
 }
 
 .dots:before {
@@ -346,13 +307,37 @@
   transform: rotate(90deg);
 }
 
+.eye:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.5em;
+  height: 0.5em;
+  border: 0.1em solid currentColor;
+  border-radius: 80% 10%;
+  transform: rotate(45deg);
+  background: transparent;
+}
+
+.eye:after {
+  top: -0.1em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.35em;
+  height: 0.35em;
+  border-radius: 100%;
+  background: currentColor;
+}
+
 .lock:before {
-  top: 0.18em;
+  top: 0.1em;
   left: 0;
   right: 0;
   width: 0.2em;
   height: 0.2em;
-  border: 0.08em solid currentColor;
+  border: 0.1em solid currentColor;
   border-radius: 100%;
   background: transparent;
 }
@@ -361,9 +346,9 @@
   left: 0;
   right: 0;
   bottom: 0.2em;
-  width: 0.4em;
-  height: 0.35em;
-  border: 0.05em solid currentColor;
+  width: 0.7em;
+  height: 0.5em;
+  border-radius: 0.03em;
   background: currentColor;
 }
 

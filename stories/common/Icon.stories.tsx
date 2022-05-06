@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Check } from '../../src/icons';
 import { Icon, IconSizes, IconTypes } from '../../src';
 import { CSSIcons } from '../../src/constants';
 import { makeStory } from '../utils';
+import Logo from '../logo.svg';
 
 export default {
   title: 'Common/Icon',
@@ -46,15 +46,24 @@ export const CSS = makeStory(Template, {
   args: {
     icon: 'plus',
   },
+  argTypes: {
+    size: { control: false },
+  },
 });
 
 export const SVG = makeStory(Template, {
   args: {
-    icon: <Check />,
+    icon: <Logo />,
   },
-  parameters: {
-    controls: { disable: true },
+  argTypes: {
+    icon: { control: false },
+    size: { control: false },
   },
 });
 
-export const CSSIconLibrary = makeStory(Template2);
+export const CSSIconLibrary = makeStory(Template2, {
+  argTypes: {
+    icon: { control: false },
+    size: { control: false },
+  },
+});

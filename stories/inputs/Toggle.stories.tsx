@@ -7,7 +7,6 @@ import { makeStory } from '../utils';
 export default {
   title: 'Inputs/Toggle',
   component: Toggle,
-  argTypes: { onChange: { action: 'yo' } },
 } as ComponentMeta<typeof Toggle>;
 
 const Template: ComponentStory<typeof Toggle> = args => {
