@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextArea } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/TextArea',
@@ -9,31 +10,27 @@ export default {
 
 const Template: ComponentStory<typeof TextArea> = args => <TextArea {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     label: 'Text area',
   },
 });
 
-export const storyWithValue = Object.assign(Template.bind({}), {
-  storyName: 'with value',
+export const WithValue = makeStory(Template, {
   args: {
     label: 'Text area',
     defaultValue: 'Here is some text.',
   },
 });
 
-export const storyWithRows = Object.assign(Template.bind({}), {
-  storyName: 'custom rows',
+export const WithRows = makeStory(Template, {
   args: {
     label: 'Text area',
     rows: 8,
   },
 });
 
-export const storyNoResize = Object.assign(Template.bind({}), {
-  storyName: 'resizeable',
+export const Resize = makeStory(Template, {
   args: {
     label: 'Text area',
     resizeable: true,

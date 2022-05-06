@@ -1,6 +1,5 @@
 .group {
   display: inline-flex;
-  height: var(--input-height);
   border-radius: var(--input-border-radius);
   border: 1px solid var(--gray500);
   overflow: hidden;

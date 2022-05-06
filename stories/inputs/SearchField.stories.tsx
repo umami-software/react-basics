@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SearchField } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/SearchField',
@@ -9,12 +10,9 @@ export default {
 
 const Template: ComponentStory<typeof SearchField> = args => <SearchField {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
-});
+export const Basic = makeStory(Template);
 
-export const storyWithDelay = Object.assign(Template.bind({}), {
-  storyName: 'with delay',
+export const WithDelay = makeStory(Template, {
   args: {
     delay: 1000,
   },

@@ -10,6 +10,7 @@ export interface ButtonGroupProps extends CommonProps {
   quiet?: boolean;
   onClick: (value: string) => void;
   selectionMode?: 'single' | 'multi' | 'none';
+  size: 'small' | 'medium' | 'large';
   children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
@@ -18,6 +19,7 @@ export function ButtonGroup(props: ButtonGroupProps): ReactElement {
     items = [],
     selected = [],
     selectionMode = 'single',
+    size = 'medium',
     quiet,
     children,
     onClick,
@@ -50,6 +52,7 @@ export function ButtonGroup(props: ButtonGroupProps): ReactElement {
               className={classNames(styles.button, {
                 [styles.selected]: selectedItems.includes(value),
               })}
+              size={size}
               onClick={handleClick.bind(null, value)}
             >
               {label}

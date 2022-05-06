@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ListItem, Tabs } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Navigation/Tabs',
@@ -15,22 +16,19 @@ const items: ListItem[] = [
 
 const Template: ComponentStory<typeof Tabs> = args => <Tabs {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Default = makeStory(Template, {
   args: {
     items,
   },
 });
 
-export const storyDisabled = Object.assign(Template.bind({}), {
-  storyName: 'disabled tab',
+export const Disabled = makeStory(Template, {
   args: {
     items: [...items, { value: 'four', label: 'Four', disabled: true }],
   },
 });
 
-export const storyVertical = Object.assign(Template.bind({}), {
-  storyName: 'vertical orientation',
+export const Vertical = makeStory(Template, {
   args: {
     items,
     vertical: true,

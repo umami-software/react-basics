@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dots } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Status/Dots',
@@ -9,7 +10,6 @@ export default {
 
 const Template: ComponentStory<typeof Dots> = args => <Dots {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {},
 });

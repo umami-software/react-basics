@@ -9,20 +9,15 @@ export interface ToggleProps extends CommonProps {
   children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  onChange: (value: string, e?: Event) => void;
+  onChange: (checked: boolean) => void;
 }
 
 export function Toggle(props: ToggleProps): ReactElement {
   const { name, value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
-  const handleClick = e => {
-    e.stopPropagation();
-    ref?.current?.click();
-  };
-
   const handleChange = e => {
-    onChange(e.target.value, e);
+    onChange(e.target.checked);
   };
 
   return (
@@ -32,7 +27,6 @@ export function Toggle(props: ToggleProps): ReactElement {
         [styles.disabled]: disabled,
       })}
       style={style}
-      onClick={handleClick}
     >
       <div className={styles.switch} />
       <label className={styles.label}>{children}</label>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StatusLight } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Status/StatusLight',
@@ -9,8 +10,7 @@ export default {
 
 const Template: ComponentStory<typeof StatusLight> = args => <StatusLight {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     children: 'Status',
   },

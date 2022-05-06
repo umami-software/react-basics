@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 import { Toggle } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/Toggle',
@@ -9,16 +11,22 @@ export default {
 } as ComponentMeta<typeof Toggle>;
 
 const Template: ComponentStory<typeof Toggle> = args => {
-  const [checked, setChecked] = useState(args.checked);
+  const [{ checked }, updateArgs] = useArgs();
 
-  const handleChange = () => setChecked(!checked);
+  const handleChange = value => updateArgs({ checked: value });
 
   return <Toggle {...args} checked={checked} onChange={handleChange} />;
 };
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     children: 'Toggle',
+  },
+});
+
+export const Disabled = makeStory(Template, {
+  args: {
+    children: 'Toggle',
+    disabled: true,
   },
 });

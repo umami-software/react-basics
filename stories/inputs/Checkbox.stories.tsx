@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useArgs } from '@storybook/client-api';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Checkbox } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/Checkbox',
   component: Checkbox,
+  argTypes: { onChange: { action: 'yo' } },
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = args => {
-  const [checked, setChecked] = useState(args.checked);
+  const [{ checked }, updateArgs] = useArgs();
 
-  const handleChange = () => setChecked(!checked);
+  const handleChange = value => updateArgs({ checked: value });
 
   return <Checkbox {...args} checked={checked} onChange={handleChange} />;
 };
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     name: 'name',
     value: 'value',
@@ -24,8 +26,7 @@ export const storyDefault = Object.assign(Template.bind({}), {
   },
 });
 
-export const storyPreselect = Object.assign(Template.bind({}), {
-  storyName: 'preselected',
+export const Preselect = makeStory(Template, {
   args: {
     name: 'name',
     value: 'value',

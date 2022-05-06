@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Menu, ListItem } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/Menu',
@@ -15,22 +16,19 @@ const items: ListItem[] = [
 
 const Template: ComponentStory<typeof Menu> = args => <Menu {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     items,
   },
 });
 
-export const storyWithDivider = Object.assign(Template.bind({}), {
-  storyName: 'with divider',
+export const WithDivider = makeStory(Template, {
   args: {
     items: [...items, { key: 'four', label: 'Four', divider: true }],
   },
 });
 
-export const storyPreselect = Object.assign(Template.bind({}), {
-  storyName: 'preselect',
+export const Preselect = makeStory(Template, {
   args: {
     items,
     value: 'three',

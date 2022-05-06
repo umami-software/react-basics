@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ListItem, CheckboxGroup } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/CheckboxGroup',
@@ -15,8 +16,7 @@ const items: ListItem[] = [
 
 const Template: ComponentStory<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     items,
     name: 'name',
@@ -24,8 +24,7 @@ export const storyDefault = Object.assign(Template.bind({}), {
   },
 });
 
-export const storyPreselect = Object.assign(Template.bind({}), {
-  storyName: 'preselected',
+export const Preselect = makeStory(Template, {
   args: {
     items,
     name: 'name',

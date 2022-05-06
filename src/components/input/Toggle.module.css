@@ -1,4 +1,5 @@
 .toggle {
+  position: relative;
   display: inline-flex;
   gap: var(--input-gap-size);
 }
@@ -40,11 +41,9 @@
 
 .input {
   position: absolute;
-  visibility: hidden;
-  height: 0;
-  width: 0;
-  bottom: 100%;
-  right: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0.001;
 }
 
 .label {
@@ -52,5 +51,5 @@
 }
 
 .disabled {
-  background: var(--gray100);
+  color: var(--gray500);
 }

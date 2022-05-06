@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Spinner } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Status/Spinner',
@@ -9,13 +10,9 @@ export default {
 
 const Template: ComponentStory<typeof Spinner> = args => <Spinner {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
-  args: {},
-});
+export const Basic = makeStory(Template);
 
-export const storyQuiet = Object.assign(Template.bind({}), {
-  storyName: 'quiet',
+export const Quiet = makeStory(Template, {
   args: {
     quiet: true,
   },

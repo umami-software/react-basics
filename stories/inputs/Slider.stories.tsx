@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Slider } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/Slider',
@@ -9,35 +10,30 @@ export default {
 
 const Template: ComponentStory<typeof Slider> = args => <Slider {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {},
 });
 
-export const storyBuffered = Object.assign(Template.bind({}), {
-  storyName: 'buffered',
+export const Buffered = makeStory(Template, {
   args: {
     buffered: true,
   },
 });
 
-export const storyDisabled = Object.assign(Template.bind({}), {
-  storyName: 'disabled',
+export const Disabled = makeStory(Template, {
   args: {
     disabled: true,
   },
 });
 
-export const storyLeftFill = Object.assign(Template.bind({}), {
-  storyName: 'left fill',
+export const LeftFill = makeStory(Template, {
   args: {
     value: 50,
     fill: 'left',
   },
 });
 
-export const storyRightFill = Object.assign(Template.bind({}), {
-  storyName: 'right fill',
+export const RightFill = makeStory(Template, {
   args: {
     value: 50,
     fill: 'right',

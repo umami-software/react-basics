@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, Icon } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/Button',
@@ -9,65 +10,7 @@ export default {
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
-  args: {
-    children: 'Button',
-  },
-});
-
-export const storyPrimary = Object.assign(Template.bind({}), {
-  storyName: 'primary',
-  args: {
-    children: 'Button',
-    variant: 'primary',
-  },
-});
-
-export const storySecondary = Object.assign(Template.bind({}), {
-  storyName: 'secondary',
-  args: {
-    children: 'Button',
-    variant: 'secondary',
-  },
-});
-
-export const storyDisabled = Object.assign(Template.bind({}), {
-  storyName: 'disabled',
-  args: {
-    children: 'Button',
-    disabled: true,
-  },
-});
-
-export const storyQuiet = Object.assign(Template.bind({}), {
-  storyName: 'quiet',
-  args: {
-    children: 'Button',
-    variant: 'quiet',
-  },
-});
-
-export const storyWithIcon = Object.assign(Template.bind({}), {
-  storyName: 'with icon',
-  args: {
-    children: (
-      <>
-        <Icon icon="checkmark" />
-        <div>Button</div>
-      </>
-    ),
-  },
-});
-
-export const storyIconOnly = Object.assign(Template.bind({}), {
-  storyName: 'icon only',
-  args: {
-    children: <Icon icon="checkmark" />,
-  },
-});
-
-const SizesComponent: ComponentStory<typeof Button> = args => (
+const Template2: ComponentStory<typeof Button> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
     <Button {...args} size="small">
       Small
@@ -81,7 +24,55 @@ const SizesComponent: ComponentStory<typeof Button> = args => (
   </div>
 );
 
-export const storySizes = Object.assign(SizesComponent.bind({}), {
-  storyName: 'sizes',
-  args: {},
+export const Basic = makeStory(Template, {
+  args: {
+    children: 'Button',
+  },
 });
+
+export const Primary = makeStory(Template, {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+  },
+});
+
+export const Secondary = makeStory(Template, {
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+  },
+});
+
+export const Disabled = makeStory(Template, {
+  args: {
+    children: 'Button',
+    disabled: true,
+  },
+});
+
+export const Quiet = makeStory(Template, {
+  args: {
+    children: 'Button',
+    variant: 'quiet',
+  },
+});
+
+export const WithIcon = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <Icon icon="checkmark" />
+        <div>Button</div>
+      </>
+    ),
+  },
+});
+
+export const IconOnly = makeStory(Template, {
+  args: {
+    children: <Icon icon="checkmark" />,
+  },
+});
+
+export const AllSizes = makeStory(Template2);

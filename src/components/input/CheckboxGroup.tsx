@@ -18,7 +18,8 @@ export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
   const { items = [], label, value = [], className, style, onChange, children } = props;
   const [selected, setSelected] = useState(value);
 
-  const handleSelect = val => {
+  const handleSelect = (checked, e) => {
+    const val = e.target.value;
     setSelected(state => (state.includes(val) ? state.filter(n => n !== val) : state.concat(val)));
     onChange(val);
   };

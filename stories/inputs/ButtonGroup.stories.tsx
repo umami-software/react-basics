@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ButtonGroup, Icon, ListItem } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/ButtonGroup',
@@ -15,31 +16,27 @@ const items: ListItem[] = [
 
 const Template: ComponentStory<typeof ButtonGroup> = args => <ButtonGroup {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     items,
   },
 });
 
-export const storyQuiet = Object.assign(Template.bind({}), {
-  storyName: 'quiet',
+export const Quiet = makeStory(Template, {
   args: {
     items,
     quiet: true,
   },
 });
 
-export const storyMultiSelect = Object.assign(Template.bind({}), {
-  storyName: 'multi-select',
+export const MultiSelect = makeStory(Template, {
   args: {
     items,
     selectionMode: 'multi',
   },
 });
 
-export const storyIcons = Object.assign(Template.bind({}), {
-  storyName: 'icons',
+export const Icons = makeStory(Template, {
   args: {
     items: items.map(item => ({ ...item, label: <Icon icon="checkmark" size="medium" /> })),
   },

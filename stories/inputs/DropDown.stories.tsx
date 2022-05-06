@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Dropdown } from 'components/input/Dropdown';
 import { ListItem } from 'types';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Inputs/Dropdown',
@@ -20,15 +21,13 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     items,
   },
 });
 
-export const storyPreselect = Object.assign(Template.bind({}), {
-  storyName: 'preselected',
+export const Preselect = makeStory(Template, {
   args: {
     items,
     value: 'two',

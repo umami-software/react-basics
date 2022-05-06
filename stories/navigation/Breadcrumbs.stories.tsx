@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ListItem, Breadcrumbs } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Navigation/Breadcrumbs',
@@ -15,8 +16,7 @@ const items: ListItem[] = [
 
 const Template: ComponentStory<typeof Breadcrumbs> = args => <Breadcrumbs {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     items,
   },

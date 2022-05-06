@@ -11,20 +11,15 @@ export interface CheckboxProps extends CommonProps {
   children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  onChange: (checked: boolean) => void;
+  onChange: (checked: boolean, e: MouseEvent) => void;
 }
 
 export function Checkbox(props: CheckboxProps): ReactElement {
   const { name, value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
-  const handleClick = e => {
-    e.stopPropagation();
-    ref?.current?.click();
-  };
-
   const handleChange = e => {
-    onChange(e.target.value);
+    onChange(e.target.checked, e);
   };
 
   return (
@@ -34,7 +29,6 @@ export function Checkbox(props: CheckboxProps): ReactElement {
         [styles.disabled]: disabled,
       })}
       style={style}
-      onClick={handleClick}
     >
       <div className={styles.box}>{checked && <Icon icon={<Check />} size="small" />}</div>
       <label className={styles.label}>{children}</label>

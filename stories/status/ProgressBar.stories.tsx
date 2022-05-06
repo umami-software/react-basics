@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ProgressBar } from '../../src';
+import { makeStory } from '../utils';
 
 export default {
   title: 'Status/ProgressBar',
@@ -8,15 +9,13 @@ export default {
 
 const Template: ComponentStory<typeof ProgressBar> = args => <ProgressBar {...args} />;
 
-export const storyDefault = Object.assign(Template.bind({}), {
-  storyName: 'default',
+export const Basic = makeStory(Template, {
   args: {
     value: 25,
   },
 });
 
-export const storyLabels = Object.assign(Template.bind({}), {
-  storyName: 'with labels',
+export const Labels = makeStory(Template, {
   args: {
     value: 25,
     label: 'Progress',
@@ -24,8 +23,7 @@ export const storyLabels = Object.assign(Template.bind({}), {
   },
 });
 
-export const storyLabelPosition = Object.assign(Template.bind({}), {
-  storyName: 'side label position',
+export const LabelPosition = makeStory(Template, {
   args: {
     value: 25,
     label: 'Progress',
