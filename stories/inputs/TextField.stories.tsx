@@ -10,8 +10,10 @@ export default {
 
 const Template: ComponentStory<typeof TextField> = args => <TextField {...args} />;
 
-export const Basic = makeStory(Template, {
+export const Basic = makeStory(Template);
+
+export const Disabled = makeStory(Template, {
   args: {
-    label: 'Text field',
+    disabled: true,
   },
 });

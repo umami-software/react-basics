@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { CommonProps, ListItem } from 'types';
 import { CheckboxProps } from 'components/input/Checkbox';
 import Checkbox from 'components/input/Checkbox';
-import FieldLabel from 'components/input/FieldLabel';
 import styles from './CheckboxGroup.module.css';
 
 export interface CheckboxGroupProps extends CommonProps {
@@ -15,7 +14,7 @@ export interface CheckboxGroupProps extends CommonProps {
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
-  const { items = [], label, value = [], className, style, onChange, children } = props;
+  const { items = [], value = [], className, style, onChange, children } = props;
   const [selected, setSelected] = useState(value);
 
   const handleSelect = (checked, e) => {
@@ -26,7 +25,6 @@ export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
 
   return (
     <div className={classNames(styles.checkboxgroup, className)} style={style}>
-      {label && <FieldLabel>{label}</FieldLabel>}
       {children ||
         items.map(({ value: itemValue, label: itemLabel }) => (
           <Checkbox

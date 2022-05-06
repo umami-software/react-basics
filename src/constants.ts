@@ -10,6 +10,8 @@ export const CSSIcons = [
   'search',
   'cancel',
   'eye',
+  'lock',
+  'slash',
   'dots',
   'dots-vertical',
   'chevron-up',

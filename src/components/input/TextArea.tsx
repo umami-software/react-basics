@@ -1,11 +1,8 @@
-import { ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import FieldLabel from 'components/input/FieldLabel';
 import styles from './TextArea.module.css';
 
 export interface TextAreaProps extends CommonProps {
-  label?: string | ReactNode;
   name?: string;
   value?: string;
   defaultValue?: string;
@@ -18,9 +15,8 @@ export interface TextAreaProps extends CommonProps {
   onChange: (value: string, e?: Event) => void;
 }
 
-export function TextArea(props: TextAreaProps): ReactElement {
+export function TextArea(props: TextAreaProps) {
   const {
-    label,
     name,
     value,
     defaultValue,
@@ -41,7 +37,6 @@ export function TextArea(props: TextAreaProps): ReactElement {
 
   return (
     <div className={classNames(styles.textarea, className)}>
-      {label && <FieldLabel>{label}</FieldLabel>}
       <textarea
         className={classNames(styles.input, className, { [styles.noresize]: !resizeable })}
         style={style}

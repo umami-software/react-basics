@@ -221,8 +221,8 @@
 
 .chevron:before {
   top: 0;
-  left: 0;
-  right: 0.3em;
+  left: -0.2em;
+  right: 0;
   bottom: 0;
   width: 0.4em;
   height: 0.4em;
@@ -231,7 +231,6 @@
   transform: rotate(-45deg);
   background: transparent;
 }
-
 .chevron.up {
   transform: rotate(-90deg);
 }
@@ -345,4 +344,37 @@
 
 .dots.vertical {
   transform: rotate(90deg);
+}
+
+.lock:before {
+  top: 0.18em;
+  left: 0;
+  right: 0;
+  width: 0.2em;
+  height: 0.2em;
+  border: 0.08em solid currentColor;
+  border-radius: 100%;
+  background: transparent;
+}
+
+.lock:after {
+  left: 0;
+  right: 0;
+  bottom: 0.2em;
+  width: 0.4em;
+  height: 0.35em;
+  border: 0.05em solid currentColor;
+  background: currentColor;
+}
+
+.slash:before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.9em;
+  height: 0.1em;
+  transform-origin: center;
+  transform: rotate(-45deg);
+  background: currentColor;
 }

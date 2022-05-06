@@ -14,20 +14,3 @@ export const Basic = makeStory(Template, {
     value: 25,
   },
 });
-
-export const Labels = makeStory(Template, {
-  args: {
-    value: 25,
-    label: 'Progress',
-    showValueLabel: true,
-  },
-});
-
-export const LabelPosition = makeStory(Template, {
-  args: {
-    value: 25,
-    label: 'Progress',
-    showValueLabel: true,
-    labelPosition: 'side',
-  },
-});

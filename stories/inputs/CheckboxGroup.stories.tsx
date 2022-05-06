@@ -20,7 +20,6 @@ export const Basic = makeStory(Template, {
   args: {
     items,
     name: 'name',
-    label: 'Checkbox group',
   },
 });
 
@@ -29,6 +28,5 @@ export const Preselect = makeStory(Template, {
     items,
     name: 'name',
     value: ['three'],
-    label: 'Checkbox group',
   },
 });

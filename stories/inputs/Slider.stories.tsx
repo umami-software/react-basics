@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Slider } from '../../src';
+import { Slider, TextField } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -8,7 +8,16 @@ export default {
   component: Slider,
 } as ComponentMeta<typeof Slider>;
 
-const Template: ComponentStory<typeof Slider> = args => <Slider {...args} />;
+const Template: ComponentStory<typeof Slider> = args => {
+  const [value, setValue] = useState(args.value ?? 0);
+
+  return (
+    <div style={{ display: 'flex', gap: 20 }}>
+      <Slider {...args} onChange={setValue} />
+      <TextField value={`${value}`} style={{ width: 50 }} readOnly={true} />
+    </div>
+  );
+};
 
 export const Basic = makeStory(Template, {
   args: {},

@@ -1,6 +1,5 @@
-import React, { useState, useRef, useMemo, ReactElement, ReactNode } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
-import FieldLabel from 'components/input/FieldLabel';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import useDocumentClick from 'hooks/useDocumentClick';
@@ -10,13 +9,12 @@ import styles from './Dropdown.module.css';
 export interface DropDownProps extends CommonProps {
   items: ListItem[];
   value?: string;
-  label?: ReactNode;
   menuClassName?: string;
   onChange: (key: string) => void;
 }
 
-export function Dropdown(props: DropDownProps): ReactElement {
-  const { items, value, label, className, menuClassName, style, onChange } = props;
+export function Dropdown(props: DropDownProps) {
+  const { items, value, className, menuClassName, style, onChange } = props;
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef(null);
   const selectedItem = useMemo<ListItem | undefined>(
@@ -48,7 +46,6 @@ export function Dropdown(props: DropDownProps): ReactElement {
       style={style}
       onClick={handleShowMenu}
     >
-      {label && <FieldLabel>{label}</FieldLabel>}
       <div className={styles.input}>
         <div className={styles.text}>{selectedItem?.label}</div>
         <Icon icon="chevron-down" size="small" />

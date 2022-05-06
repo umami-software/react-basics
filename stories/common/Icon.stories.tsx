@@ -57,4 +57,4 @@ export const SVG = makeStory(Template, {
   },
 });
 
-export const allCSSIcons = makeStory(Template2);
+export const CSSIconLibrary = makeStory(Template2);

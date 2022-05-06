@@ -6,23 +6,6 @@
   width: fit-content;
 }
 
-.label,
-.value {
-  line-height: var(--input-height);
-  font-size: var(--font-size-xsmall);
-  flex-basis: 50%;
-}
-
-.label {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-
-.value {
-  text-align: right;
-}
-
 .track {
   width: var(--input-width);
   height: 8px;
@@ -35,23 +18,4 @@
 .fill {
   background: var(--primary400);
   height: 8px;
-}
-
-.progressbar.side {
-  justify-content: flex-start;
-  gap: 8px;
-}
-
-.progressbar.side .label {
-  flex-basis: auto;
-}
-
-.progressbar.side .value {
-  flex-basis: auto;
-  order: 3;
-}
-
-.progressbar.side .track {
-  min-width: var(--input-width);
-  flex: 1;
 }

@@ -17,7 +17,9 @@ export function SearchField(props: SearchProps): ReactElement {
   const handleChange = (val, e) => {
     setSearch(val);
     if (delay === 0) {
-      onChange(val, e);
+      if (onChange) {
+        onChange(val, e);
+      }
     }
   };
 
@@ -25,7 +27,9 @@ export function SearchField(props: SearchProps): ReactElement {
 
   useEffect(() => {
     if (delay > 0 && searchValue) {
-      onChange(searchValue);
+      if (onChange) {
+        onChange(searchValue);
+      }
     }
   }, [searchValue]);
 
