@@ -14,6 +14,8 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
+const icons = ['checkmark', 'plus', 'cross'];
+
 const Template: ComponentStory<typeof ButtonGroup> = args => <ButtonGroup {...args} />;
 
 export const Basic = makeStory(Template, {
@@ -29,15 +31,11 @@ export const Quiet = makeStory(Template, {
   },
 });
 
-export const MultiSelect = makeStory(Template, {
-  args: {
-    items,
-    selectionMode: 'multi',
-  },
-});
-
 export const Icons = makeStory(Template, {
   args: {
-    items: items.map(item => ({ ...item, label: <Icon icon="checkmark" size="medium" /> })),
+    items: items.map((item, index) => ({
+      ...item,
+      label: <Icon icon={icons[index]} size="medium" />,
+    })),
   },
 });

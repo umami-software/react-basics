@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 import classNames from 'classnames';
 import Button from './Button';
 import styles from './ButtonGroup.module.css';
@@ -6,40 +6,14 @@ import { CommonProps, ListItem } from 'types';
 
 export interface ButtonGroupProps extends CommonProps {
   items: ListItem[];
-  selected?: string[];
   quiet?: boolean;
   onClick: (value: string) => void;
-  selectionMode?: 'single' | 'multi' | 'none';
   size: 'small' | 'medium' | 'large';
   children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
 export function ButtonGroup(props: ButtonGroupProps): ReactElement {
-  const {
-    items = [],
-    selected = [],
-    selectionMode = 'single',
-    size = 'medium',
-    quiet,
-    children,
-    onClick,
-    className,
-    style,
-  } = props;
-  const [selectedItems, setSelectedItems] = useState(selected);
-
-  const handleClick = value => {
-    if (selectionMode !== 'none') {
-      if (selectionMode === 'multi') {
-        setSelectedItems(state =>
-          state.includes(value) ? state.filter(n => n !== value) : state.concat(value),
-        );
-      } else {
-        setSelectedItems([value]);
-      }
-    }
-    onClick(value);
-  };
+  const { items = [], size = 'medium', quiet, children, onClick, className, style } = props;
 
   return (
     <div className={classNames(styles.group, className, { [styles.quiet]: quiet })} style={style}>
@@ -49,11 +23,9 @@ export function ButtonGroup(props: ButtonGroupProps): ReactElement {
           return (
             <Button
               key={value}
-              className={classNames(styles.button, {
-                [styles.selected]: selectedItems.includes(value),
-              })}
+              className={classNames(styles.button)}
               size={size}
-              onClick={handleClick.bind(null, value)}
+              onClick={onClick.bind(null, value)}
             >
               {label}
             </Button>

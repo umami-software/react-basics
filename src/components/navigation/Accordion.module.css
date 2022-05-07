@@ -39,6 +39,7 @@
 
 .disabled {
   color: var(--gray500);
+  background: var(--gray75);
   pointer-events: none;
 }
 
@@ -49,4 +50,8 @@
 
 .left .group *:first-child {
   order: 1;
+}
+
+.accordian.quiet .group {
+  border: 0;
 }

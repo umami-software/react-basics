@@ -39,5 +39,5 @@
 
 .checkbox.disabled .box {
   color: var(--gray600);
-  background-color: var(--gray100);
+  background-color: var(--gray75);
 }

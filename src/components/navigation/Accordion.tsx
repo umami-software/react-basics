@@ -8,12 +8,21 @@ export interface AccordianProps extends CommonProps {
   items: TreeItem[];
   expandedItems?: string[];
   caretPosition?: 'left' | 'right';
+  quiet?: boolean;
   onSelect?: (value: string) => void;
 }
 
 export function Accordion(props: AccordianProps): JSX.Element {
-  const { items, caretPosition = 'right', className, style, onSelect } = props;
-  const [expanded, setExpanded] = useState<string[]>([]);
+  const {
+    items,
+    expandedItems = [],
+    caretPosition = 'right',
+    quiet,
+    className,
+    style,
+    onSelect,
+  } = props;
+  const [expanded, setExpanded] = useState<string[]>(expandedItems);
 
   const handleExpand = value => {
     if (expanded.includes(value)) {
@@ -27,6 +36,7 @@ export function Accordion(props: AccordianProps): JSX.Element {
     <div
       className={classNames(styles.accordian, className, {
         [styles.left]: caretPosition === 'left',
+        [styles.quiet]: quiet,
       })}
       style={style}
     >

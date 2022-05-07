@@ -14,11 +14,6 @@
   border-left: 1px solid var(--gray500);
 }
 
-.group .button.selected {
-  color: var(--gray900);
-  background: var(--gray200);
-}
-
 .quiet {
   border: 0;
 }

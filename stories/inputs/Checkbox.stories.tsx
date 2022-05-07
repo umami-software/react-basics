@@ -19,7 +19,6 @@ const Template: ComponentStory<typeof Checkbox> = args => {
 
 export const Basic = makeStory(Template, {
   args: {
-    name: 'name',
     value: 'value',
     children: 'Checkbox',
   },
@@ -27,9 +26,16 @@ export const Basic = makeStory(Template, {
 
 export const Preselect = makeStory(Template, {
   args: {
-    name: 'name',
     value: 'value',
     children: 'Checkbox',
     checked: true,
+  },
+});
+
+export const Disabled = makeStory(Template, {
+  args: {
+    value: 'value',
+    children: 'Checkbox',
+    disabled: true,
   },
 });

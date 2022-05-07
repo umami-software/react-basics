@@ -8,7 +8,7 @@ export interface ButtonProps extends CommonProps {
   variant?: 'primary' | 'secondary' | 'quiet' | 'none';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   children: ReactNode;
 }
 
