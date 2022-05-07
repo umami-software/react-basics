@@ -19,4 +19,9 @@ export interface ValueProps<T, C = T> {
 export interface ListItem {
   value: string;
   label?: string | ReactNode;
+  disabled?: boolean;
+}
+
+export interface TreeItem extends ListItem {
+  children?: TreeItem[];
 }

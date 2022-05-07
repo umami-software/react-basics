@@ -14,6 +14,7 @@ export * from 'components/input/Slider';
 export * from 'components/input/TextArea';
 export * from 'components/input/TextField';
 export * from 'components/input/Toggle';
+export * from 'components/navigation/Accordion';
 export * from 'components/navigation/Breadcrumbs';
 export * from 'components/navigation/Tab';
 export * from 'components/navigation/Tabs';

@@ -1,0 +1,52 @@
+.accordian {
+  display: flex;
+  flex-direction: column;
+  width: var(--input-width);
+  gap: 4px;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--input-padding);
+  border: 1px solid var(--gray500);
+  border-radius: var(--input-border-radius);
+}
+
+.group:hover {
+  background: var(--gray100);
+}
+
+.children {
+  display: none;
+}
+
+.children.expanded {
+  display: block;
+}
+
+.child {
+  color: var(--gray800);
+  padding: var(--input-padding);
+  padding-left: 24px;
+  user-select: none;
+}
+
+.child:hover {
+  background: var(--gray100);
+}
+
+.disabled {
+  color: var(--gray500);
+  pointer-events: none;
+}
+
+.left .group {
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.left .group *:first-child {
+  order: 1;
+}
