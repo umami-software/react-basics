@@ -7,6 +7,7 @@ export interface TextAreaProps extends CommonProps {
   value?: string;
   defaultValue?: string;
   rows?: number;
+  cols?: number;
   spellCheck?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
@@ -20,7 +21,8 @@ export function TextArea(props: TextAreaProps) {
     name,
     value,
     defaultValue,
-    rows = 2,
+    rows,
+    cols,
     spellCheck,
     readOnly,
     disabled,
@@ -44,6 +46,7 @@ export function TextArea(props: TextAreaProps) {
         value={value}
         defaultValue={defaultValue}
         rows={rows}
+        cols={cols}
         spellCheck={spellCheck}
         readOnly={readOnly}
         disabled={disabled}

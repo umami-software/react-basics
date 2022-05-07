@@ -2,7 +2,8 @@
   --input-font-size: 16px;
   --input-width: 200px;
   --input-height: 32px;
-  --input-padding: 8px;
+  --input-line-height: 24px;
+  --input-padding: 8px 16px;
   --input-border-radius: 4px;
   --input-gap-size: 10px;
 

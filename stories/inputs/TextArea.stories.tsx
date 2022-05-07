@@ -12,20 +12,8 @@ const Template: ComponentStory<typeof TextArea> = args => <TextArea {...args} />
 
 export const Basic = makeStory(Template);
 
-export const WithValue = makeStory(Template, {
+export const Disabled = makeStory(Template, {
   args: {
-    defaultValue: 'Here is some text.',
-  },
-});
-
-export const WithRows = makeStory(Template, {
-  args: {
-    rows: 8,
-  },
-});
-
-export const Resize = makeStory(Template, {
-  args: {
-    resizeable: true,
+    disabled: true,
   },
 });
