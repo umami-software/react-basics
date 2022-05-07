@@ -19,6 +19,7 @@
   border: 1px solid var(--gray500);
   border-radius: 100%;
   background: var(--gray50);
+  transition: all 0.2s;
 }
 
 .label {

@@ -16,7 +16,7 @@ const items: ListItem[] = [
 
 const Template: ComponentStory<typeof Tabs> = args => <Tabs {...args} />;
 
-export const Default = makeStory(Template, {
+export const Basic = makeStory(Template, {
   args: {
     items,
   },
