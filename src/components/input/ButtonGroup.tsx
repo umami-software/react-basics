@@ -6,17 +6,16 @@ import { CommonProps, ListItem } from 'types';
 
 export interface ButtonGroupProps extends CommonProps {
   items: ListItem[];
-  quiet?: boolean;
   onClick: (value: string) => void;
   size: 'small' | 'medium' | 'large';
   children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
 export function ButtonGroup(props: ButtonGroupProps): ReactElement {
-  const { items = [], size = 'medium', quiet, children, onClick, className, style } = props;
+  const { items = [], size = 'medium', children, onClick, className, style } = props;
 
   return (
-    <div className={classNames(styles.group, className, { [styles.quiet]: quiet })} style={style}>
+    <div className={classNames(styles.group, className)} style={style}>
       {children ||
         items.map(item => {
           const { label, value } = item;

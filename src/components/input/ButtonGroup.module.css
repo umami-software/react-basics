@@ -8,16 +8,13 @@
 .group .button {
   border: 0;
   border-radius: 0;
+  background: var(--gray50);
+}
+
+.group .button:hover {
+  background: var(--gray100);
 }
 
 .group .button + .button {
   border-left: 1px solid var(--gray500);
-}
-
-.quiet {
-  border: 0;
-}
-
-.quiet .button + .button {
-  border: 0;
 }

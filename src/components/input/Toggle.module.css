@@ -54,3 +54,14 @@
 .disabled {
   color: var(--gray500);
 }
+
+.disabled .switch,
+.disabled.checked .switch {
+  border-color: var(--gray300);
+  background: var(--gray100);
+}
+
+.disabled .switch:before,
+.disabled.checked .switch:before {
+  border-color: var(--gray300);
+}

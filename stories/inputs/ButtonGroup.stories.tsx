@@ -24,13 +24,6 @@ export const Basic = makeStory(Template, {
   },
 });
 
-export const Quiet = makeStory(Template, {
-  args: {
-    items,
-    quiet: true,
-  },
-});
-
 export const Icons = makeStory(Template, {
   args: {
     items: items.map((item, index) => ({

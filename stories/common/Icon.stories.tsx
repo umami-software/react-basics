@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Icon, IconSizes, IconTypes } from '../../src';
 import { CSSIcons } from '../../src/constants';
@@ -18,26 +18,26 @@ export default {
 
 const Template: ComponentStory<typeof Icon> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
-    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map(n => (
-      <>
+    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map((n, i) => (
+      <Fragment key={`${n}${i}`}>
         <label>{n}</label>
         <Icon {...args} size={n as IconSizes} />
-      </>
+      </Fragment>
     ))}
   </div>
 );
 
 const Template2: ComponentStory<typeof Icon> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
-    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map(n => (
-      <>
+    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map((n, i) => (
+      <Fragment key={`${n}${i}`}>
         <label>{n}</label>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
           {CSSIcons.map(icon => (
-            <Icon key={n} {...args} icon={icon as IconTypes} size={n as IconSizes} />
+            <Icon key={`${n}${icon}`} {...args} icon={icon as IconTypes} size={n as IconSizes} />
           ))}
         </div>
-      </>
+      </Fragment>
     ))}
   </div>
 );

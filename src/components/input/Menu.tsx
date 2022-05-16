@@ -24,22 +24,18 @@ export function Menu(props: MenuProps): ReactElement {
 
   return (
     <div className={classNames(styles.menu, className)}>
-      {items.map(item => {
-        const { value: itemValue, label, divider } = item;
-
-        return (
-          <div
-            key={value}
-            className={classNames(styles.item, {
-              [styles.selected]: selected === itemValue,
-              [styles.divider]: divider,
-            })}
-            onClick={handleSelect.bind(null, itemValue)}
-          >
-            {label}
-          </div>
-        );
-      })}
+      {items.map(({ value: itemValue, label, divider }) => (
+        <div
+          key={value}
+          className={classNames(styles.item, {
+            [styles.selected]: selected === itemValue,
+            [styles.divider]: divider,
+          })}
+          onClick={handleSelect.bind(null, itemValue)}
+        >
+          {label}
+        </div>
+      ))}
     </div>
   );
 }
