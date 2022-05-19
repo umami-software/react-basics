@@ -18,3 +18,8 @@
 .group .button + .button {
   border-left: 1px solid var(--gray500);
 }
+
+.group.thin button {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
