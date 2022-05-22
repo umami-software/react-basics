@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   color: var(--gray900);
-  padding: var(--input-padding);
+  padding: 16px 8px;
   border-bottom: 2px solid transparent;
   user-select: none;
 }

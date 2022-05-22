@@ -1,7 +1,6 @@
 .tabs {
   display: flex;
   align-items: center;
-  gap: 1.5em;
   border-bottom: 2px solid var(--gray200);
 }
 
@@ -19,11 +18,9 @@
 }
 
 .tabs > div {
-  padding: 8px 0;
   margin: 0 0 -2px 0;
 }
 
 .tabs.vertical > div {
-  padding: 8px 16px;
   margin: 0 0 0 -2px;
 }
