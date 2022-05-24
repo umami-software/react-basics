@@ -12,6 +12,7 @@ export interface TabsProps extends CommonProps {
   items?: TabItem[];
   selectedValue?: string;
   vertical?: boolean;
+  spacing?: number;
   quiet?: boolean;
   onSelect: (value: string) => void;
   children?: ReactElement<TabProps> | ReactElement<TabProps>[];
@@ -22,9 +23,10 @@ export function Tabs(props: TabsProps) {
     items = [],
     selectedValue,
     vertical,
+    spacing,
     quiet,
     className,
-    style,
+    style = {},
     onSelect,
     children,
   } = props;
@@ -34,6 +36,10 @@ export function Tabs(props: TabsProps) {
     setSelected(value);
     onSelect(value);
   };
+
+  if (spacing) {
+    style.gap = `${spacing}px`;
+  }
 
   return (
     <div

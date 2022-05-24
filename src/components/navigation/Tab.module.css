@@ -3,9 +3,10 @@
   align-items: center;
   justify-content: center;
   color: var(--gray900);
-  padding: 16px 8px;
+  padding: 8px 16px;
   border-bottom: 2px solid transparent;
   user-select: none;
+  margin: 0 0 -2px 0;
 }
 
 .tab.selected {
@@ -20,6 +21,7 @@
 .tab.vertical {
   border: 0;
   border-left: 2px solid transparent;
+  margin: 0 0 0 -2px;
 }
 
 .tab.vertical.selected {
