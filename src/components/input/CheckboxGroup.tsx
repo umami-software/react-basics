@@ -7,7 +7,6 @@ import styles from './CheckboxGroup.module.css';
 
 export interface CheckboxGroupProps extends CommonProps {
   items: ListItem[];
-  label?: string;
   value?: string[];
   onChange: (value: string) => void;
   children: ReactElement<CheckboxProps> | ReactElement<CheckboxProps>[];

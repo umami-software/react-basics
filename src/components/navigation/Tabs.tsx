@@ -37,7 +37,7 @@ export function Tabs(props: TabsProps) {
     onSelect(value);
   };
 
-  if (spacing) {
+  if (spacing !== undefined) {
     style.gap = `${spacing}px`;
   }
 
