@@ -52,6 +52,7 @@ export function Icon(props: IconProps): ReactElement {
       className={classNames(styles.icon, className, getClasses(), styles[size])}
       style={style}
       onClick={onClick}
+      {...props}
     >
       {typeof icon !== 'string' ? icon : null}
     </div>

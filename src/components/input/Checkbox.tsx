@@ -29,8 +29,11 @@ export function Checkbox(props: CheckboxProps): ReactElement {
         [styles.disabled]: disabled,
       })}
       style={style}
+      data-testid="checkbox-container"
     >
-      <div className={styles.box}>{checked && <Icon icon={<Check />} size="small" />}</div>
+      <div className={styles.box}>
+        {checked && <Icon data-testid="checkbox-icon" icon={<Check />} size="small" />}
+      </div>
       <label className={styles.label}>{children}</label>
       <input
         type="checkbox"
@@ -41,6 +44,7 @@ export function Checkbox(props: CheckboxProps): ReactElement {
         checked={checked}
         disabled={disabled}
         onChange={handleChange}
+        data-testid="checkbox-input"
       />
     </div>
   );
