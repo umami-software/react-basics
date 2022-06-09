@@ -45,9 +45,12 @@ export function Dropdown(props: DropDownProps) {
       className={classNames(styles.dropdown, className)}
       style={style}
       onClick={handleShowMenu}
+      data-testid="dropdown-container"
     >
       <div className={styles.input}>
-        <div className={styles.text}>{selectedItem?.label}</div>
+        <div className={styles.text} data-testid="dropdown-selected">
+          {selectedItem?.label}
+        </div>
         <Icon icon="chevron-down" size="small" />
       </div>
       {showMenu && (
@@ -56,6 +59,7 @@ export function Dropdown(props: DropDownProps) {
           items={items}
           value={selectedItem?.value}
           onSelect={handleSelect}
+          data-testid="dropdown-menu"
         />
       )}
     </div>
