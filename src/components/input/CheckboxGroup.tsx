@@ -8,7 +8,7 @@ import styles from './CheckboxGroup.module.css';
 export interface CheckboxGroupProps extends CommonProps {
   items: ListItem[];
   value?: string[];
-  onChange: (value: string) => void;
+  onChange: (value: string[]) => void;
   children?: ReactElement<CheckboxProps> | ReactElement<CheckboxProps>[];
 }
 
@@ -19,7 +19,7 @@ export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
   const handleSelect = (checked: boolean, e) => {
     const val = e.target.value;
     setSelected(state => (state.includes(val) ? state.filter(n => n !== val) : state.concat(val)));
-    onChange(val);
+    onChange(selected);
   };
 
   return (
