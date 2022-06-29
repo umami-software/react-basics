@@ -26,7 +26,7 @@ export function Menu(props: MenuProps): ReactElement {
     <div className={classNames(styles.menu, className)}>
       {items.map(({ value: itemValue, label, divider }) => (
         <div
-          key={value}
+          key={itemValue}
           className={classNames(styles.item, {
             [styles.selected]: selected === itemValue,
             [styles.divider]: divider,

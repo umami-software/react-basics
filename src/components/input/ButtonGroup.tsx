@@ -7,13 +7,21 @@ import { CommonProps, ListItem } from 'types';
 export interface ButtonGroupProps extends CommonProps {
   items: ListItem[];
   onClick: (value: string) => void;
-  size: 'small' | 'medium' | 'large';
-  variant: 'thin' | 'none';
+  size?: 'small' | 'medium' | 'large';
+  variant?: 'thin' | 'none';
   children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
 export function ButtonGroup(props: ButtonGroupProps): ReactElement {
-  const { items = [], size = 'medium', variant, children, onClick, className, style } = props;
+  const {
+    items = [],
+    size = 'medium',
+    variant = 'none',
+    children,
+    onClick,
+    className,
+    style,
+  } = props;
 
   return (
     <div
@@ -29,6 +37,7 @@ export function ButtonGroup(props: ButtonGroupProps): ReactElement {
               className={classNames(styles.button)}
               size={size}
               onClick={onClick.bind(null, value)}
+              disabled={item.disabled}
             >
               {label}
             </Button>

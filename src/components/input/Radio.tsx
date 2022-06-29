@@ -22,6 +22,7 @@ export function Radio(props: RadioProps): ReactElement {
   };
 
   const handleChange = e => {
+    console.log('handleChange: ', e.target.value);
     onChange(e.target.value);
   };
 
@@ -33,6 +34,7 @@ export function Radio(props: RadioProps): ReactElement {
       })}
       style={style}
       onClick={handleClick}
+      data-testid="radio-container"
     >
       <div className={styles.circle} />
       {children && <label className={styles.label}>{children}</label>}

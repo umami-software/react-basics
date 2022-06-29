@@ -8,29 +8,30 @@ import styles from './CheckboxGroup.module.css';
 export interface CheckboxGroupProps extends CommonProps {
   items: ListItem[];
   value?: string[];
-  onChange: (value: string) => void;
-  children: ReactElement<CheckboxProps> | ReactElement<CheckboxProps>[];
+  onChange: (value: string[]) => void;
+  children?: ReactElement<CheckboxProps> | ReactElement<CheckboxProps>[];
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
   const { items = [], value = [], className, style, onChange, children } = props;
   const [selected, setSelected] = useState(value);
 
-  const handleSelect = (checked, e) => {
+  const handleSelect = (checked: boolean, e) => {
     const val = e.target.value;
     setSelected(state => (state.includes(val) ? state.filter(n => n !== val) : state.concat(val)));
-    onChange(val);
+    onChange(selected);
   };
 
   return (
     <div className={classNames(styles.checkboxgroup, className)} style={style}>
       {children ||
-        items.map(({ value: itemValue, label: itemLabel }) => (
+        items.map(({ value: itemValue, label: itemLabel, disabled: itemDisabled }) => (
           <Checkbox
             key={itemValue}
             value={itemValue}
             checked={selected?.includes(itemValue)}
             onChange={handleSelect}
+            disabled={itemDisabled}
           >
             {itemLabel}
           </Checkbox>

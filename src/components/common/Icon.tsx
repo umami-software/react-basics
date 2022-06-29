@@ -44,14 +44,14 @@ export interface IconProps {
 export function Icon(props: IconProps): ReactElement {
   const { icon, size = 'medium', className, style, onClick } = props;
 
-  const getClasses = () =>
-    typeof icon === 'string' ? icon.split('-').map(id => styles[id]) : null;
+  const getClasses = () => (typeof icon === 'string' ? icon.split('-').map(id => styles[id]) : []);
 
   return (
     <div
       className={classNames(styles.icon, className, getClasses(), styles[size])}
       style={style}
       onClick={onClick}
+      {...props}
     >
       {typeof icon !== 'string' ? icon : null}
     </div>

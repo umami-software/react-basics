@@ -27,10 +27,13 @@ export function PasswordField(props: PasswordFieldProps) {
         onChange={onChange}
       />
       <Icon
-        className={classNames(styles.eye, { [styles.show]: show })}
+        className={classNames(styles.icon, { [styles.show]: true })}
         icon="eye"
+        size="large"
         onClick={handleShowPassword}
       />
     </div>
   );
 }
+
+export default PasswordField;

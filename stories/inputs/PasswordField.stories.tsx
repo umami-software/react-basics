@@ -20,3 +20,9 @@ const Template: ComponentStory<typeof PasswordField> = args => (
 );
 
 export const Basic = makeStory(Template);
+
+export const ShowPassword = makeStory(Template, {
+  args: {
+    showPassword: true,
+  },
+});
