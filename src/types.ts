@@ -23,5 +23,6 @@ export interface ListItem {
 }
 
 export interface TreeItem extends ListItem {
+  expanded?: boolean;
   children?: TreeItem[];
 }

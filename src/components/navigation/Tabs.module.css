@@ -15,4 +15,5 @@
   align-items: flex-start;
   border: 0;
   border-left: 2px solid var(--gray200);
+  gap: 24px;
 }

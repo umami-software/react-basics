@@ -6,9 +6,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikecao/react-basics.git"
+    "url": "git+https://github.com/umami-software/react-basics.git"
   },
-  "homepage": "https://mikecao.github.io/react-basics",
+  "homepage": "https://umami-software.github.io/react-basics",
   "browserslist": [
     "> 0.25%",
     "not dead"
@@ -17,6 +17,12 @@
     "react",
     "components"
   ],
+  "files":[
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "start-storybook -p 6006",
     "dev": "dotenv webpack serve -- --progress --config webpack.demo.config.js",
