@@ -8,12 +8,14 @@ const CSS_PREFIX = 'rb-';
 
 module.exports = {
   mode: PRODUCTION ? 'production' : 'development',
-  target: 'web',
+  target: ['web', 'es2015'],
   entry: {
     index: path.resolve(__dirname, 'src/index.ts'),
   },
   output: {
+    filename: 'react-basics.js',
     path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'commonjs',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
