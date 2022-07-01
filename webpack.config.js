@@ -10,7 +10,7 @@ module.exports = {
   mode: PRODUCTION ? 'production' : 'development',
   target: 'web',
   entry: {
-    lib: path.resolve(__dirname, 'src/index.ts'),
+    index: path.resolve(__dirname, 'src/index.ts'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -70,7 +70,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: 'react-basics.css',
       chunkFilename: '[id].css',
     }),
   ],

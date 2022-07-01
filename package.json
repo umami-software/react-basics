@@ -1,6 +1,6 @@
 {
   "name": "react-basics",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Everyday components for React",
   "author": "Mike Cao <mike@mikecao.com>",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "react",
     "components"
   ],
+  "main": "dist/index.js",
   "files":[
     "dist"
   ],
