@@ -18,7 +18,7 @@
     "components"
   ],
   "main": "dist/react-basics.js",
-  "files":[
+  "files": [
     "dist"
   ],
   "publishConfig": {
@@ -122,6 +122,8 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recommended": "^5.0.0",
     "terser-webpack-plugin": "^5.1.1",
+    "ts-loader": "^9.3.1",
+    "tsc-alias": "^1.6.11",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^5.0.0",

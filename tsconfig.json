@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "target": "es5",
     "module": "commonjs",
-    "outDir": "./build/",
+    "outDir": "./dist/",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,5 +23,6 @@
       "*": ["src/*"]
     }
   },
-  "include": ["./src/**/*", "./stories/**/*"]
+  "include": ["./src/**/*", "./stories/**/*"],
+  "exclude": ["node_modules"]
 }

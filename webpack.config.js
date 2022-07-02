@@ -4,11 +4,18 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const PRODUCTION = process.env.NODE_ENV === 'production';
-const CSS_PREFIX = 'rb-';
+
+function getLocalIdent(context, localIdentName, localName) {
+  const { name } = path.parse(context.resourcePath);
+
+  return `${name.replace('.module', '')}-${localName}`
+    .replace(new RegExp('[^a-zA-Z0-9\\-_\u00A0-\uFFFF]', 'g'), '-')
+    .replace(/^((-?[0-9])|--)/, '_$1');
+}
 
 module.exports = {
   mode: PRODUCTION ? 'production' : 'development',
-  target: ['web', 'es2015'],
+  target: 'web',
   entry: {
     index: path.resolve(__dirname, 'src/index.ts'),
   },
@@ -16,10 +23,15 @@ module.exports = {
     filename: 'react-basics.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'commonjs',
+    clean: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  },
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
   },
   module: {
     rules: [
@@ -45,9 +57,8 @@ module.exports = {
             options: {
               modules: {
                 mode: 'local',
-                localIdentName: PRODUCTION
-                  ? `${CSS_PREFIX}[local]`
-                  : '[name]__[local]--[hash:base64:5]',
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+                getLocalIdent: PRODUCTION ? getLocalIdent : null,
               },
               sourceMap: true,
               importLoaders: 1,
