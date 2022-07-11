@@ -76,3 +76,5 @@ export function Accordion(props: AccordianProps): JSX.Element {
     </div>
   );
 }
+
+export default Accordion;
