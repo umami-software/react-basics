@@ -1,4 +1,5 @@
 export * from 'components/common/Icon';
+export * from 'components/common/Text';
 export * from 'components/input/Button';
 export * from 'components/input/ButtonGroup';
 export * from 'components/input/Checkbox';

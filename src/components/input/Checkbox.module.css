@@ -41,3 +41,7 @@
   color: var(--gray600);
   background-color: var(--gray75);
 }
+
+.checkbox.disabled .label {
+  color: var(--gray600);
+}
