@@ -53,7 +53,7 @@ export const CSS = makeStory(Template, {
 
 export const SVG = makeStory(Template, {
   args: {
-    icon: <Logo />,
+    children: <Logo />,
   },
   argTypes: {
     icon: { control: false },

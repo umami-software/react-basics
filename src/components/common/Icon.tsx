@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, MouseEvent } from 'react';
+import { CSSProperties, ReactElement, MouseEvent, ReactNode } from 'react';
 import classNames from 'classnames';
 
 // eslint-disable-next-line css-modules/no-unused-class
@@ -35,14 +35,15 @@ export type IconSizes = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
 export interface IconProps {
   icon: ReactElement | IconTypes | string;
-  size?: IconSizes;
+  size?: number | IconSizes;
   className?: string;
   style?: CSSProperties;
   onClick?: (e: MouseEvent) => void;
+  children: ReactNode;
 }
 
 export function Icon(props: IconProps): ReactElement {
-  const { icon, size = 'medium', className, style, onClick } = props;
+  const { icon, size = 'medium', className, style, onClick, children } = props;
 
   const getClasses = () =>
     typeof icon === 'string' ? icon.split('-').map(id => styles[id]) : null;
@@ -53,7 +54,7 @@ export function Icon(props: IconProps): ReactElement {
       style={style}
       onClick={onClick}
     >
-      {typeof icon !== 'string' ? icon : null}
+      {children}
     </div>
   );
 }
