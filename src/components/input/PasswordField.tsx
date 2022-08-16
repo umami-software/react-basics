@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
 import { TextField, TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
@@ -8,7 +8,7 @@ export interface PasswordFieldProps extends TextFieldProps {
   showPassword?: boolean;
 }
 
-export function PasswordField(props: PasswordFieldProps) {
+function PasswordField(props: PasswordFieldProps) {
   const { showPassword = false, value, className, style, onChange, ...textFieldProps } = props;
   const [show, setShow] = useState(showPassword);
   const type = show ? 'text' : 'password';
@@ -34,3 +34,9 @@ export function PasswordField(props: PasswordFieldProps) {
     </div>
   );
 }
+
+const _PasswordField = forwardRef(PasswordField);
+
+export { _PasswordField as PasswordField };
+
+export default _PasswordField;

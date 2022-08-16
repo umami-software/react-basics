@@ -39,7 +39,7 @@ export interface IconProps {
   className?: string;
   style?: CSSProperties;
   onClick?: (e: MouseEvent) => void;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export function Icon(props: IconProps): ReactElement {

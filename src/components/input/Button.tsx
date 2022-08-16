@@ -8,12 +8,23 @@ export interface ButtonProps extends CommonProps {
   variant?: 'primary' | 'secondary' | 'quiet' | 'none';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   onClick?: () => void;
   children: ReactNode;
 }
 
 export function Button(props: ButtonProps): ReactElement {
-  const { name, variant, size = 'medium', disabled, className, style, children, onClick } = props;
+  const {
+    name,
+    variant,
+    size = 'medium',
+    type,
+    disabled,
+    className,
+    style,
+    children,
+    onClick,
+  } = props;
 
   return (
     <button
@@ -26,7 +37,7 @@ export function Button(props: ButtonProps): ReactElement {
         [styles.large]: size === 'large',
         [styles.disabled]: disabled,
       })}
-      type="button"
+      type={type || 'button'}
       name={name}
       onClick={onClick}
       disabled={disabled}

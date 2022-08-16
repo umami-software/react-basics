@@ -1,3 +1,4 @@
+import { Ref, forwardRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './TextField.module.css';
@@ -10,10 +11,10 @@ export interface TextFieldProps extends CommonProps {
   readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  onChange?: (value: string, e?: Event) => void;
+  onChange?: () => void;
 }
 
-export function TextField(props: TextFieldProps) {
+function TextField(props: TextFieldProps, ref?: Ref<any>) {
   const {
     name,
     value,
@@ -27,16 +28,11 @@ export function TextField(props: TextFieldProps) {
     onChange,
   } = props;
 
-  const handleChange = e => {
-    if (onChange) {
-      onChange(e.target.value, e);
-    }
-  };
-
   return (
     <div className={classNames(styles.textfield, className)}>
       <input
         type={type}
+        ref={ref}
         className={classNames(styles.input, className)}
         style={style}
         name={name}
@@ -45,10 +41,14 @@ export function TextField(props: TextFieldProps) {
         readOnly={readOnly}
         disabled={disabled}
         placeholder={placeholder}
-        onChange={handleChange}
+        onChange={onChange}
       />
     </div>
   );
 }
 
-export default TextField;
+export const _TextField = forwardRef(TextField);
+
+export { _TextField as TextField };
+
+export default _TextField;
