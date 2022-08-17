@@ -34,7 +34,7 @@ export type IconTypes =
 export type IconSizes = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
 
 export interface IconProps {
-  icon: ReactElement | IconTypes | string;
+  icon?: ReactElement | IconTypes | string;
   size?: number | IconSizes;
   className?: string;
   style?: CSSProperties;

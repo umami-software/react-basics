@@ -13,9 +13,11 @@ export default {
   },
 } as ComponentMeta<typeof PasswordField>;
 
+const preventDefault = e => e.preventDefault();
+
 const Template: ComponentStory<typeof PasswordField> = args => (
-  <form autoComplete="off" onSubmit={e => e.preventDefault()}>
-    <PasswordField {...args} />
+  <form autoComplete="off" onSubmit={preventDefault}>
+    <PasswordField {...args} style={{ width: 300 }} />
   </form>
 );
 

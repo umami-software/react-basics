@@ -1,4 +1,4 @@
-import { Ref, forwardRef } from 'react';
+import { Ref, forwardRef, ReactNode, ChangeEventHandler, FocusEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './TextField.module.css';
@@ -11,7 +11,11 @@ export interface TextFieldProps extends CommonProps {
   readOnly?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  onChange?: () => void;
+  autoComplete?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onFocus?: FocusEventHandler<HTMLInputElement>;
+  children?: ReactNode;
+  inputClassName?: string;
 }
 
 function TextField(props: TextFieldProps, ref?: Ref<any>) {
@@ -23,9 +27,13 @@ function TextField(props: TextFieldProps, ref?: Ref<any>) {
     readOnly,
     disabled,
     placeholder,
+    autoComplete,
     className,
+    inputClassName,
     style,
     onChange,
+    onFocus,
+    children,
   } = props;
 
   return (
@@ -33,7 +41,7 @@ function TextField(props: TextFieldProps, ref?: Ref<any>) {
       <input
         type={type}
         ref={ref}
-        className={classNames(styles.input, className)}
+        className={classNames(styles.input, inputClassName)}
         style={style}
         name={name}
         value={value}
@@ -42,7 +50,10 @@ function TextField(props: TextFieldProps, ref?: Ref<any>) {
         disabled={disabled}
         placeholder={placeholder}
         onChange={onChange}
+        autoComplete={autoComplete}
+        onFocus={onFocus}
       />
+      {children}
     </div>
   );
 }
