@@ -5,7 +5,7 @@ import styles from './TextField.module.css';
 
 export interface TextFieldProps extends CommonProps {
   name?: string;
-  value: string;
+  value?: string;
   type?: 'text' | 'password';
   spellCheck?: boolean;
   readOnly?: boolean;
@@ -15,10 +15,9 @@ export interface TextFieldProps extends CommonProps {
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
   children?: ReactNode;
-  inputClassName?: string;
 }
 
-function TextField(props: TextFieldProps, ref?: Ref<any>) {
+function _TextField(props: TextFieldProps, ref?: Ref<any>) {
   const {
     name,
     value,
@@ -29,7 +28,6 @@ function TextField(props: TextFieldProps, ref?: Ref<any>) {
     placeholder,
     autoComplete,
     className,
-    inputClassName,
     style,
     onChange,
     onFocus,
@@ -37,11 +35,11 @@ function TextField(props: TextFieldProps, ref?: Ref<any>) {
   } = props;
 
   return (
-    <div className={classNames(styles.textfield, className)}>
+    <div className={classNames(styles.field, className)}>
       <input
         type={type}
         ref={ref}
-        className={classNames(styles.input, inputClassName)}
+        className={classNames(styles.input)}
         style={style}
         name={name}
         value={value}
@@ -58,8 +56,6 @@ function TextField(props: TextFieldProps, ref?: Ref<any>) {
   );
 }
 
-export const _TextField = forwardRef(TextField);
+export const TextField = forwardRef(_TextField);
 
-export { _TextField as TextField };
-
-export default _TextField;
+export default TextField;

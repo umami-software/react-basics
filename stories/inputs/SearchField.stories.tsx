@@ -8,7 +8,9 @@ export default {
   component: SearchField,
 } as ComponentMeta<typeof SearchField>;
 
-const Template: ComponentStory<typeof SearchField> = args => <SearchField {...args} />;
+const Template: ComponentStory<typeof SearchField> = args => (
+  <SearchField {...args} style={{ width: 300 }} />
+);
 
 export const Basic = makeStory(Template);
 

@@ -2,52 +2,32 @@ import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
 import { TextField, TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
-import Eye from 'assets/eye.svg';
+import Show from 'assets/show.svg';
+import Hide from 'assets/hide.svg';
 import styles from './PasswordField.module.css';
 
 export interface PasswordFieldProps extends TextFieldProps {
   showPassword?: boolean;
 }
 
-function PasswordField(props: PasswordFieldProps) {
-  const {
-    showPassword = false,
-    value,
-    className,
-    inputClassName,
-    style,
-    onChange,
-    ...textFieldProps
-  } = props;
+function _PasswordField(props: PasswordFieldProps, ref) {
+  const { showPassword = false, value, className, style, onChange, ...textFieldProps } = props;
   const [show, setShow] = useState(showPassword);
   const type = show ? 'text' : 'password';
 
   const handleShowPassword = () => setShow(!show);
 
   return (
-    <div className={classNames(styles.passwordfield, className)} style={style}>
-      <TextField
-        {...textFieldProps}
-        inputClassName={classNames(styles.input, inputClassName)}
-        style={style}
-        type={type}
-        value={value}
-        onChange={onChange}
-      >
-        <Icon
-          className={classNames(styles.eye, { [styles.show]: show })}
-          size="large"
-          onClick={handleShowPassword}
-        >
-          <Eye />
+    <div className={classNames(styles.field, className)} style={style}>
+      <TextField ref={ref} {...textFieldProps} type={type} value={value} onChange={onChange}>
+        <Icon className={classNames(styles.icon)} size="large" onClick={handleShowPassword}>
+          {show ? <Hide /> : <Show />}
         </Icon>
       </TextField>
     </div>
   );
 }
 
-const _PasswordField = forwardRef(PasswordField);
+export const PasswordField = forwardRef(_PasswordField);
 
-export { _PasswordField as PasswordField };
-
-export default _PasswordField;
+export default PasswordField;

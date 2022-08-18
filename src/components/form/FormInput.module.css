@@ -1,0 +1,21 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: 2em;
+}
+
+.error input[type='text'],
+.error input[type='password'],
+.error textarea {
+  border-color: var(--red400);
+}
+
+.message {
+  color: var(--red400);
+}
