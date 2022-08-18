@@ -6,6 +6,7 @@
   position: relative;
   font-size: var(--font-size-normal);
   flex-shrink: 0;
+  box-sizing: content-box;
 }
 
 .icon svg {

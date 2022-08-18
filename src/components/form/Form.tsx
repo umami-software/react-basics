@@ -1,4 +1,12 @@
-import { ReactNode, Children, cloneElement, forwardRef, Fragment, ReactElement } from 'react';
+import {
+  ReactNode,
+  Children,
+  cloneElement,
+  forwardRef,
+  Fragment,
+  ReactElement,
+  useImperativeHandle,
+} from 'react';
 import { useForm, UseFormProps, SubmitHandler } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
@@ -11,10 +19,21 @@ export interface FormProps extends CommonProps {
   children?: ReactNode;
 }
 
+export interface FormMembers {
+  reset: () => void;
+}
+
 function _Form(props: FormProps, ref) {
   const { autoComplete, onSubmit, formProps, className, style, children } = props;
-  const { register, handleSubmit, formState } = useForm(formProps);
+  const { register, handleSubmit, formState, reset } = useForm(formProps);
   const { errors } = formState;
+
+  useImperativeHandle(
+    ref,
+    (): FormMembers => ({
+      reset,
+    }),
+  );
 
   const nodes =
     (children as ReactElement)?.type === Fragment
@@ -23,7 +42,6 @@ function _Form(props: FormProps, ref) {
 
   return (
     <form
-      ref={ref}
       autoComplete={autoComplete}
       className={classNames(styles.form, className)}
       style={style}

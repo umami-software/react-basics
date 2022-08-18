@@ -30,7 +30,13 @@ export function Checkbox(props: CheckboxProps): ReactElement {
       })}
       style={style}
     >
-      <div className={styles.box}>{checked && <Icon icon={<Check />} size="small" />}</div>
+      <div className={styles.box}>
+        {checked && (
+          <Icon size="small">
+            <Check />
+          </Icon>
+        )}
+      </div>
       <label className={styles.label}>{children}</label>
       <input
         type="checkbox"
