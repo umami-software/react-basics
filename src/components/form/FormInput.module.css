@@ -7,7 +7,7 @@
 .label {
   font-size: var(--font-size-small);
   font-weight: 600;
-  line-height: 2em;
+  line-height: 32px;
 }
 
 .error input[type='text'],
@@ -18,4 +18,7 @@
 
 .message {
   color: var(--red400);
+  font-size: var(--font-size-xsmall);
+  font-weight: 600;
+  line-height: 24px;
 }

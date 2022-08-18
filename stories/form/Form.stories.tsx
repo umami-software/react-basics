@@ -15,13 +15,13 @@ export const Basic = makeStory(Template, {
   args: {
     value: 'value',
     autoComplete: 'off',
-    onSubmit: data => console.log({ data }),
+    onSubmit: data => console.log({ data }), // tslint:disable-line:no-console
     children: (
       <>
-        <FormInput name="username" label="Username" rules={{ required: true }}>
+        <FormInput name="username" label="Username" rules={{ required: 'Required' }}>
           <TextField />
         </FormInput>
-        <FormInput name="password" label="Password" rules={{ required: true }}>
+        <FormInput name="password" label="Password" rules={{ required: 'Required' }}>
           <PasswordField />
         </FormInput>
         <FormButtons>

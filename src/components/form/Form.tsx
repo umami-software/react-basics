@@ -13,11 +13,8 @@ export interface FormProps extends CommonProps {
 
 function _Form(props: FormProps, ref) {
   const { autoComplete, onSubmit, formProps, className, style, children } = props;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm(formProps);
+  const { register, handleSubmit, formState } = useForm(formProps);
+  const { errors } = formState;
 
   const nodes =
     (children as ReactElement)?.type === Fragment
