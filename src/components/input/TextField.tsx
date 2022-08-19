@@ -35,12 +35,11 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
   } = props;
 
   return (
-    <div className={classNames(styles.field, className)}>
+    <div className={classNames(styles.field, className)} style={style}>
       <input
         type={type}
         ref={ref}
         className={classNames(styles.input)}
-        style={style}
         name={name}
         value={value}
         spellCheck={spellCheck}

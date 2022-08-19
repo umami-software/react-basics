@@ -8,7 +8,9 @@ export default {
   component: TextField,
 } as ComponentMeta<typeof TextField>;
 
-const Template: ComponentStory<typeof TextField> = args => <TextField {...args} />;
+const Template: ComponentStory<typeof TextField> = args => (
+  <TextField {...args} style={{ width: 300 }} />
+);
 
 export const Basic = makeStory(Template);
 
