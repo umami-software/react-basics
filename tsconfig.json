@@ -2,12 +2,11 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
-    "isolatedModules": true,
     "moduleResolution": "node",
+    "outDir": "./dist/",
     "jsx": "react-jsx",
     "target": "es5",
     "module": "commonjs",
-    "outDir": "./dist/",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,

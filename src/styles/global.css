@@ -1,4 +1,16 @@
 :root {
+  --size-1: 1px;
+  --size-50: 4px;
+  --size-100: 8px;
+  --size-200: 10px;
+  --size-300: 12px;
+  --size-400: 16px;
+  --size-500: 24px;
+  --size-600: 32px;
+  --size-700: 36px;
+  --size-800: 48px;
+  --size-900: 60px;
+
   --input-font-size: 16px;
   --input-width: 200px;
   --input-height: 32px;
@@ -70,4 +82,14 @@
   --gray700: #b9b9b9;
   --gray800: #e3e3e3;
   --gray900: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }

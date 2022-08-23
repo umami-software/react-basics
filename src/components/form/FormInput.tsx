@@ -15,7 +15,7 @@ export interface FormInputProps extends CommonProps {
 
 export function FormInput(props: FormInputProps) {
   const { name, label, register, rules = {}, errors = {}, className, style, children } = props;
-  console.log({ errors });
+
   return (
     <div className={classNames(styles.input, className)} style={style}>
       <label className={styles.label}>{label}</label>

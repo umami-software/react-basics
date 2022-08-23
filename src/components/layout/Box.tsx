@@ -1,9 +1,29 @@
-import { CommonProps } from 'types';
+import { forwardRef } from 'react';
+import {
+  CommonProps,
+  StyleProps,
+  SizingStyleProps,
+  SpacingStyleProps,
+  BorderStyleProps,
+} from 'types';
 
-export interface BoxProps extends CommonProps {
-  width?: number;
+export interface BoxProps
+  extends CommonProps,
+    StyleProps,
+    SizingStyleProps,
+    SpacingStyleProps,
+    BorderStyleProps {}
+
+function _Box(props: BoxProps, ref) {
+  const { className, style, children, ...otherProps } = props;
+
+  return (
+    <div ref={ref} className={className} style={{ ...style, ...otherProps }}>
+      {children}
+    </div>
+  );
 }
 
-export default function Box(props: BoxProps) {
-  return <div></div>;
-}
+export const Box = forwardRef(_Box);
+
+export default Box;

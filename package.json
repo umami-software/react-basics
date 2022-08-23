@@ -1,6 +1,6 @@
 {
   "name": "react-basics",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Everyday components for React",
   "author": "Mike Cao <mike@mikecao.com>",
   "license": "MIT",
@@ -32,7 +32,8 @@
     "test": "jest",
     "predeploy": "npm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "check-types": "tsc"
   },
   "lint-staged": {
     "src/**/*.{js|jsx|ts|tsx}": [
