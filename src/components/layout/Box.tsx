@@ -5,6 +5,7 @@ import {
   SizingStyleProps,
   SpacingStyleProps,
   BorderStyleProps,
+  TextStyleProps,
 } from 'types';
 
 export interface BoxProps
@@ -12,7 +13,8 @@ export interface BoxProps
     StyleProps,
     SizingStyleProps,
     SpacingStyleProps,
-    BorderStyleProps {}
+    BorderStyleProps,
+    TextStyleProps {}
 
 function _Box(props: BoxProps, ref) {
   const { className, style, children, ...otherProps } = props;

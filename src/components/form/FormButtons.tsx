@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './FormButtons.module.css';
 
 export interface FormButtonsProps extends CommonProps {
-  children: ReactNode;
+  align?: 'left' | 'right' | 'center';
 }
 
 export function FormButtons(props: FormButtonsProps) {

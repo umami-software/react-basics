@@ -35,3 +35,5 @@ export * from 'hooks/useCallbackRef';
 export * from 'hooks/useDebounce';
 export * from 'hooks/useDocumentClick';
 export * from './types';
+
+import 'styles/global.css';

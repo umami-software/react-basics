@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { EventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Button.module.css';
@@ -8,12 +8,11 @@ export interface ButtonProps extends CommonProps {
   variant?: 'primary' | 'secondary' | 'quiet' | 'none';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset' | undefined;
-  onClick?: () => void;
-  children: ReactNode;
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: EventHandler<any>;
 }
 
-export function Button(props: ButtonProps): ReactElement {
+export function Button(props: ButtonProps) {
   const {
     name,
     variant,

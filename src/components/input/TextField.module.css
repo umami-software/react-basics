@@ -19,3 +19,7 @@
   outline: none;
   border-color: var(--gray600);
 }
+
+.input:disabled {
+  background: var(--gray75);
+}

@@ -1,38 +1,12 @@
-import { ReactNode } from 'react';
-import { CommonProps, DisplayValue } from 'types';
+import { CommonProps, TextStyleProps } from 'types';
 
-export interface TextProps extends CommonProps {
-  display?: DisplayValue;
-  fontSize?: number;
-  fontWeight?: number;
-  lineHeight?: number;
-  textDecoration?: string;
-  textAlign?: 'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit';
-  children: ReactNode;
-}
+export interface TextProps extends CommonProps, TextStyleProps {}
 
 export function Text(props: TextProps) {
-  const {
-    className,
-    style,
-    fontSize,
-    fontWeight,
-    lineHeight,
-    textDecoration,
-    textAlign,
-    children,
-  } = props;
-  const styleProps = {
-    fontSize,
-    fontWeight,
-    lineHeight,
-    textDecoration,
-    textAlign,
-    ...style,
-  };
+  const { className, style, children, ...otherProps } = props;
 
   return (
-    <span className={className} style={styleProps}>
+    <span className={className} style={{ ...otherProps, ...style }}>
       {children}
     </span>
   );

@@ -14,7 +14,6 @@ export interface TextFieldProps extends CommonProps {
   autoComplete?: string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
-  children?: ReactNode;
 }
 
 function _TextField(props: TextFieldProps, ref?: Ref<any>) {

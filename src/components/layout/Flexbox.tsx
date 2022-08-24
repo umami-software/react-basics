@@ -6,6 +6,7 @@ import {
   SizingStyleProps,
   SpacingStyleProps,
   StyleProps,
+  TextStyleProps,
 } from 'types';
 
 export interface FlexProps
@@ -14,14 +15,18 @@ export interface FlexProps
     SizingStyleProps,
     SpacingStyleProps,
     BorderStyleProps,
-    FlexStyleProps {}
+    FlexStyleProps,
+    TextStyleProps {}
 
 function _Flexbox(props: FlexProps) {
-  const { className, style, children, direction, ...otherProps } = props;
+  const { className, style, children, display, direction, ...otherProps } = props;
   const flexDirection = direction;
 
   return (
-    <div className={className} style={{ flexDirection, ...otherProps, ...style }}>
+    <div
+      className={className}
+      style={{ display: display || 'flex', flexDirection, ...otherProps, ...style }}
+    >
       {children}
     </div>
   );

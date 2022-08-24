@@ -204,3 +204,11 @@ export interface FlexStyleProps {
     | 'safe center'
     | 'unsafe center';
 }
+
+export interface TextStyleProps {
+  fontSize?: SizeValue;
+  fontWeight?: SizeValue;
+  lineHeight?: SizeValue;
+  textDecoration?: string;
+  textAlign?: 'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit';
+}

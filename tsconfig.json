@@ -3,7 +3,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "moduleResolution": "node",
-    "outDir": "./dist/",
+    "outDir": "./dist/types",
     "jsx": "react-jsx",
     "target": "es5",
     "module": "commonjs",
@@ -22,6 +22,6 @@
       "*": ["src/*"]
     }
   },
-  "include": ["./src/**/*", "./stories/**/*"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
