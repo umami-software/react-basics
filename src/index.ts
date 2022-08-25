@@ -36,4 +36,4 @@ export * from 'hooks/useDebounce';
 export * from 'hooks/useDocumentClick';
 export * from './types';
 
-import 'styles/global.css';
+import './styles/global.css';

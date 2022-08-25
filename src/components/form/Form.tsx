@@ -10,6 +10,8 @@ import {
 import { useForm, UseFormProps, SubmitHandler } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+import FormInput from './FormInput';
+import FormButtons from './FormButtons';
 import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps {
@@ -22,6 +24,8 @@ export interface FormProps extends CommonProps {
 export interface FormMembers {
   reset: () => void;
 }
+
+const validChildren = [FormInput, FormButtons];
 
 function _Form(props: FormProps, ref) {
   const { autoComplete, onSubmit, formProps, className, style, children } = props;
@@ -40,16 +44,23 @@ function _Form(props: FormProps, ref) {
       ? (children as ReactElement).props.children
       : children;
 
+  const getProps = child => {
+    if (validChildren.find((c: any) => c.name === child.type.name)) {
+      return { register, errors, reset };
+    }
+  };
+
   return (
     <form
+      ref={ref}
       autoComplete={autoComplete}
       className={classNames(styles.form, className)}
       style={style}
       onSubmit={handleSubmit(onSubmit)}
     >
       {typeof children === 'function'
-        ? children(register, errors)
-        : Children.map(nodes, (child: any) => cloneElement(child, { register, errors }))}
+        ? children({ register, errors, reset })
+        : Children.map(nodes, (child: any) => cloneElement(child, getProps(child)))}
     </form>
   );
 }

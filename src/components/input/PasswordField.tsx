@@ -2,8 +2,7 @@ import { useState, forwardRef } from 'react';
 import classNames from 'classnames';
 import { TextField, TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
-import Show from 'assets/show.svg';
-import Hide from 'assets/hide.svg';
+import { Show, Hide } from 'icons';
 import styles from './PasswordField.module.css';
 
 export interface PasswordFieldProps extends TextFieldProps {
