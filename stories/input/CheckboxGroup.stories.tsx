@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu, ListItem } from '../../src';
+import { ListItem, CheckboxGroup } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/Menu',
-  component: Menu,
-} as ComponentMeta<typeof Menu>;
+  title: 'Input/CheckboxGroup',
+  component: CheckboxGroup,
+} as ComponentMeta<typeof CheckboxGroup>;
 
 const items: ListItem[] = [
   { value: 'one', label: 'One' },
@@ -14,23 +14,19 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof Menu> = args => <Menu {...args} />;
+const Template: ComponentStory<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
 
 export const Basic = makeStory(Template, {
   args: {
     items,
-  },
-});
-
-export const WithDivider = makeStory(Template, {
-  args: {
-    items: [...items, { key: 'four', label: 'Four', divider: true }],
+    name: 'name',
   },
 });
 
 export const Preselect = makeStory(Template, {
   args: {
     items,
-    value: 'three',
+    name: 'name',
+    value: ['three'],
   },
 });

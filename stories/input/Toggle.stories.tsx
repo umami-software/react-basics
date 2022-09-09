@@ -5,7 +5,7 @@ import { Toggle } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/Toggle',
+  title: 'Input/Toggle',
   component: Toggle,
 } as ComponentMeta<typeof Toggle>;
 

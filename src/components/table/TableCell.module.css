@@ -1,0 +1,5 @@
+.cell {
+  display: block;
+  padding: var(--size-400);
+  flex: 1;
+}

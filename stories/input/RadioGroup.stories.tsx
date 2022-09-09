@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, CheckboxGroup } from '../../src';
+import { ListItem, RadioGroup } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/CheckboxGroup',
-  component: CheckboxGroup,
-} as ComponentMeta<typeof CheckboxGroup>;
+  title: 'Input/RadioGroup',
+  component: RadioGroup,
+} as ComponentMeta<typeof RadioGroup>;
 
 const items: ListItem[] = [
   { value: 'one', label: 'One' },
@@ -14,12 +14,13 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
+const Template: ComponentStory<typeof RadioGroup> = args => <RadioGroup {...args} />;
 
 export const Basic = makeStory(Template, {
   args: {
     items,
     name: 'name',
+    label: 'Radio Group',
   },
 });
 
@@ -27,6 +28,7 @@ export const Preselect = makeStory(Template, {
   args: {
     items,
     name: 'name',
-    value: ['three'],
+    value: 'three',
+    label: 'Radio Group',
   },
 });

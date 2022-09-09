@@ -4,7 +4,7 @@ import { Button, Icon } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/Button',
+  title: 'Input/Button',
   component: Button,
 } as ComponentMeta<typeof Button>;
 

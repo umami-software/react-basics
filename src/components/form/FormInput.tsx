@@ -18,7 +18,11 @@ export function FormInput(props: FormInputProps) {
 
   return (
     <div className={classNames(styles.input, className)} style={style}>
-      <label className={styles.label}>{label}</label>
+      {label && (
+        <label className={styles.label} htmlFor={name}>
+          {label}
+        </label>
+      )}
       {Children.map(children, (child: any) => (
         <div className={classNames({ [styles.error]: errors[name] })}>
           {cloneElement(child, register ? register(name, rules) : {})}

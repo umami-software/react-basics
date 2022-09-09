@@ -5,7 +5,7 @@ import { ListItem } from 'types';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/Dropdown',
+  title: 'Input/Dropdown',
   component: Dropdown,
 } as ComponentMeta<typeof Dropdown>;
 

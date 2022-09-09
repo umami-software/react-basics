@@ -4,7 +4,7 @@ import { SearchField } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/SearchField',
+  title: 'Input/SearchField',
   component: SearchField,
 } as ComponentMeta<typeof SearchField>;
 

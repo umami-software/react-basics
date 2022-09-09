@@ -4,7 +4,7 @@ import { Slider, TextField } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/Slider',
+  title: 'Input/Slider',
   component: Slider,
 } as ComponentMeta<typeof Slider>;
 

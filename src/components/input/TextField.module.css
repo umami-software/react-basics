@@ -12,7 +12,7 @@
   padding: var(--input-padding);
   background: var(--gray50);
   box-sizing: border-box;
-  flex: 1;
+  width: 100%;
 }
 
 .input:focus {

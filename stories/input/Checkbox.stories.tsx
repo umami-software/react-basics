@@ -5,7 +5,7 @@ import { Checkbox } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/Checkbox',
+  title: 'Input/Checkbox',
   component: Checkbox,
 } as ComponentMeta<typeof Checkbox>;
 

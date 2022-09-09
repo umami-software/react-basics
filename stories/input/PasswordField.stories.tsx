@@ -4,7 +4,7 @@ import { PasswordField } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/PasswordField',
+  title: 'Input/PasswordField',
   component: PasswordField,
   argTypes: {
     type: {

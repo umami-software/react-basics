@@ -4,7 +4,7 @@ import { ButtonGroup, Icon, ListItem } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/ButtonGroup',
+  title: 'Input/ButtonGroup',
   component: ButtonGroup,
 } as ComponentMeta<typeof ButtonGroup>;
 

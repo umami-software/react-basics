@@ -1,16 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { TextField } from '../../src';
+import { TextArea } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Inputs/TextField',
-  component: TextField,
-} as ComponentMeta<typeof TextField>;
+  title: 'Input/TextArea',
+  component: TextArea,
+} as ComponentMeta<typeof TextArea>;
 
-const Template: ComponentStory<typeof TextField> = args => (
-  <TextField {...args} style={{ width: 300 }} />
-);
+const Template: ComponentStory<typeof TextArea> = args => <TextArea {...args} />;
 
 export const Basic = makeStory(Template);
 
