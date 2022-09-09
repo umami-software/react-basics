@@ -1,20 +1,39 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from '../../src';
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableWindow,
+} from '../../src';
 import { makeStory } from '../utils';
+import { faker } from '@faker-js/faker';
 
-const rows = [
-  { id: 1, name: 'Bob', email: 'bob@aol.com' },
-  { id: 2, name: 'Fed', email: 'ted@yahoo.com' },
-  { id: 3, name: 'Ted', email: 'ted@compuserve.com' },
-  { id: 4, name: 'Joe', email: 'joe@prodigy.net' },
-];
+faker.seed(123);
+
+const rows = [...Array(5)].map(() => ({
+  id: faker.mersenne.rand(),
+  name: faker.name.fullName(),
+  email: faker.internet.email(),
+}));
+
+const manyRows = [...Array(100)].map(() => ({
+  id: faker.mersenne.rand(),
+  name: faker.name.fullName(),
+  email: faker.internet.email(),
+}));
 
 const columns = [
   { name: 'id', label: 'ID' },
   { name: 'name', label: 'Name' },
   { name: 'email', label: 'Email' },
 ];
+
+const widths = [1, 2, 5];
+const align = ['left', 'center', 'right'] as any;
 
 export default {
   title: 'Table/Table',
@@ -66,6 +85,58 @@ export const PureTags = makeStory(Template, {
           </TableRow>
         </TableBody>
       </>
+    ),
+  },
+});
+
+export const ColumnWidths = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <TableHeader columns={columns}>
+          {(column, i) => <TableColumn style={{ flex: widths[i] }}>{column.label}</TableColumn>}
+        </TableHeader>
+        <TableBody items={rows}>
+          {row => (
+            <TableRow item={row}>
+              {(item, key, i) => <TableCell style={{ flex: widths[i] }}>{item[key]}</TableCell>}
+            </TableRow>
+          )}
+        </TableBody>
+      </>
+    ),
+  },
+});
+
+export const Alignment = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <TableHeader columns={columns}>
+          {(column, i) => <TableColumn textAlign={align[i]}>{column.label}</TableColumn>}
+        </TableHeader>
+        <TableBody items={rows}>
+          {row => (
+            <TableRow item={row}>
+              {(item, key, i) => <TableCell textAlign={align[i]}>{item[key]}</TableCell>}
+            </TableRow>
+          )}
+        </TableBody>
+      </>
+    ),
+  },
+});
+
+export const Window = makeStory(Template, {
+  args: {
+    children: (
+      <TableWindow width={800} height={600} itemCount={manyRows.length} itemSize={50}>
+        {({ index, style }) => (
+          <TableRow item={manyRows[index]} style={style}>
+            {(item, key, i) => <TableCell flex={widths[i]}>{item[key]}</TableCell>}
+          </TableRow>
+        )}
+      </TableWindow>
     ),
   },
 });

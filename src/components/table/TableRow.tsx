@@ -12,7 +12,7 @@ export function TableRow(props: TableRowProps) {
   return (
     <tr className={classNames(styles.row, className)} style={style}>
       {typeof children === 'function' && item
-        ? Object.keys(item).map(key => children(item, key))
+        ? Object.keys(item).map((key, index) => children(item, key, index))
         : children}
     </tr>
   );

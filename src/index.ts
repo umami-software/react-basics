@@ -37,6 +37,7 @@ export * from 'components/table/TableCell';
 export * from 'components/table/TableColumn';
 export * from 'components/table/TableHeader';
 export * from 'components/table/TableRow';
+export * from 'components/table/TableWindow';
 export * from 'hooks/useCallbackRef';
 export * from 'hooks/useDebounce';
 export * from 'hooks/useDocumentClick';

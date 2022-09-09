@@ -6,13 +6,14 @@ export interface TableCellProps extends CommonProps {
   key?: string;
   item?: object;
   flex?: number;
-  align?: 'left' | 'right' | 'center';
+  width?: number;
+  textAlign?: 'left' | 'right' | 'center';
 }
 
 export function TableCell(props: TableCellProps) {
-  const { key, item, flex, className, style, children } = props;
+  const { key, item, flex, width, textAlign, className, style, children } = props;
   return (
-    <td className={classNames(styles.cell, className)} style={{ ...style, flex }}>
+    <td className={classNames(styles.cell, className)} style={{ textAlign, width, flex, ...style }}>
       {typeof children === 'function' ? children(key, item) : children}
     </td>
   );

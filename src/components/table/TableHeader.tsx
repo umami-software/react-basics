@@ -12,7 +12,7 @@ export function TableHeader(props: TableHeaderProps) {
   return (
     <thead className={classNames(styles.header, className)} style={style}>
       {typeof children === 'function' && columns
-        ? columns.map(column => children(column))
+        ? columns.map((column, index) => children(column, index))
         : children}
     </thead>
   );
