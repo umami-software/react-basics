@@ -31,7 +31,6 @@
     "dev": "cross-env NODE_ENV=production webpack --progress --watch --config webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --progress --config webpack.config.js",
     "test": "jest",
-    "prepublish": "build",
     "predeploy": "npm run build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static",
     "build-storybook": "build-storybook",

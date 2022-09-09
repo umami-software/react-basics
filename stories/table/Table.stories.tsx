@@ -14,13 +14,7 @@ import { faker } from '@faker-js/faker';
 
 faker.seed(123);
 
-const rows = [...Array(5)].map(() => ({
-  id: faker.mersenne.rand(),
-  name: faker.name.fullName(),
-  email: faker.internet.email(),
-}));
-
-const manyRows = [...Array(100)].map(() => ({
+const rows = [...Array(100)].map(() => ({
   id: faker.mersenne.rand(),
   name: faker.name.fullName(),
   email: faker.internet.email(),
@@ -96,7 +90,7 @@ export const ColumnWidths = makeStory(Template, {
         <TableHeader columns={columns}>
           {(column, i) => <TableColumn style={{ flex: widths[i] }}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={rows}>
+        <TableBody items={rows.slice(0, 5)}>
           {row => (
             <TableRow item={row}>
               {(item, key, i) => <TableCell style={{ flex: widths[i] }}>{item[key]}</TableCell>}
@@ -115,7 +109,7 @@ export const Alignment = makeStory(Template, {
         <TableHeader columns={columns}>
           {(column, i) => <TableColumn textAlign={align[i]}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={rows}>
+        <TableBody items={rows.slice(0, 5)}>
           {row => (
             <TableRow item={row}>
               {(item, key, i) => <TableCell textAlign={align[i]}>{item[key]}</TableCell>}
@@ -130,9 +124,9 @@ export const Alignment = makeStory(Template, {
 export const Window = makeStory(Template, {
   args: {
     children: (
-      <TableWindow width={800} height={600} itemCount={manyRows.length} itemSize={50}>
+      <TableWindow width={800} height={600} itemCount={rows.length} itemSize={50}>
         {({ index, style }) => (
-          <TableRow item={manyRows[index]} style={style}>
+          <TableRow item={rows[index]} style={style}>
             {(item, key, i) => <TableCell flex={widths[i]}>{item[key]}</TableCell>}
           </TableRow>
         )}
