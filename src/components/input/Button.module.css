@@ -68,16 +68,16 @@
 }
 
 .button.small {
-  font-size: 12px;
-  padding: 4px 8px;
+  font-size: var(--font-size-small);
+  padding: var(--size50) var(--size100);
 }
 
 .button.medium {
-  font-size: 16px;
-  padding: 8px 16px;
+  font-size: var(--font-size-medium);
+  padding: var(--size100) var(--size400);
 }
 
 .button.large {
-  font-size: 24px;
-  padding: 14px 28px;
+  font-size: var(--font-size-large);
+  padding: var(--size400) var(--size600);
 }

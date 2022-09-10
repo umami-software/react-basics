@@ -19,7 +19,21 @@
   border-left: 1px solid var(--gray500);
 }
 
-.group.thin button {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+.group.small .button {
+  font-size: var(--font-size-xsmall);
+  padding: var(--size50) var(--size100);
+}
+
+.group.medium .button {
+  font-size: var(--font-size-small);
+  padding: var(--size100) var(--size200);
+}
+
+.group.large .button {
+  font-size: var(--font-size-medium);
+  padding: var(--size200) var(--size400);
+}
+
+.group .button.selected {
+  font-weight: 600;
 }

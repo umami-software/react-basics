@@ -1,0 +1,8 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  border-top: 1px solid var(--gray400);
+}

@@ -1,39 +1,50 @@
-import { ReactElement } from 'react';
+import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
-import Button from './Button';
-import styles from './ButtonGroup.module.css';
 import { CommonProps, ListItem } from 'types';
+import { addClassNames } from 'components/utils';
+import Button from './Button';
+// eslint-disable-next-line css-modules/no-unused-class
+import styles from './ButtonGroup.module.css';
 
 export interface ButtonGroupProps extends CommonProps {
-  items: ListItem[];
-  onClick: (value: string) => void;
+  items?: ListItem[];
+  selected?: string;
+  onSelect: (value?: string) => void;
   size: 'small' | 'medium' | 'large';
-  variant: 'thin' | 'none';
-  children?: ReactElement<ButtonGroupProps> | ReactElement<ButtonGroupProps>[];
 }
 
-export function ButtonGroup(props: ButtonGroupProps): ReactElement {
-  const { items = [], size = 'medium', variant, children, onClick, className, style } = props;
+export function ButtonGroup(props: ButtonGroupProps) {
+  const { items = [], selected, size = 'medium', onSelect, className, style, children } = props;
+
+  const handleClick = (value: string) => {
+    onSelect(value);
+  };
 
   return (
     <div
-      className={classNames(styles.group, className, { [styles.thin]: variant === 'thin' })}
+      className={classNames(
+        styles.group,
+        className,
+        addClassNames(styles, size, ['small', 'medium', 'large']),
+      )}
       style={style}
     >
-      {children ||
-        items.map(item => {
-          const { label, value } = item;
-          return (
-            <Button
-              key={value}
-              className={classNames(styles.button)}
-              size={size}
-              onClick={onClick.bind(null, value)}
-            >
-              {label}
-            </Button>
-          );
-        })}
+      {!children &&
+        items.map(({ label, value }) => (
+          <Button
+            key={value}
+            className={classNames(styles.button, { [styles.selected]: selected === value })}
+            size={size}
+            onClick={handleClick.bind(null, value)}
+          >
+            {label}
+          </Button>
+        ))}
+      {Children.map(children, (child: any) =>
+        child.type === Button
+          ? cloneElement(child, { onSelect: handleClick.bind(null, child.props.value) })
+          : null,
+      )}
     </div>
   );
 }

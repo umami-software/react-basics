@@ -1,6 +1,7 @@
-import { useState, ReactElement, ReactEventHandler } from 'react';
+import { useState, ReactElement, ReactEventHandler, Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import { ListItem, CommonProps } from 'types';
+import Item from 'components/input/Item';
 import styles from './Menu.module.css';
 
 export interface MenuItem extends ListItem {
@@ -14,7 +15,7 @@ export interface MenuProps extends CommonProps {
 }
 
 export function Menu(props: MenuProps): ReactElement {
-  const { items = [], value, className, onSelect } = props;
+  const { items = [], value, onSelect, className, style, children } = props;
   const [selected, setSelected] = useState(value);
 
   const handleSelect = (key, e) => {
@@ -23,19 +24,25 @@ export function Menu(props: MenuProps): ReactElement {
   };
 
   return (
-    <div className={classNames(styles.menu, className)}>
-      {items.map(({ value: itemValue, label, divider }) => (
-        <div
-          key={value}
-          className={classNames(styles.item, {
-            [styles.selected]: selected === itemValue,
-            [styles.divider]: divider,
-          })}
-          onClick={handleSelect.bind(null, itemValue)}
-        >
-          {label}
-        </div>
-      ))}
+    <div className={classNames(styles.menu, className)} style={style}>
+      {!children &&
+        items.map(({ label, value: itemValue, divider }) => (
+          <Item
+            key={itemValue}
+            className={classNames(styles.item, {
+              [styles.selected]: selected === itemValue,
+            })}
+            divider={divider}
+            onClick={handleSelect.bind(null, itemValue)}
+          >
+            {label}
+          </Item>
+        ))}
+      {Children.map(children, (child: any) =>
+        child.type === Item
+          ? cloneElement(child, { onClick: handleSelect.bind(null, child.props.value) })
+          : null,
+      )}
     </div>
   );
 }

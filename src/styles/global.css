@@ -1,15 +1,15 @@
 :root {
-  --size-1: 1px;
-  --size-50: 4px;
-  --size-100: 8px;
-  --size-200: 10px;
-  --size-300: 12px;
-  --size-400: 16px;
-  --size-500: 24px;
-  --size-600: 32px;
-  --size-700: 36px;
-  --size-800: 48px;
-  --size-900: 60px;
+  --size1: 1px;
+  --size50: 4px;
+  --size100: 8px;
+  --size200: 10px;
+  --size300: 12px;
+  --size400: 16px;
+  --size500: 24px;
+  --size600: 32px;
+  --size700: 36px;
+  --size800: 48px;
+  --size900: 60px;
 
   --input-font-size: 16px;
   --input-width: 200px;
@@ -19,14 +19,14 @@
   --input-border-radius: 4px;
   --input-gap-size: 10px;
 
-  --primary400: #2680eb;
-  --primary500: #1473e6;
-  --primary600: #0d66d0;
-  --primary700: #095aba;
+  --primary400: var(--gray900);
+  --primary500: var(--gray800);
+  --primary600: var(--gray700);
+  --primary700: var(--gray600);
 
   --font-size-xlarge: 36px;
   --font-size-large: 24px;
-  --font-size-normal: 16px;
+  --font-size-medium: 16px;
   --font-size-small: 14px;
   --font-size-xsmall: 12px;
 

@@ -4,7 +4,7 @@
   align-items: center;
   vertical-align: middle;
   position: relative;
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-medium);
   flex-shrink: 0;
   box-sizing: content-box;
 }

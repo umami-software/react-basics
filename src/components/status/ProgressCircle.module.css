@@ -36,7 +36,7 @@
 
 .medium,
 .medium svg {
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-medium);
   width: 96px;
   height: 96px;
 }

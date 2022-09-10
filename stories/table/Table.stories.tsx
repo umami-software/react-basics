@@ -35,7 +35,7 @@ export default {
 } as ComponentMeta<typeof Table>;
 
 const Template: ComponentStory<typeof Table> = args => (
-  <Table {...args} rows={rows} columns={columns} labelKey="label" />
+  <Table {...args} rows={rows} columns={columns} />
 );
 
 export const Basic = makeStory(Template);

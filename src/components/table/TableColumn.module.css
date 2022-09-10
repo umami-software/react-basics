@@ -1,6 +1,6 @@
 .column {
   display: block;
-  padding: var(--size-400);
+  padding: var(--size400);
   border-bottom: 1px solid var(--gray300);
   text-align: left;
   font-weight: 600;

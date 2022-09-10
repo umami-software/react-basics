@@ -24,7 +24,7 @@ export const Basic = makeStory(Template, {
 
 export const WithDivider = makeStory(Template, {
   args: {
-    items: [...items, { key: 'four', label: 'Four', divider: true }],
+    items: [...items, { value: 'four', label: 'Four', divider: true }],
   },
 });
 

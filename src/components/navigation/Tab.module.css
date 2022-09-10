@@ -2,11 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray900);
-  padding: 8px 0;
+  color: var(--gray700);
+  padding: var(--size300) 0;
   border-bottom: 2px solid transparent;
   user-select: none;
   margin: 0 0 -2px 0;
+}
+
+.tab:hover {
+  color: var(--gray900);
 }
 
 .tab.selected {
@@ -19,7 +23,6 @@
 }
 
 .tab.vertical {
-  padding: 0 8px;
   border: 0;
   border-left: 2px solid transparent;
   margin: 0 0 0 -2px;

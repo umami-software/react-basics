@@ -10,18 +10,17 @@ import styles from './Table.module.css';
 export interface TableProps extends CommonProps {
   rows: any[];
   columns: any[];
-  labelKey?: string;
 }
 
 export function Table(props: TableProps) {
-  const { columns, rows, labelKey = '', className, style, children } = props;
+  const { columns, rows, className, style, children } = props;
 
   return (
     <table className={classNames(styles.table, className)} style={style}>
       {!children && columns && (
         <TableHeader columns={columns}>
           {column => (
-            <TableColumn>{typeof column === 'string' ? column : column[labelKey]}</TableColumn>
+            <TableColumn>{typeof column === 'string' ? column : column?.label}</TableColumn>
           )}
         </TableHeader>
       )}

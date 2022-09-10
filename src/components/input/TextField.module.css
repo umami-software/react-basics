@@ -5,7 +5,7 @@
 
 .input {
   font-family: inherit;
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-medium);
   line-height: var(--input-line-height);
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);
