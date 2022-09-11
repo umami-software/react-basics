@@ -24,7 +24,7 @@ export function Tree(props: TreeProps) {
   return (
     <div className={classNames(styles.tree, className)} style={style}>
       {children ||
-        items.map(({ value, label, children: nodes, expanded, disabled }) => {
+        items.map(({ value, label, children: nodes, expanded, disabled }, index) => {
           if (nodes) {
             return (
               <Branch
@@ -38,7 +38,7 @@ export function Tree(props: TreeProps) {
               </Branch>
             );
           }
-          return <Leaf>{label}</Leaf>;
+          return <Leaf key={index}>{label}</Leaf>;
         })}
     </div>
   );

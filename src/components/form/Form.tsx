@@ -1,15 +1,8 @@
-import {
-  ReactNode,
-  Children,
-  cloneElement,
-  forwardRef,
-  Fragment,
-  ReactElement,
-  useImperativeHandle,
-} from 'react';
+import { forwardRef, ReactNode, useImperativeHandle } from 'react';
 import { useForm, UseFormProps, SubmitHandler } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+import { cloneChildren } from 'components/utils';
 import FormInput from './FormInput';
 import FormButtons from './FormButtons';
 import styles from './Form.module.css';
@@ -18,7 +11,7 @@ export interface FormProps extends CommonProps {
   autoComplete?: 'on' | 'off';
   onSubmit: SubmitHandler<any>;
   formProps?: UseFormProps;
-  children?: ReactNode;
+  children?: ReactNode | ((props: object) => ReactNode);
 }
 
 export interface FormMembers {
@@ -39,11 +32,6 @@ function _Form(props: FormProps, ref) {
     }),
   );
 
-  const nodes =
-    (children as ReactElement)?.type === Fragment
-      ? (children as ReactElement).props.children
-      : children;
-
   const getProps = child => {
     if (validChildren.find((c: any) => c.name === child.type.name)) {
       return { register, errors, reset };
@@ -60,7 +48,7 @@ function _Form(props: FormProps, ref) {
     >
       {typeof children === 'function'
         ? children({ register, errors, reset })
-        : Children.map(nodes, (child: any) => cloneElement(child, getProps(child)))}
+        : cloneChildren(children, child => getProps(child))}
     </form>
   );
 }

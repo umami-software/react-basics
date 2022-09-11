@@ -52,7 +52,7 @@ export type ColorValue = string;
 export interface CommonProps {
   className?: string;
   style?: CSSProperties;
-  children?: ReactNode;
+  children?: any;
 }
 
 export interface InputProps {

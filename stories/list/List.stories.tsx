@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu, ListItem } from '../../src';
+import { List, ListItem } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
-  title: 'Input/Menu',
-  component: Menu,
-} as ComponentMeta<typeof Menu>;
+  title: 'List/List',
+  component: List,
+} as ComponentMeta<typeof List>;
 
 const items: ListItem[] = [
   { value: 'one', label: 'One' },
@@ -14,7 +14,7 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof Menu> = args => <Menu {...args} />;
+const Template: ComponentStory<typeof List> = args => <List {...args} style={{ width: 200 }} />;
 
 export const Basic = makeStory(Template, {
   args: {
@@ -22,20 +22,7 @@ export const Basic = makeStory(Template, {
   },
 });
 
-export const WithDivider = makeStory(Template, {
-  args: {
-    items: [...items, { value: 'four', label: 'Four', divider: true }],
-  },
-});
-
 export const Preselect = makeStory(Template, {
-  args: {
-    items,
-    value: 'three',
-  },
-});
-
-export const Sections = makeStory(Template, {
   args: {
     items,
     value: 'three',

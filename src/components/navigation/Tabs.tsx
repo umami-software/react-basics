@@ -1,29 +1,27 @@
 import { ReactElement, useState } from 'react';
 import classNames from 'classnames';
 import { CommonProps, ListItem } from 'types';
-import { Tab, TabProps } from 'components/navigation/Tab';
+import { TabProps } from 'components/navigation/Tab';
+import Item from 'components/common/Item';
+import { cloneChildren } from 'components/utils';
 import styles from './Tabs.module.css';
 
-export interface TabItem extends ListItem {
-  disabled?: boolean;
-}
-
 export interface TabsProps extends CommonProps {
-  items?: TabItem[];
+  items?: ListItem[];
   selectedValue?: string;
   vertical?: boolean;
-  spacing?: number;
+  gap?: number;
   quiet?: boolean;
   onSelect: (value: string) => void;
-  children?: ReactElement<TabProps> | ReactElement<TabProps>[];
+  children?: ReactElement<TabProps>;
 }
 
 export function Tabs(props: TabsProps) {
   const {
     items = [],
-    selectedValue,
+    selectedValue = '',
     vertical,
-    spacing,
+    gap,
     quiet,
     className,
     style = {},
@@ -37,8 +35,8 @@ export function Tabs(props: TabsProps) {
     onSelect(value);
   };
 
-  if (spacing !== undefined) {
-    style.gap = `${spacing}px`;
+  if (gap !== undefined) {
+    style.gap = gap;
   }
 
   return (
@@ -49,19 +47,28 @@ export function Tabs(props: TabsProps) {
       })}
       style={style}
     >
-      {children ||
-        items.map(({ value, label, disabled }) => (
-          <Tab
+      {!children &&
+        items?.map(({ value, label, disabled }, index) => (
+          <Item
             key={value}
-            value={value}
-            selected={selected === value}
-            vertical={vertical}
+            className={classNames(styles.tab, {
+              [styles.selected]: selected === value,
+              [styles.disabled]: disabled,
+            })}
             disabled={disabled}
-            onClick={handleClick.bind(null, value)}
+            onClick={handleClick.bind(null, value ?? index)}
           >
             {label}
-          </Tab>
+          </Item>
         ))}
+      {cloneChildren(children, ({ props: { value, disabled } }, index) => ({
+        className: classNames(styles.tab, {
+          [styles.selected]: selected === (value ?? index),
+          [styles.disabled]: disabled,
+        }),
+        disabled,
+        onClick: handleClick.bind(null, value ?? index),
+      }))}
     </div>
   );
 }

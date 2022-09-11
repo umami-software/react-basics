@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, Tabs } from '../../src';
+import { ListItem, Tabs, Item } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -22,6 +22,13 @@ export const Basic = makeStory(Template, {
   },
 });
 
+export const Preselected = makeStory(Template, {
+  args: {
+    items: [...items],
+    selectedValue: 'three',
+  },
+});
+
 export const Disabled = makeStory(Template, {
   args: {
     items: [...items, { value: 'four', label: 'Four', disabled: true }],
@@ -32,5 +39,17 @@ export const Vertical = makeStory(Template, {
   args: {
     items,
     vertical: true,
+  },
+});
+
+export const Tags = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <Item>One</Item>
+        <Item>Two</Item>
+        <Item>Three</Item>
+      </>
+    ),
   },
 });

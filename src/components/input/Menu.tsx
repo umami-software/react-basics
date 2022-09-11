@@ -1,7 +1,7 @@
 import { useState, ReactElement, ReactEventHandler, Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import { ListItem, CommonProps } from 'types';
-import Item from 'components/input/Item';
+import Item from 'components/common/Item';
 import styles from './Menu.module.css';
 
 export interface MenuItem extends ListItem {
@@ -26,13 +26,12 @@ export function Menu(props: MenuProps): ReactElement {
   return (
     <div className={classNames(styles.menu, className)} style={style}>
       {!children &&
-        items.map(({ label, value: itemValue, divider }) => (
+        items.map(({ label, value: itemValue }) => (
           <Item
             key={itemValue}
             className={classNames(styles.item, {
               [styles.selected]: selected === itemValue,
             })}
-            divider={divider}
             onClick={handleSelect.bind(null, itemValue)}
           >
             {label}
@@ -40,7 +39,12 @@ export function Menu(props: MenuProps): ReactElement {
         ))}
       {Children.map(children, (child: any) =>
         child.type === Item
-          ? cloneElement(child, { onClick: handleSelect.bind(null, child.props.value) })
+          ? cloneElement(child, {
+              className: classNames(styles.item, {
+                [styles.selected]: selected === child.props.value,
+              }),
+              onClick: handleSelect.bind(null, child.props.value),
+            })
           : null,
       )}
     </div>

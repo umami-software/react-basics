@@ -3,6 +3,10 @@
   align-items: center;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .divider {
   border-top: 1px solid var(--gray400);
 }

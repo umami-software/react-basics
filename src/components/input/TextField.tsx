@@ -1,4 +1,4 @@
-import { Ref, forwardRef, ReactNode, ChangeEventHandler, FocusEventHandler } from 'react';
+import { Ref, forwardRef, ChangeEventHandler, FocusEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './TextField.module.css';

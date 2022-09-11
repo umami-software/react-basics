@@ -1,8 +1,8 @@
-import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import { CommonProps, ListItem } from 'types';
 import { addClassNames } from 'components/utils';
 import Button from './Button';
+import { cloneChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './ButtonGroup.module.css';
 
@@ -25,7 +25,7 @@ export function ButtonGroup(props: ButtonGroupProps) {
       className={classNames(
         styles.group,
         className,
-        addClassNames(styles, size, ['small', 'medium', 'large']),
+        addClassNames(styles, { size: { value: size, map: ['small', 'medium', 'large'] } }),
       )}
       style={style}
     >
@@ -40,11 +40,9 @@ export function ButtonGroup(props: ButtonGroupProps) {
             {label}
           </Button>
         ))}
-      {Children.map(children, (child: any) =>
-        child.type === Button
-          ? cloneElement(child, { onSelect: handleClick.bind(null, child.props.value) })
-          : null,
-      )}
+      {cloneChildren(children, (child, index) => ({
+        onSelect: handleClick.bind(null, child.props.value ?? index),
+      }))}
     </div>
   );
 }

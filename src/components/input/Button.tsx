@@ -30,8 +30,10 @@ export function Button(props: ButtonProps) {
   return (
     <button
       className={classNames(styles.button, className, {
-        ...addClassNames(styles, variant, ['primary', 'secondary', 'quiet']),
-        ...addClassNames(styles, size, ['small', 'medium', 'large']),
+        ...addClassNames(styles, {
+          variant: { value: variant, map: ['primary', 'secondary', 'quiet'] },
+          size: { value: size, map: ['small', 'medium', 'large'] },
+        }),
         [styles.disabled]: disabled,
       })}
       type={type || 'button'}

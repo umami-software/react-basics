@@ -2,7 +2,7 @@ import { CommonProps } from 'types';
 import classNames from 'classnames';
 import { forwardRef } from 'react';
 
-const breakpoints = {
+export const ContainerBreakpoints = {
   xs: 0,
   sm: 576,
   md: 768,

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid var(--gray200);
-  gap: 36px;
+  gap: var(--size600);
 }
 
 .tabs.quiet,
@@ -15,5 +15,41 @@
   align-items: flex-start;
   border: 0;
   border-left: 2px solid var(--gray200);
-  gap: 24px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray700);
+  padding: var(--size300) 0;
+  border-bottom: 2px solid transparent;
+  user-select: none;
+  margin: 0 0 -2px 0;
+  cursor: pointer;
+}
+
+.tab:hover {
+  color: var(--gray900);
+}
+
+.tab.selected {
+  color: var(--gray900);
+  border-bottom: 2px solid var(--primary400);
+}
+
+.tab.disabled {
+  color: var(--gray500);
+}
+
+.vertical .tab {
+  border: 0;
+  border-left: 2px solid transparent;
+  margin: 0 0 0 -2px;
+  padding: 0 var(--size300);
+}
+
+.tabs.vertical .tab.selected {
+  border: 0;
+  border-left: 2px solid var(--primary400);
 }

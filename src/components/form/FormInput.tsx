@@ -26,7 +26,7 @@ export function FormInput(props: FormInputProps) {
       {Children.map(children, (child: any) => (
         <div className={classNames({ [styles.error]: errors[name] })}>
           {cloneElement(child, register ? register(name, rules) : {})}
-          <div className={styles.message}>{errors[name]?.message}</div>
+          <div className={styles.message}>{errors[name]?.message as string}</div>
         </div>
       ))}
     </div>

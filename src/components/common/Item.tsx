@@ -1,19 +1,21 @@
+import { MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './Item.module.css';
-import { MouseEventHandler } from 'react';
 
 export interface ItemProps extends CommonProps {
-  divider?: boolean;
-  onClick: MouseEventHandler;
+  value?: string;
+  disabled?: boolean;
+  onClick?: MouseEventHandler;
 }
 
 export function Item(props: ItemProps) {
-  const { children, divider, className, style, onClick } = props;
+  const { disabled, children, className, style, onClick } = props;
 
   return (
     <div
-      className={classNames(styles.item, className, { [styles.divider]: divider })}
+      className={classNames(styles.item, className, { [styles.disabled]: disabled })}
       style={style}
       onClick={onClick}
     >

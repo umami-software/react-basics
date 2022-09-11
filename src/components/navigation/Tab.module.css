@@ -26,6 +26,7 @@
   border: 0;
   border-left: 2px solid transparent;
   margin: 0 0 0 -2px;
+  padding: 0 var(--size300);
 }
 
 .tab.vertical.selected {

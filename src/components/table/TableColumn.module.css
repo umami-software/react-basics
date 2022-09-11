@@ -1,7 +1,7 @@
 .column {
   display: block;
   padding: var(--size400);
-  border-bottom: 1px solid var(--gray300);
+  overflow: hidden;
   text-align: left;
   font-weight: 600;
   flex: 1;
