@@ -8,7 +8,8 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 function getLocalIdent(context, localIdentName, localName) {
   const { name } = path.parse(context.resourcePath);
 
-  return `${name.replace('.module', '')}-${localName}`
+  return `${name}-${localName}`
+    .replace('.module', '')
     .replace(new RegExp('[^a-zA-Z0-9\\-_\u00A0-\uFFFF]', 'g'), '-')
     .replace(/^((-?[0-9])|--)/, '_$1');
 }
