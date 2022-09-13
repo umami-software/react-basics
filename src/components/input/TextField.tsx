@@ -34,7 +34,10 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
   } = props;
 
   return (
-    <div className={classNames(styles.field, className)} style={style}>
+    <div
+      className={classNames(styles.field, className, { [styles.disabled]: disabled })}
+      style={style}
+    >
       <input
         type={type}
         ref={ref}

@@ -27,7 +27,7 @@ export function TextArea(props: TextAreaProps) {
     readOnly,
     disabled,
     placeholder,
-    resizeable = true,
+    resizeable = false,
     className,
     style,
     onChange,
@@ -38,10 +38,10 @@ export function TextArea(props: TextAreaProps) {
   };
 
   return (
-    <div className={classNames(styles.textarea, className)}>
+    <div className={classNames(styles.field, className, { [styles.disabled]: disabled })}>
       <textarea
-        className={classNames(styles.input, className, { [styles.noresize]: !resizeable })}
-        style={style}
+        className={classNames(styles.input, className)}
+        style={{ ...style, resize: resizeable ? undefined : 'none' }}
         name={name}
         value={value}
         defaultValue={defaultValue}

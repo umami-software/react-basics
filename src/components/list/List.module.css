@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   background: var(--gray50);
+  width: 200px;
   overflow: hidden;
   z-index: 1;
-  box-sizing: border-box;
 }
 
 .item {
+  flex: 1;
   font-size: var(--font-size-small);
   background: var(--gray50);
   padding: var(--input-padding);
@@ -15,6 +16,7 @@
   border-radius: var(--input-border-radius);
   white-space: nowrap;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .item:hover {
@@ -24,4 +26,9 @@
 .item.selected {
   background: var(--gray100);
   font-weight: 600;
+}
+
+.item.disabled {
+  color: var(--input-disabled-color);
+  border-color: var(--input-disabled-border-color);
 }

@@ -32,3 +32,12 @@ export const Preselect = makeStory(Template, {
     label: 'Radio Group',
   },
 });
+
+export const Disabled = makeStory(Template, {
+  args: {
+    items: items.concat({ value: 'four', label: 'Four', disabled: true }),
+    name: 'name',
+    value: 'three',
+    label: 'Radio Group',
+  },
+});

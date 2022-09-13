@@ -36,7 +36,13 @@ function _SearchField(props: SearchProps, ref): ReactElement {
 
   return (
     <div className={classNames(styles.field, className)} style={style}>
-      <TextField ref={ref} value={search} onChange={handleChange} {...otherProps}>
+      <TextField
+        ref={ref}
+        value={search}
+        onChange={handleChange}
+        className={styles.input}
+        {...otherProps}
+      >
         <Icon icon="search" className={classNames(styles.icon, styles.magnifier)} />
         <Icon
           icon="cross"

@@ -41,3 +41,10 @@ export const Sections = makeStory(Template, {
     value: 'three',
   },
 });
+
+export const Disabled = makeStory(Template, {
+  args: {
+    items: items.concat({ value: 'four', label: 'Four', disabled: true }),
+    value: 'three',
+  },
+});

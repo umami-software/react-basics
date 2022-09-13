@@ -1,16 +1,12 @@
-.dropdown {
-  position: relative;
+.field {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: var(--input-height);
-  width: var(--input-width);
-  padding: var(--input-padding);
+  position: relative;
+  background: var(--gray50);
   border: 1px solid var(--gray500);
   border-radius: var(--input-border-radius);
-  background: var(--gray50);
-  gap: var(--input-gap-size);
-  box-sizing: border-box;
+  padding: var(--input-padding);
+  cursor: pointer;
 }
 
 .input {
@@ -18,10 +14,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--font-size-small);
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  box-sizing: border-box;
+  font-family: var(--input-font-family);
+  font-size: var(--font-size-medium);
+  line-height: var(--input-line-height);
+  min-height: var(--input-line-height);
 }
 
 .text {
@@ -33,5 +29,4 @@
   left: 0;
   top: 100%;
   margin-top: 5px;
-  min-width: var(--input-width);
 }

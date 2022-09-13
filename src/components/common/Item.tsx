@@ -17,7 +17,7 @@ export function Item(props: ItemProps) {
     <div
       className={classNames(styles.item, className, { [styles.disabled]: disabled })}
       style={style}
-      onClick={onClick}
+      onClick={!disabled ? onClick : undefined}
     >
       {children}
     </div>

@@ -24,11 +24,12 @@ export function RadioGroup(props: RadioGroupProps): ReactElement {
   return (
     <div className={classNames(styles.radiogroup, className)} style={style}>
       {children ||
-        items.map(({ value: itemValue, label: itemLabel }) => (
+        items.map(({ value: itemValue, label: itemLabel, disabled }) => (
           <Radio
             key={itemValue}
             value={itemValue}
             checked={selected !== undefined && itemValue === selected}
+            disabled={disabled}
             onChange={handleSelect}
           >
             {itemLabel}

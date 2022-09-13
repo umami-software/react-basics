@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -14,7 +13,6 @@
   margin: 0;
   text-underline-offset: 0.25em;
   cursor: pointer;
-  box-sizing: border-box;
   list-style: none;
 }
 

@@ -1,7 +1,8 @@
-import { useState, ReactElement, ReactEventHandler, Children, cloneElement } from 'react';
+import { useState, ReactEventHandler } from 'react';
 import classNames from 'classnames';
 import { ListItem, CommonProps } from 'types';
 import Item from 'components/common/Item';
+import { cloneChildren } from 'components/utils';
 import styles from './List.module.css';
 
 export interface ListProps extends CommonProps {
@@ -10,7 +11,7 @@ export interface ListProps extends CommonProps {
   onSelect: (value: string, e: ReactEventHandler) => void;
 }
 
-export function List(props: ListProps): ReactElement {
+export function List(props: ListProps) {
   const { items = [], value, onSelect, className, style, children } = props;
   const [selected, setSelected] = useState(value);
 
@@ -22,22 +23,20 @@ export function List(props: ListProps): ReactElement {
   return (
     <div className={classNames(styles.list, className)} style={style}>
       {!children &&
-        items.map(({ label, value: itemValue }) => (
+        items.map(({ label, value: itemValue, disabled }) => (
           <Item
             key={itemValue}
             className={classNames(styles.item, {
               [styles.selected]: selected === itemValue,
+              [styles.disabled]: disabled,
             })}
+            disabled={disabled}
             onClick={handleSelect.bind(null, itemValue)}
           >
             {label}
           </Item>
         ))}
-      {Children.map(children, (child: any) =>
-        child.type === Item
-          ? cloneElement(child, { onClick: handleSelect.bind(null, child.props.value) })
-          : null,
-      )}
+      {cloneChildren(children, child => ({ onClick: handleSelect.bind(null, child.props.value) }))}
     </div>
   );
 }

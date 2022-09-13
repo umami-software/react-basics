@@ -19,7 +19,7 @@
 }
 
 .tab.disabled {
-  color: var(--gray500);
+  color: var(--input-disabled-color);
 }
 
 .tab.vertical {

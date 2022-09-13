@@ -23,13 +23,14 @@ export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
   };
 
   return (
-    <div className={classNames(styles.checkboxgroup, className)} style={style}>
+    <div className={classNames(styles.group, className)} style={style}>
       {children ||
-        items.map(({ value: itemValue, label: itemLabel }) => (
+        items.map(({ value: itemValue, label: itemLabel, disabled }) => (
           <Checkbox
             key={itemValue}
             value={itemValue}
             checked={selected?.includes(itemValue)}
+            disabled={disabled}
             onChange={handleSelect}
           >
             {itemLabel}

@@ -42,7 +42,7 @@ export function Dropdown(props: DropDownProps) {
   return (
     <div
       ref={ref}
-      className={classNames(styles.dropdown, className)}
+      className={classNames(styles.field, className)}
       style={style}
       onClick={handleShowMenu}
     >

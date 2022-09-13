@@ -32,7 +32,7 @@ export function Radio(props: RadioProps): ReactElement {
         [styles.disabled]: disabled,
       })}
       style={style}
-      onClick={handleClick}
+      onClick={!disabled ? handleClick : undefined}
     >
       <div className={styles.circle} />
       {children && <label className={styles.label}>{children}</label>}

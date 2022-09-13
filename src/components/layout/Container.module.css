@@ -60,7 +60,6 @@
   margin-left: calc(-0.5 * 1.5rem);
 }
 .row > * {
-  box-sizing: border-box;
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;

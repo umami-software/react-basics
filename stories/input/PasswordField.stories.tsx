@@ -22,3 +22,10 @@ const Template: ComponentStory<typeof PasswordField> = args => (
 );
 
 export const Basic = makeStory(Template);
+
+export const Disabled = makeStory(Template, {
+  args: {
+    disabled: true,
+    placeholder: 'Disabled',
+  },
+});

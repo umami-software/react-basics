@@ -1,20 +1,35 @@
-.textarea {
+.field {
+  display: inline-flex;
+  align-items: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  background: var(--gray50);
+  border: 1px solid var(--gray500);
+  border-radius: var(--input-border-radius);
+  padding: var(--input-padding);
 }
 
-.noresize {
-  resize: none;
+.field.disabled {
+  color: var(--gray300);
+  background: var(--gray75);
+  border-color: var(--gray300);
 }
 
 .input {
-  font-family: inherit;
+  display: block;
+  width: 100%;
+  font-family: var(--input-font-family);
   font-size: var(--font-size-medium);
   line-height: var(--input-line-height);
-  padding: var(--input-padding);
-  border: 1px solid var(--gray500);
-  border-radius: var(--input-border-radius);
-  width: var(--input-width);
+  background: transparent;
+  padding: 0;
+  border: 0;
   outline: none;
+}
+
+.input::placeholder {
+  color: var(--gray400);
+}
+
+.input:disabled {
+  color: var(--gray300);
 }

@@ -1,10 +1,9 @@
 .checkbox {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   height: var(--input-height);
   gap: var(--input-gap-size);
-  box-sizing: border-box;
 }
 
 .box {
@@ -38,8 +37,8 @@
 }
 
 .checkbox.disabled .box {
-  color: var(--gray600);
-  background-color: var(--gray75);
+  background: var(--input-disabled-background);
+  border-color: var(--input-disabled-border-color);
 }
 
 .checkbox.disabled .label {

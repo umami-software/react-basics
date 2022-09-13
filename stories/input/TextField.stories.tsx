@@ -14,8 +14,15 @@ const Template: ComponentStory<typeof TextField> = args => (
 
 export const Basic = makeStory(Template);
 
+export const Placeholder = makeStory(Template, {
+  args: {
+    placeholder: 'Enter text',
+  },
+});
+
 export const Disabled = makeStory(Template, {
   args: {
+    placeholder: 'Disabled',
     disabled: true,
   },
 });

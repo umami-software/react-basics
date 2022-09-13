@@ -3,9 +3,7 @@
   display: inline-flex;
   align-items: center;
   height: var(--input-height);
-  width: var(--input-width);
   gap: var(--input-gap-size);
-  box-sizing: border-box;
 }
 
 .circle {
@@ -30,6 +28,11 @@
   display: none;
 }
 
+.disabled {
+  color: var(--input-disabled-color);
+  pointer-events: none;
+}
+
 .radio.checked .circle {
   background: var(--primary400);
   border-color: var(--primary700);
@@ -48,6 +51,6 @@
 }
 
 .radio.disabled .circle {
-  color: var(--gray600);
-  background-color: var(--gray100);
+  background: var(--input-disabled-background);
+  border-color: var(--input-disabled-border-color);
 }

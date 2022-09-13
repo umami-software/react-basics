@@ -1,7 +1,6 @@
 .slider {
   position: relative;
   display: flex;
-  width: var(--input-width);
   height: var(--input-height);
 }
 
@@ -43,11 +42,11 @@
 
 .disabled .track,
 .disabled .fill {
-  background: var(--gray200);
+  background: var(--input-disabled-background);
 }
 
 .disabled .thumb {
-  border-color: var(--gray400);
+  border-color: var(--input-disabled-border-color);
 }
 
 .left .fill {

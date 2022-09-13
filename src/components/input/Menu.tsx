@@ -26,12 +26,14 @@ export function Menu(props: MenuProps): ReactElement {
   return (
     <div className={classNames(styles.menu, className)} style={style}>
       {!children &&
-        items.map(({ label, value: itemValue }) => (
+        items.map(({ label, value: itemValue, disabled }) => (
           <Item
             key={itemValue}
             className={classNames(styles.item, {
               [styles.selected]: selected === itemValue,
+              [styles.disabled]: disabled,
             })}
+            disabled={disabled}
             onClick={handleSelect.bind(null, itemValue)}
           >
             {label}

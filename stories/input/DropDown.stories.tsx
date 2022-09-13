@@ -12,7 +12,7 @@ export default {
 const Template: ComponentStory<typeof Dropdown> = args => {
   const [selected, setSelected] = useState<string | undefined>(args.value);
 
-  return <Dropdown {...args} value={selected} onChange={setSelected} />;
+  return <Dropdown {...args} value={selected} onChange={setSelected} style={{ width: 200 }} />;
 };
 
 const items: ListItem[] = [
