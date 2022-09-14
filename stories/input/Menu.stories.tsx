@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu, ListItem } from '../../src';
+import { Menu, ListItem, Item } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -46,5 +46,25 @@ export const Disabled = makeStory(Template, {
   args: {
     items: items.concat({ value: 'four', label: 'Four', disabled: true }),
     value: 'three',
+  },
+});
+
+export const RenderFunctions = makeStory(Template, {
+  args: {
+    items,
+    children: item => <Item>{item}</Item>,
+  },
+});
+
+export const PureTags = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <Item>A</Item>
+        <Item>B</Item>
+        <Item>C</Item>
+        <Item>D</Item>
+      </>
+    ),
   },
 });

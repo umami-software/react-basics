@@ -2,6 +2,7 @@ import { useState, ReactElement, ReactEventHandler, Children, cloneElement } fro
 import classNames from 'classnames';
 import { ListItem, CommonProps } from 'types';
 import Item from 'components/common/Item';
+import { cloneChildren } from 'components/utils';
 import styles from './Menu.module.css';
 
 export interface MenuItem extends ListItem {
@@ -26,11 +27,11 @@ export function Menu(props: MenuProps): ReactElement {
   return (
     <div className={classNames(styles.menu, className)} style={style}>
       {!children &&
-        items.map(({ label, value: itemValue, disabled }) => (
+        items?.map(({ label, value: itemValue, disabled }) => (
           <Item
             key={itemValue}
             className={classNames(styles.item, {
-              [styles.selected]: selected === itemValue,
+              [styles.selected]: selected && selected === itemValue,
               [styles.disabled]: disabled,
             })}
             disabled={disabled}
@@ -39,15 +40,16 @@ export function Menu(props: MenuProps): ReactElement {
             {label}
           </Item>
         ))}
-      {Children.map(children, (child: any) =>
-        child.type === Item
-          ? cloneElement(child, {
-              className: classNames(styles.item, {
-                [styles.selected]: selected === child.props.value,
-              }),
-              onClick: handleSelect.bind(null, child.props.value),
-            })
-          : null,
+      {typeof children === 'function' && items ? items.map(item => children(item)) : null}
+      {cloneChildren(
+        children,
+        child => ({
+          className: classNames(styles.item, {
+            [styles.selected]: selected && selected === child.props.value,
+          }),
+          onClick: handleSelect.bind(null, child.props.value),
+        }),
+        [Item],
       )}
     </div>
   );
