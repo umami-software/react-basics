@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { Key, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Dropdown } from 'components/input/Dropdown';
 import { ListItem } from 'types';
 import { makeStory } from '../utils';
+import { Item, Dropdown } from '../../src';
 
 export default {
   title: 'Input/Dropdown',
@@ -10,9 +10,9 @@ export default {
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = args => {
-  const [selected, setSelected] = useState<string | undefined>(args.value);
+  const [value, setValue] = useState<Key>(args.value);
 
-  return <Dropdown {...args} value={selected} onChange={setSelected} style={{ width: 200 }} />;
+  return <Dropdown {...args} value={value} onChange={setValue} style={{ width: 200 }} />;
 };
 
 const items: ListItem[] = [
@@ -24,6 +24,7 @@ const items: ListItem[] = [
 export const Basic = makeStory(Template, {
   args: {
     items,
+    children: ({ value, label }) => <Item key={value}>{label}</Item>,
   },
 });
 
@@ -31,5 +32,6 @@ export const Preselect = makeStory(Template, {
   args: {
     items,
     value: 'two',
+    children: ({ value, label }) => <Item key={value}>{label}</Item>,
   },
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Menu, ListItem, Item } from '../../src';
 import { makeStory } from '../utils';
@@ -14,7 +14,11 @@ const items: ListItem[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof Menu> = args => <Menu {...args} />;
+const Template: ComponentStory<typeof Menu> = args => {
+  const [key, setKey] = useState(args.selectedKey);
+
+  return <Menu {...args} selectedKey={key} onSelect={setKey} />;
+};
 
 export const Basic = makeStory(Template, {
   args: {
@@ -30,19 +34,11 @@ export const Divider = makeStory(Template, {
   },
 });
 
-export const PreselectByIndex = makeStory(Template, {
+export const Preselect = makeStory(Template, {
   args: {
     items,
-    selectedItem: 1,
-    children: ({ label }) => <Item>{label}</Item>,
-  },
-});
-
-export const PreselectByValue = makeStory(Template, {
-  args: {
-    items,
-    selectedItem: 'three',
-    children: ({ label, value }) => <Item value={value}>{label}</Item>,
+    selectedKey: 'three',
+    children: ({ label, value }) => <Item key={value}>{label}</Item>,
   },
 });
 

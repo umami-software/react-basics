@@ -1,4 +1,4 @@
-import { useState, ReactElement, ReactEventHandler } from 'react';
+import { ReactEventHandler, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Item from 'components/common/Item';
@@ -7,16 +7,14 @@ import styles from './Menu.module.css';
 
 export interface MenuProps extends CommonProps {
   items: object[];
-  selectedItem?: string | number;
+  selectedKey?: Key;
   onSelect: (value: string, e: ReactEventHandler) => void;
 }
 
-export function Menu(props: MenuProps): ReactElement {
-  const { items = [], selectedItem, onSelect, className, style, children } = props;
-  const [selected, setSelected] = useState(selectedItem);
+export function Menu(props: MenuProps) {
+  const { items = [], selectedKey, onSelect, className, style, children } = props;
 
   const handleSelect = (key, e) => {
-    setSelected(key);
     onSelect(key, e);
   };
 
@@ -24,14 +22,16 @@ export function Menu(props: MenuProps): ReactElement {
     <div className={classNames(styles.menu, className)} style={style}>
       {cloneChildren(
         typeof children === 'function' && items ? items.map(item => children(item)) : children,
-        ({ props: { value, disabled, divider } }, index) => {
+        child => {
+          const { children: node, disabled, divider } = child.props;
+          const key = child.key ?? node;
           return {
             className: classNames(styles.item, {
-              [styles.selected]: selected === (value ?? index),
+              [styles.selected]: selectedKey === key,
               [styles.disabled]: disabled,
               [styles.divider]: divider,
             }),
-            onClick: !disabled ? handleSelect.bind(null, value ?? index) : undefined,
+            onClick: !disabled ? handleSelect.bind(null, key) : undefined,
           };
         },
         [Item],
