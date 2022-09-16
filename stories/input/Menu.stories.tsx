@@ -19,26 +19,30 @@ const Template: ComponentStory<typeof Menu> = args => <Menu {...args} />;
 export const Basic = makeStory(Template, {
   args: {
     items,
+    children: ({ label }) => <Item>{label}</Item>,
   },
 });
 
-export const WithDivider = makeStory(Template, {
+export const Divider = makeStory(Template, {
   args: {
     items: [...items, { value: 'four', label: 'Four', divider: true }],
+    children: ({ label, divider }) => <Item divider={divider}>{label}</Item>,
   },
 });
 
-export const Preselect = makeStory(Template, {
+export const PreselectByIndex = makeStory(Template, {
   args: {
     items,
-    value: 'three',
+    selectedItem: 1,
+    children: ({ label }) => <Item>{label}</Item>,
   },
 });
 
-export const Sections = makeStory(Template, {
+export const PreselectByValue = makeStory(Template, {
   args: {
     items,
-    value: 'three',
+    selectedItem: 'three',
+    children: ({ label, value }) => <Item value={value}>{label}</Item>,
   },
 });
 
@@ -46,13 +50,7 @@ export const Disabled = makeStory(Template, {
   args: {
     items: items.concat({ value: 'four', label: 'Four', disabled: true }),
     value: 'three',
-  },
-});
-
-export const RenderFunctions = makeStory(Template, {
-  args: {
-    items,
-    children: item => <Item>{item}</Item>,
+    children: ({ label, disabled }) => <Item disabled={disabled}>{label}</Item>,
   },
 });
 

@@ -47,6 +47,9 @@ export function cloneChildren(
   handler: (child: ReactElement, index: number) => object | undefined,
   validChildren?: FC[],
 ) {
+  if (!children) {
+    return null;
+  }
   return Children.map(getFragmentChildren(children), (child, index) => {
     if (validChildren && !isValidChild(child, validChildren)) {
       return null;

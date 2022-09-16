@@ -7,6 +7,7 @@ import styles from './Item.module.css';
 export interface ItemProps extends CommonProps {
   value?: string;
   disabled?: boolean;
+  divider?: boolean;
   onClick?: MouseEventHandler;
 }
 
@@ -15,7 +16,7 @@ export function Item(props: ItemProps) {
 
   return (
     <div
-      className={classNames(styles.item, className, { [styles.disabled]: disabled })}
+      className={classNames(styles.item, className)}
       style={style}
       onClick={!disabled ? onClick : undefined}
     >

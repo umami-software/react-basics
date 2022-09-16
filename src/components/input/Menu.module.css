@@ -32,4 +32,10 @@
   color: var(--input-disabled-color);
   background: var(--gray50);
   border-color: var(--input-disabled-border-color);
+  cursor: default;
+  pointer-events: none;
+}
+
+.item.divider {
+  border-top: 1px solid var(--gray400);
 }
