@@ -58,6 +58,8 @@
   --input-border-color: var(--gray500);
   --input-border-radius: 4px;
   --input-gap-size: 10px;
+  --input-color: var(--gray900);
+  --input-background: var(--gray50);
   --input-disabled-color: var(--gray600);
   --input-disabled-background: var(--gray100);
   --input-disabled-border-color: var(--gray400);

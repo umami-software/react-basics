@@ -1,7 +1,7 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonGroup, Icon } from '../../src';
+import { Button, ButtonGroup, Icon } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof ButtonGroup> = args => {
 
   const handleSelet = value => updateArgs({ selected: value });
 
-  return <ButtonGroup {...args} onSelect={handleSelet} selected={selected} />;
+  return <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} />;
 };
 
 const Template2: ComponentStory<typeof ButtonGroup> = args => {
@@ -33,11 +33,11 @@ const Template2: ComponentStory<typeof ButtonGroup> = args => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
       <h3>small</h3>
-      <ButtonGroup {...args} onSelect={handleSelet} selected={selected} size="small" />
+      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="small" />
       <h3>medium</h3>
-      <ButtonGroup {...args} onSelect={handleSelet} selected={selected} size="medium" />
+      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="medium" />
       <h3>large</h3>
-      <ButtonGroup {...args} onSelect={handleSelet} selected={selected} size="large" />
+      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="large" />
     </div>
   );
 };
@@ -45,6 +45,7 @@ const Template2: ComponentStory<typeof ButtonGroup> = args => {
 export const Basic = makeStory(Template, {
   args: {
     items,
+    children: ({ label, value }) => <Button key={value}>{label}</Button>,
   },
 });
 
@@ -54,11 +55,13 @@ export const Icons = makeStory(Template, {
       ...item,
       label: <Icon icon={icons[index]} size="medium" />,
     })),
+    children: ({ label, value }) => <Button key={value}>{label}</Button>,
   },
 });
 
 export const AllSizes = makeStory(Template2, {
   args: {
     items,
+    children: ({ label, value }) => <Button key={value}>{label}</Button>,
   },
 });

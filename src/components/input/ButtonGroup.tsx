@@ -1,23 +1,23 @@
+import { ChangeEvent, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { addClassNames } from 'components/utils';
+import { addClassNames, cloneChildren } from 'components/utils';
 import Button from './Button';
-import { cloneChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './ButtonGroup.module.css';
 
 export interface ButtonGroupProps extends CommonProps {
   items?: any[];
-  selected?: string;
-  onSelect: (value?: string) => void;
+  selectedKey?: Key;
+  onSelect: (key: Key, e: ChangeEvent) => void;
   size: 'small' | 'medium' | 'large';
 }
 
 export function ButtonGroup(props: ButtonGroupProps) {
-  const { items = [], selected, size = 'medium', onSelect, className, style, children } = props;
+  const { items = [], selectedKey, size = 'medium', onSelect, className, style, children } = props;
 
-  const handleClick = (value: string) => {
-    onSelect(value);
+  const handleClick = (key: Key, e: ChangeEvent) => {
+    onSelect(key, e);
   };
 
   return (
@@ -29,20 +29,16 @@ export function ButtonGroup(props: ButtonGroupProps) {
       )}
       style={style}
     >
-      {!children &&
-        items.map(({ label, value }) => (
-          <Button
-            key={value}
-            className={classNames(styles.button, { [styles.selected]: selected === value })}
-            size={size}
-            onClick={handleClick.bind(null, value)}
-          >
-            {label}
-          </Button>
-        ))}
-      {cloneChildren(children, (child, index) => ({
-        onSelect: handleClick.bind(null, child.props.value ?? index),
-      }))}
+      {cloneChildren(
+        typeof children === 'function' && items ? items.map(item => children(item)) : children,
+        child => {
+          return {
+            className: classNames(styles.button, { [styles.selected]: selectedKey === child.key }),
+            onClick: child.key ? handleClick.bind(null, child.key) : undefined,
+          };
+        },
+        [Button],
+      )}
     </div>
   );
 }

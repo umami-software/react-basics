@@ -32,6 +32,7 @@ export const Buffered = makeStory(Template, {
 export const Disabled = makeStory(Template, {
   args: {
     disabled: true,
+    value: 50,
   },
 });
 

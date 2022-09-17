@@ -19,7 +19,8 @@
   transform: translateY(-50%);
   height: 4px;
   border-radius: 4px;
-  background: var(--gray300);
+  background: var(--gray400);
+  border: 0;
   pointer-events: none;
 }
 
@@ -35,9 +36,20 @@
   top: 50%;
   transform: translateY(-50%);
   border-radius: 100%;
-  background: var(--gray50);
-  border: 2px solid var(--gray600);
+  background: var(--input-background);
+  border: 2px solid var(--input-border-color);
   pointer-events: none;
+}
+
+.left .fill {
+  background: var(--primary400);
+}
+
+.right .fill {
+  background: var(--gray400);
+}
+.right .track {
+  background: var(--primary400);
 }
 
 .disabled .track,
@@ -49,13 +61,13 @@
   border-color: var(--input-disabled-border-color);
 }
 
-.left .fill {
-  background: var(--primary400);
+.left.disabled .fill {
+  background: var(--primary700);
 }
 
-.right .fill {
-  background: var(--gray300);
+.right.disabled .fill {
+  background: var(--input-disabled-background);
 }
-.right .track {
-  background: var(--primary400);
+.right.disabled .track {
+  background: var(--primary700);
 }
