@@ -1,41 +1,46 @@
-import React, { ReactElement, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import classNames from 'classnames';
-import { CommonProps, ListItem } from 'types';
-import { CheckboxProps } from 'components/input/Checkbox';
+import { CommonProps } from 'types';
 import Checkbox from 'components/input/Checkbox';
+import { cloneChildren } from 'components/utils';
 import styles from './CheckboxGroup.module.css';
 
 export interface CheckboxGroupProps extends CommonProps {
-  items: ListItem[];
-  value?: string[];
-  onChange: (value: string) => void;
-  children: ReactElement<CheckboxProps> | ReactElement<CheckboxProps>[];
+  items: any[];
+  value?: (string | number)[];
+  onChange: (value: (string | number)[], e: ChangeEvent) => void;
 }
 
-export function CheckboxGroup(props: CheckboxGroupProps): ReactElement {
+export function CheckboxGroup(props: CheckboxGroupProps) {
   const { items = [], value = [], className, style, onChange, children } = props;
   const [selected, setSelected] = useState(value);
 
-  const handleSelect = (checked, e) => {
-    const val = e.target.value;
-    setSelected(state => (state.includes(val) ? state.filter(n => n !== val) : state.concat(val)));
-    onChange(val);
+  const handleSelect = (val, checked, e) => {
+    let values: (string | number)[] = [];
+
+    if (checked) {
+      values = !selected.includes(val) ? selected.concat(val) : values;
+    } else {
+      values = selected.filter(n => n !== val);
+    }
+
+    setSelected(values);
+    onChange(values, e);
   };
 
   return (
     <div className={classNames(styles.group, className)} style={style}>
-      {children ||
-        items.map(({ value: itemValue, label: itemLabel, disabled }) => (
-          <Checkbox
-            key={itemValue}
-            value={itemValue}
-            checked={selected?.includes(itemValue)}
-            disabled={disabled}
-            onChange={handleSelect}
-          >
-            {itemLabel}
-          </Checkbox>
-        ))}
+      {cloneChildren(
+        typeof children === 'function' && items ? items.map(item => children(item)) : children,
+        child => {
+          const { value: childValue } = child.props;
+          return {
+            checked: selected.includes(childValue),
+            onChange: handleSelect.bind(null, childValue),
+          };
+        },
+        [Checkbox],
+      )}
     </div>
   );
 }

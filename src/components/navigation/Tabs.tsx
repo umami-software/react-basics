@@ -1,13 +1,13 @@
 import { ReactElement, useState } from 'react';
 import classNames from 'classnames';
-import { CommonProps, ListItem } from 'types';
+import { CommonProps } from 'types';
 import { TabProps } from 'components/navigation/Tab';
 import Item from 'components/common/Item';
 import { cloneChildren } from 'components/utils';
 import styles from './Tabs.module.css';
 
 export interface TabsProps extends CommonProps {
-  items?: ListItem[];
+  items?: any[];
   selectedValue?: string;
   vertical?: boolean;
   gap?: number;

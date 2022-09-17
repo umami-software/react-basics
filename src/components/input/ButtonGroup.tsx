@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { CommonProps, ListItem } from 'types';
+import { CommonProps } from 'types';
 import { addClassNames } from 'components/utils';
 import Button from './Button';
 import { cloneChildren } from 'components/utils';
@@ -7,7 +7,7 @@ import { cloneChildren } from 'components/utils';
 import styles from './ButtonGroup.module.css';
 
 export interface ButtonGroupProps extends CommonProps {
-  items?: ListItem[];
+  items?: any[];
   selected?: string;
   onSelect: (value?: string) => void;
   size: 'small' | 'medium' | 'large';

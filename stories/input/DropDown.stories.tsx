@@ -1,6 +1,5 @@
 import React, { Key, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem } from 'types';
 import { makeStory } from '../utils';
 import { Item, Dropdown } from '../../src';
 
@@ -15,7 +14,7 @@ const Template: ComponentStory<typeof Dropdown> = args => {
   return <Dropdown {...args} value={value} onChange={setValue} style={{ width: 200 }} />;
 };
 
-const items: ListItem[] = [
+const items: any[] = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' },

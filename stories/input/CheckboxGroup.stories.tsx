@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, CheckboxGroup } from '../../src';
+import { CheckboxGroup, Checkbox } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -8,18 +8,23 @@ export default {
   component: CheckboxGroup,
 } as ComponentMeta<typeof CheckboxGroup>;
 
-const items: ListItem[] = [
+const items: any[] = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof CheckboxGroup> = args => <CheckboxGroup {...args} />;
+const Template: ComponentStory<typeof CheckboxGroup> = args => {
+  const [selected, setSelected] = useState(args.value);
+
+  return <CheckboxGroup {...args} value={selected} onChange={setSelected} />;
+};
 
 export const Basic = makeStory(Template, {
   args: {
     items,
     name: 'name',
+    children: ({ label, value }) => <Checkbox value={value}>{label}</Checkbox>,
   },
 });
 
@@ -28,6 +33,7 @@ export const Preselect = makeStory(Template, {
     items,
     name: 'name',
     value: ['three'],
+    children: ({ label, value }) => <Checkbox value={value}>{label}</Checkbox>,
   },
 });
 
@@ -36,5 +42,10 @@ export const Disabled = makeStory(Template, {
     items: items.concat({ value: 'four', label: 'Four', disabled: true }),
     name: 'name',
     value: ['three'],
+    children: ({ label, value, disabled }) => (
+      <Checkbox value={value} disabled={disabled}>
+        {label}
+      </Checkbox>
+    ),
   },
 });

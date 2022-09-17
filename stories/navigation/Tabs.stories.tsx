@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ListItem, Tabs, Item } from '../../src';
+import { Tabs, Item } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   component: Tabs,
 } as ComponentMeta<typeof Tabs>;
 
-const items: ListItem[] = [
+const items: any[] = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' },

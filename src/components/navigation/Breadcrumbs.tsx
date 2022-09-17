@@ -1,10 +1,10 @@
-import { CommonProps, ListItem } from 'types';
+import { CommonProps } from 'types';
 import classNames from 'classnames';
 import styles from './Breadcrumbs.module.css';
 import Icon from 'components/common/Icon';
 
 export interface BreadcrumbProps extends CommonProps {
-  items: ListItem[];
+  items: any[];
   divider?: 'chevron' | 'slash' | 'arrow' | 'none';
   onSelect?: () => void;
 }

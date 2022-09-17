@@ -1,12 +1,12 @@
 import { useState, ReactEventHandler } from 'react';
 import classNames from 'classnames';
-import { ListItem, CommonProps } from 'types';
+import { CommonProps } from 'types';
 import Item from 'components/common/Item';
 import { cloneChildren } from 'components/utils';
 import styles from './List.module.css';
 
 export interface ListProps extends CommonProps {
-  items: ListItem[];
+  items: any[];
   value?: string;
   onSelect: (value: string, e: ReactEventHandler) => void;
 }

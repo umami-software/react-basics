@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Menu, ListItem, Item } from '../../src';
+import { Menu, Item } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   component: Menu,
 } as ComponentMeta<typeof Menu>;
 
-const items: ListItem[] = [
+const items: any[] = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' },

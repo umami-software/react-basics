@@ -1,40 +1,36 @@
-import React, { ReactElement, useState } from 'react';
+import { ChangeEvent } from 'react';
 import classNames from 'classnames';
-import { CommonProps, ListItem } from 'types';
-import { RadioProps } from 'components/input/Radio';
+import { CommonProps } from 'types';
 import Radio from 'components/input/Radio';
 import styles from './RadioGroup.module.css';
+import { cloneChildren } from 'components/utils';
 
 export interface RadioGroupProps extends CommonProps {
-  items: ListItem[];
+  items: any[];
   value?: string;
-  onChange: (value: string) => void;
-  children: ReactElement<RadioProps> | ReactElement<RadioProps>[];
+  onChange: (value: string, e: ChangeEvent) => void;
 }
 
-export function RadioGroup(props: RadioGroupProps): ReactElement {
+export function RadioGroup(props: RadioGroupProps) {
   const { items = [], value, className, style, onChange, children } = props;
-  const [selected, setSelected] = useState(value);
 
-  const handleSelect = val => {
-    setSelected(val);
-    onChange(val);
+  const handleSelect = (val, e) => {
+    onChange(val, e);
   };
 
   return (
-    <div className={classNames(styles.radiogroup, className)} style={style}>
-      {children ||
-        items.map(({ value: itemValue, label: itemLabel, disabled }) => (
-          <Radio
-            key={itemValue}
-            value={itemValue}
-            checked={selected !== undefined && itemValue === selected}
-            disabled={disabled}
-            onChange={handleSelect}
-          >
-            {itemLabel}
-          </Radio>
-        ))}
+    <div className={classNames(styles.group, className)} style={style}>
+      {cloneChildren(
+        typeof children === 'function' && items ? items.map(item => children(item)) : children,
+        child => {
+          const { value: childValue } = child.props;
+          return {
+            checked: value === childValue,
+            onChange: handleSelect.bind(null, childValue),
+          };
+        },
+        [Radio],
+      )}
     </div>
   );
 }

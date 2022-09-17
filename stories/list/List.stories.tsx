@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { List, ListItem } from '../../src';
+import { List } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   component: List,
 } as ComponentMeta<typeof List>;
 
-const items: ListItem[] = [
+const items: any[] = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' },

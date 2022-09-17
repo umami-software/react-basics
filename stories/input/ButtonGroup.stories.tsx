@@ -1,7 +1,7 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonGroup, Icon, ListItem } from '../../src';
+import { ButtonGroup, Icon } from '../../src';
 import { makeStory } from '../utils';
 
 export default {
@@ -9,7 +9,7 @@ export default {
   component: ButtonGroup,
 } as ComponentMeta<typeof ButtonGroup>;
 
-const items: ListItem[] = [
+const items: any[] = [
   { value: 'one', label: 'One' },
   { value: 'two', label: 'Two' },
   { value: 'three', label: 'Three' },

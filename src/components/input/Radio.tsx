@@ -1,4 +1,4 @@
-import React, { MutableRefObject, ReactElement, ReactNode, useRef } from 'react';
+import { ChangeEvent, MutableRefObject, useRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Radio.module.css';
@@ -6,13 +6,12 @@ import styles from './Radio.module.css';
 export interface RadioProps extends CommonProps {
   name?: string;
   value?: string;
-  children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  onChange: (value: string) => void;
+  onChange?: (value: string, e: ChangeEvent) => void;
 }
 
-export function Radio(props: RadioProps): ReactElement {
+export function Radio(props: RadioProps) {
   const { name, value, checked, disabled, className, style, onChange, children } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
@@ -22,7 +21,7 @@ export function Radio(props: RadioProps): ReactElement {
   };
 
   const handleChange = e => {
-    onChange(e.target.value);
+    onChange?.(e.target.value, e);
   };
 
   return (
