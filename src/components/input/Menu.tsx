@@ -8,11 +8,12 @@ import styles from './Menu.module.css';
 export interface MenuProps extends CommonProps {
   items: object[];
   selectedKey?: Key;
+  itemClassName?: string;
   onSelect: (value: string, e: ReactEventHandler) => void;
 }
 
 export function Menu(props: MenuProps) {
-  const { items = [], selectedKey, onSelect, className, style, children } = props;
+  const { items = [], selectedKey, itemClassName, onSelect, className, style, children } = props;
 
   const handleSelect = (key, e) => {
     onSelect(key, e);
@@ -26,7 +27,7 @@ export function Menu(props: MenuProps) {
           const { children: node, disabled, divider } = child.props;
           const key = child.key ?? node;
           return {
-            className: classNames(styles.item, {
+            className: classNames(styles.item, itemClassName, {
               [styles.selected]: selectedKey === key,
               [styles.disabled]: disabled,
               [styles.divider]: divider,

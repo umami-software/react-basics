@@ -17,7 +17,7 @@ const items: any[] = [
 const Template: ComponentStory<typeof Menu> = args => {
   const [key, setKey] = useState(args.selectedKey);
 
-  return <Menu {...args} selectedKey={key} onSelect={setKey} />;
+  return <Menu {...args} selectedKey={key} onSelect={setKey} style={{ width: 200 }} />;
 };
 
 export const Basic = makeStory(Template, {

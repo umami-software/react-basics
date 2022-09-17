@@ -29,4 +29,11 @@
   left: 0;
   top: 100%;
   margin-top: 5px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  min-width: 200px;
+}
+
+.item {
+  border-radius: 0;
 }

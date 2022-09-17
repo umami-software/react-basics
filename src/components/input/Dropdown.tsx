@@ -61,6 +61,7 @@ export function Dropdown(props: DropDownProps) {
       {showMenu && (
         <Menu
           className={classNames(styles.menu, menuClassName)}
+          itemClassName={styles.item}
           items={items}
           selectedKey={value}
           onSelect={handleSelect}
