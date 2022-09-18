@@ -18,6 +18,7 @@ const rows = [...Array(100)].map(() => ({
   id: faker.mersenne.rand(),
   name: faker.name.fullName(),
   email: faker.internet.email(),
+  ip: faker.internet.ipv4(),
 }));
 
 const columns = [
@@ -47,9 +48,9 @@ export const RenderFunctions = makeStory(Template, {
         <TableHeader columns={columns}>
           {column => <TableColumn>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={rows}>
+        <TableBody rows={rows} columns={columns}>
           {row => (
-            <TableRow item={row}>{(item, key) => <TableCell>{item[key]}</TableCell>}</TableRow>
+            <TableRow data={row}>{(data, key) => <TableCell>{data[key]}</TableCell>}</TableRow>
           )}
         </TableBody>
       </>
@@ -90,9 +91,9 @@ export const ColumnWidths = makeStory(Template, {
         <TableHeader columns={columns}>
           {(column, i) => <TableColumn flex={flex[i]}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={rows.slice(0, 5)}>
+        <TableBody rows={rows.slice(0, 5)}>
           {row => (
-            <TableRow item={row}>
+            <TableRow data={row}>
               {(item, key, i) => <TableCell flex={flex[i]}>{item[key]}</TableCell>}
             </TableRow>
           )}
@@ -109,9 +110,9 @@ export const Alignment = makeStory(Template, {
         <TableHeader columns={columns}>
           {(column, i) => <TableColumn textAlign={align[i]}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={rows.slice(0, 5)}>
+        <TableBody rows={rows.slice(0, 5)}>
           {row => (
-            <TableRow item={row}>
+            <TableRow data={row}>
               {(item, key, i) => <TableCell textAlign={align[i]}>{item[key]}</TableCell>}
             </TableRow>
           )}
@@ -124,18 +125,20 @@ export const Alignment = makeStory(Template, {
 export const Window = makeStory(Template, {
   args: {
     children: (
-      <div style={{ width: 800 }}>
-        <TableHeader columns={columns}>
+      <>
+        <TableHeader columns={columns} style={{ width: 800 }}>
           {(column, i) => <TableColumn flex={flex[i]}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableWindow width={800} height={600} itemCount={rows.length} itemSize={50}>
-          {({ index, style }) => (
-            <TableRow item={rows[index]} style={style}>
-              {(item, key, i) => <TableCell flex={flex[i]}>{item[key]}</TableCell>}
-            </TableRow>
-          )}
+        <TableWindow width={800} height={600} rowCount={rows.length} rowSize={50}>
+          {({ index, style }) => {
+            return (
+              <TableRow data={rows[index]} style={style}>
+                {(item, key, i) => i < 3 && <TableCell flex={flex[i]}>{item[key]}</TableCell>}
+              </TableRow>
+            );
+          }}
         </TableWindow>
-      </div>
+      </>
     ),
   },
 });

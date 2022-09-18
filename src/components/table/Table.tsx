@@ -5,33 +5,50 @@ import TableColumn from 'components/table/TableColumn';
 import TableBody from 'components/table/TableBody';
 import TableRow from 'components/table/TableRow';
 import TableCell from 'components/table/TableCell';
+import TableWindow from 'components/table/TableWindow';
+import { cloneChildren, isValidChild } from 'components/utils';
 import styles from './Table.module.css';
+
+export type ColumnData = {
+  name: string;
+  label: string;
+};
 
 export interface TableProps extends CommonProps {
   rows: any[];
-  columns: any[];
+  columns: ColumnData[];
 }
 
 export function Table(props: TableProps) {
   const { columns, rows, className, style, children } = props;
+  const autoRender = !children && rows && columns;
 
   return (
     <table className={classNames(styles.table, className)} style={style}>
-      {!children && columns && (
+      {autoRender && (
         <TableHeader columns={columns}>
-          {column => (
-            <TableColumn>{typeof column === 'string' ? column : column?.label}</TableColumn>
-          )}
+          {column => <TableColumn>{column?.label || column?.name}</TableColumn>}
         </TableHeader>
       )}
-      {!children && rows && (
-        <TableBody items={rows}>
+      {autoRender && (
+        <TableBody rows={rows} columns={columns}>
           {row => (
-            <TableRow item={row}>{(item, key) => <TableCell>{item[key]}</TableCell>}</TableRow>
+            <TableRow data={row}>{(data, key) => <TableCell>{data[key]}</TableCell>}</TableRow>
           )}
         </TableBody>
       )}
-      {children}
+      {cloneChildren(
+        children,
+        child => {
+          if (isValidChild(child, TableHeader)) {
+            return { columns };
+          }
+          if (isValidChild(child, TableBody)) {
+            return { rows, columns };
+          }
+        },
+        [TableHeader, TableBody, TableWindow],
+      )}
     </table>
   );
 }

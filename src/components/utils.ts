@@ -34,18 +34,20 @@ export function getFragmentChildren(children: ReactNode) {
     : children;
 }
 
-export function isValidChild(child: ReactElement, types: FC[]) {
+export function isValidChild(child: ReactElement, types: FC | FC[]) {
   if (!isValidElement(child)) {
     return false;
   }
 
-  return types.find(type => type.name === (child.type as FC).displayName);
+  return (Array.isArray(types) ? types : [types]).find(
+    type => type.name === (child.type as FC).displayName,
+  );
 }
 
 export function cloneChildren(
   children: ReactNode,
   handler: (child: ReactElement, index: number) => object | undefined,
-  validChildren?: FC[],
+  validChildren?: any[],
 ) {
   if (!children) {
     return null;

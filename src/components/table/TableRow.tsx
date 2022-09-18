@@ -3,16 +3,16 @@ import classNames from 'classnames';
 import styles from './TableRow.module.css';
 
 export interface TableRowProps extends CommonProps {
-  item?: object;
+  data?: object;
 }
 
 export function TableRow(props: TableRowProps) {
-  const { item, className, style, children } = props;
+  const { data, className, style, children } = props;
 
   return (
     <tr className={classNames(styles.row, className)} style={style}>
-      {typeof children === 'function' && item
-        ? Object.keys(item).map((key, index) => children(item, key, index))
+      {typeof children === 'function' && data
+        ? Object.keys(data).map((key, index) => children(data, key, index))
         : children}
     </tr>
   );
