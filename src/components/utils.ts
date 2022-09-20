@@ -38,10 +38,7 @@ export function isValidChild(child: ReactElement, types: FC | FC[]) {
   if (!isValidElement(child)) {
     return false;
   }
-
-  return (Array.isArray(types) ? types : [types]).find(
-    type => type.name === (child.type as FC).displayName,
-  );
+  return (Array.isArray(types) ? types : [types]).find(type => type === child.type);
 }
 
 export function cloneChildren(

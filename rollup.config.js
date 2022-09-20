@@ -5,6 +5,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import del from 'rollup-plugin-delete';
 import svgr from '@svgr/rollup';
 import md5 from 'md5';
 
@@ -13,7 +14,7 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/react-basics.js',
+        file: 'dist/index.js',
         format: 'cjs',
         name: 'react-basics',
       },
@@ -23,9 +24,10 @@ export default [
       },
     ],
     plugins: [
+      del({ targets: 'dist/*' }),
       external(),
       postcss({
-        extract: true,
+        extract: 'styles.css',
         minimize: true,
         modules: {
           generateScopedName: function (name, filename, css) {
