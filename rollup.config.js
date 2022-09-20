@@ -24,7 +24,7 @@ export default [
       },
     ],
     plugins: [
-      del({ targets: 'dist/*' }),
+      del({ targets: 'dist/*', runOnce: true }),
       external(),
       postcss({
         extract: 'styles.css',
