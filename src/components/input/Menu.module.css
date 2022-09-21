@@ -1,7 +1,6 @@
 .menu {
   display: flex;
   flex-direction: column;
-  background: var(--gray50);
   overflow: hidden;
   z-index: 1;
 }
