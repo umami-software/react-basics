@@ -60,3 +60,14 @@ export function cloneChildren(
     return child;
   });
 }
+
+export function getRandomChars(
+  n,
+  chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
+) {
+  let s = '';
+  for (let i = 0; i < n; i++) {
+    s += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return s;
+}

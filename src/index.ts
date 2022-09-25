@@ -21,6 +21,7 @@ export * from 'components/input/Toggle';
 export * from 'components/layout/Box';
 export * from 'components/layout/Flexbox';
 export * from 'components/layout/Column';
+export * from 'components/modal/Modal';
 export * from 'components/navigation/Accordion';
 export * from 'components/navigation/Breadcrumbs';
 export * from 'components/navigation/Tab';

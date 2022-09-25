@@ -1,0 +1,14 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  margin: auto;
+}
+
+.header {
+  font-weight: 600;
+  margin-bottom: 20px;
+}

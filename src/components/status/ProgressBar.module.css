@@ -4,14 +4,14 @@
   align-items: center;
   justify-content: space-between;
   width: fit-content;
-  border-radius: 8px;
+  border-radius: var(--input-border-radius);
   overflow: hidden;
+  min-width: 100px;
 }
 
 .track {
-  width: var(--input-width);
   height: 8px;
-  background: var(--gray300);
+  background: var(--gray200);
   flex-basis: 100%;
   overflow: hidden;
 }
