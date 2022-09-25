@@ -41,8 +41,6 @@ export function Modal(props: ModalProps): JSX.Element | null {
     return null;
   }
 
-  console.log({ element });
-
   return createPortal(
     <>
       <div className={classNames(styles.overlay, overlayClassName)} style={overlayStyle} />
