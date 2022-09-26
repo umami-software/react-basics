@@ -11,10 +11,11 @@ export default {
 const Template: ComponentStory<typeof Modal> = args => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
   return (
     <>
-      {show && <Modal {...args} />}
+      {show && <Modal {...args} onClose={handleClose} />}
       <Button onClick={handleShow}>Show modal</Button>
     </>
   );
@@ -22,6 +23,12 @@ const Template: ComponentStory<typeof Modal> = args => {
 
 export const Basic = makeStory(Template, {
   args: {
-    children: 'Modal',
+    title: 'Title',
+    children: close => (
+      <>
+        <p>Content</p>
+        <Button onClick={close}>Close</Button>
+      </>
+    ),
   },
 });

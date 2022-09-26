@@ -15,9 +15,9 @@ export interface MenuProps extends CommonProps {
 export function Menu(props: MenuProps) {
   const { items = [], selectedKey, itemClassName, onSelect, className, style, children } = props;
 
-  const handleSelect = (key, e) => {
+  function handleSelect(key, e) {
     onSelect(key, e);
-  };
+  }
 
   return (
     <div className={classNames(styles.menu, className)} style={style}>

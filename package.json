@@ -55,6 +55,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
+    "react-spring": "^9.5.4",
     "react-window": "^1.8.6"
   },
   "devDependencies": {
