@@ -1,0 +1,35 @@
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;
+  border-radius: var(--size50);
+  padding: var(--size400);
+  color: var(--gray50);
+  background: var(--gray900);
+  z-index: 2;
+}
+
+.message {
+  font-size: var(--font-size-medium);
+}
+
+.close {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.success {
+  color: #fff;
+  background: var(--green400);
+}
+
+.error {
+  color: #fff;
+  background: var(--red400);
+}

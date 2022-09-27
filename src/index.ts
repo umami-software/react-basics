@@ -32,6 +32,7 @@ export * from 'components/status/Dots';
 export * from 'components/status/ProgressBar';
 export * from 'components/status/ProgressCircle';
 export * from 'components/status/Spinner';
+export * from 'components/status/Toast';
 export * from 'components/table/Table';
 export * from 'components/table/TableBody';
 export * from 'components/table/TableCell';
