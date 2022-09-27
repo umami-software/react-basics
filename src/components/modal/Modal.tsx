@@ -3,9 +3,8 @@ import { createPortal } from 'react-dom';
 import { useSpring, animated } from 'react-spring';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import styles from './Modal.module.css';
-import { getRandomChars } from 'components/utils';
 import useKeyPress from 'hooks/useKeyDown';
+import styles from './Modal.module.css';
 
 export interface ModalProps extends CommonProps {
   title?: ReactNode;
@@ -21,20 +20,20 @@ export function Modal(props: ModalProps): JSX.Element | null {
 
   useEffect(() => {
     if (!element) {
-      const id = `__modal_` + getRandomChars(12);
       const portal = document.createElement('div');
+      portal.setAttribute('id', `__react-basics-modal`);
 
-      portal.setAttribute('id', id);
       document.body.appendChild(portal);
+
       setElement(portal);
     }
 
     return () => {
       if (!portalElement && element) {
-        document.removeChild(element);
+        document.body.removeChild(element);
       }
     };
-  }, []);
+  }, [element]);
 
   if (!element) {
     return null;

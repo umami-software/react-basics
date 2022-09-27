@@ -2,9 +2,7 @@ import path from 'path';
 import ts from 'rollup-plugin-ts';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
-import del from 'rollup-plugin-delete';
 import svgr from '@svgr/rollup';
 import md5 from 'md5';
 
@@ -23,10 +21,8 @@ export default [
       },
     ],
     plugins: [
-      del({ targets: 'dist/*', runOnce: true }),
       postcss({
         extract: 'styles.css',
-        minimize: true,
         modules: {
           generateScopedName: function (name, filename, css) {
             const file = path.basename(filename, '.css').replace('.module', '');
@@ -40,9 +36,8 @@ export default [
       }),
       svgr({ icon: true }),
       resolve(),
-      commonjs(),
+      commonjs({ sourceMap: false }),
       ts(),
-      terser(),
     ],
     external: ['react', 'react-dom', 'react/jsx-runtime', 'react-spring'],
   },
