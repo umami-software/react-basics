@@ -14,29 +14,15 @@ export interface FormProps extends CommonProps {
   children?: ReactNode | ((props: object) => ReactNode);
 }
 
-export interface FormMembers {
-  reset: () => void;
-}
-
 const validChildren = [FormInput, FormButtons];
 
 function _Form(props: FormProps, ref) {
   const { autoComplete, onSubmit, formProps, className, style, children } = props;
-  const { register, handleSubmit, formState, reset } = useForm(formProps);
+  const useFormValues = useForm(formProps);
+  const { handleSubmit, formState } = useFormValues;
   const { errors } = formState;
 
-  useImperativeHandle(
-    ref,
-    (): FormMembers => ({
-      reset,
-    }),
-  );
-
-  const getProps = child => {
-    if (validChildren.find((c: any) => c.name === child.type.name)) {
-      return { register, errors, reset };
-    }
-  };
+  useImperativeHandle(ref, () => useFormValues);
 
   return (
     <form
@@ -47,8 +33,8 @@ function _Form(props: FormProps, ref) {
       onSubmit={handleSubmit(onSubmit)}
     >
       {typeof children === 'function'
-        ? children({ register, errors, reset })
-        : cloneChildren(children, child => getProps(child))}
+        ? children(useFormValues)
+        : cloneChildren(children, () => ({ ...useFormValues, errors }), validChildren)}
     </form>
   );
 }

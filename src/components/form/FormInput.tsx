@@ -1,20 +1,19 @@
 import { ReactNode, Children, cloneElement } from 'react';
-import { UseFormRegister, RegisterOptions, FieldErrors } from 'react-hook-form';
+import { RegisterOptions, UseFormReturn } from 'react-hook-form';
 import { CommonProps } from 'types';
 import classNames from 'classnames';
 import styles from './FormInput.module.css';
 
-export interface FormInputProps extends CommonProps {
+export interface FormInputProps extends CommonProps, Partial<UseFormReturn> {
   name: string;
   label?: ReactNode;
   rules?: RegisterOptions;
-  register?: UseFormRegister<any>;
-  errors?: FieldErrors;
   children: ReactNode;
 }
 
 export function FormInput(props: FormInputProps) {
-  const { name, label, register, rules = {}, errors = {}, className, style, children } = props;
+  const { name, label, register, rules = {}, formState, className, style, children } = props;
+  const errors = formState?.errors || {};
 
   return (
     <div className={classNames(styles.input, className)} style={style}>

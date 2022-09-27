@@ -1,15 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-  Form,
-  FormInput,
-  FormButtons,
-  FormMembers,
-  TextField,
-  PasswordField,
-  Button,
-} from '../src';
+import { Form, FormInput, FormButtons, TextField, PasswordField, Button } from '../src';
 import { makeStory } from './utils';
-import { useRef } from 'react';
 
 export default {
   title: 'Form/Form',
@@ -17,12 +8,8 @@ export default {
 } as ComponentMeta<typeof Form>;
 
 const Template: ComponentStory<typeof Form> = args => {
-  const ref = useRef<FormMembers>();
-
-  const handleReset = () => ref?.current?.reset();
-
   return (
-    <Form ref={ref} {...args} style={{ width: 300 }}>
+    <Form {...args} style={{ width: 300 }}>
       <FormInput name="username" label="Username" rules={{ required: 'Required' }}>
         <TextField />
       </FormInput>
@@ -30,12 +17,19 @@ const Template: ComponentStory<typeof Form> = args => {
         <PasswordField />
       </FormInput>
       <FormButtons>
-        <Button type="submit" variant="primary">
-          Submit
-        </Button>
-        <Button type="button" onClick={handleReset} variant="secondary">
-          Reset
-        </Button>
+        {({ reset }) => {
+          const handleReset = () => reset();
+          return (
+            <>
+              <Button type="submit" variant="primary">
+                Submit
+              </Button>
+              <Button type="button" onClick={handleReset} variant="secondary">
+                Reset
+              </Button>
+            </>
+          );
+        }}
       </FormButtons>
     </Form>
   );
