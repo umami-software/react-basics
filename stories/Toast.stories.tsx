@@ -41,3 +41,18 @@ export const Error = makeStory(Template, {
     variant: 'error',
   },
 });
+
+export const NoTimeout = makeStory(Template, {
+  args: {
+    message: 'You must close this message yourself.',
+    timeout: 0,
+  },
+});
+
+export const PositionBottom = makeStory(Template, {
+  args: {
+    message: 'This appears at the bottom.',
+    timeout: 0,
+    position: 'bottom',
+  },
+});

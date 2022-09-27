@@ -1,13 +1,18 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+}
+
 .body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 30px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 300px;
   border-radius: var(--size50);
   padding: var(--size400);
   color: var(--gray50);
@@ -20,16 +25,24 @@
 }
 
 .close {
-  margin-left: 20px;
+  margin-left: var(--size600);
   cursor: pointer;
 }
 
-.success {
+.success .body {
   color: #fff;
   background: var(--green400);
 }
 
-.error {
+.error .body {
   color: #fff;
   background: var(--red400);
+}
+
+.top {
+  top: 30px;
+}
+
+.bottom {
+  bottom: 30px;
 }
