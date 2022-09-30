@@ -1,9 +1,10 @@
-import { Ref, ChangeEvent, forwardRef, useState } from 'react';
+import { Ref, ChangeEvent, forwardRef, useState, useRef, LegacyRef, useEffect } from 'react';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
+import useCombinedRefs from 'hooks/useCombinedRefs';
 import { Check } from 'icons';
-import styles from './Checkbox.module.css';
 import { CommonProps } from 'types';
+import styles from './Checkbox.module.css';
 
 export interface CheckboxProps extends CommonProps {
   name?: string;
@@ -14,42 +15,58 @@ export interface CheckboxProps extends CommonProps {
   onChange?: (e: ChangeEvent) => void;
 }
 
-function _Checkbox(props: CheckboxProps, ref?: Ref<any>) {
-  const { name, value, defaultChecked, disabled, className, style, onChange, children } = props;
-  const [checked, setChecked] = useState(defaultChecked);
+function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<any>) {
+  const { name, value, checked, defaultChecked, disabled, className, style, onChange, children } =
+    props;
+  const [isChecked, setIsChecked] = useState(defaultChecked);
+  const innerRef = useRef<any>(null);
+  const combinedRef = useCombinedRefs(forwardedRef, innerRef);
+
+  const handleClick = e => {
+    if (innerRef.current.checked !== e.target.checked) {
+      innerRef.current.click();
+    }
+  };
 
   const handleChange = e => {
-    setChecked(e.target.checked);
+    setIsChecked(e.target.checked);
     if (onChange) {
       onChange(e);
     }
   };
 
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
   return (
     <div
       className={classNames(styles.checkbox, className, {
-        [styles.checked]: checked,
+        [styles.checked]: isChecked,
         [styles.disabled]: disabled,
       })}
       style={style}
+      onClick={!disabled ? handleClick : undefined}
     >
       <div className={styles.box}>
-        {checked && (
+        {isChecked && (
           <Icon size="small">
             <Check />
           </Icon>
         )}
       </div>
-      <label className={styles.label} htmlFor={name}>
-        {children}
-      </label>
+      {children && (
+        <label className={styles.label} htmlFor={name}>
+          {children}
+        </label>
+      )}
       <input
-        ref={ref}
+        ref={combinedRef as LegacyRef<any>}
         type="checkbox"
         name={name}
         value={value}
         className={styles.input}
-        checked={checked}
+        checked={isChecked}
         disabled={disabled}
         onChange={handleChange}
       />

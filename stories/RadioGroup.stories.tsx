@@ -10,21 +10,22 @@ export default {
 } as ComponentMeta<typeof RadioGroup>;
 
 const items: any[] = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' },
+  { key: 'one', label: 'One' },
+  { key: 'two', label: 'Two' },
+  { key: 'three', label: 'Three' },
 ];
 
 const Template: ComponentStory<typeof RadioGroup> = args => {
-  const [selected, setSelected] = useState(args.value);
-  return <RadioGroup {...args} value={selected} onChange={setSelected} />;
+  const [selected, setSelected] = useState(args.selectedKey);
+
+  return <RadioGroup {...args} selectedKey={selected} onSelect={setSelected} />;
 };
 
 export const Basic = makeStory(Template, {
   args: {
     items,
     name: 'name',
-    children: ({ value, label }) => <Radio value={value}>{label}</Radio>,
+    children: ({ key, label }) => <Radio key={key}>{label}</Radio>,
   },
 });
 
@@ -32,18 +33,30 @@ export const Preselect = makeStory(Template, {
   args: {
     items,
     name: 'name',
-    value: 'three',
-    children: ({ value, label }) => <Radio value={value}>{label}</Radio>,
+    defaultSelectedKey: 'three',
+    children: ({ key, label }) => <Radio key={key}>{label}</Radio>,
   },
 });
 
 export const Disabled = makeStory(Template, {
   args: {
-    items: items.concat({ value: 'four', label: 'Four', disabled: true }),
+    items: items.concat({ key: 'four', label: 'Four', disabled: true }),
     name: 'name',
-    value: 'three',
-    children: ({ value, label, disabled }) => (
-      <Radio value={value} disabled={disabled}>
+    selectedKey: 'three',
+    children: ({ key, label, disabled }) => (
+      <Radio key={key} disabled={disabled}>
+        {label}
+      </Radio>
+    ),
+  },
+});
+export const Horizontal = makeStory(Template, {
+  args: {
+    items,
+    name: 'name',
+    layout: 'horizontal',
+    children: ({ key, label, disabled }) => (
+      <Radio key={key} disabled={disabled}>
         {label}
       </Radio>
     ),

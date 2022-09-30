@@ -1,5 +1,17 @@
 .group {
   position: relative;
   display: flex;
+}
+
+.radio {
+  color: red;
+}
+
+.horizontal {
+  flex-direction: row;
+  gap: var(--input-gap-size);
+}
+
+.vertical {
   flex-direction: column;
 }

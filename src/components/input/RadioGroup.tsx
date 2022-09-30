@@ -1,32 +1,54 @@
-import { ChangeEvent } from 'react';
+import { Key, useState } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Radio from 'components/input/Radio';
+import { cloneChildren, addClassNames } from 'components/utils';
 import styles from './RadioGroup.module.css';
-import { cloneChildren } from 'components/utils';
 
 export interface RadioGroupProps extends CommonProps {
+  name: string;
   items: any[];
-  value?: string;
-  onChange: (value: string, e: ChangeEvent) => void;
+  selectedKey?: Key;
+  defaultSelectedKey?: Key;
+  onSelect?: (key: Key) => void;
+  layout?: 'vertical' | 'horizontal' | 'none';
 }
 
 export function RadioGroup(props: RadioGroupProps) {
-  const { items = [], value, className, style, onChange, children } = props;
+  const {
+    items = [],
+    name,
+    defaultSelectedKey,
+    onSelect,
+    layout = 'vertical',
+    className,
+    style,
+    children,
+  } = props;
+  const [selectedKey, setSelectedKey] = useState(defaultSelectedKey);
 
-  const handleSelect = (val, e) => {
-    onChange(val, e);
+  const handleChange = key => {
+    setSelectedKey(key);
+    if (onSelect) {
+      onSelect(key);
+    }
   };
 
   return (
-    <div className={classNames(styles.group, className)} style={style}>
+    <div
+      className={classNames(styles.group, className, {
+        ...addClassNames(styles, { layout: { value: layout, map: ['horizontal', 'vertical'] } }),
+      })}
+      style={style}
+    >
       {cloneChildren(
         typeof children === 'function' && items ? items.map(item => children(item)) : children,
         child => {
-          const { value: childValue } = child.props;
+          const key = child.key ?? child.props.children;
           return {
-            checked: value === childValue,
-            onChange: handleSelect.bind(null, childValue),
+            name,
+            checked: selectedKey === key,
+            onChange: key ? handleChange.bind(null, key) : undefined,
           };
         },
         [Radio],

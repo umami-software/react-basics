@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Checkbox from 'components/input/Checkbox';
@@ -7,25 +7,24 @@ import styles from './CheckboxGroup.module.css';
 
 export interface CheckboxGroupProps extends CommonProps {
   items: any[];
-  value?: (string | number)[];
-  onChange: (value: (string | number)[], e: ChangeEvent) => void;
+  selectedKeys?: Key[];
+  onChange: (e: ChangeEvent) => void;
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
-  const { items = [], value = [], className, style, onChange, children } = props;
-  const [selected, setSelected] = useState(value);
+  const { items = [], selectedKeys = [], className, style, onChange, children } = props;
+  const [selected, setSelected] = useState(selectedKeys);
 
-  const handleSelect = (val, checked, e) => {
-    let values: (string | number)[] = [];
-
-    if (checked) {
-      values = !selected.includes(val) ? selected.concat(val) : values;
+  const handleSelect = (key, e) => {
+    if (e.target.checked) {
+      if (!selected.includes(key)) {
+        setSelected(selected.concat(key));
+      }
     } else {
-      values = selected.filter(n => n !== val);
+      setSelected(state => state.filter(n => n !== key));
     }
 
-    setSelected(values);
-    onChange(values, e);
+    onChange(e);
   };
 
   return (
@@ -33,10 +32,10 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
       {cloneChildren(
         typeof children === 'function' && items ? items.map(item => children(item)) : children,
         child => {
-          const { value: childValue } = child.props;
+          const key = child.key ?? child.props.children;
           return {
-            checked: selected.includes(childValue),
-            onChange: handleSelect.bind(null, childValue),
+            checked: selected.includes(key),
+            onChange: handleSelect.bind(null, key),
           };
         },
         [Checkbox],

@@ -1,27 +1,32 @@
-import { ChangeEvent, MutableRefObject, useRef } from 'react';
+import { ChangeEvent, Ref, forwardRef, useRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Radio.module.css';
+import useCombinedRefs from 'hooks/useCombinedRefs';
 
 export interface RadioProps extends CommonProps {
   name?: string;
   value?: string;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: (value: string, e: ChangeEvent) => void;
+  onChange?: (e: ChangeEvent) => void;
 }
 
-export function Radio(props: RadioProps) {
+function _Radio(props: RadioProps, forwardedRef?: Ref<any>) {
   const { name, value, checked, disabled, className, style, onChange, children } = props;
-  const ref = useRef() as MutableRefObject<HTMLInputElement>;
+  const innerRef = useRef<any>(null);
+  const combinedRef = useCombinedRefs(forwardedRef, innerRef);
 
   const handleClick = e => {
-    e.stopPropagation();
-    ref?.current?.click();
+    if (innerRef.current?.checked !== e.target.checked) {
+      innerRef.current?.click();
+    }
   };
 
   const handleChange = e => {
-    onChange?.(e.target.value, e);
+    if (onChange) {
+      onChange(e);
+    }
   };
 
   return (
@@ -34,12 +39,16 @@ export function Radio(props: RadioProps) {
       onClick={!disabled ? handleClick : undefined}
     >
       <div className={styles.circle} />
-      {children && <label className={styles.label}>{children}</label>}
+      {children && (
+        <label className={styles.label} htmlFor={name}>
+          {children}
+        </label>
+      )}
       <input
+        className={styles.input}
+        ref={combinedRef as Ref<any>}
         type="radio"
         name={name}
-        ref={ref}
-        className={styles.input}
         value={value}
         checked={checked}
         disabled={disabled}
@@ -48,5 +57,7 @@ export function Radio(props: RadioProps) {
     </div>
   );
 }
+
+export const Radio = forwardRef(_Radio);
 
 export default Radio;

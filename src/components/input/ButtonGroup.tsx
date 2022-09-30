@@ -32,9 +32,10 @@ export function ButtonGroup(props: ButtonGroupProps) {
       {cloneChildren(
         typeof children === 'function' && items ? items.map(item => children(item)) : children,
         child => {
+          const key = child.key ?? child.props.children;
           return {
-            className: classNames(styles.button, { [styles.selected]: selectedKey === child.key }),
-            onClick: child.key ? handleClick.bind(null, child.key) : undefined,
+            className: classNames(styles.button, { [styles.selected]: selectedKey === key }),
+            onClick: key ? handleClick.bind(null, key) : undefined,
           };
         },
         [Button],
