@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Form, FormInput, FormButtons, TextField, PasswordField, Button } from '../src';
+import { Form, FormInput, FormButtons, TextField, PasswordField, Button, Checkbox } from '../src';
 import { makeStory } from './utils';
 
 export default {
@@ -15,6 +15,9 @@ const Template: ComponentStory<typeof Form> = args => {
       </FormInput>
       <FormInput name="password" label="Password" rules={{ required: 'Required' }}>
         <PasswordField />
+      </FormInput>
+      <FormInput name="remember_me" rules={{ required: 'Required' }}>
+        <Checkbox>Remember me</Checkbox>
       </FormInput>
       <FormButtons>
         {({ reset }) => {

@@ -1,8 +1,8 @@
-import { forwardRef, ReactNode, useImperativeHandle } from 'react';
+import { forwardRef, ReactNode, useImperativeHandle, FC } from 'react';
 import { useForm, UseFormProps, SubmitHandler } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { cloneChildren } from 'components/utils';
+import { cloneChildren, isValidChild } from 'components/utils';
 import FormInput from './FormInput';
 import FormButtons from './FormButtons';
 import styles from './Form.module.css';
@@ -24,6 +24,9 @@ function _Form(props: FormProps, ref) {
 
   useImperativeHandle(ref, () => useFormValues);
 
+  const getProps = child =>
+    isValidChild(child, validChildren as FC[]) ? { ...useFormValues, errors } : {};
+
   return (
     <form
       ref={ref}
@@ -34,7 +37,7 @@ function _Form(props: FormProps, ref) {
     >
       {typeof children === 'function'
         ? children(useFormValues)
-        : cloneChildren(children, () => ({ ...useFormValues, errors }), validChildren)}
+        : cloneChildren(children, child => getProps(child))}
     </form>
   );
 }

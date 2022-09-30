@@ -1,4 +1,4 @@
-import { useRef, MutableRefObject, ChangeEvent } from 'react';
+import { Ref, ChangeEvent, forwardRef, useState } from 'react';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import { Check } from 'icons';
@@ -9,16 +9,20 @@ export interface CheckboxProps extends CommonProps {
   name?: string;
   value?: string;
   checked?: boolean;
+  defaultChecked?: boolean;
   disabled?: boolean;
-  onChange?: (checked: boolean, e: ChangeEvent) => void;
+  onChange?: (e: ChangeEvent) => void;
 }
 
-export function Checkbox(props: CheckboxProps) {
-  const { name, value, checked, disabled, className, style, onChange, children } = props;
-  const ref = useRef() as MutableRefObject<HTMLInputElement>;
+function _Checkbox(props: CheckboxProps, ref?: Ref<any>) {
+  const { name, value, defaultChecked, disabled, className, style, onChange, children } = props;
+  const [checked, setChecked] = useState(defaultChecked);
 
   const handleChange = e => {
-    onChange?.(e.target.checked, e);
+    setChecked(e.target.checked);
+    if (onChange) {
+      onChange(e);
+    }
   };
 
   return (
@@ -36,13 +40,15 @@ export function Checkbox(props: CheckboxProps) {
           </Icon>
         )}
       </div>
-      <label className={styles.label}>{children}</label>
+      <label className={styles.label} htmlFor={name}>
+        {children}
+      </label>
       <input
+        ref={ref}
         type="checkbox"
         name={name}
-        ref={ref}
-        className={styles.input}
         value={value}
+        className={styles.input}
         checked={checked}
         disabled={disabled}
         onChange={handleChange}
@@ -50,5 +56,7 @@ export function Checkbox(props: CheckboxProps) {
     </div>
   );
 }
+
+export const Checkbox = forwardRef(_Checkbox);
 
 export default Checkbox;

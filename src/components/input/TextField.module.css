@@ -23,6 +23,7 @@
   padding: 0;
   border: 0;
   outline: none;
+  width: 100%;
 }
 
 .input::placeholder {

@@ -12,7 +12,9 @@ export default {
 const Template: ComponentStory<typeof Checkbox> = args => {
   const [{ checked }, updateArgs] = useArgs();
 
-  const handleChange = value => updateArgs({ checked: value });
+  const handleChange = e => {
+    updateArgs({ checked: e.target.checked });
+  };
 
   return <Checkbox {...args} checked={checked} onChange={handleChange} />;
 };
@@ -28,7 +30,7 @@ export const Preselect = makeStory(Template, {
   args: {
     value: 'value',
     children: 'Checkbox',
-    checked: true,
+    defaultChecked: true,
   },
 });
 
