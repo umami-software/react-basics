@@ -61,13 +61,25 @@ export function cloneChildren(
   });
 }
 
+export function shuffleArray(a) {
+  const arr = a.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}
+
 export function getRandomChars(
   n,
   chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
 ) {
+  const arr = shuffleArray(chars.split(''));
   let s = '';
   for (let i = 0; i < n; i++) {
-    s += chars[Math.floor(Math.random() * chars.length)];
+    s += arr[Math.floor(Math.random() * arr.length)];
   }
   return s;
 }
