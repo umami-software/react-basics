@@ -27,8 +27,9 @@ const columns = [
   { name: 'email', label: 'Email' },
 ];
 
-const flex = [1, 2, 5];
-const align = ['left', 'center', 'right'] as any;
+const styles = [{ flex: 1 }, { flex: 2 }, { flex: 1 }];
+
+const widthStyles = [{ flex: 1 }, { flex: 2 }, { flex: 5 }];
 
 export default {
   title: 'Table/Table',
@@ -49,8 +50,10 @@ export const RenderFunctions = makeStory(Template, {
           {column => <TableColumn>{column.label}</TableColumn>}
         </TableHeader>
         <TableBody rows={rows} columns={columns}>
-          {row => (
-            <TableRow data={row}>{(data, key) => <TableCell>{data[key]}</TableCell>}</TableRow>
+          {(row, keys) => (
+            <TableRow data={row} keys={keys}>
+              {(data, key) => <TableCell>{data[key]}</TableCell>}
+            </TableRow>
           )}
         </TableBody>
       </>
@@ -89,31 +92,16 @@ export const ColumnWidths = makeStory(Template, {
     children: (
       <>
         <TableHeader columns={columns}>
-          {(column, i) => <TableColumn flex={flex[i]}>{column.label}</TableColumn>}
-        </TableHeader>
-        <TableBody rows={rows.slice(0, 5)}>
-          {row => (
-            <TableRow data={row}>
-              {(item, key, i) => <TableCell flex={flex[i]}>{item[key]}</TableCell>}
-            </TableRow>
+          {(column, index) => (
+            <TableColumn style={{ ...widthStyles[index] }}>{column.label}</TableColumn>
           )}
-        </TableBody>
-      </>
-    ),
-  },
-});
-
-export const Alignment = makeStory(Template, {
-  args: {
-    children: (
-      <>
-        <TableHeader columns={columns}>
-          {(column, i) => <TableColumn textAlign={align[i]}>{column.label}</TableColumn>}
         </TableHeader>
         <TableBody rows={rows.slice(0, 5)}>
-          {row => (
-            <TableRow data={row}>
-              {(item, key, i) => <TableCell textAlign={align[i]}>{item[key]}</TableCell>}
+          {(row, keys) => (
+            <TableRow data={row} keys={keys}>
+              {(item, key, index) => (
+                <TableCell style={{ ...widthStyles[index] }}>{item[key]}</TableCell>
+              )}
             </TableRow>
           )}
         </TableBody>
@@ -127,13 +115,15 @@ export const Window = makeStory(Template, {
     children: (
       <>
         <TableHeader columns={columns} style={{ width: 800 }}>
-          {(column, i) => <TableColumn flex={flex[i]}>{column.label}</TableColumn>}
+          {(column, index) => (
+            <TableColumn style={{ ...styles[index] }}>{column.label}</TableColumn>
+          )}
         </TableHeader>
         <TableWindow width={800} height={600} rowCount={rows.length} rowSize={50}>
           {({ index, style }) => {
             return (
               <TableRow data={rows[index]} style={style}>
-                {(item, key, i) => i < 3 && <TableCell flex={flex[i]}>{item[key]}</TableCell>}
+                {(item, key, i) => <TableCell style={{ ...styles[i] }}>{item[key]}</TableCell>}
               </TableRow>
             );
           }}

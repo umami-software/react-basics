@@ -32,8 +32,10 @@ export function Table(props: TableProps) {
       )}
       {autoRender && (
         <TableBody rows={rows} columns={columns}>
-          {row => (
-            <TableRow data={row}>{(data, key) => <TableCell>{data[key]}</TableCell>}</TableRow>
+          {(row, keys) => (
+            <TableRow data={row} keys={keys}>
+              {(data, key) => <TableCell>{data[key]}</TableCell>}
+            </TableRow>
           )}
         </TableBody>
       )}

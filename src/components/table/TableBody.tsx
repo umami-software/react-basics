@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import styles from './TableBody.module.css';
 import { ColumnData } from 'components/table/Table';
+import styles from './TableBody.module.css';
 
 export interface TableBodyProps extends CommonProps {
   rows?: any[];
@@ -15,16 +15,7 @@ export function TableBody(props: TableBodyProps) {
   return (
     <tbody className={classNames(styles.body, className)} style={style}>
       {typeof children === 'function' && rows && keys
-        ? rows.map(row =>
-            children(
-              Object.keys(row).reduce((data, key) => {
-                if (keys.includes(key)) {
-                  data[key] = row[key];
-                }
-                return data;
-              }, {}),
-            ),
-          )
+        ? rows.map((row, index) => children(row, keys, index))
         : children}
     </tbody>
   );

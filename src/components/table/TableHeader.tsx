@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+import { ColumnData } from 'components/table/Table';
 import styles from './TableHeader.module.css';
 
 export interface TableHeaderProps extends CommonProps {
-  columns?: any[];
+  columns?: ColumnData[];
 }
 
 export function TableHeader(props: TableHeaderProps) {
@@ -11,10 +12,8 @@ export function TableHeader(props: TableHeaderProps) {
 
   return (
     <thead className={classNames(styles.header, className)} style={style}>
-      <tr>
-        {typeof children === 'function' && columns
-          ? columns.map((column, index) => children(column, index))
-          : children}
+      <tr className={styles.row}>
+        {typeof children === 'function' && columns ? columns.map(children) : children}
       </tr>
     </thead>
   );
