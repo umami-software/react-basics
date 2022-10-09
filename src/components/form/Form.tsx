@@ -11,13 +11,14 @@ export interface FormProps extends CommonProps {
   autoComplete?: 'on' | 'off';
   onSubmit: SubmitHandler<any>;
   formProps?: UseFormProps;
+  error?: string;
   children?: ReactNode | ((props: object) => ReactNode);
 }
 
 const validChildren = [FormInput, FormButtons];
 
 function _Form(props: FormProps, ref) {
-  const { autoComplete, onSubmit, formProps, className, style, children } = props;
+  const { autoComplete, onSubmit, formProps, error, className, style, children } = props;
   const useFormValues = useForm(formProps);
   const { handleSubmit, formState } = useFormValues;
   const { errors } = formState;
@@ -35,9 +36,10 @@ function _Form(props: FormProps, ref) {
       style={style}
       onSubmit={handleSubmit(onSubmit)}
     >
-      {typeof children === 'function'
-        ? children(useFormValues)
-        : cloneChildren(children, child => getProps(child))}
+      {error && <div className={styles.error}>{error}</div>}
+      {cloneChildren(typeof children === 'function' ? children(useFormValues) : children, child =>
+        getProps(child),
+      )}
     </form>
   );
 }

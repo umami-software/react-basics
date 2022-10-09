@@ -3,3 +3,13 @@
   flex-direction: column;
   gap: var(--size600);
 }
+
+.error {
+  margin: 0 auto;
+  background: var(--gray50);
+  padding: var(--size400);
+  color: var(--red400);
+  border: 1px solid var(--red400);
+  border-radius: 4px;
+  text-align: center;
+}

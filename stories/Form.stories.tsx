@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Form> = args => {
       <FormInput name="password" label="Password" rules={{ required: 'Required' }}>
         <PasswordField />
       </FormInput>
-      <FormInput name="remember_me" rules={{ required: 'Required' }}>
+      <FormInput name="remember_me">
         <Checkbox>Remember me</Checkbox>
       </FormInput>
       <FormButtons>
@@ -42,6 +42,15 @@ export const Basic = makeStory(Template, {
   args: {
     value: 'value',
     autoComplete: 'off',
+    onSubmit: data => console.log({ data }), // tslint:disable-line:no-console
+  },
+});
+
+export const Error = makeStory(Template, {
+  args: {
+    value: 'value',
+    autoComplete: 'off',
+    error: 'Something went wrong.',
     onSubmit: data => console.log({ data }), // tslint:disable-line:no-console
   },
 });
