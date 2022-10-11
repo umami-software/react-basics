@@ -1,0 +1,10 @@
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: 32px;
+}
