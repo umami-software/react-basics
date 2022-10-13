@@ -1,15 +1,15 @@
-import { Key, useState } from 'react';
+import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Radio from 'components/input/Radio';
 import { cloneChildren, addClassNames } from 'components/utils';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './RadioGroup.module.css';
 
 export interface RadioGroupProps extends CommonProps {
   name: string;
   items: any[];
   selectedKey?: Key;
-  defaultSelectedKey?: Key;
   onSelect?: (key: Key) => void;
   layout?: 'vertical' | 'horizontal' | 'none';
 }
@@ -18,17 +18,14 @@ export function RadioGroup(props: RadioGroupProps) {
   const {
     items = [],
     name,
-    defaultSelectedKey,
+    selectedKey = '',
     onSelect,
     layout = 'vertical',
     className,
     style,
     children,
   } = props;
-  const [selectedKey, setSelectedKey] = useState(defaultSelectedKey);
-
   const handleChange = key => {
-    setSelectedKey(key);
     if (onSelect) {
       onSelect(key);
     }

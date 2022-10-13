@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tabs, Item } from '../src';
 import { makeStory } from './utils';
@@ -9,12 +9,16 @@ export default {
 } as ComponentMeta<typeof Tabs>;
 
 const items: any[] = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' },
+  { key: 'one', label: 'One' },
+  { key: 'two', label: 'Two' },
+  { key: 'three', label: 'Three' },
 ];
 
-const Template: ComponentStory<typeof Tabs> = args => <Tabs {...args} />;
+const Template: ComponentStory<typeof Tabs> = args => {
+  const [selected, setSelected] = useState(args.selectedKey);
+
+  return <Tabs {...args} selectedKey={selected} onSelect={setSelected} />;
+};
 
 export const Basic = makeStory(Template, {
   args: {
@@ -31,7 +35,7 @@ export const Preselected = makeStory(Template, {
 
 export const Disabled = makeStory(Template, {
   args: {
-    items: [...items, { value: 'four', label: 'Four', disabled: true }],
+    items: [...items, { key: 'four', label: 'Four', disabled: true }],
   },
 });
 
@@ -46,9 +50,9 @@ export const Tags = makeStory(Template, {
   args: {
     children: (
       <>
-        <Item>One</Item>
-        <Item>Two</Item>
-        <Item>Three</Item>
+        <Item key="one">One</Item>
+        <Item key="two">Two</Item>
+        <Item key="three">Three</Item>
       </>
     ),
   },

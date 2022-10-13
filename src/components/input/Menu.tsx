@@ -6,7 +6,7 @@ import { cloneChildren } from 'components/utils';
 import styles from './Menu.module.css';
 
 export interface MenuProps extends CommonProps {
-  items: object[];
+  items?: any[];
   selectedKey?: Key;
   itemClassName?: string;
   onSelect: (value: string, e: ReactEventHandler) => void;

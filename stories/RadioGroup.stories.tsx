@@ -33,7 +33,7 @@ export const Preselect = makeStory(Template, {
   args: {
     items,
     name: 'name',
-    defaultSelectedKey: 'three',
+    selectedKey: 'three',
     children: ({ key, label }) => <Radio key={key}>{label}</Radio>,
   },
 });
