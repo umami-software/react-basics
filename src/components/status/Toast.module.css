@@ -14,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   border-radius: var(--size50);
-  padding: var(--size400);
+  padding: var(--size200) var(--size400);
   color: var(--gray50);
   background: var(--gray900);
   z-index: 2;

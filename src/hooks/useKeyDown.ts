@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { ensureArray } from 'components/utils';
 
-export default function useKeyPress(targetKey, handler) {
+export function useKeyPress(targetKey, handler) {
   function downHandler({ key }) {
     if (ensureArray(targetKey).includes(key)) {
       handler(key);
@@ -18,3 +18,5 @@ export default function useKeyPress(targetKey, handler) {
 
   return null;
 }
+
+export default useKeyPress;
