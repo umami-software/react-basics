@@ -4,6 +4,7 @@
   align-items: center;
   gap: 8px;
   height: var(--size600);
+  flex: 1;
 }
 
 .item {
