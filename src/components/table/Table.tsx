@@ -49,7 +49,7 @@ export function Table(props: TableProps) {
             return { rows, columns };
           }
         },
-        [TableHeader, TableBody, TableWindow],
+        { validChildren: [TableHeader, TableBody, TableWindow] },
       )}
     </table>
   );
