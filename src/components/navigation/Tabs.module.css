@@ -39,7 +39,8 @@
 }
 
 .tab.disabled {
-  color: var(--input-disabled-color);
+  color: var(--gray300);
+  cursor: default;
 }
 
 .vertical .tab {

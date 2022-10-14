@@ -2,7 +2,7 @@ import { ChangeEvent, useState, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Checkbox from 'components/input/Checkbox';
-import { cloneChildren } from 'components/utils';
+import { cloneChildren, renderChildren } from 'components/utils';
 import styles from './CheckboxGroup.module.css';
 
 export interface CheckboxGroupProps extends CommonProps {
@@ -30,7 +30,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   return (
     <div className={classNames(styles.group, className)} style={style}>
       {cloneChildren(
-        typeof children === 'function' && items ? items.map(item => children(item)) : children,
+        renderChildren(children, items),
         child => {
           const key = child.key ?? child.props.children;
           return {
@@ -38,7 +38,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
             onChange: handleSelect.bind(null, key),
           };
         },
-        [Checkbox],
+        { validChildren: [Checkbox] },
       )}
     </div>
   );

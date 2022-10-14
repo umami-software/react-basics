@@ -2,7 +2,7 @@ import { ReactEventHandler, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Item from 'components/common/Item';
-import { cloneChildren } from 'components/utils';
+import { cloneChildren, renderChildren } from 'components/utils';
 import styles from './Menu.module.css';
 
 export interface MenuProps extends CommonProps {
@@ -22,7 +22,7 @@ export function Menu(props: MenuProps) {
   return (
     <div className={classNames(styles.menu, className)} style={style}>
       {cloneChildren(
-        typeof children === 'function' && items ? items.map(item => children(item)) : children,
+        renderChildren(children, items),
         child => {
           const { children: node, disabled, divider } = child.props;
           const key = child.key ?? node;
@@ -35,7 +35,7 @@ export function Menu(props: MenuProps) {
             onClick: !disabled ? handleSelect.bind(null, key) : undefined,
           };
         },
-        [Item],
+        { validChildren: [Item] },
       )}
     </div>
   );

@@ -1,37 +1,62 @@
+import { Key, Children } from 'react';
 import { CommonProps } from 'types';
 import classNames from 'classnames';
 import styles from './Breadcrumbs.module.css';
 import Icon from 'components/common/Icon';
+import { cloneChildren, countChildren, renderChildren } from 'components/utils';
+import Item from 'components/common/Item';
 
 export interface BreadcrumbProps extends CommonProps {
-  items: any[];
+  items?: any[];
   divider?: 'chevron' | 'slash' | 'arrow' | 'none';
-  onSelect?: () => void;
+  onSelect?: (key: Key) => void;
 }
 
 export function Breadcrumbs(props: BreadcrumbProps) {
-  const { items, divider = 'chevron', className, style, onSelect } = props;
+  const { items = [], divider = 'chevron', onSelect, className, style, children } = props;
   const icons = {
     chevron: 'chevron-right',
     slash: 'slash',
     arrow: 'arrow-right',
   };
 
-  return (
-    <ul className={classNames(styles.breadcrumbs, className)} style={style}>
-      {items.map(({ label, value }, index) => {
-        const last = index === items.length - 1;
+  const handleSelect = key => {
+    if (onSelect) {
+      onSelect(key);
+    }
+  };
 
-        return (
-          <>
-            <li key={value} onClick={!last ? onSelect?.bind(null, value) : undefined}>
-              {label}
-            </li>
-            {!last && <Icon icon={icons[divider]} className={styles.divider} />}
-          </>
-        );
-      })}
-    </ul>
+  const render = ({ label, key }) => {
+    return <Item key={key}>{label}</Item>;
+  };
+
+  const nodes = renderChildren(children || render, items);
+
+  return (
+    <div className={classNames(styles.breadcrumbs, className)} style={style}>
+      {cloneChildren(
+        nodes,
+        (child, index) => {
+          const { children: node, url, disabled } = child.props;
+          const key = child.key ?? node;
+          const last = index === countChildren(nodes) - 1;
+
+          return {
+            className: classNames(styles.item, {
+              [styles.disabled]: disabled,
+            }),
+            children: (
+              <>
+                {url ? <a href={url}>{node}</a> : node}
+                {!last && <Icon icon={icons[divider]} className={styles.divider} />}
+              </>
+            ),
+            onClick: !disabled ? handleSelect.bind(null, key) : undefined,
+          };
+        },
+        { validChildren: [Item] },
+      )}
+    </div>
   );
 }
 

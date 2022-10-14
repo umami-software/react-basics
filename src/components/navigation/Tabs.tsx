@@ -1,7 +1,7 @@
 import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { cloneChildren } from 'components/utils';
+import { cloneChildren, renderChildren } from 'components/utils';
 import Item from 'components/common/Item';
 import styles from './Tabs.module.css';
 
@@ -26,7 +26,6 @@ export function Tabs(props: TabsProps) {
     onSelect,
     children,
   } = props;
-  const autoRender = !children && items;
 
   const handleClick = key => {
     if (onSelect) {
@@ -38,6 +37,15 @@ export function Tabs(props: TabsProps) {
     style.gap = gap;
   }
 
+  const render = item => {
+    const key = item.key ?? item;
+    return (
+      <Item key={key} disabled={item.disabled}>
+        {item?.label}
+      </Item>
+    );
+  };
+
   return (
     <div
       className={classNames(styles.tabs, className, {
@@ -46,36 +54,18 @@ export function Tabs(props: TabsProps) {
       })}
       style={style}
     >
-      {autoRender &&
-        items.map(item => {
-          const key = item.key ?? item;
-          return (
-            <Item
-              key={item?.key}
-              onClick={handleClick.bind(null, key)}
-              className={classNames(styles.tab, { [styles.selected]: selectedKey === key })}
-            >
-              {item?.label}
-            </Item>
-          );
-        })}
-
-      {!autoRender &&
-        cloneChildren(
-          typeof children === 'function' && items ? items.map(item => children(item)) : children,
-          child => {
-            const { children: node, disabled } = child.props;
-            const key = child.key ?? node;
-            return {
-              className: classNames(styles.tab, {
-                [styles.selected]: selectedKey === key,
-                [styles.disabled]: disabled,
-              }),
-              disabled,
-              onClick: handleClick.bind(null, key),
-            };
-          },
-        )}
+      {cloneChildren(renderChildren(children || render, items), child => {
+        const { children: node, disabled } = child.props;
+        const key = child.key ?? node;
+        return {
+          className: classNames(styles.tab, {
+            [styles.selected]: selectedKey === key,
+            [styles.disabled]: disabled,
+          }),
+          disabled,
+          onClick: handleClick.bind(null, key),
+        };
+      })}
     </div>
   );
 }

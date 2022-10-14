@@ -29,7 +29,7 @@ export const Basic = makeStory(Template, {
 export const Preselected = makeStory(Template, {
   args: {
     items: [...items],
-    selectedValue: 'three',
+    selectedKey: 'three',
   },
 });
 

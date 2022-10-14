@@ -1,7 +1,7 @@
 import { ChangeEvent, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { addClassNames, cloneChildren } from 'components/utils';
+import { addClassNames, cloneChildren, renderChildren } from 'components/utils';
 import Button from './Button';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './ButtonGroup.module.css';
@@ -30,7 +30,7 @@ export function ButtonGroup(props: ButtonGroupProps) {
       style={style}
     >
       {cloneChildren(
-        typeof children === 'function' && items ? items.map(item => children(item)) : children,
+        renderChildren(children, items),
         child => {
           const key = child.key ?? child.props.children;
           return {
@@ -38,7 +38,7 @@ export function ButtonGroup(props: ButtonGroupProps) {
             onClick: key ? handleClick.bind(null, key) : undefined,
           };
         },
-        [Button],
+        { validChildren: [Button] },
       )}
     </div>
   );

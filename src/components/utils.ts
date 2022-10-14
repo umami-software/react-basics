@@ -44,11 +44,14 @@ export function isValidChild(child: ReactElement, types: FC | FC[]) {
 export function cloneChildren(
   children: ReactNode,
   handler: (child: ReactElement, index: number) => object | undefined,
-  validChildren?: any[],
+  options?: { validChildren?: any[] },
 ) {
   if (!children) {
     return null;
   }
+
+  const { validChildren } = options || {};
+
   return Children.map(getFragmentChildren(children), (child, index) => {
     if (validChildren && !isValidChild(child, validChildren)) {
       return null;
@@ -59,6 +62,18 @@ export function cloneChildren(
 
     return child;
   });
+}
+
+export function renderChildren(children, items?: any[]) {
+  if (items && typeof children === 'function') {
+    return items.map((item, index) => children(item, index));
+  }
+
+  return children;
+}
+
+export function countChildren(children) {
+  return Children.count(getFragmentChildren(children));
 }
 
 export function ensureArray(arr?: any) {
