@@ -26,8 +26,8 @@ export function Breadcrumbs(props: BreadcrumbProps) {
     }
   };
 
-  const render = ({ label, key }) => {
-    return <Item key={key}>{label}</Item>;
+  const render = ({ label, key, url }) => {
+    return <Item key={key}>{url ? <a href={url}>{label}</a> : label}</Item>;
   };
 
   const nodes = renderChildren(children || render, items);
@@ -37,7 +37,7 @@ export function Breadcrumbs(props: BreadcrumbProps) {
       {cloneChildren(
         nodes,
         (child, index) => {
-          const { children: node, url, disabled } = child.props;
+          const { children: node, disabled } = child.props;
           const key = child.key ?? node;
           const last = index === countChildren(nodes) - 1;
 
@@ -47,7 +47,7 @@ export function Breadcrumbs(props: BreadcrumbProps) {
             }),
             children: (
               <>
-                {url ? <a href={url}>{node}</a> : node}
+                {node}
                 {!last && <Icon icon={icons[divider]} className={styles.divider} />}
               </>
             ),
