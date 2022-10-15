@@ -4,16 +4,15 @@ import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Form.module.css';
 
-export interface FormProps extends CommonProps {
+export interface FormProps extends CommonProps, UseFormProps {
   autoComplete?: 'on' | 'off';
   onSubmit: SubmitHandler<any>;
-  formProps?: UseFormProps;
   error?: string;
   children?: ReactNode | ((props: object) => ReactNode);
 }
 
 function _Form(props: FormProps, ref) {
-  const { autoComplete, onSubmit, formProps, error, className, style, children } = props;
+  const { autoComplete, onSubmit, error, className, style, children, ...formProps } = props;
   const useFormValues = useForm(formProps);
   const { handleSubmit } = useFormValues;
 
