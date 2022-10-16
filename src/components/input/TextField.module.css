@@ -15,6 +15,10 @@
   border-color: var(--input-disabled-border-color);
 }
 
+.field.readonly {
+  background: var(--gray75);
+}
+
 .input {
   display: block;
   font-family: var(--input-font-family);

@@ -2,7 +2,7 @@ import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Radio from 'components/input/Radio';
-import { cloneChildren, renderChildren, addClassNames } from 'components/utils';
+import { cloneChildren, renderChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './RadioGroup.module.css';
 
@@ -32,12 +32,7 @@ export function RadioGroup(props: RadioGroupProps) {
   };
 
   return (
-    <div
-      className={classNames(styles.group, className, {
-        ...addClassNames(styles, { layout: { value: layout, map: ['horizontal', 'vertical'] } }),
-      })}
-      style={style}
-    >
+    <div className={classNames(styles.group, className, styles[layout])} style={style}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

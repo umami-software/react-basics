@@ -364,3 +364,7 @@
   transform: rotate(-45deg);
   background: currentColor;
 }
+
+.clickable {
+  cursor: pointer;
+}

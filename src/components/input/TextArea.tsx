@@ -13,7 +13,7 @@ export interface TextAreaProps extends CommonProps {
   disabled?: boolean;
   placeholder?: string;
   resizeable?: boolean;
-  onChange: (value: string, e?: Event) => void;
+  onChange?: (value: string, e?: Event) => void;
 }
 
 export function TextArea(props: TextAreaProps) {
@@ -34,11 +34,18 @@ export function TextArea(props: TextAreaProps) {
   } = props;
 
   const handleChange = e => {
-    onChange(e.target.value, e);
+    if (onChange) {
+      onChange(e.target.value, e);
+    }
   };
 
   return (
-    <div className={classNames(styles.field, className, { [styles.disabled]: disabled })}>
+    <div
+      className={classNames(styles.field, className, {
+        [styles.disabled]: disabled,
+        [styles.readonly]: readOnly,
+      })}
+    >
       <textarea
         className={classNames(styles.input, className)}
         style={{ ...style, resize: resizeable ? undefined : 'none' }}

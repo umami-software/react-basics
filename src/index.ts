@@ -9,6 +9,7 @@ export * from 'components/input/Button';
 export * from 'components/input/ButtonGroup';
 export * from 'components/input/Checkbox';
 export * from 'components/input/CheckboxGroup';
+export * from 'components/input/CopyButton';
 export * from 'components/input/Dropdown';
 export * from 'components/input/Menu';
 export * from 'components/input/PasswordField';

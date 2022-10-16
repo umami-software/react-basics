@@ -1,7 +1,7 @@
 import { ChangeEvent, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { addClassNames, cloneChildren, renderChildren } from 'components/utils';
+import { cloneChildren, renderChildren } from 'components/utils';
 import Button from './Button';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './ButtonGroup.module.css';
@@ -21,14 +21,7 @@ export function ButtonGroup(props: ButtonGroupProps) {
   };
 
   return (
-    <div
-      className={classNames(
-        styles.group,
-        className,
-        addClassNames(styles, { size: { value: size, map: ['small', 'medium', 'large'] } }),
-      )}
-      style={style}
-    >
+    <div className={classNames(styles.group, className, styles[size])} style={style}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

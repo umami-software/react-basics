@@ -1,7 +1,6 @@
 import { EventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { addClassNames } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Button.module.css';
 
@@ -17,7 +16,7 @@ export interface ButtonProps extends CommonProps {
 export function Button(props: ButtonProps) {
   const {
     name,
-    variant,
+    variant = 'none',
     size = 'medium',
     type,
     disabled,
@@ -29,11 +28,7 @@ export function Button(props: ButtonProps) {
 
   return (
     <button
-      className={classNames(styles.button, className, {
-        ...addClassNames(styles, {
-          variant: { value: variant, map: ['primary', 'secondary', 'quiet'] },
-          size: { value: size, map: ['small', 'medium', 'large'] },
-        }),
+      className={classNames(styles.button, className, styles[size], styles[variant], {
         [styles.disabled]: disabled,
       })}
       type={type || 'button'}

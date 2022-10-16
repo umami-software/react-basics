@@ -3,7 +3,6 @@ import { useSpring, animated } from 'react-spring';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Portal from 'components/common/Portal';
-import { addClassNames } from 'components/utils';
 import { Close } from 'icons';
 import { CommonProps } from 'types';
 
@@ -16,12 +15,20 @@ export interface ToastProps extends CommonProps {
   message: string;
   timeout?: number;
   onClose: EventHandler<any>;
-  variant?: 'success' | 'error' | 'none';
-  position?: 'top' | 'bottom';
+  variant?: 'success' | 'error' | '';
+  position?: 'top' | 'bottom' | '';
 }
 
 export function Toast(props: ToastProps) {
-  const { message, timeout = 3000, onClose, variant, position = 'top', className, style } = props;
+  const {
+    message,
+    timeout = 3000,
+    onClose,
+    variant = '',
+    position = 'top',
+    className,
+    style,
+  } = props;
   const styleProps = useSpring({
     opacity: 1,
     transform: 'translate3d(0,0px,0)',
@@ -43,12 +50,7 @@ export function Toast(props: ToastProps) {
   return (
     <Portal portalId={PORTAL_ID}>
       <animated.div
-        className={classNames(styles.wrapper, className, {
-          ...addClassNames(styles, {
-            variant: { value: variant, map: ['success', 'error'] },
-            size: { value: position, map: ['top', 'bottom'] },
-          }),
-        })}
+        className={classNames(styles.wrapper, className, styles[variant], styles[position])}
         style={{ ...styleProps, ...style }}
       >
         <div className={styles.body}>

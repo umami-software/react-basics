@@ -8,26 +8,6 @@ import {
   ReactNode,
 } from 'react';
 
-export function addClassNames(styles: object, props: object) {
-  return Object.keys(props).reduce((obj, key) => {
-    const prop = props[key];
-
-    if (prop) {
-      const { value, map } = prop;
-
-      if (value && map) {
-        for (const name of map) {
-          obj[styles[name]] = value === name;
-        }
-      } else {
-        obj[styles[key]] = Boolean(prop);
-      }
-    }
-
-    return obj;
-  }, {});
-}
-
 export function getFragmentChildren(children: ReactNode) {
   return (children as ReactElement)?.type === Fragment
     ? (children as ReactElement).props.children
@@ -45,7 +25,7 @@ export function cloneChildren(
   children: ReactNode,
   handler: (child: ReactElement, index: number) => object | undefined,
   options?: { validChildren?: any[] },
-) {
+): ReactNode {
   if (!children) {
     return null;
   }
@@ -64,19 +44,22 @@ export function cloneChildren(
   });
 }
 
-export function renderChildren(children, items?: any[]) {
+export function renderChildren(
+  children: ReactNode | ((item: any, index: number, array: any) => ReactNode),
+  items?: any[],
+): ReactNode {
   if (items && typeof children === 'function') {
-    return items.map((item, index) => children(item, index));
+    return items.map(children);
   }
 
-  return children;
+  return children as ReactNode;
 }
 
-export function countChildren(children) {
+export function countChildren(children): number {
   return Children.count(getFragmentChildren(children));
 }
 
-export function ensureArray(arr?: any) {
+export function ensureArray(arr?: any): any[] {
   if (arr === undefined || arr === null) return [];
   if (Array.isArray(arr)) return arr;
   return [arr];

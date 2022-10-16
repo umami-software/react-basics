@@ -1,6 +1,5 @@
 import { CSSProperties, ReactElement, MouseEvent, ReactNode } from 'react';
 import classNames from 'classnames';
-
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Icon.module.css';
 
@@ -50,7 +49,9 @@ export function Icon(props: IconProps): ReactElement {
 
   return (
     <div
-      className={classNames(styles.icon, className, getClasses(), styles[size])}
+      className={classNames(styles.icon, className, getClasses(), styles[size], {
+        [styles.clickable]: onClick,
+      })}
       style={style}
       onClick={onClick}
     >
