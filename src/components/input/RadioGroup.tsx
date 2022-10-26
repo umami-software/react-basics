@@ -11,7 +11,7 @@ export interface RadioGroupProps extends CommonProps {
   items: any[];
   selectedKey?: Key;
   onSelect?: (key: Key) => void;
-  layout?: 'vertical' | 'horizontal' | 'none';
+  layout?: 'vertical' | 'horizontal';
 }
 
 export function RadioGroup(props: RadioGroupProps) {

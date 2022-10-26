@@ -15,7 +15,7 @@ export function CopyTrigger(props: CopyTriggerProps) {
     await navigator.clipboard.writeText(value);
 
     if (notification === 'toast') {
-      showToast('Copied!');
+      showToast({ message: 'Copied!', variant: 'success' });
     }
 
     if (onCopy) {

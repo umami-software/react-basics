@@ -32,6 +32,7 @@
     "storybook"
   ],
   "rules": {
+    "jsx-no-lambda": "off",
     "linebreak-style": ["error", "unix"],
     "max-len": [
       "error",
@@ -40,8 +41,8 @@
         "ignoreComments": true
       }
     ],
-    "import/no-unresolved": "off",
     "no-unused-vars": "off",
+    "import/no-unresolved": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-explicit-any": "off",

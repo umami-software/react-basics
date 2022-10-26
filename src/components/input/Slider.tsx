@@ -12,7 +12,7 @@ export interface SliderProps extends CommonProps {
   step?: number;
   buffered?: boolean;
   disabled?: boolean;
-  fill?: 'left' | 'right' | 'none';
+  fill?: 'left' | 'right';
   onChange: (value: number, e: MouseEvent) => void;
   onUpdate: (value: number, e: MouseEvent) => void;
 }

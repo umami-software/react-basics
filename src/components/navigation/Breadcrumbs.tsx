@@ -8,7 +8,7 @@ import styles from './Breadcrumbs.module.css';
 
 export interface BreadcrumbProps extends CommonProps {
   items?: any[];
-  divider?: 'chevron' | 'slash' | 'arrow' | 'none';
+  divider?: 'chevron' | 'slash' | 'arrow';
   onSelect?: (key: Key) => void;
 }
 

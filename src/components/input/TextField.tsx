@@ -1,10 +1,8 @@
 import { Ref, forwardRef, ChangeEventHandler, FocusEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { Copy } from 'icons';
-import Icon from 'components/common/Icon';
-import styles from './TextField.module.css';
 import CopyIcon from 'components/input/CopyIcon';
+import styles from './TextField.module.css';
 
 export interface TextFieldProps extends CommonProps {
   name?: string;
