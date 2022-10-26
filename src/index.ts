@@ -5,6 +5,8 @@ export * from 'components/form/Form';
 export * from 'components/form/FormButtons';
 export * from 'components/form/FormInput';
 export * from 'components/form/FormRow';
+export * from 'components/form/HiddenInput';
+export * from 'components/form/SaveButton';
 export * from 'components/input/Button';
 export * from 'components/input/ButtonGroup';
 export * from 'components/input/Checkbox';

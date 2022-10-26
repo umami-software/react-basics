@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 export interface ToggleProps extends CommonProps {
   name?: string;
-  value: string;
+  value?: string;
   children?: ReactNode;
   checked?: boolean;
   disabled?: boolean;
