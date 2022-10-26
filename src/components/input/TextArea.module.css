@@ -1,6 +1,6 @@
 .field {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   background: var(--gray50);
   border: 1px solid var(--gray500);

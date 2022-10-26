@@ -4,7 +4,7 @@ import { CommonProps } from 'types';
 import { Copy } from 'icons';
 import Icon from 'components/common/Icon';
 import styles from './TextField.module.css';
-import CopyButton from 'components/input/CopyButton';
+import CopyIcon from 'components/input/CopyIcon';
 
 export interface TextFieldProps extends CommonProps {
   name?: string;
@@ -61,7 +61,7 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
         onFocus={onFocus}
       />
       {children}
-      {allowCopy && <CopyButton value={value} />}
+      {allowCopy && <CopyIcon value={value} />}
     </div>
   );
 }

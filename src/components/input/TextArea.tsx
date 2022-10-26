@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+import CopyIcon from 'components/input/CopyIcon';
 import styles from './TextArea.module.css';
 
 export interface TextAreaProps extends CommonProps {
@@ -13,6 +14,7 @@ export interface TextAreaProps extends CommonProps {
   disabled?: boolean;
   placeholder?: string;
   resizeable?: boolean;
+  allowCopy?: boolean;
   onChange?: (value: string, e?: Event) => void;
 }
 
@@ -28,6 +30,7 @@ export function TextArea(props: TextAreaProps) {
     disabled,
     placeholder,
     resizeable = false,
+    allowCopy = false,
     className,
     style,
     onChange,
@@ -60,6 +63,7 @@ export function TextArea(props: TextAreaProps) {
         placeholder={placeholder}
         onChange={handleChange}
       />
+      {allowCopy && <CopyIcon value={value} />}
     </div>
   );
 }

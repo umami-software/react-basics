@@ -1,10 +1,11 @@
-import { forwardRef, ReactNode, useImperativeHandle } from 'react';
+import { forwardRef, ReactNode, useEffect, useImperativeHandle } from 'react';
 import { useForm, UseFormProps, SubmitHandler, FormProvider } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps, UseFormProps {
+  values: object;
   autoComplete?: 'on' | 'off';
   onSubmit: SubmitHandler<any>;
   error?: string;
@@ -12,11 +13,15 @@ export interface FormProps extends CommonProps, UseFormProps {
 }
 
 function _Form(props: FormProps, ref) {
-  const { autoComplete, onSubmit, error, className, style, children, ...formProps } = props;
-  const useFormValues = useForm(formProps);
+  const { values, autoComplete, onSubmit, error, className, style, children, ...formProps } = props;
+  const useFormValues = useForm({ ...formProps, defaultValues: values });
   const { handleSubmit } = useFormValues;
 
   useImperativeHandle(ref, () => useFormValues);
+
+  useEffect(() => {
+    useFormValues.reset(values);
+  }, [values]);
 
   return (
     <FormProvider {...useFormValues}>
