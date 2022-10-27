@@ -18,6 +18,8 @@
   border-radius: 100%;
   background: var(--gray50);
   transition: all 0.2s;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .label {

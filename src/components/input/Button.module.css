@@ -8,6 +8,8 @@
   background: var(--gray100);
   border: 1px solid transparent;
   border-radius: var(--input-border-radius);
+  cursor: pointer;
+  z-index: 1;
 }
 
 .button:hover {

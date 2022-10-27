@@ -1,19 +1,29 @@
-import React, { MutableRefObject, ReactElement, ReactNode, useRef } from 'react';
+import React, { MutableRefObject, ReactElement, useRef } from 'react';
+import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Toggle.module.css';
-import classNames from 'classnames';
 
 export interface ToggleProps extends CommonProps {
   name?: string;
   value?: string;
-  children?: ReactNode;
+  size?: 'small' | 'medium' | 'large';
   checked?: boolean;
   disabled?: boolean;
   onChange: (checked: boolean) => void;
 }
 
 export function Toggle(props: ToggleProps): ReactElement {
-  const { name, value, checked, disabled, className, style, onChange, children } = props;
+  const {
+    name,
+    value,
+    size = 'medium',
+    checked,
+    disabled,
+    className,
+    style,
+    onChange,
+    children,
+  } = props;
   const ref = useRef() as MutableRefObject<HTMLInputElement>;
 
   const handleChange = e => {
@@ -22,7 +32,7 @@ export function Toggle(props: ToggleProps): ReactElement {
 
   return (
     <div
-      className={classNames(styles.toggle, className, {
+      className={classNames(styles.toggle, className, styles[size], {
         [styles.checked]: checked,
         [styles.disabled]: disabled,
       })}

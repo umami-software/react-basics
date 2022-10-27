@@ -17,6 +17,8 @@
   border-radius: 4px;
   background: var(--gray50);
   transition: all 0.2s;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .input {
