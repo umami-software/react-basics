@@ -1,10 +1,10 @@
-import { CommonProps, TextSize } from 'types';
+import { CommonProps, StandardSize } from 'types';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Text.module.css';
 
 export interface TextProps extends CommonProps {
-  size?: TextSize;
+  size?: StandardSize;
 }
 
 export function Text(props: TextProps) {

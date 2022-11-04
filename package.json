@@ -113,7 +113,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-storybook": "^0.6.6",
+    "eslint-plugin-storybook": "^0.6.7",
     "file-loader": "^6.2.0",
     "gh-pages": "^3.2.3",
     "husky": "^7.0.4",

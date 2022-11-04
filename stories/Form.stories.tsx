@@ -1,5 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Form, FormInput, FormButtons, TextField, PasswordField, Button, Checkbox } from '../src';
+import {
+  Form,
+  FormInput,
+  FormButtons,
+  TextField,
+  PasswordField,
+  Checkbox,
+  SubmitButton,
+  ResetButton,
+} from '../src';
 import { makeStory } from './utils';
 
 export default {
@@ -20,19 +29,8 @@ const Template: ComponentStory<typeof Form> = args => {
         <Checkbox>Remember me</Checkbox>
       </FormInput>
       <FormButtons>
-        {({ reset }) => {
-          const handleReset = () => reset();
-          return (
-            <>
-              <Button type="submit" variant="primary">
-                Submit
-              </Button>
-              <Button type="button" onClick={handleReset} variant="secondary">
-                Reset
-              </Button>
-            </>
-          );
-        }}
+        <SubmitButton variant="primary">Submit</SubmitButton>
+        <ResetButton variant="secondary">Reset</ResetButton>
       </FormButtons>
     </Form>
   );

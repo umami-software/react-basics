@@ -1,7 +1,7 @@
 import Button, { ButtonProps } from 'components/input/Button';
 import { useFormContext } from 'react-hook-form';
 
-export function SaveButton(props: ButtonProps) {
+export function SubmitButton(props: ButtonProps) {
   const { className, style, children, ...buttonProps } = props;
   const { formState } = useFormContext();
 
@@ -9,7 +9,9 @@ export function SaveButton(props: ButtonProps) {
     <Button
       {...buttonProps}
       type="submit"
-      disabled={!formState.isDirty || formState.isSubmitting || formState.isSubmitted}
+      disabled={
+        !formState.isDirty || !formState.isValid || formState.isSubmitting || formState.isSubmitted
+      }
       className={className}
       style={style}
     >
@@ -18,4 +20,4 @@ export function SaveButton(props: ButtonProps) {
   );
 }
 
-export default SaveButton;
+export default SubmitButton;

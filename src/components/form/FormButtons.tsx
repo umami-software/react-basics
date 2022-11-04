@@ -6,14 +6,18 @@ import styles from './FormButtons.module.css';
 
 export interface FormButtonsProps extends CommonProps, Partial<UseFormReturn> {
   align?: 'left' | 'right' | 'center';
+  flex?: boolean;
 }
 
 export function FormButtons(props: FormButtonsProps) {
   const useFormValues = useFormContext();
-  const { align = 'left', className, style, children } = props;
+  const { align = '', flex, className, style, children } = props;
 
   return (
-    <div className={classNames(styles.buttons, className, styles[align])} style={style}>
+    <div
+      className={classNames(styles.buttons, className, styles[align], { [styles.flex]: flex })}
+      style={style}
+    >
       {typeof children === 'function' ? children(useFormValues) : children}
     </div>
   );
