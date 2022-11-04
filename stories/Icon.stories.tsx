@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Icon, IconSizes, IconTypes } from '../src';
 import { CSSIcons } from '../src/constants';
 import { makeStory } from './utils';
-import '../src/declarations';
 import Logo from './logo.svg';
 
 export default {
