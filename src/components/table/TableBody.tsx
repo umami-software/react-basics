@@ -14,7 +14,7 @@ export function TableBody(props: TableBodyProps) {
 
   return (
     <tbody className={classNames(styles.body, className)} style={style}>
-      {typeof children === 'function' && rows && keys
+      {typeof children === 'function' && Array.isArray(rows) && keys
         ? rows.map((row, index) => children(row, keys, index))
         : children}
     </tbody>

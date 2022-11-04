@@ -6,7 +6,7 @@ import styles from './Toggle.module.css';
 export interface ToggleProps extends CommonProps {
   name?: string;
   value?: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
   checked?: boolean;
   disabled?: boolean;
   onChange: (checked: boolean) => void;
@@ -16,7 +16,7 @@ export function Toggle(props: ToggleProps): ReactElement {
   const {
     name,
     value,
-    size = 'medium',
+    size = 'md',
     checked,
     disabled,
     className,
@@ -32,7 +32,7 @@ export function Toggle(props: ToggleProps): ReactElement {
 
   return (
     <div
-      className={classNames(styles.toggle, className, styles[size], {
+      className={classNames(styles.toggle, className, styles[`sise-${size}`], {
         [styles.checked]: checked,
         [styles.disabled]: disabled,
       })}

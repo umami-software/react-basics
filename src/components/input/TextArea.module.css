@@ -22,7 +22,7 @@
   display: block;
   width: 100%;
   font-family: var(--input-font-family);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-md);
   line-height: var(--input-line-height);
   background: transparent;
   padding: 0;

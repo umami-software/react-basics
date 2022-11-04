@@ -33,11 +33,11 @@ const Template2: ComponentStory<typeof ButtonGroup> = args => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
       <h3>small</h3>
-      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="small" />
+      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="sm" />
       <h3>medium</h3>
-      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="medium" />
+      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="md" />
       <h3>large</h3>
-      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="large" />
+      <ButtonGroup {...args} onSelect={handleSelet} selectedKey={selected} size="lg" />
     </div>
   );
 };
@@ -53,7 +53,7 @@ export const Icons = makeStory(Template, {
   args: {
     items: items.map((item, index) => ({
       ...item,
-      label: <Icon icon={icons[index]} size="medium" />,
+      label: <Icon icon={icons[index]} size="md" />,
     })),
     children: ({ label, value }) => <Button key={value}>{label}</Button>,
   },

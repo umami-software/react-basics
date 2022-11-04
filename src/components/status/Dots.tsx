@@ -1,15 +1,16 @@
 import classNames from 'classnames';
-import styles from './Dots.module.css';
 import { CommonProps } from 'types';
+// eslint-disable-next-line css-modules/no-unused-class
+import styles from './Dots.module.css';
 
 export interface DotsProps extends CommonProps {
-  size: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export function Dots(props: DotsProps) {
-  const { className, style } = props;
+  const { className, style, size = 'md' } = props;
   return (
-    <div className={classNames(styles.dots, className)} style={style}>
+    <div className={classNames(styles.dots, styles[`size-${size}`], className)} style={style}>
       <div />
       <div />
       <div />

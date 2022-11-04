@@ -12,16 +12,17 @@
   --size800: 48px;
   --size900: 60px;
 
-  --font-size-xlarge: 36px;
-  --font-size-large: 24px;
-  --font-size-medium: 16px;
-  --font-size-small: 14px;
-  --font-size-xsmall: 12px;
+  --font-size-2xl: 48px;
+  --font-size-xl: 36px;
+  --font-size-lg: 24px;
+  --font-size-md: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 12px;
 
-  --grid-size-small: 576px;
-  --grid-size-medium: 768px;
-  --grid-size-large: 992px;
-  --grid-size-xlarge: 1140px;
+  --grid-size-sm: 576px;
+  --grid-size-md: 768px;
+  --grid-size-lg: 992px;
+  --grid-size-xl: 1140px;
 
   --blue400: #2680eb;
   --blue500: #1473e6;
@@ -50,7 +51,7 @@
   --primary700: var(--gray600);
 
   --input-font-family: inherit;
-  --input-font-size: var(--font-size-medium);
+  --input-font-size: var(--font-size-md);
   --input-height: 40px;
   --input-line-height: 24px;
   --input-padding: 8px 16px;

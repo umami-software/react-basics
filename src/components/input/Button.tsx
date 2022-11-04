@@ -7,7 +7,7 @@ import styles from './Button.module.css';
 export interface ButtonProps extends CommonProps {
   name?: string;
   variant?: 'primary' | 'secondary' | 'quiet';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   onClick?: EventHandler<any>;
@@ -17,7 +17,7 @@ export function Button(props: ButtonProps) {
   const {
     name,
     variant = '',
-    size = 'medium',
+    size = 'md',
     type,
     disabled,
     className,
@@ -28,7 +28,7 @@ export function Button(props: ButtonProps) {
 
   return (
     <button
-      className={classNames(styles.button, className, styles[size], styles[variant], {
+      className={classNames(styles.button, className, styles[`size-${size}`], styles[variant], {
         [styles.disabled]: disabled,
       })}
       type={type || 'button'}

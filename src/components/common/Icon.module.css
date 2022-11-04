@@ -4,7 +4,7 @@
   align-items: center;
   vertical-align: middle;
   position: relative;
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-md);
   flex-shrink: 0;
   box-sizing: content-box;
 }
@@ -13,36 +13,36 @@
   fill: currentColor;
 }
 
-.xlarge,
-.xlarge > svg {
+.size-xl,
+.size-xl > svg {
   font-size: 48px;
   width: 48px;
   height: 48px;
 }
 
-.large,
-.large > svg {
+.size-lg,
+.size-lg > svg {
   font-size: 24px;
   width: 24px;
   height: 24px;
 }
 
-.medium,
-.medium > svg {
+.size-md,
+.size-md > svg {
   font-size: 16px;
   width: 16px;
   height: 16px;
 }
 
-.small,
-.small > svg {
+.size-sm,
+.size-sm > svg {
   font-size: 12px;
   width: 12px;
   height: 12px;
 }
 
-.xsmall,
-.xsmall > svg {
+.size-xs,
+.size-xs > svg {
   font-size: 10px;
   width: 10px;
   height: 10px;

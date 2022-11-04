@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './ProgressCircle.module.css';
 
 export interface ProgressCircleProps extends CommonProps {
@@ -10,7 +11,7 @@ export interface ProgressCircleProps extends CommonProps {
   showValueLabel?: boolean;
   minValue?: number;
   maxValue?: number;
-  size: 'small' | 'medium' | 'large';
+  size: 'sm' | 'md' | 'lg';
 }
 
 export function ProgressCircle(props: ProgressCircleProps) {
@@ -20,7 +21,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
     maxValue = 100,
     valueLabel,
     showValueLabel = false,
-    size = 'medium',
+    size = 'md',
     className,
     style,
   } = props;
@@ -32,11 +33,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
 
   return (
     <div
-      className={classNames(styles.progresscircle, className, {
-        [styles.small]: size === 'small',
-        [styles.medium]: size === 'medium',
-        [styles.large]: size === 'large',
-      })}
+      className={classNames(styles.progresscircle, className, styles[`size-${size}`])}
       style={style}
     >
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">

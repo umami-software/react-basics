@@ -38,7 +38,7 @@ function _PasswordField(props: PasswordFieldProps, ref) {
         disabled={disabled}
         onChange={onChange}
       >
-        <Icon className={classNames(styles.icon)} size="large" onClick={handleShowPassword}>
+        <Icon className={classNames(styles.icon)} size="lg" onClick={handleShowPassword}>
           {show ? <Hide /> : <Show />}
         </Icon>
       </TextField>

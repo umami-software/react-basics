@@ -1,30 +1,6 @@
-import {
-  CommonProps,
-  StyleProps,
-  SizingStyleProps,
-  SpacingStyleProps,
-  BorderStyleProps,
-  AlignmentStyleProps,
-  FlexStyleProps,
-} from 'types';
-import { forwardRef } from 'react';
+import { CommonProps } from 'types';
 
-type ResponsiveProps = StyleProps &
-  SizingStyleProps &
-  SpacingStyleProps &
-  BorderStyleProps &
-  AlignmentStyleProps &
-  FlexStyleProps;
-
-export interface ColumnProps extends CommonProps {
-  xsmall?: ResponsiveProps;
-  small?: ResponsiveProps;
-  medium?: ResponsiveProps;
-  large?: ResponsiveProps;
-  xlarge?: ResponsiveProps;
-}
-
-function _Column(props: CommonProps) {
+export function Column(props: CommonProps) {
   const { className, style, children } = props;
 
   return (
@@ -33,7 +9,5 @@ function _Column(props: CommonProps) {
     </div>
   );
 }
-
-export const Column = forwardRef(_Column);
 
 export default Column;

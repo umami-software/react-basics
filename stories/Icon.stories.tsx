@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Icon, IconSizes, IconTypes } from '../src';
 import { CSSIcons } from '../src/constants';
 import { makeStory } from './utils';
+import '../src/declarations';
 import Logo from './logo.svg';
 
 export default {
@@ -16,12 +17,14 @@ export default {
   },
 } as ComponentMeta<typeof Icon>;
 
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+
 const Template: ComponentStory<typeof Icon> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
-    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map((n, i) => (
-      <Fragment key={`${n}${i}`}>
-        <label>{n}</label>
-        <Icon {...args} size={n as IconSizes} />
+    {sizes.map((size, i) => (
+      <Fragment key={`${size}${i}`}>
+        <label>{size}</label>
+        <Icon {...args} size={size as IconSizes} />
       </Fragment>
     ))}
   </div>
@@ -29,12 +32,17 @@ const Template: ComponentStory<typeof Icon> = args => (
 
 const Template2: ComponentStory<typeof Icon> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
-    {['xsmall', 'small', 'medium', 'large', 'xlarge'].map((n, i) => (
-      <Fragment key={`${n}${i}`}>
-        <label>{n}</label>
+    {sizes.map((size, i) => (
+      <Fragment key={`${size}${i}`}>
+        <label>{size}</label>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
           {CSSIcons.map(icon => (
-            <Icon key={`${n}${icon}`} {...args} icon={icon as IconTypes} size={n as IconSizes} />
+            <Icon
+              key={`${size}${icon}`}
+              {...args}
+              icon={icon as IconTypes}
+              size={size as IconSizes}
+            />
           ))}
         </div>
       </Fragment>

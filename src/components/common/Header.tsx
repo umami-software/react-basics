@@ -1,13 +1,13 @@
-import { CommonProps, TextSize } from 'types';
+import { CommonProps } from 'types';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
-import styles from './Text.module.css';
+import styles from './Header.module.css';
 
-export interface TextProps extends CommonProps {
-  size?: TextSize;
+export interface HeaderProps extends CommonProps {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export function Text(props: TextProps) {
+export function Header(props: HeaderProps) {
   const { className, style, children, size = 'md' } = props;
 
   return (

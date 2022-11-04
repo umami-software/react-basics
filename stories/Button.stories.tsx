@@ -12,13 +12,13 @@ const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
 const Template2: ComponentStory<typeof Button> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
-    <Button {...args} size="small">
+    <Button {...args} size="sm">
       Small
     </Button>
-    <Button {...args} size="medium">
+    <Button {...args} size="md">
       Medium
     </Button>
-    <Button {...args} size="large">
+    <Button {...args} size="lg">
       Large
     </Button>
   </div>

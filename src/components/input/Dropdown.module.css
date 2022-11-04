@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: var(--input-font-family);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-md);
   line-height: var(--input-line-height);
   min-height: var(--input-line-height);
 }

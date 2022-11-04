@@ -19,18 +19,18 @@
   border-left: 1px solid var(--gray500);
 }
 
-.group.small .button {
-  font-size: var(--font-size-xsmall);
+.group.size-sm .button {
+  font-size: var(--font-size-xs);
   padding: var(--size50) var(--size100);
 }
 
-.group.medium .button {
-  font-size: var(--font-size-small);
+.group.size-md .button {
+  font-size: var(--font-size-sm);
   padding: var(--size100) var(--size200);
 }
 
-.group.large .button {
-  font-size: var(--font-size-medium);
+.group.size-lg .button {
+  font-size: var(--font-size-md);
   padding: var(--size200) var(--size400);
 }
 

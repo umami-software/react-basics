@@ -56,7 +56,7 @@ export function Dropdown(props: DropDownProps) {
     >
       <div className={styles.input}>
         <div className={styles.text}>{selectedItem?.[labelKey] || value}</div>
-        <Icon icon="chevron-down" size="small" />
+        <Icon icon="chevron-down" size="sm" />
       </div>
       {showMenu && (
         <Menu

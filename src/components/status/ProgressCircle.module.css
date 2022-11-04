@@ -27,23 +27,23 @@
   font-weight: bold;
 }
 
-.small,
-.small svg {
-  font-size: var(--font-size-small);
+.size-sm,
+.size-sm svg {
+  font-size: var(--font-size-sm);
   width: 64px;
   height: 64px;
 }
 
-.medium,
-.medium svg {
-  font-size: var(--font-size-medium);
+.size-md,
+.size-md svg {
+  font-size: var(--font-size-md);
   width: 96px;
   height: 96px;
 }
 
-.large,
-.large svg {
-  font-size: var(--font-size-large);
+.size-lg,
+.size-lg svg {
+  font-size: var(--font-size-lg);
   width: 128px;
   height: 128px;
 }

@@ -1,6 +1,7 @@
 .button {
   display: flex;
   align-items: center;
+  align-self: flex-start;
   gap: var(--input-gap-size);
   font-size: var(--input-font-size);
   line-height: var(--input-line-height);
@@ -68,17 +69,17 @@
   background: var(--gray200);
 }
 
-.button.small {
-  font-size: var(--font-size-small);
+.button.size-sm {
+  font-size: var(--font-size-sm);
   padding: var(--size50) var(--size100);
 }
 
-.button.medium {
-  font-size: var(--font-size-medium);
+.button.size-md {
+  font-size: var(--font-size-md);
   padding: var(--size100) var(--size400);
 }
 
-.button.large {
-  font-size: var(--font-size-large);
+.button.size-lg {
+  font-size: var(--font-size-lg);
   padding: var(--size400) var(--size600);
 }

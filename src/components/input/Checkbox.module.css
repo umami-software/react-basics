@@ -29,7 +29,7 @@
 }
 
 .label {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-sm);
   font-weight: 400;
   user-select: none;
 }

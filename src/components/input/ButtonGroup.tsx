@@ -10,18 +10,18 @@ export interface ButtonGroupProps extends CommonProps {
   items?: any[];
   selectedKey?: Key;
   onSelect: (key: Key, e: ChangeEvent) => void;
-  size: 'small' | 'medium' | 'large';
+  size: 'sm' | 'md' | 'lg';
 }
 
 export function ButtonGroup(props: ButtonGroupProps) {
-  const { items = [], selectedKey, size = 'medium', onSelect, className, style, children } = props;
+  const { items = [], selectedKey, size = 'md', onSelect, className, style, children } = props;
 
   const handleClick = (key: Key, e: ChangeEvent) => {
     onSelect(key, e);
   };
 
   return (
-    <div className={classNames(styles.group, className, styles[size])} style={style}>
+    <div className={classNames(styles.group, className, styles[`size-${size}`])} style={style}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

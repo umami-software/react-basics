@@ -23,7 +23,6 @@ export * from 'components/input/Slider';
 export * from 'components/input/TextArea';
 export * from 'components/input/TextField';
 export * from 'components/input/Toggle';
-export * from 'components/layout/Box';
 export * from 'components/layout/Flexbox';
 export * from 'components/layout/Column';
 export * from 'components/modal/Modal';

@@ -55,7 +55,7 @@ export function Toast(props: ToastProps) {
       >
         <div className={styles.body}>
           <div className={styles.message}>{message}</div>
-          <Icon className={styles.close} size="medium" onClick={handleClose}>
+          <Icon className={styles.close} size="md" onClick={handleClose}>
             <Close />
           </Icon>
         </div>

@@ -1,0 +1,23 @@
+.size-2xl {
+  font-size: var(--font-size-2xl);
+}
+
+.size-xl {
+  font-size: var(--font-size-xl);
+}
+
+.size-lg {
+  font-size: var(--font-size-lg);
+}
+
+.size-md {
+  font-size: var(--font-size-md);
+}
+
+.size-sm {
+  font-size: var(--font-size-sm);
+}
+
+.size-xs {
+  font-size: var(--font-size-xs);
+}
