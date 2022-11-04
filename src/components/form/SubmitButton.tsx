@@ -2,7 +2,7 @@ import Button, { ButtonProps } from 'components/input/Button';
 import { useFormContext } from 'react-hook-form';
 
 export function SubmitButton(props: ButtonProps) {
-  const { className, style, children, ...buttonProps } = props;
+  const { className, style, children, disabled, ...buttonProps } = props;
   const { formState } = useFormContext();
 
   return (
@@ -10,7 +10,11 @@ export function SubmitButton(props: ButtonProps) {
       {...buttonProps}
       type="submit"
       disabled={
-        !formState.isDirty || !formState.isValid || formState.isSubmitting || formState.isSubmitted
+        disabled ||
+        !formState.isDirty ||
+        !formState.isValid ||
+        formState.isSubmitting ||
+        formState.isSubmitted
       }
       className={className}
       style={style}
