@@ -4,7 +4,7 @@ import { CommonProps } from 'types';
 import styles from './Dots.module.css';
 
 export interface DotsProps extends CommonProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export function Dots(props: DotsProps) {

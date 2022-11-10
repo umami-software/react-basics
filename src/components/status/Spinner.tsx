@@ -4,7 +4,7 @@ import { CommonProps } from 'types';
 import styles from './Spinner.module.css';
 
 export interface SpinnerProps extends CommonProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   quiet?: boolean;
 }
 

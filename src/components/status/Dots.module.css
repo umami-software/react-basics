@@ -13,19 +13,42 @@
   animation-fill-mode: both;
 }
 
+.dots.size-sm {
+  gap: 4px;
+}
+
 .dots.size-sm div {
+  width: 4px;
+  height: 4px;
+}
+
+.dots.size-md {
+  gap: 8px;
+}
+
+.dots.size-md div {
   width: 8px;
   height: 8px;
 }
 
-.dots.size-md div {
-  width: 10px;
-  height: 10px;
+.dots.size-lg {
+  gap: 12px;
 }
 
 .dots.size-lg div {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
+  gap: 12px;
+}
+
+.dots.size-xl {
+  gap: 16px;
+}
+
+.dots.size-xl div {
+  width: 16px;
+  height: 16px;
+  gap: 16px;
 }
 
 .dots div:nth-child(2) {

@@ -15,6 +15,7 @@ export * from 'components/input/CheckboxGroup';
 export * from 'components/input/CopyIcon';
 export * from 'components/input/CopyTrigger';
 export * from 'components/input/Dropdown';
+export * from 'components/input/LoadingButton';
 export * from 'components/input/Menu';
 export * from 'components/input/PasswordField';
 export * from 'components/input/Radio';

@@ -31,11 +31,16 @@
 }
 
 .size-md svg {
+  width: 24px;
+  height: 24px;
+}
+
+.size-lg svg {
   width: 32px;
   height: 32px;
 }
 
-.size-lg svg {
+.size-xl svg {
   width: 64px;
   height: 64px;
 }

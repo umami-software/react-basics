@@ -5,12 +5,12 @@ import Dots from 'components/status/Dots';
 import Spinner from 'components/status/Spinner';
 
 export interface LoadingProps extends CommonProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   variant?: 'dots' | 'spinner';
 }
 
 export function Loading(props: LoadingProps) {
-  const { size = 'lg', variant = 'spinner', className, style } = props;
+  const { size = 'xl', variant = 'spinner', className, style } = props;
   return (
     <div className={classNames(styles.loading, className)} style={style}>
       {variant === 'dots' && <Dots size={size} />}
