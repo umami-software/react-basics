@@ -1,9 +1,8 @@
-import { ButtonProps } from 'components/input/Button';
 import { useFormContext } from 'react-hook-form';
-import LoadingButton from 'components/input/LoadingButton';
+import LoadingButton, { LoadingButtonProps } from 'components/input/LoadingButton';
 
-export function SubmitButton(props: ButtonProps) {
-  const { className, style, children, disabled, ...buttonProps } = props;
+export function SubmitButton(props: LoadingButtonProps) {
+  const { className, style, children, disabled, loading, ...buttonProps } = props;
   const {
     formState: { isDirty, isValid, isSubmitting, isSubmitted },
   } = useFormContext();
@@ -13,7 +12,7 @@ export function SubmitButton(props: ButtonProps) {
       {...buttonProps}
       type="submit"
       disabled={disabled || !isDirty || !isValid || isSubmitting || isSubmitted}
-      loading={isSubmitting || isSubmitted}
+      loading={loading || isSubmitting || isSubmitted}
       className={className}
       style={style}
     >
