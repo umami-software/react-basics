@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+.container.center {
+  justify-content: center;
+}
+
+.container.fluid {
+  max-width: 100%;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

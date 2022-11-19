@@ -11,15 +11,19 @@ export interface ContainerProps extends CommonProps {
   columns?: number;
   gap?: number;
   fluid?: boolean;
+  center?: boolean;
 }
 
 export function Container(props: ContainerProps) {
-  const { className, style, children, columns = defaultColumns } = props;
+  const { className, style, children, columns = defaultColumns, center, fluid } = props;
   const breakpoint = useBreakpoint();
 
   return (
     <div
-      className={classNames(styles.container, className, styles[`container-${breakpoint}`])}
+      className={classNames(styles.container, className, styles[`container-${breakpoint}`], {
+        [styles.fluid]: fluid,
+        [styles.center]: center,
+      })}
       style={style}
     >
       {cloneChildren(
