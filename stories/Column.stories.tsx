@@ -54,13 +54,13 @@ export const DefaultSize = makeStory(Template, {
   args: {
     children: (
       <>
-        <Column style={columnStyle} defaultSize={2}>
+        <Column style={columnStyle} size={2}>
           Column A
         </Column>
-        <Column style={columnStyle} defaultSize={4}>
+        <Column style={columnStyle} size={4}>
           Column B
         </Column>
-        <Column style={columnStyle} defaultSize={6}>
+        <Column style={columnStyle} size={6}>
           Column C
         </Column>
       </>
@@ -72,13 +72,13 @@ export const HideColumns = makeStory(Template, {
   args: {
     children: (
       <>
-        <Column style={columnStyle} defaultSize={4} sm={0} md={0} xl={0}>
+        <Column style={columnStyle} size={4} sm={0} md={0} xl={0}>
           Column A
         </Column>
-        <Column style={columnStyle} defaultSize={4} xs={0} md={0}>
+        <Column style={columnStyle} size={4} xs={0} md={0}>
           Column B
         </Column>
-        <Column style={columnStyle} defaultSize={4} xs={0} sm={0} lg={0}>
+        <Column style={columnStyle} size={4} xs={0} sm={0} lg={0}>
           Column C
         </Column>
       </>
@@ -98,7 +98,7 @@ export const RenderFunction = makeStory(Template, {
               }
             : {};
         return (
-          <Column key={size} style={{ ...columnStyle, ...style }} defaultSize={2}>
+          <Column key={size} style={{ ...columnStyle, ...style }} size={2}>
             {size}
           </Column>
         );
@@ -110,14 +110,29 @@ export const ColumnOrder = makeStory(Template, {
   args: {
     children: (
       <>
-        <Column style={columnStyle} defaultSize={4} order={3}>
+        <Column style={columnStyle} size={4} order={3}>
           Column A
         </Column>
-        <Column style={columnStyle} defaultSize={4} order={2}>
+        <Column style={columnStyle} size={4} order={2}>
           Column B
         </Column>
-        <Column style={columnStyle} defaultSize={4} order={1}>
+        <Column style={columnStyle} size={4} order={1}>
           Column C
+        </Column>
+      </>
+    ),
+  },
+});
+
+export const ObjectProps = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <Column style={columnStyle} size={{ xs: 12, sm: 10, md: 8, lg: 4, xl: 2 }}>
+          Column A
+        </Column>
+        <Column style={columnStyle} size={{ xs: 12, sm: 2, md: 4, lg: 8, xl: 10 }}>
+          Column B
         </Column>
       </>
     ),

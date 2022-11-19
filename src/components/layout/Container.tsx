@@ -9,7 +9,6 @@ const defaultColumns = 12;
 
 export interface ContainerProps extends CommonProps {
   columns?: number;
-  gap?: number;
   fluid?: boolean;
   center?: boolean;
 }
@@ -27,7 +26,7 @@ export function Container(props: ContainerProps) {
       style={style}
     >
       {cloneChildren(
-        typeof children === 'function' ? children(breakpoint) : children,
+        typeof children === 'function' ? children(breakpoint, columns) : children,
         () => {
           return {
             breakpoint,

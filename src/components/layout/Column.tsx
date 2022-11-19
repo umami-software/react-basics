@@ -4,39 +4,46 @@ import styles from './Column.module.css';
 
 export type ColumnSize = number | null;
 
-export type ColumnBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+export type ColumnConfiguration = { [key in ColumnBreakpoint]: ColumnSize };
 
 export interface ColumnProps extends CommonProps {
-  breakpoint?: ColumnBreakpoints;
-  defaultSize?: ColumnSize;
+  breakpoint?: ColumnBreakpoint;
+  size?: ColumnSize | ColumnConfiguration;
   xs?: ColumnSize;
   sm?: ColumnSize;
   md?: ColumnSize;
   lg?: ColumnSize;
   xl?: ColumnSize;
-  order?: number;
+  order?: number | ColumnConfiguration;
   columns?: number;
 }
 
 export function Column(props: ColumnProps) {
-  const { className, style, children, defaultSize, breakpoint = '', columns = 1, order } = props;
-  const size = props[breakpoint] ?? defaultSize;
+  const { className, style, children, size, breakpoint = '', columns = 1, order } = props;
 
   const getSizeStyle = () => {
-    if (size === 0) {
+    let value = props[breakpoint] ?? size;
+
+    if (size && typeof value === 'object') {
+      value = size[breakpoint];
+    }
+
+    if (value === 0) {
       return {
         display: 'none',
       };
     }
 
-    if (size === null) {
+    if (value === null) {
       return {};
     }
 
-    if (typeof size === 'number') {
+    if (typeof value === 'number') {
       return {
         flex: '0 0 auto',
-        width: `${(size / columns) * 100}%`,
+        width: `${(value / columns) * 100}%`,
       };
     }
 
@@ -45,10 +52,18 @@ export function Column(props: ColumnProps) {
     };
   };
 
+  const getOrderStyle = () => {
+    if (typeof order === 'object') {
+      return { order: order[breakpoint] };
+    }
+
+    return { order };
+  };
+
   return (
     <div
-      className={classNames(styles.column, className, { [size]: typeof size === 'string' })}
-      style={{ ...style, ...getSizeStyle(), order }}
+      className={classNames(styles.column, className)}
+      style={{ ...style, ...getSizeStyle(), ...getOrderStyle() }}
     >
       {children}
     </div>
