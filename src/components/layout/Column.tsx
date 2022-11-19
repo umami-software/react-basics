@@ -14,11 +14,12 @@ export interface ColumnProps extends CommonProps {
   md?: ColumnSize;
   lg?: ColumnSize;
   xl?: ColumnSize;
+  order?: number;
   columns?: number;
 }
 
 export function Column(props: ColumnProps) {
-  const { className, style, children, defaultSize, breakpoint = '', columns = 1 } = props;
+  const { className, style, children, defaultSize, breakpoint = '', columns = 1, order } = props;
   const size = props[breakpoint] ?? defaultSize;
 
   const getSizeStyle = () => {
@@ -47,7 +48,7 @@ export function Column(props: ColumnProps) {
   return (
     <div
       className={classNames(styles.column, className, { [size]: typeof size === 'string' })}
-      style={{ ...style, ...getSizeStyle() }}
+      style={{ ...style, ...getSizeStyle(), order }}
     >
       {children}
     </div>

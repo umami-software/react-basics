@@ -105,3 +105,21 @@ export const RenderFunction = makeStory(Template, {
       }),
   },
 });
+
+export const ColumnOrder = makeStory(Template, {
+  args: {
+    children: (
+      <>
+        <Column style={columnStyle} defaultSize={4} order={3}>
+          Column A
+        </Column>
+        <Column style={columnStyle} defaultSize={4} order={2}>
+          Column B
+        </Column>
+        <Column style={columnStyle} defaultSize={4} order={1}>
+          Column C
+        </Column>
+      </>
+    ),
+  },
+});
