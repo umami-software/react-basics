@@ -29,13 +29,13 @@ const Template: ComponentStory<typeof Column> = () => {
         <Column style={columnStyle} xs={12} sm={6} md={3} lg={2}>
           Column A
         </Column>
-        <Column style={columnStyle} xs={12} sm={6} md={3} lg={4}>
+        <Column style={columnStyle} xs={12} sm={6} md={3} lg={0}>
           Column B
         </Column>
         <Column style={columnStyle} xs={12} sm={6} md={3} lg={4}>
           Column C
         </Column>
-        <Column style={columnStyle} xs={12} sm={6} md={3} lg={2}>
+        <Column style={columnStyle} xs={12} sm={6} md={3} lg={0}>
           Column D
         </Column>
       </Container>

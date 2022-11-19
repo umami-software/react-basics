@@ -17,6 +17,12 @@ export function Column(props: ColumnProps) {
   const size = props[breakpoint];
 
   const getSizeStyle = () => {
+    if (size === 0) {
+      return {
+        display: 'none',
+      };
+    }
+
     if (!size) {
       return {
         flex: '1 0 0%',
