@@ -23,7 +23,7 @@ export function Container(props: ContainerProps) {
       style={style}
     >
       {cloneChildren(
-        children,
+        typeof children === 'function' ? children(breakpoint) : children,
         () => {
           return {
             breakpoint,
