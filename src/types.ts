@@ -1,6 +1,6 @@
 import { CSSProperties, ReactNode } from 'react';
 
-export type StandardSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type StandardSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface CommonProps {
   className?: string;

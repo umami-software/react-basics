@@ -1,30 +1,39 @@
-import { CommonProps } from 'types';
 import classNames from 'classnames';
-import { forwardRef } from 'react';
+import { cloneChildren } from 'components/utils';
+import { Column } from 'components/layout/Column';
+import useBreakpoint from 'hooks/useBreakpoint';
+import { CommonProps } from 'types';
+import styles from './Container.module.css';
 
-export const ContainerBreakpoints = {
-  xs: 0,
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200,
-  xxl: 1400,
-};
+const defaultColumns = 12;
 
 export interface ContainerProps extends CommonProps {
+  columns?: number;
+  gap?: number;
   fluid?: boolean;
 }
 
-function _Container(props: ContainerProps, ref) {
-  const { className, style, children } = props;
+export function Container(props: ContainerProps) {
+  const { className, style, children, columns = defaultColumns } = props;
+  const breakpoint = useBreakpoint();
 
   return (
-    <div ref={ref} className={classNames('container', className)} style={style}>
-      {children}
+    <div
+      className={classNames(styles.container, className, styles[`container-${breakpoint}`])}
+      style={style}
+    >
+      {cloneChildren(
+        children,
+        () => {
+          return {
+            breakpoint,
+            columns,
+          };
+        },
+        { validChildren: [Column] },
+      )}
     </div>
   );
 }
-
-export const Container = forwardRef(_Container);
 
 export default Container;
