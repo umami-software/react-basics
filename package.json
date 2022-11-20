@@ -41,7 +41,7 @@
     "lint": "eslint src --ext .ts,.tsx"
   },
   "lint-staged": {
-    "src/**/*.{js|jsx|ts|tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "prettier --write"
     ],
     "src/**/*.{css}": [

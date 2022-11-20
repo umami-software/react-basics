@@ -6,7 +6,7 @@ export type ColumnSize = number | null;
 
 export type ColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type ColumnConfiguration = { [key in ColumnBreakpoint]: ColumnSize };
+export type ColumnConfiguration = { [key in ColumnBreakpoint]?: ColumnSize };
 
 export interface ColumnProps extends CommonProps {
   breakpoint?: ColumnBreakpoint;
