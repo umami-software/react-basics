@@ -18,7 +18,7 @@ export function useBreakpoint() {
           const width = window.innerWidth;
           const points = breakpoints[key];
           return width >= points[0] && width < points[1];
-        }) || 'xxl',
+        }) || '',
       );
     };
 

@@ -24,19 +24,22 @@ export function isValidChild(child: ReactElement, types: FC | FC[]) {
 export function cloneChildren(
   children: ReactNode,
   handler: (child: ReactElement, index: number) => object | undefined,
-  options?: { validChildren?: any[] },
+  options?: { validChildren?: any[]; onlyRenderValid?: boolean },
 ): ReactNode {
   if (!children) {
     return null;
   }
 
-  const { validChildren } = options || {};
+  const { validChildren, onlyRenderValid = false } = options || {};
 
   return Children.map(getFragmentChildren(children), (child, index) => {
-    if (validChildren && !isValidChild(child, validChildren)) {
+    const invalid = validChildren && !isValidChild(child, validChildren);
+
+    if (onlyRenderValid && invalid) {
       return null;
     }
-    if (isValidElement(child)) {
+
+    if (!invalid && isValidElement(child)) {
       return cloneElement(child, handler(child, index));
     }
 

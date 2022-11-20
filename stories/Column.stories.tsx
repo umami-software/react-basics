@@ -1,16 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Column, Container, useBreakpoint } from '../src';
+import { Column, Row, Container, useBreakpoint } from '../src';
 import { makeStory } from './utils';
 
 export default {
   title: 'Layout/Columns',
   component: Column,
 } as ComponentMeta<typeof Column>;
-
-const containerStyle = {
-  marginBottom: 20,
-};
 
 const columnStyle = {
   border: '1px solid lightgray',
@@ -22,10 +18,10 @@ const columnStyle = {
 const Template: ComponentStory<typeof Column> = args => {
   const breakpoint = useBreakpoint();
   return (
-    <div>
+    <Container>
       <h1>{breakpoint}</h1>
-      <Container style={containerStyle} {...args} />
-    </div>
+      <Row>{args.children}</Row>
+    </Container>
   );
 };
 

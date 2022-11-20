@@ -1,15 +1,9 @@
 .container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.container.center {
-  justify-content: center;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .container.fluid {

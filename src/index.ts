@@ -28,6 +28,7 @@ export * from 'components/input/Toggle';
 export * from 'components/layout/Flexbox';
 export * from 'components/layout/Column';
 export * from 'components/layout/Container';
+export * from 'components/layout/Row';
 export * from 'components/modal/Modal';
 export * from 'components/navigation/Accordion';
 export * from 'components/navigation/Breadcrumbs';
