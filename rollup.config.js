@@ -1,12 +1,14 @@
 import path from 'path';
 import ts from 'rollup-plugin-ts';
+import crypto from 'crypto';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import del from 'rollup-plugin-delete';
 import svgr from '@svgr/rollup';
-import md5 from 'md5';
+
+const md5 = str => crypto.createHash('md5').update(str).digest('hex');
 
 export default [
   {
