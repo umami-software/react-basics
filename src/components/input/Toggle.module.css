@@ -11,7 +11,7 @@
   height: 22px;
   border-radius: 22px;
   border: 1px solid var(--input-border-color);
-  background: var(--gray100);
+  background: var(--base100);
   transition: background-color 0.2s;
   cursor: pointer;
 }
@@ -26,7 +26,7 @@
   height: 18px;
   border: 1px solid var(--input-border-color);
   border-radius: 100%;
-  background: var(--gray50);
+  background: var(--base50);
   transition: left 0.2s;
 }
 

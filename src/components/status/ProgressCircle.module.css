@@ -12,7 +12,7 @@
 }
 
 .track {
-  stroke: var(--gray200);
+  stroke: var(--base200);
 }
 
 .fill {

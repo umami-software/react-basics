@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  background: var(--base50);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 12px 16px;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+.item.selected {
+  background: var(--base100);
+  border-left-color: var(--base900);
+}
+
+.item.disabled {
+  color: var(--base500) !important;
+  pointer-events: none;
+}

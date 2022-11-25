@@ -17,22 +17,22 @@
 }
 
 .item:hover {
-  background: var(--gray75);
+  background: var(--base75);
 }
 
 .item.selected {
   font-weight: 600;
-  background: var(--gray100);
+  background: var(--base100);
 }
 
 .item.disabled {
   color: var(--input-disabled-color);
-  background: var(--gray50);
+  background: var(--base50);
   border-color: var(--input-disabled-border-color);
   cursor: default;
   pointer-events: none;
 }
 
 .item.divider {
-  border-top: 1px solid var(--gray400);
+  border-top: 1px solid var(--base400);
 }

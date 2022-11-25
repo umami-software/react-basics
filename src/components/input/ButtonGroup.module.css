@@ -1,22 +1,22 @@
 .group {
   display: inline-flex;
   border-radius: var(--input-border-radius);
-  border: 1px solid var(--gray500);
+  border: 1px solid var(--base500);
   overflow: hidden;
 }
 
 .group .button {
   border: 0;
   border-radius: 0;
-  background: var(--gray50);
+  background: var(--base50);
 }
 
 .group .button:hover {
-  background: var(--gray100);
+  background: var(--base100);
 }
 
 .group .button + .button {
-  border-left: 1px solid var(--gray500);
+  border-left: 1px solid var(--base500);
 }
 
 .group.size-sm .button {

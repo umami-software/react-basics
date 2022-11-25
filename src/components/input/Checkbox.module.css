@@ -12,10 +12,10 @@
   align-items: center;
   width: 16px;
   height: 16px;
-  color: var(--gray900);
-  border: 1px solid var(--gray500);
+  color: var(--base900);
+  border: 1px solid var(--base500);
   border-radius: 4px;
-  background: var(--gray50);
+  background: var(--base50);
   transition: all 0.2s;
   cursor: pointer;
   z-index: 1;
@@ -35,7 +35,7 @@
 }
 
 .checkbox.checked .box {
-  color: var(--gray50);
+  color: var(--base50);
   background: var(--primary400);
   border-color: var(--primary700);
 }
@@ -46,5 +46,5 @@
 }
 
 .checkbox.disabled .label {
-  color: var(--gray600);
+  color: var(--base600);
 }

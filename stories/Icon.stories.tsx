@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Icon, IconSizes, IconTypes } from '../src';
 import { CSSIcons } from '../src/constants';
 import { makeStory } from './utils';
-import Logo from './logo.svg';
+import Logo from './assets/logo.svg';
 
 export default {
   title: 'Common/Icon',

@@ -11,7 +11,7 @@
     "allowJs": true,
     "strict": true,
 
-    "outDir": "./dist",
+    "outDir": "dist",
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,8 +21,8 @@
     "skipLibCheck": true,
 
     "baseUrl": ".",
-    "paths": { "*": ["./src/*"] }
+    "paths": { "*": ["src/*"] }
   },
-  "include": ["./src/**/*"],
+  "include": ["src/**/*", "stories/**/*"],
   "exclude": ["node_modules"]
 }

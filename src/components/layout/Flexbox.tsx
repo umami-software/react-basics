@@ -44,6 +44,9 @@ export interface FlexStyleProps {
     | 'last baseline'
     | 'safe center'
     | 'unsafe center';
+  gap?: number;
+  order?: number;
+  flex?: number;
 }
 
 export interface FlexProps extends CommonProps, FlexStyleProps {}

@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: var(--gray50);
-  border: 1px solid var(--gray500);
+  background: var(--base50);
+  border: 1px solid var(--base500);
   border-radius: var(--input-border-radius);
   padding: var(--input-padding);
   flex: 1;
@@ -16,7 +16,7 @@
 }
 
 .field.readonly {
-  background: var(--gray75);
+  background: var(--base75);
 }
 
 .input {
@@ -32,9 +32,9 @@
 }
 
 .input::placeholder {
-  color: var(--gray400);
+  color: var(--base400);
 }
 
 .input:disabled {
-  color: var(--gray300);
+  color: var(--base300);
 }

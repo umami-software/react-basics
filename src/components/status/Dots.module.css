@@ -8,7 +8,7 @@
 
 .dots div {
   border-radius: 100%;
-  background: var(--gray400);
+  background: var(--base400);
   animation: dots-blink 1.2s infinite;
   animation-fill-mode: both;
 }

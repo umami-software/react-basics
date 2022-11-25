@@ -45,55 +45,55 @@
   --orange700: #bd640d;
 
   /* Custom styles */
-  --primary400: var(--gray900);
-  --primary500: var(--gray800);
-  --primary600: var(--gray700);
-  --primary700: var(--gray600);
+  --primary400: var(--base900);
+  --primary500: var(--base800);
+  --primary600: var(--base700);
+  --primary700: var(--base600);
 
   --input-font-family: inherit;
   --input-font-size: var(--font-size-md);
   --input-height: 40px;
   --input-line-height: 24px;
   --input-padding: 8px 16px;
-  --input-border: 1px solid var(--gray500);
-  --input-border-color: var(--gray500);
+  --input-border: 1px solid var(--base500);
+  --input-border-color: var(--base500);
   --input-border-radius: 4px;
   --input-gap-size: 10px;
-  --input-color: var(--gray900);
-  --input-background: var(--gray50);
-  --input-disabled-color: var(--gray600);
-  --input-disabled-background: var(--gray100);
-  --input-disabled-border-color: var(--gray400);
+  --input-color: var(--base900);
+  --input-background: var(--base50);
+  --input-disabled-color: var(--base600);
+  --input-disabled-background: var(--base100);
+  --input-disabled-border-color: var(--base400);
 }
 
 /* Light theme */
 :not([data-theme='dark']) {
-  --gray50: #ffffff;
-  --gray75: #fafafa;
-  --gray100: #f5f5f5;
-  --gray200: #eaeaea;
-  --gray300: #e1e1e1;
-  --gray400: #cacaca;
-  --gray500: #b3b3b3;
-  --gray600: #8e8e8e;
-  --gray700: #6e6e6e;
-  --gray800: #4b4b4b;
-  --gray900: #2c2c2c;
+  --base50: #ffffff;
+  --base75: #fafafa;
+  --base100: #f5f5f5;
+  --base200: #eaeaea;
+  --base300: #e1e1e1;
+  --base400: #cacaca;
+  --base500: #b3b3b3;
+  --base600: #8e8e8e;
+  --base700: #6e6e6e;
+  --base800: #4b4b4b;
+  --base900: #2c2c2c;
 }
 
 /* Dark them */
 [data-theme='dark'] {
-  --gray50: #252525;
-  --gray75: #2f2f2f;
-  --gray100: #323232;
-  --gray200: #3e3e3e;
-  --gray300: #4a4a4a;
-  --gray400: #5a5a5a;
-  --gray500: #6e6e6e;
-  --gray600: #909090;
-  --gray700: #b9b9b9;
-  --gray800: #e3e3e3;
-  --gray900: #ffffff;
+  --base50: #252525;
+  --base75: #2f2f2f;
+  --base100: #323232;
+  --base200: #3e3e3e;
+  --base300: #4a4a4a;
+  --base400: #5a5a5a;
+  --base500: #6e6e6e;
+  --base600: #909090;
+  --base700: #b9b9b9;
+  --base800: #e3e3e3;
+  --base900: #ffffff;
 }
 
 /* Reset styles */

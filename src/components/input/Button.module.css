@@ -5,8 +5,8 @@
   gap: var(--input-gap-size);
   font-size: var(--input-font-size);
   line-height: var(--input-line-height);
-  color: var(--gray900);
-  background: var(--gray100);
+  color: var(--base900);
+  background: var(--base100);
   border: 1px solid transparent;
   border-radius: var(--input-border-radius);
   position: relative;
@@ -15,59 +15,59 @@
 }
 
 .button:hover {
-  background: var(--gray200);
+  background: var(--base200);
 }
 
 .button:active {
-  background: var(--gray300);
+  background: var(--base300);
 }
 
 .button.disabled {
-  color: var(--gray500) !important;
+  color: var(--base500) !important;
   border-color: transparent !important;
-  background-color: var(--gray100) !important;
+  background-color: var(--base100) !important;
   pointer-events: none;
 }
 
 .button.primary {
-  color: var(--gray50);
+  color: var(--base50);
   background: var(--primary400);
 }
 
 .button.primary:hover {
-  color: var(--gray50);
+  color: var(--base50);
   background: var(--primary500);
 }
 
 .button.primary:active {
-  color: var(--gray50);
+  color: var(--base50);
   background: var(--primary600);
 }
 
 .button.secondary {
-  border: 1px solid var(--gray500);
+  border: 1px solid var(--base500);
   background: transparent;
 }
 
 .button.secondary:hover {
-  background: var(--gray100);
+  background: var(--base100);
 }
 
 .button.secondary:active {
-  background: var(--gray200);
+  background: var(--base200);
 }
 
 .button.quiet {
-  color: var(--gray900);
+  color: var(--base900);
   background: transparent;
 }
 
 .button.quiet:hover {
-  background: var(--gray100);
+  background: var(--base100);
 }
 
 .button.quiet:active {
-  background: var(--gray200);
+  background: var(--base200);
 }
 
 .button.size-sm {

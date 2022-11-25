@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: var(--gray50);
-  border: 1px solid var(--gray500);
+  background: var(--base50);
+  border: 1px solid var(--base500);
   border-radius: var(--input-border-radius);
   padding: var(--input-padding);
   cursor: pointer;

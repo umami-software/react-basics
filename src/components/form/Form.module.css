@@ -6,7 +6,7 @@
 
 .error {
   margin: 0 auto;
-  background: var(--gray50);
+  background: var(--base50);
   padding: var(--size400);
   color: var(--red400);
   border: 1px solid var(--red400);

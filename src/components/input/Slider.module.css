@@ -19,7 +19,7 @@
   transform: translateY(-50%);
   height: 4px;
   border-radius: 4px;
-  background: var(--gray400);
+  background: var(--base400);
   border: 0;
   pointer-events: none;
 }
@@ -46,7 +46,7 @@
 }
 
 .right .fill {
-  background: var(--gray400);
+  background: var(--base400);
 }
 .right .track {
   background: var(--primary400);

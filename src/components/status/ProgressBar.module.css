@@ -11,7 +11,7 @@
 
 .track {
   height: 8px;
-  background: var(--gray200);
+  background: var(--base200);
   flex-basis: 100%;
   overflow: hidden;
 }

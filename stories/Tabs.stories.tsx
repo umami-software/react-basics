@@ -46,7 +46,7 @@ export const Vertical = makeStory(Template, {
   },
 });
 
-export const Tags = makeStory(Template, {
+export const PureTags = makeStory(Template, {
   args: {
     children: (
       <>

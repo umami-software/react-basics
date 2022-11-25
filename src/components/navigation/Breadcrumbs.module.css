@@ -8,23 +8,23 @@
 }
 
 .item {
-  color: var(--gray700);
+  color: var(--base700);
   margin: 0;
   cursor: pointer;
 }
 
 .item:hover {
-  color: var(--gray900);
+  color: var(--base900);
 }
 
 .item:last-child {
-  color: var(--gray900);
+  color: var(--base900);
   font-weight: 700;
   cursor: auto;
 }
 
 .divider {
-  color: var(--gray500);
+  color: var(--base500);
   margin: 0 20px;
 }
 

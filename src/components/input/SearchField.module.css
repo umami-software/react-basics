@@ -15,7 +15,7 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  color: var(--gray500);
+  color: var(--base500);
   cursor: pointer;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .close:hover {
-  color: var(--gray700);
+  color: var(--base700);
 }
 
 .visible {

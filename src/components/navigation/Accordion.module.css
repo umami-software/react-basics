@@ -1,7 +1,7 @@
 .accordian {
   display: flex;
   flex-direction: column;
-  width: var(--input-width);
+  width: 200px;
   gap: 4px;
 }
 
@@ -10,12 +10,12 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--input-padding);
-  border: 1px solid var(--gray500);
+  border: 1px solid var(--base500);
   border-radius: var(--input-border-radius);
 }
 
 .group:hover {
-  background: var(--gray100);
+  background: var(--base100);
 }
 
 .children {
@@ -27,14 +27,14 @@
 }
 
 .child {
-  color: var(--gray800);
+  color: var(--base800);
   padding: var(--input-padding);
   padding-left: 24px;
   user-select: none;
 }
 
 .child:hover {
-  background: var(--gray100);
+  background: var(--base100);
 }
 
 .disabled {
