@@ -7,12 +7,13 @@ import styles from './NavBar.module.css';
 
 export interface NavBarProps extends CommonProps {
   items?: any[];
+  theme?: 'light' | 'dark';
   selectedKey?: Key;
   onSelect?: (key: Key) => void;
 }
 
 export function NavBar(props: NavBarProps) {
-  const { items = [], selectedKey = '', className, style, onSelect, children } = props;
+  const { items = [], theme = '', selectedKey = '', className, style, onSelect, children } = props;
 
   const handleClick = key => {
     if (onSelect) {
@@ -30,7 +31,7 @@ export function NavBar(props: NavBarProps) {
   };
 
   return (
-    <div className={classNames(styles.navbar, className)} style={style}>
+    <div className={classNames(styles.navbar, className)} style={style} data-theme={theme}>
       {cloneChildren(renderChildren(children || render, items), child => {
         const { children: node, disabled } = child.props;
         const key = child.key ?? node;

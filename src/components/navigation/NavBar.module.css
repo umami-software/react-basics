@@ -9,8 +9,10 @@
   display: flex;
   flex-direction: row;
   gap: 16px;
-  padding: 12px 16px;
-  border-left: 2px solid transparent;
+  padding: 16px 20px;
+  color: var(--base900);
+  background: var(--base50);
+  border-left: 4px solid transparent;
   cursor: pointer;
 }
 
@@ -22,4 +24,15 @@
 .item.disabled {
   color: var(--base500) !important;
   pointer-events: none;
+}
+
+[data-theme='dark'] .item {
+  color: var(--base400);
+  background: var(--base900);
+}
+
+[data-theme='dark'] .item.selected {
+  color: var(--base50);
+  background: var(--base800);
+  border-left-color: var(--base50);
 }

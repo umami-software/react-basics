@@ -19,10 +19,17 @@
   --font-size-sm: 14px;
   --font-size-xs: 12px;
 
-  --grid-size-sm: 576px;
-  --grid-size-md: 768px;
-  --grid-size-lg: 992px;
-  --grid-size-xl: 1140px;
+  --gray50: #ffffff;
+  --gray75: #fafafa;
+  --gray100: #f5f5f5;
+  --gray200: #eaeaea;
+  --gray300: #e1e1e1;
+  --gray400: #cacaca;
+  --gray500: #b3b3b3;
+  --gray600: #8e8e8e;
+  --gray700: #6e6e6e;
+  --gray800: #4b4b4b;
+  --gray900: #2c2c2c;
 
   --blue400: #2680eb;
   --blue500: #1473e6;
@@ -68,32 +75,32 @@
 
 /* Light theme */
 :not([data-theme='dark']) {
-  --base50: #ffffff;
-  --base75: #fafafa;
-  --base100: #f5f5f5;
-  --base200: #eaeaea;
-  --base300: #e1e1e1;
-  --base400: #cacaca;
-  --base500: #b3b3b3;
-  --base600: #8e8e8e;
-  --base700: #6e6e6e;
-  --base800: #4b4b4b;
-  --base900: #2c2c2c;
+  --base50: var(--gray50);
+  --base75: var(--gray75);
+  --base100: var(--gray100);
+  --base200: var(--gray200);
+  --base300: var(--gray300);
+  --base400: var(--gray400);
+  --base500: var(--gray500);
+  --base600: var(--gray600);
+  --base700: var(--gray700);
+  --base800: var(--gray800);
+  --base900: var(--gray900);
 }
 
 /* Dark them */
 [data-theme='dark'] {
-  --base50: #252525;
-  --base75: #2f2f2f;
-  --base100: #323232;
-  --base200: #3e3e3e;
-  --base300: #4a4a4a;
-  --base400: #5a5a5a;
-  --base500: #6e6e6e;
-  --base600: #909090;
-  --base700: #b9b9b9;
-  --base800: #e3e3e3;
-  --base900: #ffffff;
+  --base50: var(--gray900);
+  --base75: var(--gray800);
+  --base100: var(--gray700);
+  --base200: var(--gray600);
+  --base300: var(--gray500);
+  --base400: var(--gray400);
+  --base500: var(--gray300);
+  --base600: var(--gray200);
+  --base700: var(--gray100);
+  --base800: var(--gray75);
+  --base900: var(--gray50);
 }
 
 /* Reset styles */
