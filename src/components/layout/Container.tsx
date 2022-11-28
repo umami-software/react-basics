@@ -5,10 +5,11 @@ import styles from './Container.module.css';
 
 export interface ContainerProps extends CommonProps {
   fluid?: boolean;
+  dir?: 'ltr' | 'rtl' | 'auto';
 }
 
 export function Container(props: ContainerProps) {
-  const { className, style, children, fluid } = props;
+  const { className, style, children, fluid, dir } = props;
   const breakpoint = useBreakpoint();
 
   return (
@@ -17,6 +18,7 @@ export function Container(props: ContainerProps) {
         [styles.fluid]: fluid,
       })}
       style={style}
+      dir={dir}
     >
       {children}
     </div>

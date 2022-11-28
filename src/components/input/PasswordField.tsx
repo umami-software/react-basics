@@ -34,7 +34,6 @@ function _PasswordField(props: PasswordFieldProps, ref) {
         {...textFieldProps}
         type={type}
         value={value}
-        className={styles.input}
         disabled={disabled}
         onChange={onChange}
       >

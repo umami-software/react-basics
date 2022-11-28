@@ -4,15 +4,21 @@ import LoadingButton, { LoadingButtonProps } from 'components/input/LoadingButto
 export function SubmitButton(props: LoadingButtonProps) {
   const { className, style, children, disabled, loading, ...buttonProps } = props;
   const {
-    formState: { isDirty, isValid, isSubmitting, isSubmitted },
+    formState: { isDirty, isValid, isSubmitting, isSubmitted, isSubmitSuccessful },
   } = useFormContext();
 
   return (
     <LoadingButton
       {...buttonProps}
       type="submit"
-      disabled={disabled || !isDirty || !isValid || isSubmitting || isSubmitted}
-      loading={loading || isSubmitting || isSubmitted}
+      disabled={
+        disabled !== undefined ? disabled : !isDirty || !isValid || isSubmitting || isSubmitted
+      }
+      loading={
+        loading !== undefined
+          ? loading
+          : isValid && isSubmitSuccessful && (isSubmitting || isSubmitted)
+      }
       className={className}
       style={style}
     >

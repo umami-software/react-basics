@@ -5,7 +5,7 @@ import { CommonProps } from 'types';
 import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps, UseFormProps {
-  values: object;
+  values?: object;
   autoComplete?: 'on' | 'off';
   onSubmit: SubmitHandler<any>;
   error?: string;
@@ -22,6 +22,12 @@ function _Form(props: FormProps, ref) {
   useEffect(() => {
     useFormValues.reset(values);
   }, [values]);
+
+  useEffect(() => {
+    if (useFormValues.formState.isSubmitted) {
+      useFormValues.reset(undefined, { keepDirty: true, keepValues: true });
+    }
+  }, [error]);
 
   return (
     <FormProvider {...useFormValues}>

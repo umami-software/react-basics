@@ -9,7 +9,6 @@ export interface FormInputProps extends CommonProps, Partial<UseFormReturn> {
   name: string;
   label?: ReactNode;
   rules?: RegisterOptions;
-  children: ReactNode;
 }
 
 export function FormInput(props: FormInputProps) {
