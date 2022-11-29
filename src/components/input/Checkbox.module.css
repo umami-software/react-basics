@@ -13,7 +13,7 @@
   width: 16px;
   height: 16px;
   color: var(--base900);
-  border: 1px solid var(--base500);
+  border: var(--input-border);
   border-radius: 4px;
   background: var(--base50);
   transition: all 0.2s;

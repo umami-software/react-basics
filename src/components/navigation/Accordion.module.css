@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--input-padding);
-  border: 1px solid var(--base500);
+  border: var(--input-border);
   border-radius: var(--input-border-radius);
 }
 

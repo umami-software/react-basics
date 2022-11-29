@@ -14,7 +14,7 @@
   width: 17px;
   height: 17px;
   color: var(--base900);
-  border: 1px solid var(--base500);
+  border: var(--input-border);
   border-radius: 100%;
   background: var(--base50);
   transition: all 0.2s;

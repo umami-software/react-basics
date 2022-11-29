@@ -17,7 +17,7 @@
 }
 
 .item:hover {
-  background: var(--base75);
+  background: var(--base100);
 }
 
 .item.selected {

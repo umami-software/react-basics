@@ -1,7 +1,7 @@
 .group {
   display: inline-flex;
   border-radius: var(--input-border-radius);
-  border: 1px solid var(--base500);
+  border: var(--input-border);
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .group .button + .button {
-  border-left: 1px solid var(--base500);
+  border-left: var(--input-border);
 }
 
 .group.size-sm .button {

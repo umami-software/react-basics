@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, Key, ReactEventHandler } from 'react';
+import { useState, useRef, useMemo, Key, MouseEvent } from 'react';
 import classNames from 'classnames';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
@@ -13,7 +13,7 @@ export interface DropDownProps extends CommonProps {
   menuClassName?: string;
   valueKey?: string;
   labelKey?: string;
-  onChange: (key: Key, e: ReactEventHandler) => void;
+  onChange: (key: Key, e: MouseEvent) => void;
 }
 
 export function Dropdown(props: DropDownProps) {
@@ -29,20 +29,22 @@ export function Dropdown(props: DropDownProps) {
     labelKey = 'label',
   } = props;
   const [showMenu, setShowMenu] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const selectedItem = useMemo(() => items.find(n => n?.[valueKey] === value), [items, value]);
 
-  const handleShowMenu = () => {
+  const handleShowMenu = e => {
+    e.stopPropagation();
     setShowMenu(state => !state);
   };
 
-  const handleSelect = (key: Key, e: ReactEventHandler) => {
+  const handleSelect = (key: Key, e: MouseEvent) => {
+    e.stopPropagation();
     setShowMenu(false);
     onChange(key, e);
   };
 
   useDocumentClick(e => {
-    if (showMenu && ref.current !== e.target) {
+    if (!ref.current?.contains(e.target)) {
       setShowMenu(false);
     }
   });

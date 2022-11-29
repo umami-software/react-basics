@@ -1,4 +1,4 @@
-import { ReactEventHandler, Key } from 'react';
+import { MouseEvent, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Item from 'components/common/Item';
@@ -9,13 +9,13 @@ export interface MenuProps extends CommonProps {
   items?: any[];
   selectedKey?: Key;
   itemClassName?: string;
-  onSelect: (value: string, e: ReactEventHandler) => void;
+  onSelect: (key: Key, e: MouseEvent) => void;
 }
 
 export function Menu(props: MenuProps) {
   const { items = [], selectedKey, itemClassName, onSelect, className, style, children } = props;
 
-  function handleSelect(key, e) {
+  function handleSelect(key: Key, e: MouseEvent) {
     onSelect(key, e);
   }
 
