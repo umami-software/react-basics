@@ -9,13 +9,13 @@
 }
 
 .field.disabled {
-  color: var(--base300);
-  background: var(--base75);
-  border-color: var(--base300);
+  color: var(--input-disabled-color);
+  background: var(--input-disabled-background);
+  border-color: var(--input-disabled-border-color);
 }
 
 .field.readonly {
-  background: var(--base75);
+  background: var(--base100);
 }
 
 .input {
@@ -35,5 +35,5 @@
 }
 
 .input:disabled {
-  color: var(--base300);
+  color: var(--input-disabled-color);
 }

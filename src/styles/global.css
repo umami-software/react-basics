@@ -60,9 +60,9 @@
   --input-gap-size: 10px;
   --input-color: var(--base900);
   --input-background: var(--base50);
-  --input-disabled-color: var(--base600);
+  --input-disabled-color: var(--base300);
   --input-disabled-background: var(--base100);
-  --input-disabled-border-color: var(--base400);
+  --input-disabled-border-color: var(--base300);
 }
 
 /* Light theme */

@@ -23,9 +23,9 @@
 }
 
 .button.disabled {
-  color: var(--base500) !important;
+  color: var(--input-disabled-color) !important;
   border-color: transparent !important;
-  background-color: var(--base100) !important;
+  background-color: var(--input-disabled-background) !important;
   pointer-events: none;
 }
 

@@ -46,5 +46,5 @@
 }
 
 .checkbox.disabled .label {
-  color: var(--base600);
+  color: var(--input-disabled-color);
 }

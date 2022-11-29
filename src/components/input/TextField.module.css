@@ -16,7 +16,7 @@
 }
 
 .field.readonly {
-  background: var(--base75);
+  background: var(--base100);
 }
 
 .input {
@@ -36,5 +36,5 @@
 }
 
 .input:disabled {
-  color: var(--base300);
+  color: var(--input-disabled-color);
 }
