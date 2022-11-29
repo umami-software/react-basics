@@ -1,11 +1,11 @@
 .error input[type='text'],
 .error input[type='password'],
 .error textarea {
-  border-color: var(--red400);
+  border-color: var(--red800);
 }
 
 .message {
-  color: var(--red400);
+  color: var(--red800);
   font-size: var(--font-size-xs);
   font-weight: 600;
   line-height: 32px;

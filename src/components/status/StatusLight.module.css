@@ -20,7 +20,7 @@
 }
 
 .status.error {
-  background: var(--red400);
+  background: var(--red800);
 }
 
 .status.active {

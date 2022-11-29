@@ -8,8 +8,8 @@
   margin: 0 auto;
   background: var(--base50);
   padding: var(--size400);
-  color: var(--red400);
-  border: 1px solid var(--red400);
+  color: var(--red800);
+  border: 1px solid var(--red800);
   border-radius: 4px;
   text-align: center;
 }
