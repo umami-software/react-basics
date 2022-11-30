@@ -22,6 +22,7 @@
   --light50: #ffffff;
   --light75: #fdfdfd;
   --light100: #f8f8f8;
+  --light150: #efefef;
   --light200: #e6e6e6;
   --light300: #d5d5d5;
   --light400: #b1b1b1;
@@ -34,6 +35,7 @@
   --dark50: #000000;
   --dark75: #0e0e0e;
   --dark100: #1d1d1d;
+  --dark150: #272727;
   --dark200: #303030;
   --dark300: #4b4b4b;
   --dark400: #6a6a6a;
@@ -60,9 +62,15 @@
   --input-gap-size: 10px;
   --input-color: var(--base900);
   --input-background: var(--base50);
-  --input-disabled-color: var(--base300);
+  --input-disabled-color: var(--base400);
   --input-disabled-background: var(--base100);
   --input-disabled-border-color: var(--base300);
+
+  --status-success-color: var(--green700);
+  --status-error-color: var(--red800);
+  --status-warning-color: var(--orange600);
+  --status-active-color: var(--blue800);
+  --status-inactive-color: var(--base400);
 }
 
 /* Light theme */
@@ -70,6 +78,7 @@
   --base50: var(--light50);
   --base75: var(--light75);
   --base100: var(--light100);
+  --base150: var(--light150);
   --base200: var(--light200);
   --base300: var(--light300);
   --base400: var(--light400);
@@ -78,6 +87,20 @@
   --base700: var(--light700);
   --base800: var(--light800);
   --base900: var(--light900);
+
+  --blue100: #e0f2ff;
+  --blue200: #cae8ff;
+  --blue300: #b5deff;
+  --blue400: #96cefd;
+  --blue500: #78bbfa;
+  --blue600: #59a7f6;
+  --blue700: #3892f3;
+  --blue800: #147af3;
+  --blue900: #0265dc;
+  --blue1000: #0054b6;
+  --blue1100: #004491;
+  --blue1200: #003571;
+  --blue1300: #002754;
 
   --green100: #cef8e0;
   --green200: #adf4ce;
@@ -127,6 +150,7 @@
   --base50: var(--dark50);
   --base75: var(--dark75);
   --base100: var(--dark100);
+  --base150: var(--dark150);
   --base200: var(--dark200);
   --base300: var(--dark300);
   --base400: var(--dark400);
@@ -135,6 +159,20 @@
   --base700: var(--dark700);
   --base800: var(--dark800);
   --base900: var(--dark900);
+
+  --blue100: #002651;
+  --blue200: #00326a;
+  --blue300: #004087;
+  --blue400: #004ea6;
+  --blue500: #005cc8;
+  --blue600: #066ce7;
+  --blue700: #1d80f5;
+  --blue800: #4096f3;
+  --blue900: #5eaaf7;
+  --blue1000: #7cbdfa;
+  --blue1100: #98cefd;
+  --blue1200: #b3defe;
+  --blue1300: #ceeaff;
 
   --green100: #0a2c1c;
   --green200: #073b24;

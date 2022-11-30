@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, Key, MouseEvent } from 'react';
+import { useState, useRef, Key, MouseEvent } from 'react';
 import classNames from 'classnames';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
@@ -10,27 +10,25 @@ export interface DropDownProps extends CommonProps {
   items: any[];
   name: string;
   value: string | number;
+  displayValue?: string;
   menuClassName?: string;
-  valueKey?: string;
-  labelKey?: string;
   onChange: (key: Key, e: MouseEvent) => void;
 }
 
 export function Dropdown(props: DropDownProps) {
   const {
     items,
+    name,
     value,
+    displayValue = value,
     className,
     menuClassName,
     style,
     onChange,
     children,
-    valueKey = 'value',
-    labelKey = 'label',
   } = props;
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const selectedItem = useMemo(() => items.find(n => n?.[valueKey] === value), [items, value]);
 
   const handleShowMenu = e => {
     e.stopPropagation();
@@ -57,13 +55,13 @@ export function Dropdown(props: DropDownProps) {
       onClick={handleShowMenu}
     >
       <div className={styles.input}>
-        <div className={styles.text}>{selectedItem?.[labelKey] || value}</div>
+        <div className={styles.text}>{displayValue}</div>
         <Icon icon="chevron-down" size="sm" />
       </div>
+      <input type="hidden" name={name} value={value} />
       {showMenu && (
         <Menu
           className={classNames(styles.menu, menuClassName)}
-          itemClassName={styles.item}
           items={items}
           selectedKey={value}
           onSelect={handleSelect}

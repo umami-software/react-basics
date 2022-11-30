@@ -8,12 +8,11 @@ import styles from './Menu.module.css';
 export interface MenuProps extends CommonProps {
   items?: any[];
   selectedKey?: Key;
-  itemClassName?: string;
   onSelect: (key: Key, e: MouseEvent) => void;
 }
 
 export function Menu(props: MenuProps) {
-  const { items = [], selectedKey, itemClassName, onSelect, className, style, children } = props;
+  const { items = [], selectedKey, onSelect, className, style, children } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
     onSelect(key, e);
@@ -24,10 +23,10 @@ export function Menu(props: MenuProps) {
       {cloneChildren(
         renderChildren(children, items),
         child => {
-          const { children: node, disabled, divider } = child.props;
+          const { children: node, disabled, divider, className: childClassName } = child.props;
           const key = child.key ?? node;
           return {
-            className: classNames(styles.item, itemClassName, {
+            className: classNames(styles.item, childClassName, {
               [styles.selected]: selectedKey === key,
               [styles.disabled]: disabled,
               [styles.divider]: divider,

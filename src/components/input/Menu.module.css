@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
   z-index: 1;
 }
 
 .item {
   flex: 1;
-  font-size: var(--font-size-sm);
   padding: var(--input-padding);
   line-height: var(--input-line-height);
-  border-radius: var(--input-border-radius);
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 }
 
 .item:hover {
@@ -22,7 +22,6 @@
 
 .item.selected {
   font-weight: 600;
-  background: var(--base100);
 }
 
 .item.disabled {
@@ -33,6 +32,11 @@
   pointer-events: none;
 }
 
-.item.divider {
-  border-top: 1px solid var(--base400);
+.item.divider:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: var(--input-border);
 }

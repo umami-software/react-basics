@@ -3,6 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { makeStory } from './utils';
 import { Item, Dropdown } from '../src';
 
+const items: any[] = [
+  { value: 'one', label: 'One' },
+  { value: 'two', label: 'Two' },
+  { value: 'three', label: 'Three' },
+];
+
 export default {
   title: 'Input/Dropdown',
   component: Dropdown,
@@ -11,14 +17,16 @@ export default {
 const Template: ComponentStory<typeof Dropdown> = args => {
   const [value, setValue] = useState<Key>(args.value);
 
-  return <Dropdown {...args} value={value} onChange={setValue} style={{ width: 200 }} />;
+  return (
+    <Dropdown
+      {...args}
+      displayValue={items.find(e => e.value === value)?.label}
+      value={value}
+      onChange={setValue}
+      style={{ width: 200 }}
+    />
+  );
 };
-
-const items: any[] = [
-  { value: 'one', label: 'One' },
-  { value: 'two', label: 'Two' },
-  { value: 'three', label: 'Three' },
-];
 
 export const Basic = makeStory(Template, {
   args: {

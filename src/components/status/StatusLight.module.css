@@ -8,21 +8,21 @@
   width: 8px;
   height: 8px;
   border-radius: 100%;
-  background: var(--base500);
+  background: var(--status-inactive-color);
 }
 
 .status.success {
-  background: var(--green400);
+  background: var(--status-success-color);
 }
 
 .status.warning {
-  background: var(--orange400);
+  background: var(--status-warning-color);
 }
 
 .status.error {
-  background: var(--red800);
+  background: var(--status-error-color);
 }
 
 .status.active {
-  background: var(--blue400);
+  background: var(--status-active-color);
 }

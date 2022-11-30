@@ -31,12 +31,12 @@
 
 .success .body {
   color: #fff;
-  background: var(--green600);
+  background: var(--status-success-color);
 }
 
 .error .body {
   color: #fff;
-  background: var(--red800);
+  background: var(--status-error-color);
 }
 
 .top {

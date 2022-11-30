@@ -15,11 +15,11 @@
 }
 
 .button:hover {
-  background: var(--base200);
+  background: var(--base150);
 }
 
 .button:active {
-  background: var(--base300);
+  background: var(--base200);
 }
 
 .button.disabled {
