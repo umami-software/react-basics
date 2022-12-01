@@ -50,7 +50,7 @@ export function TextArea(props: TextAreaProps) {
       })}
     >
       <textarea
-        className={classNames(styles.input, className)}
+        className={classNames(styles.input, className, { [styles.copy]: allowCopy })}
         style={{ ...style, resize: resizeable ? undefined : 'none' }}
         name={name}
         value={value}
@@ -63,7 +63,7 @@ export function TextArea(props: TextAreaProps) {
         placeholder={placeholder}
         onChange={handleChange}
       />
-      {allowCopy && <CopyIcon value={value} />}
+      {allowCopy && <CopyIcon value={value} className={styles.icon} />}
     </div>
   );
 }

@@ -37,3 +37,14 @@
 .input:disabled {
   color: var(--input-disabled-color);
 }
+
+.copy {
+  padding-right: 16px;
+}
+
+.icon {
+  position: absolute;
+  top: var(--size200);
+  right: var(--size400);
+  padding-left: var(--size100);
+}
