@@ -38,3 +38,7 @@
 .input:disabled {
   color: var(--input-disabled-color);
 }
+
+.icon {
+  margin-left: var(--size100);
+}

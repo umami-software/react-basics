@@ -59,7 +59,7 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
         onFocus={onFocus}
       />
       {children}
-      {allowCopy && <CopyIcon value={value} />}
+      {allowCopy && <CopyIcon value={value} className={styles.icon} />}
     </div>
   );
 }
