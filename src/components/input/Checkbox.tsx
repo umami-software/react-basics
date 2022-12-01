@@ -1,4 +1,4 @@
-import { Ref, ChangeEvent, forwardRef, useState, useRef, LegacyRef, useEffect } from 'react';
+import { Ref, ChangeEvent, forwardRef, useState, useRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import useCombinedRefs from 'hooks/useCombinedRefs';

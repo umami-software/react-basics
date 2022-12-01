@@ -33,7 +33,3 @@
   border-radius: var(--input-border-radius);
   min-width: 200px;
 }
-
-.item {
-  border-radius: 0;
-}
