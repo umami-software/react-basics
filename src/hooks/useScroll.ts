@@ -16,4 +16,4 @@ export function useScroll(name = 'scroll') {
   return null;
 }
 
-export default useScroll();
+export default useScroll;
