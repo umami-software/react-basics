@@ -35,6 +35,7 @@ export * from 'components/navigation/Breadcrumbs';
 export * from 'components/navigation/NavBar';
 export * from 'components/navigation/Tabs';
 export * from 'components/navigation/Tree';
+export * from 'components/status/Banner';
 export * from 'components/status/Dots';
 export * from 'components/status/Loading';
 export * from 'components/status/ProgressBar';

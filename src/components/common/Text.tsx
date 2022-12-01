@@ -16,3 +16,5 @@ export function Text(props: TextProps) {
     </span>
   );
 }
+
+export default Text;

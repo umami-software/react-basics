@@ -3,6 +3,8 @@ import { useSpring, animated } from 'react-spring';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Portal from 'components/common/Portal';
+import Banner from 'components/status/Banner';
+import Text from 'components/common/Text';
 import { Close } from 'icons';
 import { CommonProps } from 'types';
 
@@ -15,8 +17,8 @@ export interface ToastProps extends CommonProps {
   message: string;
   timeout?: number;
   onClose: EventHandler<any>;
-  variant?: 'success' | 'error' | '';
-  position?: 'top' | 'bottom' | '';
+  variant?: 'success' | 'warning' | 'error' | 'none';
+  position?: 'top' | 'bottom' | 'none';
 }
 
 export function Toast(props: ToastProps) {
@@ -24,7 +26,7 @@ export function Toast(props: ToastProps) {
     message,
     timeout = 3000,
     onClose,
-    variant = '',
+    variant = 'none',
     position = 'top',
     className,
     style,
@@ -53,12 +55,12 @@ export function Toast(props: ToastProps) {
         className={classNames(styles.wrapper, className, styles[variant], styles[position])}
         style={{ ...styleProps, ...style }}
       >
-        <div className={styles.body}>
-          <div className={styles.message}>{message}</div>
+        <Banner variant={variant} className={styles.toast}>
+          <Text>{message}</Text>
           <Icon className={styles.close} size="md" onClick={handleClose}>
             <Close />
           </Icon>
-        </div>
+        </Banner>
       </animated.div>
     </Portal>
   );

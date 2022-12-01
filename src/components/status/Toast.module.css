@@ -9,34 +9,18 @@
   z-index: 1;
 }
 
-.body {
+.toast {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: var(--size50);
-  padding: var(--size200) var(--size400);
-  color: var(--base50);
-  background: var(--base900);
+  width: auto;
+  padding: var(--size400);
   z-index: 2;
-}
-
-.message {
-  font-size: var(--font-size-md);
 }
 
 .close {
   margin-left: var(--size600);
   cursor: pointer;
-}
-
-.success .body {
-  color: #fff;
-  background: var(--status-success-color);
-}
-
-.error .body {
-  color: #fff;
-  background: var(--status-error-color);
 }
 
 .top {

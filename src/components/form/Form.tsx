@@ -2,6 +2,10 @@ import { forwardRef, ReactNode, useEffect, useImperativeHandle } from 'react';
 import { useForm, UseFormProps, SubmitHandler, FormProvider } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
+import Banner from 'components/status/Banner';
+import Text from 'components/common/Text';
+import Icon from 'components/common/Icon';
+import { Alert } from 'icons';
 import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps, UseFormProps {
@@ -38,7 +42,14 @@ function _Form(props: FormProps, ref) {
         style={style}
         onSubmit={handleSubmit(onSubmit)}
       >
-        {error && <div className={styles.error}>{error}</div>}
+        {error && (
+          <Banner variant="error">
+            <Icon size="lg">
+              <Alert />
+            </Icon>
+            <Text className={styles.error}>{error}</Text>
+          </Banner>
+        )}
         {typeof children === 'function' ? children(useFormValues) : children}
       </form>
     </FormProvider>

@@ -1,0 +1,44 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--size500);
+  border-radius: var(--input-border-radius);
+  color: var(--light50);
+  background: var(--primary400);
+  width: 100%;
+  text-align: center;
+}
+
+.success {
+  background: var(--status-success-color);
+}
+
+.error {
+  background: var(--status-error-color);
+}
+
+.warning {
+  background: var(--status-warning-color);
+}
+
+.outline {
+  color: var(--primary400);
+  border: 1px solid var(--primary400);
+  background: transparent;
+}
+
+.success.outline {
+  color: var(--status-success-color);
+  border: 1px solid var(--status-success-color);
+}
+
+.error.outline {
+  color: var(--status-error-color);
+  border: 1px solid var(--status-error-color);
+}
+
+.warning.outline {
+  color: var(--status-warning-color);
+  border: 1px solid var(--status-warning-color);
+}
