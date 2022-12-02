@@ -37,15 +37,6 @@ export function Tabs(props: TabsProps) {
     style.gap = gap;
   }
 
-  const render = item => {
-    const key = item.key ?? item;
-    return (
-      <Item key={key} disabled={item.disabled}>
-        {item?.label}
-      </Item>
-    );
-  };
-
   return (
     <div
       className={classNames(styles.tabs, className, {
@@ -54,7 +45,7 @@ export function Tabs(props: TabsProps) {
       })}
       style={style}
     >
-      {cloneChildren(renderChildren(children || render, items), child => {
+      {cloneChildren(renderChildren(children, items), child => {
         const { children: node, disabled } = child.props;
         const key = child.key ?? node;
         return {

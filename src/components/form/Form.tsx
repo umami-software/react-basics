@@ -44,7 +44,7 @@ function _Form(props: FormProps, ref) {
       >
         {error && (
           <Banner variant="error">
-            <Icon size="lg">
+            <Icon size="lg" className={styles.icon}>
               <Alert />
             </Icon>
             <Text className={styles.error}>{error}</Text>

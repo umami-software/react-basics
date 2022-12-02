@@ -8,6 +8,7 @@
   background: var(--primary400);
   width: 100%;
   text-align: center;
+  overflow: hidden;
 }
 
 .success {

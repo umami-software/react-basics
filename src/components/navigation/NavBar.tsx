@@ -21,18 +21,9 @@ export function NavBar(props: NavBarProps) {
     }
   };
 
-  const render = item => {
-    const key = item.key ?? item;
-    return (
-      <Item key={key} disabled={item.disabled}>
-        {item?.label}
-      </Item>
-    );
-  };
-
   return (
     <div className={classNames(styles.navbar, className)} style={style} data-theme={theme}>
-      {cloneChildren(renderChildren(children || render, items), child => {
+      {cloneChildren(renderChildren(children, items), child => {
         const { children: node, disabled } = child.props;
         const key = child.key ?? node;
         return {

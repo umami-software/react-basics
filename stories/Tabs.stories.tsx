@@ -23,12 +23,14 @@ const Template: ComponentStory<typeof Tabs> = args => {
 export const Basic = makeStory(Template, {
   args: {
     items,
+    children: item => <Item key={item.key}>{item.label}</Item>,
   },
 });
 
 export const Preselected = makeStory(Template, {
   args: {
-    items: [...items],
+    items,
+    children: item => <Item key={item.key}>{item.label}</Item>,
     selectedKey: 'three',
   },
 });
@@ -36,12 +38,18 @@ export const Preselected = makeStory(Template, {
 export const Disabled = makeStory(Template, {
   args: {
     items: [...items, { key: 'four', label: 'Four', disabled: true }],
+    children: item => (
+      <Item key={item.key} disabled={item.disabled}>
+        {item.label}
+      </Item>
+    ),
   },
 });
 
 export const Vertical = makeStory(Template, {
   args: {
     items,
+    children: item => <Item key={item.key}>{item.label}</Item>,
     vertical: true,
   },
 });

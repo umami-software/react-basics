@@ -8,3 +8,7 @@
   text-align: center;
   margin: auto;
 }
+
+.icon {
+  align-self: flex-start;
+}

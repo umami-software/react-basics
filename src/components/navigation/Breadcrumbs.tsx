@@ -26,11 +26,7 @@ export function Breadcrumbs(props: BreadcrumbProps) {
     }
   };
 
-  const render = ({ label, key, url }) => {
-    return <Item key={key}>{url ? <a href={url}>{label}</a> : label}</Item>;
-  };
-
-  const nodes = renderChildren(children || render, items);
+  const nodes = renderChildren(children, items);
 
   return (
     <div className={classNames(styles.breadcrumbs, className)} style={style}>
