@@ -1,7 +1,6 @@
 import { MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-// eslint-disable-next-line css-modules/no-unused-class
 import styles from './Item.module.css';
 
 export interface ItemProps extends CommonProps {

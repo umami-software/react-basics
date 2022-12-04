@@ -1,7 +1,16 @@
 .header {
+  font-size: var(--font-size-sm);
   border-bottom: 1px solid var(--base400);
 }
 
 .row {
   display: flex;
+}
+
+.row th:first-child {
+  padding-left: 0;
+}
+
+.row th:last-child {
+  padding-right: 0;
 }

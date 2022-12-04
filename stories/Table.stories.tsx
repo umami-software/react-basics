@@ -18,7 +18,6 @@ const rows = [...Array(100)].map(() => ({
   id: faker.mersenne.rand(),
   name: faker.name.fullName(),
   email: faker.internet.email(),
-  ip: faker.internet.ipv4(),
 }));
 
 const columns = [
@@ -27,7 +26,7 @@ const columns = [
   { name: 'email', label: 'Email' },
 ];
 
-const styles = [{ flex: 1 }, { flex: 2 }, { flex: 1 }];
+const styles = [{ flex: 1 }, { flex: 1 }, { flex: 2 }];
 
 const widthStyles = [{ flex: 1 }, { flex: 2 }, { flex: 5 }];
 
@@ -114,12 +113,21 @@ export const Window = makeStory(Template, {
   args: {
     children: (
       <>
-        <TableHeader columns={columns} style={{ width: 800 }}>
+        <TableHeader
+          columns={columns}
+          style={{ width: 800, overflowY: 'hidden', scrollbarGutter: 'stable' }}
+        >
           {(column, index) => (
             <TableColumn style={{ ...styles[index] }}>{column.label}</TableColumn>
           )}
         </TableHeader>
-        <TableWindow width={800} height={600} rowCount={rows.length} rowSize={50}>
+        <TableWindow
+          width={800}
+          height={600}
+          rowCount={rows.length}
+          rowSize={50}
+          style={{ overflowY: 'scroll', scrollbarGutter: 'stable' }}
+        >
           {({ index, style }) => {
             return (
               <TableRow data={rows[index]} style={style}>
