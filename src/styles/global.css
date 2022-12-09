@@ -32,25 +32,25 @@
   --light800: #222222;
   --light900: #000000;
 
-  --dark50: #000000;
-  --dark75: #0e0e0e;
-  --dark100: #1d1d1d;
-  --dark150: #272727;
-  --dark200: #303030;
-  --dark300: #4b4b4b;
-  --dark400: #6a6a6a;
-  --dark500: #8d8d8d;
-  --dark600: #b0b0b0;
-  --dark700: #d0d0d0;
+  --dark50: #1d1d1d;
+  --dark75: #262626;
+  --dark100: #323232;
+  --dark150: #393939;
+  --dark200: #3f3f3f;
+  --dark300: #545454;
+  --dark400: #707070;
+  --dark500: #909090;
+  --dark600: #b2b2b2;
+  --dark700: #d1d1d1;
   --dark800: #ebebeb;
   --dark900: #ffffff;
 
-  /* Custom styles */
   --primary400: var(--base900);
   --primary500: var(--base800);
   --primary600: var(--base700);
   --primary700: var(--base600);
 
+  /* Component styles */
   --input-font-family: inherit;
   --input-font-size: var(--font-size-md);
   --input-height: 40px;
@@ -71,10 +71,8 @@
   --status-warning-color: var(--orange600);
   --status-active-color: var(--blue800);
   --status-inactive-color: var(--base400);
-}
 
-/* Light theme */
-:not([data-theme='dark']) {
+  /* Light theme */
   --base50: var(--light50);
   --base75: var(--light75);
   --base100: var(--light100);
@@ -160,61 +158,61 @@
   --base800: var(--dark800);
   --base900: var(--dark900);
 
-  --blue100: #002651;
-  --blue200: #00326a;
-  --blue300: #004087;
-  --blue400: #004ea6;
-  --blue500: #005cc8;
-  --blue600: #066ce7;
-  --blue700: #1d80f5;
-  --blue800: #4096f3;
-  --blue900: #5eaaf7;
-  --blue1000: #7cbdfa;
-  --blue1100: #98cefd;
-  --blue1200: #b3defe;
-  --blue1300: #ceeaff;
+  --blue100: #003877;
+  --blue200: #00418a;
+  --blue300: #004da3;
+  --blue400: #0059c2;
+  --blue500: #0367e0;
+  --blue600: #1379f3;
+  --blue700: #348ff4;
+  --blue800: #54a3f6;
+  --blue900: #72b7f9;
+  --blue1000: #8fcafc;
+  --blue1100: #aedbfe;
+  --blue1200: #cce9ff;
+  --blue1300: #e8f6ff;
 
-  --green100: #0a2c1c;
-  --green200: #073b24;
-  --green300: #004c2e;
-  --green400: #005d39;
-  --green500: #006f45;
-  --green600: #008252;
-  --green700: #009562;
-  --green800: #1ca872;
-  --green900: #34bb84;
-  --green1000: #4bcd95;
-  --green1100: #67dea8;
-  --green1200: #89ecbc;
-  --green1300: #b1f4d1;
+  --green100: #044329;
+  --green200: #004e2f;
+  --green300: #005c38;
+  --green400: #006c43;
+  --green500: #007d4e;
+  --green600: #008f5d;
+  --green700: #12a26c;
+  --green800: #2bb47d;
+  --green900: #43c78f;
+  --green1000: #5ed9a2;
+  --green1100: #81e9b8;
+  --green1200: #b1f4d1;
+  --green1300: #dffaea;
 
-  --red100: #570000;
-  --red200: #6e0000;
-  --red300: #8a0000;
-  --red400: #a70000;
-  --red500: #c40706;
-  --red600: #dd2118;
-  --red700: #ee4331;
-  --red800: #f9634c;
-  --red900: #ff816b;
-  --red1000: #ff9e8c;
-  --red1100: #ffb7a9;
-  --red1200: #ffcdc3;
-  --red1300: #ffdfd9;
+  --red100: #7b0000;
+  --red200: #8d0000;
+  --red300: #a50000;
+  --red400: #be0403;
+  --red500: #d71913;
+  --red600: #ea3829;
+  --red700: #f65843;
+  --red800: #ff755e;
+  --red900: #ff9581;
+  --red1000: #ffb0a1;
+  --red1100: #ffc9bd;
+  --red1200: #ffded8;
+  --red1300: #fff1ee;
 
-  --orange100: #481801;
-  --orange200: #5c2000;
-  --orange300: #732b00;
-  --orange400: #8a3700;
-  --orange500: #a24400;
-  --orange600: #ba5200;
-  --orange700: #d26200;
-  --orange800: #e87400;
-  --orange900: #f98917;
-  --orange1000: #ffa23b;
-  --orange1100: #ffbc66;
-  --orange1200: #fdd291;
-  --orange1300: #ffe2b5;
+  --orange100: #662500;
+  --orange200: #752d00;
+  --orange300: #893700;
+  --orange400: #9e4200;
+  --orange500: #b44e00;
+  --orange600: #ca5d00;
+  --orange700: #e16d00;
+  --orange800: #f4810c;
+  --orange900: #fe9a2e;
+  --orange1000: #ffb558;
+  --orange1100: #fdce88;
+  --orange1200: #ffe1b3;
+  --orange1300: #fff2dd;
 }
 
 /* Reset styles */

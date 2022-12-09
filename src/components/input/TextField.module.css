@@ -21,6 +21,7 @@
 
 .input {
   display: block;
+  color: var(--base50);
   font-family: var(--input-font-family);
   font-size: var(--font-size-md);
   line-height: var(--input-line-height);
