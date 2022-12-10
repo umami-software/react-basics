@@ -17,10 +17,7 @@ export function Row(props: RowProps) {
   const breakpoint = useBreakpoint();
 
   return (
-    <div
-      className={classNames(styles.row, className, styles[`Row-${breakpoint}`])}
-      style={{ justifyContent, ...style }}
-    >
+    <div className={classNames(styles.row, className)} style={{ justifyContent, ...style }}>
       {cloneChildren(
         typeof children === 'function' ? children(breakpoint, columns) : children,
         () => {

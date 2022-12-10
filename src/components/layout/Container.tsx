@@ -11,7 +11,7 @@ export interface ContainerProps extends CommonProps {
 export function Container(props: ContainerProps) {
   const { className, style, children, fluid, dir } = props;
   const breakpoint = useBreakpoint();
-
+  console.log({ breakpoint });
   return (
     <div
       className={classNames(styles.container, className, styles[`container-${breakpoint}`], {

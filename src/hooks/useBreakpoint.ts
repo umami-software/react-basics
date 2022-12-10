@@ -9,7 +9,7 @@ const breakpoints = {
 };
 
 export function useBreakpoint() {
-  const [breakpoint, setBreakpoint] = useState('');
+  const [breakpoint, setBreakpoint] = useState('xl');
 
   useEffect(() => {
     const resize = () => {

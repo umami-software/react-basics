@@ -8,27 +8,75 @@ export type ColumnBreakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export type ColumnConfiguration = { [key in ColumnBreakpoint]?: ColumnSize };
 
+export type OrderingConfiguration = { [key in ColumnBreakpoint]?: number };
+
 export interface ColumnProps extends CommonProps {
   breakpoint?: ColumnBreakpoint;
-  size?: ColumnSize | ColumnConfiguration;
+  defaultSize?: ColumnSize;
   xs?: ColumnSize;
   sm?: ColumnSize;
   md?: ColumnSize;
   lg?: ColumnSize;
   xl?: ColumnSize;
-  order?: number | ColumnConfiguration;
+  order?: number;
   columns?: number;
+  sizes?: ColumnSize | ColumnConfiguration;
+  ordering?: OrderingConfiguration;
+  variant?: 'two' | 'three' | 'four' | 'six' | 'none';
 }
 
+const variants = {
+  two: {
+    xs: 12,
+    sm: 12,
+    md: 12,
+    lg: 6,
+    xl: 6,
+  },
+  three: {
+    xs: 12,
+    sm: 12,
+    md: 6,
+    lg: 4,
+    xl: 4,
+  },
+  four: {
+    xs: 12,
+    sm: 12,
+    md: 6,
+    lg: 3,
+    xl: 3,
+  },
+  six: {
+    xs: 12,
+    sm: 12,
+    md: 6,
+    lg: 2,
+    xl: 2,
+  },
+};
+
 export function Column(props: ColumnProps) {
-  const { className, style, children, size, breakpoint = '', columns = 1, order } = props;
+  const {
+    className,
+    style,
+    children,
+    breakpoint = 'xl',
+    defaultSize,
+    order,
+    columns = 1,
+    ordering,
+    variant,
+  } = props;
+
+  let { sizes } = props;
+
+  if (variant) {
+    sizes = variants[variant] || {};
+  }
 
   const getSizeStyle = () => {
-    let value = props[breakpoint] ?? size;
-
-    if (size && typeof value === 'object') {
-      value = size[breakpoint];
-    }
+    const value = props[breakpoint] || sizes?.[breakpoint] || defaultSize;
 
     if (value === 0) {
       return {
@@ -47,14 +95,15 @@ export function Column(props: ColumnProps) {
       };
     }
 
+    // No sizes defined, equal width
     return {
       flex: '1 0 0%',
     };
   };
 
   const getOrderStyle = () => {
-    if (typeof order === 'object') {
-      return { order: order[breakpoint] };
+    if (ordering) {
+      return { order: ordering[breakpoint] };
     }
 
     return { order };
