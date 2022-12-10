@@ -50,6 +50,7 @@ export * from 'components/table/TableColumn';
 export * from 'components/table/TableHeader';
 export * from 'components/table/TableRow';
 export * from 'components/table/TableWindow';
+export * from 'components/utils';
 export * from 'hooks/useBreakpoint';
 export * from 'hooks/useCallbackRef';
 export * from 'hooks/useCombinedRefs';

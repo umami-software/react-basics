@@ -32,13 +32,15 @@ const variants = {
     md: 12,
     lg: 6,
     xl: 6,
+    defaultSize: 6,
   },
   three: {
     xs: 12,
     sm: 12,
-    md: 6,
+    md: 12,
     lg: 4,
     xl: 4,
+    defaultSize: 4,
   },
   four: {
     xs: 12,
@@ -46,6 +48,7 @@ const variants = {
     md: 6,
     lg: 3,
     xl: 3,
+    defaultSize: 3,
   },
   six: {
     xs: 12,
@@ -53,6 +56,7 @@ const variants = {
     md: 6,
     lg: 2,
     xl: 2,
+    defaultSize: 2,
   },
 };
 
@@ -61,7 +65,7 @@ export function Column(props: ColumnProps) {
     className,
     style,
     children,
-    breakpoint = 'xl',
+    breakpoint = '',
     defaultSize,
     order,
     columns = 1,
@@ -76,7 +80,8 @@ export function Column(props: ColumnProps) {
   }
 
   const getSizeStyle = () => {
-    const value = props[breakpoint] || sizes?.[breakpoint] || defaultSize;
+    const value =
+      props[breakpoint] || sizes?.[breakpoint] || sizes?.[breakpoint]?.defaultSize || defaultSize;
 
     if (value === 0) {
       return {

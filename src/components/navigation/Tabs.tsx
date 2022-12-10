@@ -45,18 +45,22 @@ export function Tabs(props: TabsProps) {
       })}
       style={style}
     >
-      {cloneChildren(renderChildren(children, items), child => {
-        const { children: node, disabled } = child.props;
-        const key = child.key ?? node;
-        return {
-          className: classNames(styles.tab, {
-            [styles.selected]: selectedKey === key,
-            [styles.disabled]: disabled,
-          }),
-          disabled,
-          onClick: handleClick.bind(null, key),
-        };
-      })}
+      {cloneChildren(
+        renderChildren(children, items),
+        child => {
+          const { children: node, disabled } = child.props;
+          const key = child.key ?? node;
+          return {
+            className: classNames(styles.tab, {
+              [styles.selected]: selectedKey === key,
+              [styles.disabled]: disabled,
+            }),
+            disabled,
+            onClick: handleClick.bind(null, key),
+          };
+        },
+        { validChildren: [Item] },
+      )}
     </div>
   );
 }
