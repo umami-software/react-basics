@@ -81,7 +81,7 @@ export function Column(props: ColumnProps) {
 
   const getSizeStyle = () => {
     const value =
-      props[breakpoint] || sizes?.[breakpoint] || sizes?.[breakpoint]?.defaultSize || defaultSize;
+      props[breakpoint] ?? (sizes?.[breakpoint] || sizes?.[breakpoint]?.defaultSize || defaultSize);
 
     if (value === 0) {
       return {
