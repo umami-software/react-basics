@@ -1,5 +1,6 @@
 export * from 'components/common/Icon';
 export * from 'components/common/Item';
+export * from 'components/common/Portal';
 export * from 'components/common/Text';
 export * from 'components/form/Form';
 export * from 'components/form/FormButtons';
