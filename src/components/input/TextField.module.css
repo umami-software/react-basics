@@ -21,7 +21,7 @@
 
 .input {
   display: block;
-  color: var(--base50);
+  color: var(--font-color100);
   font-family: var(--input-font-family);
   font-size: var(--font-size-md);
   line-height: var(--input-line-height);
@@ -33,7 +33,7 @@
 }
 
 .input::placeholder {
-  color: var(--base400);
+  color: var(--font-color400);
 }
 
 .input:disabled {

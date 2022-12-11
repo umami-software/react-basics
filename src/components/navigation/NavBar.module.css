@@ -32,7 +32,7 @@
 }
 
 [data-theme='dark'] .item.selected {
-  color: var(--base50);
+  color: var(--font-color100);
   background: var(--base800);
-  border-left-color: var(--base50);
+  border-left-color: var(--input-border-color);
 }

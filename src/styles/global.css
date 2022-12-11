@@ -20,17 +20,17 @@
   --font-size-xs: 12px;
 
   --light50: #ffffff;
-  --light75: #fdfdfd;
-  --light100: #f8f8f8;
-  --light150: #efefef;
-  --light200: #e6e6e6;
-  --light300: #d5d5d5;
-  --light400: #b1b1b1;
-  --light500: #909090;
-  --light600: #6d6d6d;
-  --light700: #464646;
-  --light800: #222222;
-  --light900: #000000;
+  --light75: #fafafa;
+  --light100: #f5f5f5;
+  --light150: #f0f0f0;
+  --light200: #eaeaea;
+  --light300: #e1e1e1;
+  --light400: #cacaca;
+  --light500: #b3b3b3;
+  --light600: #8e8e8e;
+  --light700: #6e6e6e;
+  --light800: #4b4b4b;
+  --light900: #2c2c2c;
 
   --dark50: #1d1d1d;
   --dark75: #262626;
@@ -85,6 +85,15 @@
   --base700: var(--light700);
   --base800: var(--light800);
   --base900: var(--light900);
+
+  --font-color100: var(--base900);
+  --font-color200: var(--base800);
+  --font-color300: var(--base600);
+  --font-color400: var(--base400);
+
+  --background100: var(--base50);
+  --background200: var(--base75);
+  --background300: var(--base100);
 
   --blue100: #e0f2ff;
   --blue200: #cae8ff;
@@ -157,6 +166,15 @@
   --base700: var(--dark700);
   --base800: var(--dark800);
   --base900: var(--dark900);
+
+  --font-color100: var(--base800);
+  --font-color200: var(--base700);
+  --font-color300: var(--base600);
+  --font-color400: var(--base400);
+
+  --background100: var(--base50);
+  --background200: var(--base75);
+  --background300: var(--base100);
 
   --blue100: #003877;
   --blue200: #00418a;
