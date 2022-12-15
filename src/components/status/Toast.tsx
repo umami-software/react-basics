@@ -30,6 +30,7 @@ export function Toast(props: ToastProps) {
     position = 'top',
     className,
     style,
+    ...domProps
   } = props;
   const styleProps = useSpring({
     opacity: 1,
@@ -52,6 +53,7 @@ export function Toast(props: ToastProps) {
   return (
     <Portal portalId={PORTAL_ID}>
       <animated.div
+        {...domProps}
         className={classNames(styles.wrapper, className, styles[variant], styles[position])}
         style={{ ...styleProps, ...style }}
       >

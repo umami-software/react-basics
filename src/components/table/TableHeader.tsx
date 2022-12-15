@@ -8,10 +8,10 @@ export interface TableHeaderProps extends CommonProps {
 }
 
 export function TableHeader(props: TableHeaderProps) {
-  const { columns, className, style, children } = props;
+  const { columns, className, children, ...domProps } = props;
 
   return (
-    <thead className={classNames(styles.header, className)} style={style}>
+    <thead {...domProps} className={classNames(styles.header, className)}>
       <tr className={styles.row}>
         {typeof children === 'function' && columns ? columns.map(children) : children}
       </tr>

@@ -8,10 +8,10 @@ export interface TableRowProps extends CommonProps {
 }
 
 export function TableRow(props: TableRowProps) {
-  const { data, keys, className, style, children } = props;
+  const { data, keys, className, children, ...domProps } = props;
 
   return (
-    <tr className={classNames(styles.row, className)} style={style}>
+    <tr {...domProps} className={classNames(styles.row, className)}>
       {typeof children === 'function' && data
         ? (keys || Object.keys(data)).map((key, index) => children(data, key, index))
         : children}

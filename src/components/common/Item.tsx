@@ -11,12 +11,12 @@ export interface ItemProps extends CommonProps {
 }
 
 export function Item(props: ItemProps) {
-  const { disabled, children, className, style, onClick } = props;
+  const { disabled, children, className, onClick, ...domProps } = props;
 
   return (
     <div
+      {...domProps}
       className={classNames(styles.item, className)}
-      style={style}
       onClick={!disabled ? onClick : undefined}
     >
       {children}

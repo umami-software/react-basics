@@ -9,11 +9,11 @@ export interface TableBodyProps extends CommonProps {
 }
 
 export function TableBody(props: TableBodyProps) {
-  const { rows, columns, className, style, children } = props;
+  const { rows, columns, className, children, ...domProps } = props;
   const keys = columns?.map(({ name }) => name);
 
   return (
-    <tbody className={classNames(styles.body, className)} style={style}>
+    <tbody {...domProps} className={classNames(styles.body, className)}>
       {typeof children === 'function' && Array.isArray(rows) && keys
         ? rows.map((row, index) => children(row, keys, index))
         : children}

@@ -3,6 +3,7 @@
   align-items: center;
   align-self: flex-start;
   gap: var(--input-gap-size);
+  font-family: inherit;
   font-size: var(--input-font-size);
   line-height: var(--input-line-height);
   color: var(--base900);
@@ -15,11 +16,11 @@
 }
 
 .button:hover {
-  background: var(--base150);
+  background: var(--base200);
 }
 
 .button:active {
-  background: var(--base200);
+  background: var(--base300);
 }
 
 .button.disabled {

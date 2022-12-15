@@ -42,17 +42,17 @@ export interface IconProps {
 }
 
 export function Icon(props: IconProps): ReactElement {
-  const { icon, size = 'md', className, style, onClick, children } = props;
+  const { icon, size = 'md', className, onClick, children, ...domProps } = props;
 
   const getClasses = () =>
     typeof icon === 'string' ? icon.split('-').map(id => styles[id]) : null;
 
   return (
     <div
+      {...domProps}
       className={classNames(styles.icon, className, getClasses(), styles[`size-${size}`], {
         [styles.clickable]: onClick,
       })}
-      style={style}
       onClick={onClick}
     >
       {children}

@@ -23,7 +23,7 @@ export function ProgressCircle(props: ProgressCircleProps) {
     showValueLabel = false,
     size = 'md',
     className,
-    style,
+    ...domProps
   } = props;
 
   const percentValue = Math.round(((value - minValue) / (maxValue - minValue)) * 100);
@@ -33,8 +33,8 @@ export function ProgressCircle(props: ProgressCircleProps) {
 
   return (
     <div
+      {...domProps}
       className={classNames(styles.progresscircle, className, styles[`size-${size}`])}
-      style={style}
     >
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <circle className={styles.track} cx="50" cy="50" r="45" />

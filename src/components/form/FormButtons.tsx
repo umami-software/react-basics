@@ -11,12 +11,12 @@ export interface FormButtonsProps extends CommonProps, Partial<UseFormReturn> {
 
 export function FormButtons(props: FormButtonsProps) {
   const useFormValues = useFormContext();
-  const { align = '', flex, className, style, children } = props;
+  const { align = '', flex, className, children, ...domProps } = props;
 
   return (
     <div
+      {...domProps}
       className={classNames(styles.buttons, className, styles[align], { [styles.flex]: flex })}
-      style={style}
     >
       {typeof children === 'function' ? children(useFormValues) : children}
     </div>

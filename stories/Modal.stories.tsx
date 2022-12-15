@@ -4,7 +4,7 @@ import { Modal, Button } from '../src';
 import { makeStory } from './utils';
 
 export default {
-  title: 'Layout/Modal',
+  title: 'Overlay/Modal',
   component: Modal,
 } as ComponentMeta<typeof Modal>;
 

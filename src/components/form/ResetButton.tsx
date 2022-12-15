@@ -2,7 +2,7 @@ import Button, { ButtonProps } from 'components/input/Button';
 import { useFormContext } from 'react-hook-form';
 
 export function ResetButton(props: ButtonProps) {
-  const { className, style, children, onClick, ...buttonProps } = props;
+  const { className, children, onClick, ...buttonProps } = props;
   const { reset } = useFormContext();
 
   const handleReset = e => {
@@ -13,7 +13,7 @@ export function ResetButton(props: ButtonProps) {
   };
 
   return (
-    <Button {...buttonProps} type="reset" onClick={handleReset} className={className} style={style}>
+    <Button {...buttonProps} type="reset" onClick={handleReset} className={className}>
       {children}
     </Button>
   );

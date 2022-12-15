@@ -8,10 +8,10 @@ export interface HeaderProps extends CommonProps {
 }
 
 export function Header(props: HeaderProps) {
-  const { className, style, children, size = 'md' } = props;
+  const { className, children, size = 'md', ...domProps } = props;
 
   return (
-    <span className={classNames(className, styles[`size-${size}`])} style={style}>
+    <span {...domProps} className={classNames(className, styles[`size-${size}`])}>
       {children}
     </span>
   );

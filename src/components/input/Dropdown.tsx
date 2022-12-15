@@ -5,6 +5,7 @@ import Icon from 'components/common/Icon';
 import useDocumentClick from 'hooks/useDocumentClick';
 import { CommonProps } from 'types';
 import styles from './Dropdown.module.css';
+import Popup from 'components/overlay/Popup';
 
 export interface DropDownProps extends CommonProps {
   items: any[];
@@ -23,9 +24,9 @@ export function Dropdown(props: DropDownProps) {
     displayValue = value,
     className,
     menuClassName,
-    style,
     onChange,
     children,
+    ...domProps
   } = props;
   const [showMenu, setShowMenu] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -49,9 +50,9 @@ export function Dropdown(props: DropDownProps) {
 
   return (
     <div
+      {...domProps}
       ref={ref}
       className={classNames(styles.field, className)}
-      style={style}
       onClick={handleShowMenu}
     >
       <div className={styles.input}>
@@ -60,14 +61,16 @@ export function Dropdown(props: DropDownProps) {
       </div>
       <input type="hidden" name={name} value={value} />
       {showMenu && (
-        <Menu
-          className={classNames(styles.menu, menuClassName)}
-          items={items}
-          selectedKey={value}
-          onSelect={handleSelect}
-        >
-          {children}
-        </Menu>
+        <Popup gap={5}>
+          <Menu
+            className={classNames(styles.menu, menuClassName)}
+            items={items}
+            selectedKey={value}
+            onSelect={handleSelect}
+          >
+            {children}
+          </Menu>
+        </Popup>
       )}
     </div>
   );

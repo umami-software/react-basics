@@ -8,7 +8,7 @@ export interface CopyTriggerProps extends CommonProps {
 }
 
 export function CopyTrigger(props: CopyTriggerProps) {
-  const { value, notification = 'toast', onCopy, className, style, children } = props;
+  const { value, notification = 'toast', onCopy, children, ...domProps } = props;
   const { toast, showToast } = useToast();
 
   const handleCopy = async () => {
@@ -26,7 +26,7 @@ export function CopyTrigger(props: CopyTriggerProps) {
   return (
     <>
       {toast}
-      <div className={className} style={style} onClick={handleCopy}>
+      <div {...domProps} onClick={handleCopy}>
         {children}
       </div>
     </>

@@ -22,8 +22,8 @@ export function RadioGroup(props: RadioGroupProps) {
     onSelect,
     layout = 'vertical',
     className,
-    style,
     children,
+    ...domProps
   } = props;
   const handleChange = key => {
     if (onSelect) {
@@ -32,7 +32,7 @@ export function RadioGroup(props: RadioGroupProps) {
   };
 
   return (
-    <div className={classNames(styles.group, className, styles[layout])} style={style}>
+    <div {...domProps} className={classNames(styles.group, className, styles[layout])}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

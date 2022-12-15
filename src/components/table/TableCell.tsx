@@ -8,9 +8,9 @@ export interface TableCellProps extends CommonProps {
 }
 
 export function TableCell(props: TableCellProps) {
-  const { key, item, className, style, children } = props;
+  const { key, item, className, children, ...domProps } = props;
   return (
-    <td className={classNames(styles.cell, className)} style={style}>
+    <td {...domProps} className={classNames(styles.cell, className)}>
       {typeof children === 'function' ? children(key, item) : children}
     </td>
   );

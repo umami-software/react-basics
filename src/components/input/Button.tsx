@@ -6,7 +6,7 @@ import styles from './Button.module.css';
 
 export interface ButtonProps extends CommonProps {
   name?: string;
-  variant?: 'primary' | 'secondary' | 'quiet';
+  variant?: 'primary' | 'secondary' | 'quiet' | 'none';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
@@ -15,27 +15,22 @@ export interface ButtonProps extends CommonProps {
 
 export function Button(props: ButtonProps) {
   const {
-    name,
-    variant = '',
+    variant = 'none',
     size = 'md',
-    type,
+    type = 'button',
     disabled,
     className,
-    style,
     children,
-    onClick,
+    ...domProps
   } = props;
 
   return (
     <button
+      {...domProps}
+      type={type}
       className={classNames(styles.button, className, styles[`size-${size}`], styles[variant], {
         [styles.disabled]: disabled,
       })}
-      type={type || 'button'}
-      name={name}
-      onClick={onClick}
-      disabled={disabled}
-      style={style}
     >
       {children}
     </button>

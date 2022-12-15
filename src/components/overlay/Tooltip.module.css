@@ -1,0 +1,47 @@
+.tooltip {
+  display: flex;
+  z-index: 1;
+}
+
+.tooltip.top,
+.tooltip.bottom {
+  flex-direction: column;
+}
+
+.tooltip.left,
+.tooltip.right {
+  flex-direction: row;
+}
+
+.body {
+  position: relative;
+  font-size: var(--font-size-sm);
+  color: var(--base50);
+  background: var(--base900);
+  text-align: center;
+  padding: var(--size400);
+  border-radius: var(--size50);
+}
+
+.icon {
+  color: var(--base900);
+  align-self: center;
+}
+
+.top .icon {
+  top: -3px;
+}
+
+.bottom .icon {
+  top: 3px;
+  order: -1;
+}
+
+.left .icon {
+  left: -3px;
+}
+
+.right .icon {
+  right: -3px;
+  order: -1;
+}

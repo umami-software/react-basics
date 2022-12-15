@@ -8,9 +8,9 @@ export interface DotsProps extends CommonProps {
 }
 
 export function Dots(props: DotsProps) {
-  const { className, style, size = 'md' } = props;
+  const { size = 'md', className, ...domProps } = props;
   return (
-    <div className={classNames(styles.dots, styles[`size-${size}`], className)} style={style}>
+    <div {...domProps} className={classNames(styles.dots, styles[`size-${size}`], className)}>
       <div />
       <div />
       <div />

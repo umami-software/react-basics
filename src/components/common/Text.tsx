@@ -1,17 +1,17 @@
-import { CommonProps, StandardSize } from 'types';
+import { CommonProps } from 'types';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Text.module.css';
 
 export interface TextProps extends CommonProps {
-  size?: StandardSize;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export function Text(props: TextProps) {
-  const { className, style, children, size = 'md' } = props;
+  const { className, children, size = 'md', ...domProps } = props;
 
   return (
-    <span className={classNames(className, styles[`size-${size}`])} style={style}>
+    <span {...domProps} className={classNames(className, styles[`size-${size}`])}>
       {children}
     </span>
   );

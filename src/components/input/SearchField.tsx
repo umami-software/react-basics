@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect, forwardRef } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
@@ -9,8 +9,8 @@ export interface SearchProps extends TextFieldProps {
   delay?: number;
 }
 
-function _SearchField(props: SearchProps, ref): ReactElement {
-  const { delay = 0, value, onChange, className, style, ...otherProps } = props;
+export function SearchField(props: SearchProps): ReactElement {
+  const { delay = 0, value, onChange, ...tableProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);
 
@@ -35,25 +35,15 @@ function _SearchField(props: SearchProps, ref): ReactElement {
   }, [searchValue]);
 
   return (
-    <div className={classNames(styles.field, className)} style={style}>
-      <TextField
-        ref={ref}
-        value={search}
-        onChange={handleChange}
-        className={styles.input}
-        {...otherProps}
-      >
-        <Icon icon="search" className={classNames(styles.icon, styles.magnifier)} />
-        <Icon
-          icon="cross"
-          className={classNames(styles.icon, styles.close, { [styles.visible]: search })}
-          onClick={resetSearch}
-        />
-      </TextField>
-    </div>
+    <TextField {...tableProps} value={search} onChange={handleChange} className={styles.input}>
+      <Icon icon="search" className={classNames(styles.icon, styles.magnifier)} />
+      <Icon
+        icon="cross"
+        className={classNames(styles.icon, styles.close, { [styles.visible]: search })}
+        onClick={resetSearch}
+      />
+    </TextField>
   );
 }
-
-export const SearchField = forwardRef(_SearchField);
 
 export default SearchField;

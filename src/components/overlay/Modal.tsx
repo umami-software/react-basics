@@ -6,7 +6,7 @@ import Portal from 'components/common/Portal';
 import useKeyPress from 'hooks/useKeyDown';
 import styles from './Modal.module.css';
 
-const PORTAL_ID = '__react-basics-modal';
+const PORTAL_ID = '__react-basics-overlay';
 
 export interface ModalProps extends CommonProps {
   title?: ReactNode;

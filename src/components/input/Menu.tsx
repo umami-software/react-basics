@@ -12,14 +12,14 @@ export interface MenuProps extends CommonProps {
 }
 
 export function Menu(props: MenuProps) {
-  const { items = [], selectedKey, onSelect, className, style, children } = props;
+  const { items = [], selectedKey, onSelect, className, children, ...domProps } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
     onSelect(key, e);
   }
 
   return (
-    <div className={classNames(styles.menu, className)} style={style}>
+    <div {...domProps} className={classNames(styles.menu, className)}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

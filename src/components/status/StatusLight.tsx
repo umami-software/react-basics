@@ -11,10 +11,10 @@ export interface StatusLightProps extends CommonProps {
 }
 
 export function StatusLight(props: StatusLightProps) {
-  const { color, variant, children, className, style } = props;
+  const { color, variant, children, className, ...domProps } = props;
 
   return (
-    <div className={classNames(styles.statuslight, className)} style={style}>
+    <div {...domProps} className={classNames(styles.statuslight, className)}>
       <div
         className={classNames(styles.status, styles[variant])}
         style={{ backgroundColor: color }}

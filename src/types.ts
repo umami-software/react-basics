@@ -1,8 +1,7 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, DOMAttributes, ReactNode } from 'react';
 
-export type StandardSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-
-export interface CommonProps {
+export interface CommonProps extends DOMAttributes<any> {
+  id?: string;
   className?: string;
   style?: CSSProperties;
   children?: any;

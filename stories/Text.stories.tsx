@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StandardSize, Text } from '../src';
+import { Text } from '../src';
 import { makeStory } from './utils';
 
 export default {
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Text> = args => {
         return (
           <div key={size}>
             <h3>{size}</h3>
-            <Text size={size as StandardSize} {...args} />
+            <Text size={size} {...args} />
           </div>
         );
       })}

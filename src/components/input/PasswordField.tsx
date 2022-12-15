@@ -1,4 +1,4 @@
-import { useState, forwardRef } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { TextField, TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
@@ -9,34 +9,16 @@ export interface PasswordFieldProps extends TextFieldProps {
   showPassword?: boolean;
 }
 
-function _PasswordField(props: PasswordFieldProps, ref) {
-  const {
-    showPassword = false,
-    value,
-    className,
-    style,
-    disabled,
-    onChange,
-    ...textFieldProps
-  } = props;
+export function PasswordField(props: PasswordFieldProps) {
+  const { showPassword = false, className, disabled, ...textFieldProps } = props;
   const [show, setShow] = useState(showPassword);
   const type = show ? 'text' : 'password';
 
   const handleShowPassword = () => setShow(!show);
 
   return (
-    <div
-      className={classNames(styles.field, className, { [styles.disabled]: disabled })}
-      style={style}
-    >
-      <TextField
-        ref={ref}
-        {...textFieldProps}
-        type={type}
-        value={value}
-        disabled={disabled}
-        onChange={onChange}
-      >
+    <div className={classNames(styles.field, className, { [styles.disabled]: disabled })}>
+      <TextField {...textFieldProps} type={type}>
         <Icon className={classNames(styles.icon)} size="lg" onClick={handleShowPassword}>
           {show ? <Hide /> : <Show />}
         </Icon>
@@ -44,7 +26,5 @@ function _PasswordField(props: PasswordFieldProps, ref) {
     </div>
   );
 }
-
-export const PasswordField = forwardRef(_PasswordField);
 
 export default PasswordField;

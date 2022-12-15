@@ -67,3 +67,15 @@ export function ensureArray(arr?: any): any[] {
   if (Array.isArray(arr)) return arr;
   return [arr];
 }
+
+export function filterDOMProps(props) {
+  const filteredProps = {};
+
+  for (const prop in props) {
+    if (Object.prototype.hasOwnProperty.call(props, prop) && /^(data-.*|aria-.*)$/.test(prop)) {
+      filteredProps[prop] = props[prop];
+    }
+  }
+
+  return filteredProps;
+}

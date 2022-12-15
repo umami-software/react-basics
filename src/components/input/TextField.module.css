@@ -16,7 +16,7 @@
 }
 
 .field.readonly {
-  background: var(--base100);
+  background: var(--base75);
 }
 
 .input {

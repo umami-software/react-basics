@@ -14,14 +14,22 @@ export interface ButtonGroupProps extends CommonProps {
 }
 
 export function ButtonGroup(props: ButtonGroupProps) {
-  const { items = [], selectedKey, size = 'md', onSelect, className, style, children } = props;
+  const {
+    items = [],
+    selectedKey,
+    size = 'md',
+    onSelect,
+    className,
+    children,
+    ...domProps
+  } = props;
 
   const handleClick = (key: Key, e: ChangeEvent) => {
     onSelect(key, e);
   };
 
   return (
-    <div className={classNames(styles.group, className, styles[`size-${size}`])} style={style}>
+    <div {...domProps} className={classNames(styles.group, className, styles[`size-${size}`])}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

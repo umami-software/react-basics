@@ -11,17 +11,17 @@ export interface TableWindowProps extends CommonProps {
 }
 
 export function TableWindow(props: TableWindowProps) {
-  const { height, width, rowCount, rowSize, className, style, children } = props;
+  const { height, width, rowCount, rowSize, className, children, ...listProps } = props;
 
   return (
     <List
+      {...listProps}
       height={height}
       width={width}
       itemCount={rowCount}
       itemSize={rowSize}
       outerElementType="tbody"
       className={classNames(styles.window, className)}
-      style={style}
     >
       {children}
     </List>

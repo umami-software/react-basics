@@ -12,7 +12,7 @@ export interface CheckboxGroupProps extends CommonProps {
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
-  const { items = [], selectedKeys = [], className, style, onChange, children } = props;
+  const { items = [], selectedKeys = [], className, onChange, children, ...domProps } = props;
   const [selected, setSelected] = useState(selectedKeys);
 
   const handleSelect = (key, e) => {
@@ -28,7 +28,7 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   };
 
   return (
-    <div className={classNames(styles.group, className)} style={style}>
+    <div {...domProps} className={classNames(styles.group, className)}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

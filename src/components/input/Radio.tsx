@@ -13,7 +13,7 @@ export interface RadioProps extends CommonProps {
 }
 
 function _Radio(props: RadioProps, forwardedRef?: Ref<any>) {
-  const { name, value, checked, disabled, className, style, onChange, children } = props;
+  const { name, checked, disabled, className, onChange, children, ...domProps } = props;
   const innerRef = useRef<any>(null);
   const combinedRef = useCombinedRefs(forwardedRef, innerRef);
 
@@ -31,11 +31,11 @@ function _Radio(props: RadioProps, forwardedRef?: Ref<any>) {
 
   return (
     <div
+      {...domProps}
       className={classNames(styles.radio, className, {
         [styles.checked]: checked,
         [styles.disabled]: disabled,
       })}
-      style={style}
       onClick={!disabled ? handleClick : undefined}
     >
       <div className={styles.circle} />
@@ -48,10 +48,6 @@ function _Radio(props: RadioProps, forwardedRef?: Ref<any>) {
         className={styles.input}
         ref={combinedRef as Ref<any>}
         type="radio"
-        name={name}
-        value={value}
-        checked={checked}
-        disabled={disabled}
         onChange={handleChange}
       />
     </div>

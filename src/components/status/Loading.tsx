@@ -10,9 +10,9 @@ export interface LoadingProps extends CommonProps {
 }
 
 export function Loading(props: LoadingProps) {
-  const { size = 'xl', variant = 'spinner', className, style } = props;
+  const { size = 'xl', variant = 'spinner', className, ...domProps } = props;
   return (
-    <div className={classNames(styles.loading, className)} style={style}>
+    <div {...domProps} className={classNames(styles.loading, className)}>
       {variant === 'dots' && <Dots size={size} />}
       {variant === 'spinner' && <Spinner size={size} />}
     </div>

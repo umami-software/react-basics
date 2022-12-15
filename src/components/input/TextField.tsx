@@ -34,10 +34,12 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
     onChange,
     onFocus,
     children,
+    ...domProps
   } = props;
 
   return (
     <div
+      {...domProps}
       className={classNames(styles.field, className, {
         [styles.disabled]: disabled,
         [styles.readonly]: readOnly,

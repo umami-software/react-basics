@@ -9,10 +9,10 @@ export interface FormRowProps extends CommonProps {
 }
 
 export function FormRow(props: FormRowProps) {
-  const { label, className, style, children } = props;
+  const { label, className, children, ...domProps } = props;
 
   return (
-    <div className={classNames(styles.row, className)} style={style}>
+    <div {...domProps} className={classNames(styles.row, className)}>
       {label && <label className={styles.label}>{label}</label>}
       {children}
     </div>

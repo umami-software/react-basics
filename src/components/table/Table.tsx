@@ -20,11 +20,11 @@ export interface TableProps extends CommonProps {
 }
 
 export function Table(props: TableProps) {
-  const { columns, rows, className, style, children } = props;
+  const { columns, rows, className, children, ...domProps } = props;
   const autoRender = !children && rows && columns;
 
   return (
-    <table className={classNames(styles.table, className)} style={style}>
+    <table {...domProps} className={classNames(styles.table, className)}>
       {autoRender && (
         <TableHeader columns={columns}>
           {column => <TableColumn>{column?.label || column?.name}</TableColumn>}

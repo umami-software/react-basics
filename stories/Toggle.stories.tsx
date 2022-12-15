@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof Toggle> = args => {
 
   const handleChange = value => updateArgs({ checked: value });
 
-  return <Toggle {...args} checked={checked} onChange={handleChange} />;
+  return <Toggle {...args} checked={checked} onChecked={handleChange} />;
 };
 
 export const Basic = makeStory(Template, {
