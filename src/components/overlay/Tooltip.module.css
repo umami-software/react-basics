@@ -14,34 +14,55 @@
 }
 
 .body {
-  position: relative;
   font-size: var(--font-size-sm);
   color: var(--base50);
   background: var(--base900);
   text-align: center;
-  padding: var(--size400);
+  padding: var(--size100) var(--size400);
   border-radius: var(--size50);
+  white-space: nowrap;
 }
 
-.icon {
-  color: var(--base900);
+.top:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--base900);
   align-self: center;
+  margin-bottom: var(--size50);
 }
 
-.top .icon {
-  top: -3px;
+.bottom:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--base900);
+  align-self: center;
+  margin-top: var(--size50);
 }
 
-.bottom .icon {
-  top: 3px;
-  order: -1;
+.left:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid var(--base900);
+  align-self: center;
+  margin-right: var(--size50);
 }
 
-.left .icon {
-  left: -3px;
-}
-
-.right .icon {
-  right: -3px;
-  order: -1;
+.right:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid var(--base900);
+  align-self: center;
+  margin-left: var(--size50);
 }
