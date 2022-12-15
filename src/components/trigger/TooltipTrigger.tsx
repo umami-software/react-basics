@@ -1,10 +1,12 @@
 import { ReactNode, useState } from 'react';
 import Tooltip, { TooltipProps } from 'components/overlay/Tooltip';
+import Popup from 'components/overlay/Popup';
 import styles from './TooltipTrigger.module.css';
 import classNames from 'classnames';
 
 export interface TooltipTriggerProps extends TooltipProps {
   content: ReactNode;
+  gap?: number;
 }
 
 export function TooltipTrigger(props: TooltipTriggerProps) {
@@ -23,9 +25,11 @@ export function TooltipTrigger(props: TooltipTriggerProps) {
         onMouseLeave={handleLeave}
       >
         {children}
-        <Tooltip position={position} show={show} gap={gap}>
-          {content}
-        </Tooltip>
+        {show && (
+          <Popup position={position} gap={gap}>
+            <Tooltip position={position}>{content}</Tooltip>
+          </Popup>
+        )}
       </div>
     </>
   );

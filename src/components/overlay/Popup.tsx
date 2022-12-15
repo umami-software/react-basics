@@ -6,7 +6,6 @@ import styles from './Popup.module.css';
 
 export interface PopupProps extends CommonProps {
   position?: 'top' | 'bottom' | 'left' | 'right';
-  show?: boolean;
   gap?: number;
 }
 
@@ -26,11 +25,11 @@ function getGapStyle(position: string, gap): CSSProperties | undefined {
 }
 
 export function Popup(props: PopupProps) {
-  const { position = 'bottom', show = true, gap = 0, className, style, children } = props;
+  const { position = 'bottom', gap = 0, className, style, children } = props;
 
   return (
     <div
-      className={classNames(styles.popup, className, styles[position], { [styles.hide]: !show })}
+      className={classNames(styles.popup, className, styles[position])}
       style={{ ...style, ...getGapStyle(position, gap) }}
     >
       {children}

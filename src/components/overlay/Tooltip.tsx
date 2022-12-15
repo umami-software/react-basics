@@ -1,21 +1,29 @@
+import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
-import { Popup, PopupProps } from 'components/overlay/Popup';
+import { CommonProps } from 'types';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tooltip.module.css';
 
-export interface TooltipProps extends PopupProps {
-  title?: string;
+export interface TooltipProps extends CommonProps {
+  position?: 'top' | 'bottom' | 'left' | 'right';
 }
 
 export function Tooltip(props: TooltipProps) {
-  const { position = 'top', show, gap, className, children, ...domProps } = props;
+  const { style, position = 'top', className, children, ...domProps } = props;
+
+  const styleProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  });
 
   return (
-    <Popup position={position} show={show} gap={gap}>
-      <div {...domProps} className={classNames(styles.tooltip, className, styles[position])}>
-        <div className={styles.body}>{children}</div>
-      </div>
-    </Popup>
+    <animated.div
+      {...domProps}
+      className={classNames(styles.tooltip, className, styles[position])}
+      style={{ ...style, ...styleProps }}
+    >
+      <div className={styles.body}>{children}</div>
+    </animated.div>
   );
 }
 
