@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 const PORTAL_ID = '__react-basics-portal';
 
 export interface PortalProps {
-  portalId: string;
+  portalId?: string;
   portalElement?: Element;
   children?: ReactNode;
 }
