@@ -1,4 +1,4 @@
-import { ChangeEvent, Key } from 'react';
+import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import { cloneChildren, renderChildren } from 'components/utils';
@@ -9,7 +9,7 @@ import styles from './ButtonGroup.module.css';
 export interface ButtonGroupProps extends CommonProps {
   items?: any[];
   selectedKey?: Key;
-  onSelect: (key: Key, e: ChangeEvent) => void;
+  onSelect: (key: Key, e: MouseEvent) => void;
   size: 'sm' | 'md' | 'lg';
 }
 
@@ -24,7 +24,7 @@ export function ButtonGroup(props: ButtonGroupProps) {
     ...domProps
   } = props;
 
-  const handleClick = (key: Key, e: ChangeEvent) => {
+  const handleClick = (key: Key, e: MouseEvent) => {
     onSelect(key, e);
   };
 
@@ -36,7 +36,7 @@ export function ButtonGroup(props: ButtonGroupProps) {
           const key = child.key ?? child.props.children;
           return {
             className: classNames(styles.button, { [styles.selected]: selectedKey === key }),
-            onClick: key ? handleClick.bind(null, key) : undefined,
+            onClick: key ? e => handleClick(key, e) : undefined,
           };
         },
         { validChildren: [Button] },

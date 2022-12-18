@@ -1,6 +1,6 @@
-import { CSSProperties, DOMAttributes, ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
-export interface CommonProps extends DOMAttributes<any> {
+export interface CommonProps {
   id?: string;
   className?: string;
   style?: CSSProperties;

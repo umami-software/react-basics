@@ -1,7 +1,6 @@
 import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import Item from 'components/common/Item';
 import { cloneChildren, renderChildren } from 'components/utils';
 import styles from './NavBar.module.css';
 

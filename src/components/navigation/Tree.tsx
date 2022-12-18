@@ -1,9 +1,10 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 import classNames from 'classnames';
 import { CommonProps, TreeItem } from 'types';
 import Branch from './TreeBranch';
 import Leaf from './TreeLeaf';
 import Icon from 'components/common/Icon';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tree.module.css';
 
 export interface TreeProps extends CommonProps {
@@ -14,8 +15,7 @@ export interface TreeProps extends CommonProps {
 }
 
 export function Tree(props: TreeProps) {
-  const { items = [], selectedValue, className, style = {}, onSelect, children } = props;
-  const [selected, setSelected] = useState(selectedValue);
+  const { items = [], className, style = {}, onSelect, children } = props;
 
   const handleClick = value => {
     onSelect(value);

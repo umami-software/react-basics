@@ -1,6 +1,7 @@
 import classNames from 'classnames';
-import styles from './Tree.module.css';
 import { CommonProps } from 'types';
+// eslint-disable-next-line css-modules/no-unused-class
+import styles from './Tree.module.css';
 
 export interface TreeBranchProps extends CommonProps {
   value?: string;

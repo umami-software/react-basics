@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tree.module.css';
 
 export function TreeLeaf(props) {
