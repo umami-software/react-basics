@@ -25,7 +25,5 @@
 }
 
 .menu {
-  border: 1px solid var(--input-border-color);
-  border-radius: var(--input-border-radius);
-  min-width: 200px;
+  font-size: var(--font-size-sm);
 }

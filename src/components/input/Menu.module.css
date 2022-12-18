@@ -17,7 +17,7 @@
 }
 
 .item:hover {
-  background: var(--base100);
+  background: var(--base75);
 }
 
 .item.selected {
@@ -39,4 +39,10 @@
   left: 0;
   right: 0;
   border-top: var(--input-border);
+}
+
+.popup {
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  min-width: 200px;
 }

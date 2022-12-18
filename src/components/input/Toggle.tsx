@@ -1,4 +1,4 @@
-import React, { MutableRefObject, ReactElement, useRef } from 'react';
+import React, { MutableRefObject, ReactElement, ReactEventHandler, useRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import styles from './Toggle.module.css';
@@ -9,6 +9,7 @@ export interface ToggleProps extends CommonProps {
   size?: 'sm' | 'md' | 'lg';
   checked?: boolean;
   disabled?: boolean;
+  onChange?: ReactEventHandler;
   onChecked?: (checked: boolean) => void;
 }
 

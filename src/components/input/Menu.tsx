@@ -3,23 +3,33 @@ import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Item from 'components/common/Item';
 import { cloneChildren, renderChildren } from 'components/utils';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './Menu.module.css';
 
 export interface MenuProps extends CommonProps {
+  variant?: 'popup' | 'none';
   items?: any[];
   selectedKey?: Key;
   onSelect: (key: Key, e: MouseEvent) => void;
 }
 
 export function Menu(props: MenuProps) {
-  const { items = [], selectedKey, onSelect, className, children, ...domProps } = props;
+  const {
+    variant = 'none',
+    items = [],
+    selectedKey,
+    onSelect,
+    className,
+    children,
+    ...domProps
+  } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
     onSelect(key, e);
   }
 
   return (
-    <div {...domProps} className={classNames(styles.menu, className)}>
+    <div {...domProps} className={classNames(styles.menu, className, styles[variant])}>
       {cloneChildren(
         renderChildren(children, items),
         child => {

@@ -51,11 +51,11 @@
 }
 
 .button.secondary:hover {
-  background: var(--base100);
+  background: var(--base75);
 }
 
 .button.secondary:active {
-  background: var(--base200);
+  background: var(--base100);
 }
 
 .button.quiet {
