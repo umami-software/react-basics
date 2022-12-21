@@ -368,3 +368,12 @@
 .clickable {
   cursor: pointer;
 }
+
+.disabled {
+  color: var(--input-disabled-color);
+  pointer-events: none;
+}
+
+.input {
+  color: var(--input-border-color);
+}

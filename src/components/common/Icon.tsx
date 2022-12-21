@@ -35,6 +35,8 @@ export type IconSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export interface IconProps {
   icon?: ReactElement | IconTypes | string;
   size?: number | IconSizes;
+  variant?: 'input' | 'none';
+  disabled?: boolean;
   className?: string;
   style?: CSSProperties;
   onClick?: (e: MouseEvent) => void;
@@ -42,7 +44,16 @@ export interface IconProps {
 }
 
 export function Icon(props: IconProps): ReactElement {
-  const { icon, size = 'md', className, onClick, children, ...domProps } = props;
+  const {
+    icon,
+    size = 'md',
+    variant = 'none',
+    disabled,
+    className,
+    onClick,
+    children,
+    ...domProps
+  } = props;
 
   const getClasses = () =>
     typeof icon === 'string' ? icon.split('-').map(id => styles[id]) : null;
@@ -50,9 +61,17 @@ export function Icon(props: IconProps): ReactElement {
   return (
     <div
       {...domProps}
-      className={classNames(styles.icon, className, getClasses(), styles[`size-${size}`], {
-        [styles.clickable]: onClick,
-      })}
+      className={classNames(
+        styles.icon,
+        className,
+        getClasses(),
+        styles[`size-${size}`],
+        styles[variant],
+        {
+          [styles.disabled]: disabled,
+          [styles.clickable]: onClick && !disabled,
+        },
+      )}
       onClick={onClick}
     >
       {children}

@@ -16,6 +16,8 @@ export function FormInput(props: FormInputProps) {
   const { register, formState } = useFormContext();
   const errors = formState?.errors || {};
 
+  console.log({ formState, errors });
+
   return (
     <FormRow label={label} className={className} style={style}>
       {Children.map(children, (child: any) => (

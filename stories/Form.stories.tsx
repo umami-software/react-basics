@@ -6,6 +6,7 @@ import {
   TextField,
   PasswordField,
   Checkbox,
+  Button,
   SubmitButton,
   ResetButton,
 } from '../src';
@@ -29,7 +30,9 @@ const Template: ComponentStory<typeof Form> = args => {
         <Checkbox>Remember me</Checkbox>
       </FormInput>
       <FormButtons>
-        <SubmitButton variant="primary">Submit</SubmitButton>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
         <ResetButton variant="secondary">Reset</ResetButton>
       </FormButtons>
     </Form>

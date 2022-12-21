@@ -7,7 +7,7 @@ import styles from './CopyIcon.module.css';
 export function CopyIcon(props: CopyTriggerProps) {
   const { className, ...domProps } = props;
   return (
-    <CopyTrigger className={classNames(styles.clickable, className)} {...domProps}>
+    <CopyTrigger {...domProps} className={classNames(styles.clickable, className)}>
       <Icon>
         <Copy />
       </Icon>
