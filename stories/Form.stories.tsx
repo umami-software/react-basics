@@ -7,7 +7,6 @@ import {
   PasswordField,
   Checkbox,
   Button,
-  SubmitButton,
   ResetButton,
 } from '../src';
 import { makeStory } from './utils';
