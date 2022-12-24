@@ -16,11 +16,6 @@ export default [
     output: [
       {
         file: 'dist/index.js',
-        format: 'cjs',
-        name: 'react-basics',
-      },
-      {
-        file: 'dist/esm/index.js',
         format: 'esm',
       },
     ],
