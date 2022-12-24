@@ -1,4 +1,4 @@
-import { Ref, forwardRef, ChangeEventHandler, FocusEventHandler } from 'react';
+import { Ref, forwardRef, ChangeEventHandler, FocusEventHandler, MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import CopyIcon from 'components/input/CopyIcon';
@@ -16,6 +16,7 @@ export interface TextFieldProps extends CommonProps {
   allowCopy?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
+  onClick?: MouseEventHandler<HTMLInputElement>;
 }
 
 function _TextField(props: TextFieldProps, ref?: Ref<any>) {
@@ -30,7 +31,6 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
     autoComplete,
     allowCopy = false,
     className,
-    style,
     onChange,
     onFocus,
     children,
@@ -44,7 +44,6 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
         [styles.disabled]: disabled,
         [styles.readonly]: readOnly,
       })}
-      style={style}
     >
       <input
         type={type}

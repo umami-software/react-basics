@@ -6,11 +6,12 @@ import useDocumentClick from 'hooks/useDocumentClick';
 import { CommonProps } from 'types';
 import styles from './Dropdown.module.css';
 import Popup from 'components/overlay/Popup';
+import TextField from 'components/input/TextField';
 
 export interface DropDownProps extends CommonProps {
   items: any[];
   name: string;
-  value: string | number;
+  value: string;
   displayValue?: string;
   menuClassName?: string;
   onChange: (key: Key, e: MouseEvent) => void;
@@ -49,21 +50,21 @@ export function Dropdown(props: DropDownProps) {
   });
 
   return (
-    <div
+    <TextField
       {...domProps}
-      ref={ref}
       className={classNames(styles.field, className)}
+      ref={ref}
+      name={name}
+      value={displayValue}
+      readOnly={true}
       onClick={handleShowMenu}
     >
-      <div className={styles.input}>
-        <div className={styles.text}>{displayValue}</div>
-        <Icon icon="chevron-down" size="sm" />
-      </div>
-      <input type="hidden" name={name} value={value} />
+      <Icon icon="chevron-down" size="sm" />
       {showMenu && (
         <Popup gap={5}>
           <Menu
-            className={classNames(styles.menu, menuClassName)}
+            variant="popup"
+            className={menuClassName}
             items={items}
             selectedKey={value}
             onSelect={handleSelect}
@@ -72,7 +73,7 @@ export function Dropdown(props: DropDownProps) {
           </Menu>
         </Popup>
       )}
-    </div>
+    </TextField>
   );
 }
 

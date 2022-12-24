@@ -2,28 +2,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  background: var(--input-background);
-  border: var(--input-border);
-  border-radius: var(--input-border-radius);
-  padding: var(--input-padding);
   cursor: pointer;
+  background-color: var(--base50) !important;
 }
 
-.input {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--input-font-family);
-  font-size: var(--font-size-md);
-  line-height: var(--input-line-height);
-  min-height: var(--input-line-height);
-}
-
-.text {
-  flex: 1;
-}
-
-.menu {
-  font-size: var(--font-size-sm);
+.field input {
+  cursor: pointer;
 }
