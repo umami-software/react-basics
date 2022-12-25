@@ -16,7 +16,6 @@ export interface TextFieldProps extends CommonProps {
   allowCopy?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
-  onClick?: MouseEventHandler<HTMLInputElement>;
 }
 
 function _TextField(props: TextFieldProps, ref?: Ref<any>) {

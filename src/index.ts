@@ -15,7 +15,7 @@ export * from 'components/input/Checkbox';
 export * from 'components/input/CheckboxGroup';
 export * from 'components/input/CopyIcon';
 export * from 'components/trigger/CopyTrigger';
-export * from 'components/trigger/TooltipTrigger';
+export * from 'components/trigger/PopupTrigger';
 export * from 'components/input/Dropdown';
 export * from 'components/input/LoadingButton';
 export * from 'components/input/Menu';

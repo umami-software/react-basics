@@ -1,38 +1,22 @@
-import { CSSProperties } from 'react';
+import { createContext } from 'react';
 import { CommonProps } from 'types';
 import classNames from 'classnames';
+import { renderChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Popup.module.css';
 
 export interface PopupProps extends CommonProps {
   position?: 'top' | 'bottom' | 'left' | 'right';
-  gap?: number;
 }
 
-function getGapStyle(position: string, gap): CSSProperties | undefined {
-  if (gap > 0) {
-    switch (position) {
-      case 'top':
-        return { marginBottom: gap };
-      case 'bottom':
-        return { marginTop: gap };
-      case 'left':
-        return { marginRight: gap };
-      case 'right':
-        return { marginLeft: gap };
-    }
-  }
-}
+export const PopupContext = createContext('bottom');
 
 export function Popup(props: PopupProps) {
-  const { position = 'bottom', gap = 0, className, style, children } = props;
+  const { position = 'bottom', className, children, ...domProps } = props;
 
   return (
-    <div
-      className={classNames(styles.popup, className, styles[position])}
-      style={{ ...style, ...getGapStyle(position, gap) }}
-    >
-      {children}
+    <div {...domProps} className={classNames(styles.popup, className, styles[position])}>
+      <PopupContext.Provider value={position}>{renderChildren(children)}</PopupContext.Provider>
     </div>
   );
 }

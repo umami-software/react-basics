@@ -9,3 +9,7 @@
 .field input {
   cursor: pointer;
 }
+
+.menu {
+  margin-top: var(--size100);
+}
