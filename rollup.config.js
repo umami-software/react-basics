@@ -16,6 +16,10 @@ export default [
     output: [
       {
         file: 'dist/index.js',
+        format: 'cjs',
+      },
+      {
+        file: 'dist/esm/index.js',
         format: 'esm',
       },
     ],
@@ -40,6 +44,7 @@ export default [
       commonjs(),
       ts(),
       terser(),
+      del({ targets: ['dist/esm/styles.css', 'dist/index.d.ts'], hook: 'closeBundle' }),
     ],
     external: ['react', 'react-dom', 'react/jsx-runtime', 'react-spring'],
   },

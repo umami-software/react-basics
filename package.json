@@ -1,6 +1,6 @@
 {
   "name": "react-basics",
-  "version": "0.43.0",
+  "version": "0.44.0",
   "description": "Everyday components for React",
   "license": "MIT",
   "repository": {
@@ -20,8 +20,8 @@
     "components"
   ],
   "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "files": [
     "dist"
   ],
