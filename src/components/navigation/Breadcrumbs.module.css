@@ -10,7 +10,6 @@
 .item {
   color: var(--base700);
   margin: 0;
-  cursor: pointer;
 }
 
 .item:hover {
@@ -21,6 +20,10 @@
   color: var(--base900);
   font-weight: 700;
   cursor: auto;
+}
+
+.node {
+  cursor: pointer;
 }
 
 .divider {

@@ -7,7 +7,7 @@ import styles from './Dropdown.module.css';
 import TextField from 'components/input/TextField';
 import PopupTrigger from 'components/trigger/PopupTrigger';
 
-export interface DropDownProps extends CommonProps {
+export interface DropdownProps extends CommonProps {
   items: any[];
   name: string;
   value: string;
@@ -16,7 +16,7 @@ export interface DropDownProps extends CommonProps {
   onChange: (key: Key, e: MouseEvent) => void;
 }
 
-function _Dropdown(props: DropDownProps, ref) {
+function _Dropdown(props: DropdownProps, ref) {
   const {
     items,
     name,
@@ -30,7 +30,6 @@ function _Dropdown(props: DropDownProps, ref) {
   } = props;
 
   const handleSelect = (key: Key, e: MouseEvent) => {
-    console.log({ key });
     onChange(key, e);
   };
 

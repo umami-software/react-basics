@@ -50,6 +50,10 @@
   --primary600: var(--base700);
   --primary700: var(--base600);
 
+  --z-index100: 100;
+  --z-index200: 200;
+  --z-index300: 300;
+
   /* Component styles */
   --input-font-family: inherit;
   --input-font-size: var(--font-size-md);

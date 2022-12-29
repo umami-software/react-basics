@@ -6,7 +6,7 @@ import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
 
 export interface PopupTriggerProps extends PopupProps {
-  action: 'click' | 'hover';
+  action?: 'click' | 'hover';
   delay?: number;
 }
 

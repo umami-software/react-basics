@@ -4,7 +4,7 @@
   gap: var(--size600);
 }
 
-.error {
+.text {
   text-align: center;
   margin: auto;
 }

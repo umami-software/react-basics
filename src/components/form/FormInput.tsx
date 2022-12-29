@@ -12,12 +12,12 @@ export interface FormInputProps extends CommonProps, Partial<UseFormReturn> {
 }
 
 export function FormInput(props: FormInputProps) {
-  const { name, label, rules, className, style, children } = props;
+  const { name, label, rules, children, ...domProps } = props;
   const { register, formState } = useFormContext();
   const errors = formState?.errors || {};
 
   return (
-    <FormRow label={label} className={className} style={style}>
+    <FormRow {...domProps} label={label}>
       {Children.map(children, (child: any) => (
         <div className={classNames({ [styles.error]: errors[name] })}>
           {cloneElement(child, register(name, rules))}

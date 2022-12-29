@@ -43,11 +43,15 @@ export function Breadcrumbs(props: BreadcrumbProps) {
             }),
             children: (
               <>
-                {node}
+                <div
+                  className={styles.node}
+                  onClick={!disabled ? handleSelect.bind(null, key) : undefined}
+                >
+                  {node}
+                </div>
                 {!last && <Icon icon={icons[divider]} className={styles.divider} />}
               </>
             ),
-            onClick: !disabled ? handleSelect.bind(null, key) : undefined,
           };
         },
         { validChildren: [Item] },

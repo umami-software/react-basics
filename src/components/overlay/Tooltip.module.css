@@ -1,6 +1,6 @@
 .tooltip {
   display: flex;
-  z-index: 1;
+  z-index: var(--z-index100);
 }
 
 .tooltip.top,

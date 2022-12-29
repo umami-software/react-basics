@@ -47,7 +47,7 @@ function _Form(props: FormProps, ref) {
             <Icon size="lg" className={styles.icon}>
               <Alert />
             </Icon>
-            <Text className={styles.error}>{error}</Text>
+            <Text className={styles.text}>{error}</Text>
           </Banner>
         )}
         {typeof children === 'function' ? children(useFormValues) : children}

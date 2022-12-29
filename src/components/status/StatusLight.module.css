@@ -5,8 +5,8 @@
 }
 
 .status {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 100%;
   background: var(--status-inactive-color);
 }
