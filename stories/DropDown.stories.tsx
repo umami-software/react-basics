@@ -15,12 +15,15 @@ export default {
 } as ComponentMeta<typeof Dropdown>;
 
 const Template: ComponentStory<typeof Dropdown> = args => {
-  const [value, setValue] = useState<Key>(args.value);
+  const [value, setValue] = useState<any>(args.value);
+
+  const renderValue = v => items.find(e => e.value === v)?.label;
 
   return (
     <Dropdown
       {...args}
-      displayValue={items.find(e => e.value === value)?.label}
+      renderValue={renderValue}
+      name="dropdown"
       value={value}
       onChange={setValue}
       style={{ width: 200 }}

@@ -10,16 +10,13 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "strict": true,
-
     "outDir": "dist",
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx",
-
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
-
     "baseUrl": ".",
     "paths": { "*": ["src/*"] }
   },

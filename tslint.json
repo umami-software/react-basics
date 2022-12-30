@@ -1,6 +1,7 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "rules": {
-    "jsx-boolean-value": "off"
+    "jsx-boolean-value": "off",
+    "jsx-no-lambda": "off"
   }
 }

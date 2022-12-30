@@ -1,3 +1,7 @@
+.value {
+  flex: 1;
+}
+
 .menu {
   margin-top: var(--size100);
 }

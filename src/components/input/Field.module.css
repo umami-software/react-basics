@@ -8,6 +8,7 @@
     padding: var(--input-padding);
     flex: 1;
     gap: var(--size200);
+    min-height: var(--input-min-height);
 }
 
 .disabled {
