@@ -10,7 +10,7 @@ export interface SearchProps extends TextFieldProps {
 }
 
 export function SearchField(props: SearchProps): ReactElement {
-  const { delay = 0, value, onChange, ...tableProps } = props;
+  const { delay = 0, value, onChange, ...fieldProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);
 
@@ -35,7 +35,7 @@ export function SearchField(props: SearchProps): ReactElement {
   }, [searchValue]);
 
   return (
-    <TextField {...tableProps} value={search} onChange={handleChange} className={styles.input}>
+    <TextField {...fieldProps} value={search} onChange={handleChange}>
       <Icon icon="search" className={classNames(styles.icon, styles.magnifier)} />
       <Icon
         icon="cross"

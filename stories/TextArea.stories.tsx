@@ -8,7 +8,13 @@ export default {
   component: TextArea,
 } as ComponentMeta<typeof TextArea>;
 
-const Template: ComponentStory<typeof TextArea> = args => <TextArea {...args} />;
+const Template: ComponentStory<typeof TextArea> = args => {
+  return (
+    <div style={{ width: 300 }}>
+      <TextArea {...args} />
+    </div>
+  );
+};
 
 export const Basic = makeStory(Template);
 

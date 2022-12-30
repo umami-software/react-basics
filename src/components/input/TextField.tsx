@@ -1,7 +1,8 @@
-import { Ref, forwardRef, ChangeEventHandler, FocusEventHandler, MouseEventHandler } from 'react';
+import { Ref, forwardRef, ChangeEventHandler, FocusEventHandler } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import CopyIcon from 'components/input/CopyIcon';
+import Field from 'components/input/Field';
 import styles from './TextField.module.css';
 
 export interface TextFieldProps extends CommonProps {
@@ -29,7 +30,6 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
     placeholder,
     autoComplete,
     allowCopy = false,
-    className,
     onChange,
     onFocus,
     children,
@@ -37,13 +37,7 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
   } = props;
 
   return (
-    <div
-      {...domProps}
-      className={classNames(styles.field, className, {
-        [styles.disabled]: disabled,
-        [styles.readonly]: readOnly,
-      })}
-    >
+    <Field {...domProps} disabled={disabled} readOnly={readOnly}>
       <input
         type={type}
         ref={ref}
@@ -60,7 +54,7 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
       />
       {children}
       {allowCopy && <CopyIcon value={value} className={styles.icon} />}
-    </div>
+    </Field>
   );
 }
 

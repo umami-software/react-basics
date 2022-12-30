@@ -1,6 +1,7 @@
 .popup {
   position: absolute;
   margin: auto;
+  z-index: var(--z-index300);
 }
 
 .top {
@@ -25,4 +26,14 @@
   left: 100%;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.bottom-right {
+  top: 100%;
+  right: 0;
+}
+
+.bottom-left {
+  top: 100%;
+  left: 0;
 }

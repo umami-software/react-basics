@@ -2,10 +2,10 @@ import { Key, MouseEvent, forwardRef } from 'react';
 import classNames from 'classnames';
 import Menu from 'components/input/Menu';
 import Icon from 'components/common/Icon';
+import Field from 'components/input/Field';
+import PopupTrigger from 'components/trigger/PopupTrigger';
 import { CommonProps } from 'types';
 import styles from './Dropdown.module.css';
-import TextField from 'components/input/TextField';
-import PopupTrigger from 'components/trigger/PopupTrigger';
 
 export interface DropdownProps extends CommonProps {
   items: any[];
@@ -17,17 +17,7 @@ export interface DropdownProps extends CommonProps {
 }
 
 function _Dropdown(props: DropdownProps, ref) {
-  const {
-    items,
-    name,
-    value,
-    displayValue = value,
-    className,
-    menuClassName,
-    onChange,
-    children,
-    ...domProps
-  } = props;
+  const { items, name, value, menuClassName, onChange, children, ...domProps } = props;
 
   const handleSelect = (key: Key, e: MouseEvent) => {
     onChange(key, e);
@@ -35,16 +25,11 @@ function _Dropdown(props: DropdownProps, ref) {
 
   return (
     <PopupTrigger position="bottom" action="click">
-      <TextField
-        {...domProps}
-        ref={ref}
-        className={classNames(styles.field, className)}
-        name={name}
-        value={displayValue}
-        readOnly={true}
-      >
+      <Field {...domProps}>
+        <div>{value}</div>
         <Icon icon="chevron-down" size="sm" />
-      </TextField>
+        <input ref={ref} type="hidden" name={name} value={value} />
+      </Field>
       <Menu
         variant="popup"
         className={classNames(styles.menu, menuClassName)}

@@ -8,7 +8,7 @@ export interface CommonProps {
 }
 
 export interface InputProps {
-  readonly?: boolean;
+  readOnly?: boolean;
   disabled?: boolean;
 }
 
