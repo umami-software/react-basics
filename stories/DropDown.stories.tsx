@@ -20,14 +20,15 @@ const Template: ComponentStory<typeof Dropdown> = args => {
   const renderValue = v => items.find(e => e.value === v)?.label;
 
   return (
-    <Dropdown
-      {...args}
-      renderValue={renderValue}
-      name="dropdown"
-      value={value}
-      onChange={setValue}
-      style={{ width: 200 }}
-    />
+    <div style={{ width: 200 }}>
+      <Dropdown
+        {...args}
+        renderValue={renderValue}
+        name="dropdown"
+        value={value}
+        onChange={setValue}
+      />
+    </div>
   );
 };
 

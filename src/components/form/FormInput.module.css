@@ -1,7 +1,5 @@
-.error input[type='text'],
-.error input[type='password'],
-.error textarea {
-  border-color: var(--red800);
+.input {
+  flex: 1;
 }
 
 .message {
@@ -9,4 +7,5 @@
   font-size: var(--font-size-xs);
   font-weight: 600;
   line-height: 32px;
+  flex: 1;
 }

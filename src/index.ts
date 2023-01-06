@@ -6,7 +6,6 @@ export * from 'components/form/Form';
 export * from 'components/form/FormButtons';
 export * from 'components/form/FormInput';
 export * from 'components/form/FormRow';
-export * from 'components/form/HiddenInput';
 export * from 'components/form/ResetButton';
 export * from 'components/form/SubmitButton';
 export * from 'components/input/Button';

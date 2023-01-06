@@ -9,22 +9,31 @@ import styles from './Dropdown.module.css';
 
 export interface DropdownProps extends CommonProps {
   items: any[];
-  name: string;
-  value: string;
+  name?: string;
+  value?: string;
+  onChange?: (key: Key, e: MouseEvent) => void;
   renderValue?: (value: string) => ReactNode;
   menuClassName?: string;
-  onChange: (key: Key, e: MouseEvent) => void;
 }
 
 function _Dropdown(props: DropdownProps, ref) {
-  const { items, name, value, renderValue, menuClassName, onChange, children, ...domProps } = props;
+  const {
+    items,
+    name,
+    value = '',
+    renderValue,
+    menuClassName,
+    onChange,
+    children,
+    ...domProps
+  } = props;
 
   const handleSelect = (key: Key, e: MouseEvent) => {
-    onChange(key, e);
+    onChange?.(key, e);
   };
 
   return (
-    <PopupTrigger position="bottom" action="click">
+    <PopupTrigger position="bottom" alignment="start" action="click">
       <Field {...domProps}>
         <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
         <Icon icon="chevron-down" size="sm" />

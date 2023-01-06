@@ -1,8 +1,7 @@
 import { ReactNode, Children, cloneElement } from 'react';
-import { RegisterOptions, useFormContext, UseFormReturn } from 'react-hook-form';
+import { useController, useFormContext, RegisterOptions, UseFormReturn } from 'react-hook-form';
 import { CommonProps } from 'types';
 import classNames from 'classnames';
-import FormRow from 'components/form/FormRow';
 import styles from './FormInput.module.css';
 
 export interface FormInputProps extends CommonProps, Partial<UseFormReturn> {
@@ -12,19 +11,18 @@ export interface FormInputProps extends CommonProps, Partial<UseFormReturn> {
 }
 
 export function FormInput(props: FormInputProps) {
-  const { name, label, rules, children, ...domProps } = props;
-  const { register, formState } = useFormContext();
+  const { name, rules, className, children, ...domProps } = props;
+  const { formState, control } = useFormContext();
+  const { field } = useController({ name, control, rules });
   const errors = formState?.errors || {};
+  const message = errors[name]?.message as string;
+  const child = Children.only(children);
 
   return (
-    <FormRow {...domProps} label={label}>
-      {Children.map(children, (child: any) => (
-        <div className={classNames({ [styles.error]: errors[name] })}>
-          {cloneElement(child, register(name, rules))}
-          <div className={styles.message}>{errors[name]?.message as string}</div>
-        </div>
-      ))}
-    </FormRow>
+    <div {...domProps} className={classNames(styles.input, className)}>
+      {typeof child === 'object' && cloneElement(child, field)}
+      {message && <div className={styles.message}>{message}</div>}
+    </div>
   );
 }
 

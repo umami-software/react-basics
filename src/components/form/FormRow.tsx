@@ -5,15 +5,19 @@ import styles from './FormRow.module.css';
 
 export interface FormRowProps extends CommonProps {
   label?: ReactNode;
-  children: ReactNode;
+  labelFor?: string;
 }
 
 export function FormRow(props: FormRowProps) {
-  const { label, className, children, ...domProps } = props;
+  const { label, labelFor, className, children, ...domProps } = props;
 
   return (
     <div {...domProps} className={classNames(styles.row, className)}>
-      {label && <label className={styles.label}>{label}</label>}
+      {label && (
+        <label className={styles.label} htmlFor={labelFor}>
+          {label}
+        </label>
+      )}
       {children}
     </div>
   );

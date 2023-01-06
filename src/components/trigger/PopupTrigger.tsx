@@ -1,9 +1,9 @@
 import { Children, useRef, useState } from 'react';
-import Popup, { PopupProps } from 'components/overlay/Popup';
-import styles from './trigger.module.css';
 import classNames from 'classnames';
+import Popup, { PopupProps } from 'components/overlay/Popup';
 import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
+import styles from './trigger.module.css';
 
 export interface PopupTriggerProps extends PopupProps {
   action?: 'click' | 'hover';
@@ -12,7 +12,15 @@ export interface PopupTriggerProps extends PopupProps {
 
 export function PopupTrigger(props: PopupTriggerProps) {
   const [show, setShow] = useState(false);
-  const { position, action = 'click', delay = 0, children, className, ...domProps } = props;
+  const {
+    position,
+    alignment,
+    action = 'click',
+    delay = 0,
+    children,
+    className,
+    ...domProps
+  } = props;
   const visible = useDebounce(show, show ? delay : 0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -40,7 +48,11 @@ export function PopupTrigger(props: PopupTriggerProps) {
       onMouseLeave={action === 'hover' ? handleLeave : undefined}
     >
       {triggerElement}
-      {visible && <Popup position={position}>{popupElement}</Popup>}
+      {visible && (
+        <Popup position={position} alignment={alignment}>
+          {popupElement}
+        </Popup>
+      )}
     </div>
   );
 }

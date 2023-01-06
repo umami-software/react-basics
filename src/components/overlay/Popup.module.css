@@ -28,12 +28,28 @@
   transform: translateY(-50%);
 }
 
-.bottom-right {
-  top: 100%;
-  right: 0;
+.top.start,
+.bottom.start {
+  left: 0;
+  transform: translateX(0);
 }
 
-.bottom-left {
-  top: 100%;
-  left: 0;
+.top.end,
+.bottom.end {
+  right: 0;
+  left: auto;
+  transform: translateX(0);
+}
+
+.left.start,
+.right.start {
+  top: 0;
+  transform: translateY(0);
+}
+
+.left.end,
+.right.end {
+  top: auto;
+  bottom: 0;
+  transform: translateY(0);
 }

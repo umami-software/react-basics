@@ -7,15 +7,19 @@ import styles from './Popup.module.css';
 
 export interface PopupProps extends CommonProps {
   position?: 'top' | 'bottom' | 'left' | 'right';
+  alignment?: 'start' | 'end' | 'none';
 }
 
 export const PopupContext = createContext('bottom');
 
 export function Popup(props: PopupProps) {
-  const { position = 'bottom', className, children, ...domProps } = props;
+  const { position = 'bottom', alignment = 'none', className, children, ...domProps } = props;
 
   return (
-    <div {...domProps} className={classNames(styles.popup, className, styles[position])}>
+    <div
+      {...domProps}
+      className={classNames(styles.popup, className, styles[position], styles[alignment])}
+    >
       <PopupContext.Provider value={position}>{renderChildren(children)}</PopupContext.Provider>
     </div>
   );
