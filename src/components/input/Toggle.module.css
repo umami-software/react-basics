@@ -2,7 +2,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: var(--input-gap-size);
+  gap: var(--size200);
 }
 
 .switch {
@@ -10,7 +10,7 @@
   width: 38px;
   height: 22px;
   border-radius: 22px;
-  border: 1px solid var(--input-border-color);
+  border: 1px solid var(--border-color);
   background: var(--base100);
   transition: background-color 0.2s;
   cursor: pointer;
@@ -24,7 +24,7 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  border: 1px solid var(--input-border-color);
+  border: 1px solid var(--border-color);
   border-radius: 100%;
   background: var(--base50);
   transition: left 0.2s;

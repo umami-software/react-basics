@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid var(--base200);
-  gap: var(--size600);
+  gap: var(--size700);
   font-size: var(--font-size-sm);
 }
 

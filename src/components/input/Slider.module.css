@@ -1,7 +1,7 @@
 .slider {
   position: relative;
   display: flex;
-  height: var(--input-height);
+  height: var(--size800);
 }
 
 .slider input {
@@ -36,8 +36,8 @@
   top: 50%;
   transform: translateY(-50%);
   border-radius: 100%;
-  background: var(--input-background);
-  border: 2px solid var(--input-border-color);
+  background: var(--base50);
+  border: 2px solid var(--border-color);
   pointer-events: none;
 }
 

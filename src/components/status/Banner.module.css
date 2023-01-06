@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--size500);
-  border-radius: var(--input-border-radius);
+  border-radius: var(--border-radius);
   color: var(--light50);
   background: var(--primary400);
   width: 100%;

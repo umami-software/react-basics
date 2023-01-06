@@ -1,9 +1,9 @@
 .input {
   display: block;
+  font-family: inherit;
   color: var(--font-color100);
-  font-family: var(--input-font-family);
   font-size: var(--font-size-md);
-  line-height: var(--input-line-height);
+  line-height: var(--size500);
   background: transparent;
   padding: 0;
   border: 0;

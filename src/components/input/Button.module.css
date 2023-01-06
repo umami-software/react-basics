@@ -2,14 +2,12 @@
   display: flex;
   align-items: center;
   align-self: flex-start;
-  gap: var(--input-gap-size);
+  gap: var(--size200);
   font-family: inherit;
-  font-size: var(--input-font-size);
-  line-height: var(--input-line-height);
   color: var(--base900);
   background: var(--base100);
   border: 1px solid transparent;
-  border-radius: var(--input-border-radius);
+  border-radius: var(--border-radius);
   position: relative;
   cursor: pointer;
   z-index: var(--z-index100);
@@ -25,8 +23,8 @@
 
 .button.disabled {
   color: var(--input-disabled-color) !important;
-  border-color: transparent !important;
   background-color: var(--input-disabled-background) !important;
+  border-color: transparent !important;
   pointer-events: none;
 }
 
@@ -46,7 +44,7 @@
 }
 
 .button.secondary {
-  border: var(--input-border);
+  border: 1px solid var(--border-color);
   background: transparent;
 }
 

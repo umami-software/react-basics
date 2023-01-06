@@ -2,8 +2,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--input-height);
-  gap: var(--input-gap-size);
+  height: var(--size800);
+  gap: var(--size200);
 }
 
 .box {
@@ -13,7 +13,7 @@
   width: 16px;
   height: 16px;
   color: var(--base900);
-  border: var(--input-border);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   background: var(--base50);
   transition: all 0.2s;

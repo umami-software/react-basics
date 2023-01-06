@@ -9,7 +9,7 @@
 
 .horizontal {
   flex-direction: row;
-  gap: var(--input-gap-size);
+  gap: var(--size200);
 }
 
 .vertical {

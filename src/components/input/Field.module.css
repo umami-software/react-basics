@@ -1,22 +1,21 @@
 .field {
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: var(--base50);
-    border: var(--input-border);
-    border-radius: var(--input-border-radius);
-    padding: var(--input-padding);
-    flex: 1;
-    gap: var(--size200);
-    min-height: var(--input-min-height);
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--base50);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  flex: 1;
+  gap: var(--size200);
 }
 
 .disabled {
-    color: var(--input-disabled-color);
-    background: var(--input-disabled-background);
-    border-color: var(--input-disabled-border-color);
+  color: var(--input-disabled-color);
+  background: var(--input-disabled-background);
+  border-color: var(--input-disabled-border-color);
 }
 
 .readOnly {
-    background: var(--base75);
+  background: var(--base75);
 }

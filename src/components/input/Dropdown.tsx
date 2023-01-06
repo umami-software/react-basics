@@ -34,7 +34,7 @@ function _Dropdown(props: DropdownProps, ref) {
 
   return (
     <PopupTrigger position="bottom" alignment="start" action="click">
-      <Field {...domProps}>
+      <Field {...domProps} className={styles.field}>
         <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
         <Icon icon="chevron-down" size="sm" />
         <input ref={ref} type="hidden" name={name} value={value} />

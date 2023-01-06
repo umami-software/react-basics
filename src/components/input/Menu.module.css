@@ -8,8 +8,8 @@
 
 .item {
   flex: 1;
-  padding: var(--input-padding);
-  line-height: var(--input-line-height);
+  padding: var(--padding);
+  line-height: var(--size500);
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
@@ -38,12 +38,12 @@
   top: 0;
   left: 0;
   right: 0;
-  border-top: var(--input-border);
+  border-top: 1px solid var(--border-color);
 }
 
 .popup {
-  border: 1px solid var(--input-border-color);
-  border-radius: var(--input-border-radius);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
   background-color: var(--base50);
   min-width: 200px;
 }

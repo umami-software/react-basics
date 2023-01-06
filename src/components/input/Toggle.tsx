@@ -41,18 +41,19 @@ export function Toggle(props: ToggleProps): ReactElement {
         [styles.disabled]: disabled,
       })}
     >
-      <div className={styles.switch} />
+      <div className={styles.switch}>
+        <input
+          type="checkbox"
+          name={name}
+          ref={ref}
+          className={styles.input}
+          value={value}
+          checked={checked}
+          disabled={disabled}
+          onChange={handleChange}
+        />
+      </div>
       <label className={styles.label}>{children}</label>
-      <input
-        type="checkbox"
-        name={name}
-        ref={ref}
-        className={styles.input}
-        value={value}
-        checked={checked}
-        disabled={disabled}
-        onChange={handleChange}
-      />
     </div>
   );
 }

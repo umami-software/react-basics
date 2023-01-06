@@ -55,21 +55,8 @@
   --z-index300: 300;
 
   /* Component styles */
-  --input-font-family: inherit;
-  --input-font-size: var(--font-size-md);
-  --input-height: 40px;
-  --input-line-height: 24px;
-  --input-min-height: 42px;
-  --input-padding: 8px 16px;
-  --input-border: 1px solid var(--base400);
-  --input-border-color: var(--base400);
-  --input-border-radius: 4px;
-  --input-gap-size: 10px;
-  --input-color: var(--base900);
-  --input-background: var(--base50);
-  --input-disabled-color: var(--base400);
-  --input-disabled-background: var(--base100);
-  --input-disabled-border-color: var(--base300);
+  --padding: 8px 16px;
+  --border-radius: 4px;
 
   --status-success-color: var(--green700);
   --status-error-color: var(--red800);
@@ -99,6 +86,11 @@
   --background100: var(--base50);
   --background200: var(--base75);
   --background300: var(--base100);
+
+  --border-color: var(--base400);
+  --input-disabled-color: var(--base500);
+  --input-disabled-background: var(--base100);
+  --input-disabled-border-color: var(--base300);
 
   --blue100: #e0f2ff;
   --blue200: #cae8ff;
@@ -180,6 +172,11 @@
   --background100: var(--base50);
   --background200: var(--base75);
   --background300: var(--base100);
+
+  --border-color: var(--base400);
+  --input-disabled-color: var(--base500);
+  --input-disabled-background: var(--base100);
+  --input-disabled-border-color: var(--base300);
 
   --blue100: #003877;
   --blue200: #00418a;
