@@ -25,9 +25,9 @@
 }
 
 .item.disabled {
-  color: var(--input-disabled-color);
+  color: var(--disabled-color);
   background: var(--base50);
-  border-color: var(--input-disabled-border-color);
+  border-color: var(--disabled-border-color);
   cursor: default;
   pointer-events: none;
 }

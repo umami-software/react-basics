@@ -16,7 +16,7 @@
 }
 
 .input:disabled {
-  color: var(--input-disabled-color);
+  color: var(--disabled-color);
 }
 
 .icon {

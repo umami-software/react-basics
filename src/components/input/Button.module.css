@@ -22,24 +22,24 @@
 }
 
 .button.disabled {
-  color: var(--input-disabled-color) !important;
-  background-color: var(--input-disabled-background) !important;
+  color: var(--disabled-color) !important;
+  background-color: var(--disabled-background) !important;
   border-color: transparent !important;
   pointer-events: none;
 }
 
 .button.primary {
-  color: var(--base50);
+  color: var(--light100);
   background: var(--primary400);
 }
 
 .button.primary:hover {
-  color: var(--base50);
+  color: var(--light50);
   background: var(--primary500);
 }
 
 .button.primary:active {
-  color: var(--base50);
+  color: var(--light50);
   background: var(--primary600);
 }
 

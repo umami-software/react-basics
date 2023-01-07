@@ -38,9 +38,9 @@
 }
 
 .disabled {
-  color: var(--input-disabled-color);
-  background: var(--input-disabled-background);
-  border-color: var(--input-disabled-border-color);
+  color: var(--disabled-color);
+  background: var(--disabled-background);
+  border-color: var(--disabled-border-color);
   pointer-events: none;
 }
 

@@ -52,16 +52,16 @@
 }
 
 .disabled {
-  color: var(--input-disabled-color);
+  color: var(--disabled-color);
 }
 
 .disabled .switch,
 .disabled.checked .switch {
-  background: var(--input-disabled-background);
-  border-color: var(--input-disabled-border-color);
+  background: var(--disabled-background);
+  border-color: var(--disabled-border-color);
 }
 
 .disabled .switch:before,
 .disabled.checked .switch:before {
-  border-color: var(--input-disabled-border-color);
+  border-color: var(--disabled-border-color);
 }

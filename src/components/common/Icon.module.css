@@ -370,7 +370,7 @@
 }
 
 .disabled {
-  color: var(--input-disabled-color);
+  color: var(--disabled-color);
   pointer-events: none;
 }
 

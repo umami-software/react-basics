@@ -31,7 +31,7 @@
 }
 
 .disabled {
-  color: var(--input-disabled-color);
+  color: var(--disabled-color);
   pointer-events: none;
 }
 
@@ -53,6 +53,6 @@
 }
 
 .radio.disabled .circle {
-  background: var(--input-disabled-background);
-  border-color: var(--input-disabled-border-color);
+  background: var(--disabled-background);
+  border-color: var(--disabled-border-color);
 }

@@ -41,10 +41,10 @@
 }
 
 .checkbox.disabled .box {
-  background: var(--input-disabled-background);
-  border-color: var(--input-disabled-border-color);
+  background: var(--disabled-background);
+  border-color: var(--disabled-border-color);
 }
 
 .checkbox.disabled .label {
-  color: var(--input-disabled-color);
+  color: var(--disabled-color);
 }
