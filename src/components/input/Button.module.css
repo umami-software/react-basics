@@ -10,7 +10,6 @@
   border-radius: var(--border-radius);
   position: relative;
   cursor: pointer;
-  z-index: var(--z-index100);
 }
 
 .button:hover {

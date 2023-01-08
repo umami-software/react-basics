@@ -35,6 +35,14 @@ function _Form(props: FormProps, ref) {
 
   return (
     <FormProvider {...useFormValues}>
+      {error && (
+        <Banner variant="error" className={styles.error}>
+          <Icon size="lg" className={styles.icon}>
+            <Alert />
+          </Icon>
+          <Text className={styles.text}>{error}</Text>
+        </Banner>
+      )}
       <form
         ref={ref}
         autoComplete={autoComplete}
@@ -42,14 +50,6 @@ function _Form(props: FormProps, ref) {
         style={style}
         onSubmit={handleSubmit(onSubmit)}
       >
-        {error && (
-          <Banner variant="error">
-            <Icon size="lg" className={styles.icon}>
-              <Alert />
-            </Icon>
-            <Text className={styles.text}>{error}</Text>
-          </Banner>
-        )}
         {typeof children === 'function' ? children(useFormValues) : children}
       </form>
     </FormProvider>

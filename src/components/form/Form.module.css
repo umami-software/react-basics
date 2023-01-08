@@ -12,3 +12,8 @@
 .icon {
   align-self: flex-start;
 }
+
+.error {
+  max-width: 600px;
+  margin: 0 auto var(--size600) auto;
+}
