@@ -24,12 +24,12 @@ const Template: ComponentStory<typeof LoadingButton> = args => (
 
 export const Spinner = makeStory(Template, {
   args: {
-    loaderVariant: 'spinner',
+    icon: 'spinner',
   },
 });
 
 export const Dots = makeStory(Template, {
   args: {
-    loaderVariant: 'dots',
+    icon: 'dots',
   },
 });
