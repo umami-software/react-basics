@@ -28,14 +28,15 @@
   min-width: 400px;
   min-height: 100px;
   max-width: 100vw;
-  padding: var(--size600);
-  border-radius: 4px;
+  padding: var(--size800);
+  border-radius: var(--border-radius);
   z-index: var(--z-index100);
 }
 
 .header {
+  font-size: var(--font-size-lg);
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: var(--size600);
 }
 
 .body {

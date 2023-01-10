@@ -6,6 +6,6 @@
   color: var(--red800);
   font-size: var(--font-size-xs);
   font-weight: 600;
-  line-height: 32px;
+  line-height: var(--size800);
   flex: 1;
 }

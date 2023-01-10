@@ -16,7 +16,7 @@ function _PasswordField(props: PasswordFieldProps, ref?: Ref<any>) {
 
   return (
     <TextField {...textFieldProps} ref={ref} type={type} disabled={disabled}>
-      <Icon variant="input" size="lg" disabled={disabled} onClick={handleShowPassword}>
+      <Icon variant="input" size="md" disabled={disabled} onClick={handleShowPassword}>
         {show ? <Hide /> : <Show />}
       </Icon>
     </TextField>

@@ -4,7 +4,8 @@
 }
 
 .label {
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  line-height: 32px;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  margin-bottom: var(--size200);
 }

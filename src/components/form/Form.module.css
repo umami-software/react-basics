@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--size600);
+  gap: var(--size900);
   width: 100%;
 }
 

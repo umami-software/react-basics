@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   min-height: var(--size500);
-  gap: 10px;
+  gap: var(--size200);
 }
 
 .dots div {
@@ -15,41 +15,39 @@
 }
 
 .dots.size-sm {
-  gap: 4px;
+  gap: var(--size50);
 }
 
 .dots.size-sm div {
-  width: 4px;
-  height: 4px;
+  width: var(--size50);
+  height: var(--size50);
 }
 
 .dots.size-md {
-  gap: 8px;
+  gap: var(--size100);
 }
 
 .dots.size-md div {
-  width: 8px;
-  height: 8px;
+  width: var(--size100);
+  height: var(--size100);
 }
 
 .dots.size-lg {
-  gap: 12px;
+  gap: var(--size300);
 }
 
 .dots.size-lg div {
-  width: 12px;
-  height: 12px;
-  gap: 12px;
+  width: var(--size300);
+  height: var(--size300);
 }
 
 .dots.size-xl {
-  gap: 16px;
+  gap: var(--size500);
 }
 
 .dots.size-xl div {
-  width: 16px;
-  height: 16px;
-  gap: 16px;
+  width: var(--size500);
+  height: var(--size500);
 }
 
 .dots div:nth-child(2) {

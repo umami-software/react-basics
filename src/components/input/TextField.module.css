@@ -3,7 +3,7 @@
   font-family: inherit;
   color: var(--font-color100);
   font-size: var(--font-size-md);
-  line-height: var(--size500);
+  line-height: var(--line-height);
   background: transparent;
   padding: 0;
   border: 0;

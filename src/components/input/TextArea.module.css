@@ -2,8 +2,8 @@
   display: block;
   font-family: inherit;
   color: var(--font-color100);
-  font-size: var(--font-size-md);
-  line-height: var(--size500);
+  font-size: inherit;
+  line-height: inherit;
   background: transparent;
   padding: 0;
   border: 0;
@@ -20,7 +20,7 @@
 }
 
 .copyable {
-  padding-right: 16px;
+  padding-right: var(--size500);
 }
 
 .icon {

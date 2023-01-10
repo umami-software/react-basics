@@ -2,13 +2,15 @@
   display: flex;
   align-items: center;
   align-self: flex-start;
+  white-space: nowrap;
   gap: var(--size200);
   font-family: inherit;
   color: var(--base900);
-  line-height: var(--size500);
   background: var(--base100);
   border: 1px solid transparent;
   border-radius: var(--border-radius);
+  min-height: var(--base-height);
+  padding: 0 var(--size600);
   position: relative;
   cursor: pointer;
 }
@@ -71,15 +73,16 @@
 
 .button.size-sm {
   font-size: var(--font-size-sm);
-  padding: var(--size50) var(--size100);
+  height: calc(var(--base-height) * 0.75);
+  padding: 0 calc(var(--size600) * 0.75);
 }
 
 .button.size-md {
   font-size: var(--font-size-md);
-  padding: var(--size100) var(--size400);
 }
 
 .button.size-lg {
   font-size: var(--font-size-lg);
-  padding: var(--size400) var(--size600);
+  height: calc(var(--base-height) * 1.25);
+  padding: 0 calc(var(--size600) * 1.25);
 }

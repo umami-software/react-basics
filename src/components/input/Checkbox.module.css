@@ -10,11 +10,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 16px;
-  height: 16px;
+  width: var(--size500);
+  height: var(--size500);
   color: var(--base900);
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   background: var(--base50);
   transition: all 0.2s;
   cursor: pointer;

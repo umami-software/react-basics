@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   border-bottom: 2px solid var(--base200);
-  gap: var(--size700);
-  font-size: var(--font-size-sm);
+  gap: var(--size800);
 }
 
 .tabs.quiet,
@@ -23,7 +22,7 @@
   align-items: center;
   justify-content: center;
   color: var(--base700);
-  padding: var(--size300) 0;
+  min-height: var(--base-height);
   border-bottom: 2px solid transparent;
   user-select: none;
   margin: 0 0 -2px 0;

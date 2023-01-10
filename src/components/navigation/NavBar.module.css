@@ -8,8 +8,9 @@
 .item {
   display: flex;
   flex-direction: row;
-  gap: 16px;
-  padding: 16px 20px;
+  padding: 0 var(--size600);
+  gap: var(--size500);
+  min-height: var(--base-height);
   color: var(--base900);
   background: var(--base50);
   border-left: 4px solid transparent;

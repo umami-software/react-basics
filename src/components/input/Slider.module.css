@@ -17,8 +17,8 @@
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
-  height: 4px;
-  border-radius: 4px;
+  height: var(--size50);
+  border-radius: var(--border-radius);
   background: var(--base400);
   border: 0;
   pointer-events: none;
@@ -31,13 +31,13 @@
 
 .thumb {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: var(--size500);
+  height: var(--size500);
   top: 50%;
   transform: translateY(-50%);
   border-radius: 100%;
   background: var(--base50);
-  border: 2px solid var(--border-color);
+  border: var(--size25) solid var(--border-color);
   pointer-events: none;
 }
 

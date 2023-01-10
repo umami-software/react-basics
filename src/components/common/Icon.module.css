@@ -15,37 +15,37 @@
 
 .size-xl,
 .size-xl > svg {
-  font-size: 48px;
-  width: 48px;
-  height: 48px;
+  font-size: var(--font-size-xl);
+  width: var(--size800);
+  height: var(--size800);
 }
 
 .size-lg,
 .size-lg > svg {
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
+  font-size: var(--font-size-lg);
+  width: var(--size600);
+  height: var(--size600);
 }
 
 .size-md,
 .size-md > svg {
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
+  font-size: var(--font-size-md);
+  width: var(--size500);
+  height: var(--size500);
 }
 
 .size-sm,
 .size-sm > svg {
-  font-size: 12px;
-  width: 12px;
-  height: 12px;
+  font-size: var(--font-size-sm);
+  width: var(--size400);
+  height: var(--size400);
 }
 
 .size-xs,
 .size-xs > svg {
-  font-size: 10px;
-  width: 10px;
-  height: 10px;
+  font-size: var(--font-size-xs);
+  width: var(--size200);
+  height: var(--size200);
 }
 
 .icon:before,
@@ -375,5 +375,5 @@
 }
 
 .input {
-  color: var(--border-color);
+  color: var(--base600);
 }

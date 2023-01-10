@@ -5,9 +5,10 @@
   background: var(--base50);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  padding: var(--padding);
-  flex: 1;
+  min-height: var(--base-height);
+  padding: var(--size300) var(--size600);
   gap: var(--size200);
+  width: 100%;
 }
 
 .disabled {

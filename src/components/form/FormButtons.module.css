@@ -1,6 +1,6 @@
 .buttons {
   display: flex;
-  gap: 8px;
+  gap: var(--size100);
 }
 
 .left {

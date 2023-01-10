@@ -1,23 +1,42 @@
 :root {
   /* Base styles */
+  /*
   --size1: 1px;
+  --size25: 2px;
   --size50: 4px;
   --size100: 8px;
   --size200: 10px;
   --size300: 12px;
-  --size400: 16px;
-  --size500: 24px;
-  --size600: 32px;
-  --size700: 36px;
-  --size800: 48px;
-  --size900: 60px;
+  --size400: 14px;
+  --size500: 16px;
+  --size600: 20px;
+  --size700: 24px;
+  --size800: 32px;
+  --size900: 36px;
+  --size1000: 48px;
+  --size1100: 60px;
+  */
+  --size1: 1px;
+  --size25: 0.125rem;
+  --size50: 0.25rem;
+  --size100: 0.5rem;
+  --size200: 0.625rem;
+  --size300: 0.75rem;
+  --size400: 0.875rem;
+  --size500: 1rem;
+  --size600: 1.25rem;
+  --size700: 1.5rem;
+  --size800: 2rem;
+  --size900: 2.25rem;
+  --size1000: 3rem;
+  --size1100: 4rem;
 
-  --font-size-xxl: 48px;
-  --font-size-xl: 36px;
-  --font-size-lg: 24px;
-  --font-size-md: 16px;
-  --font-size-sm: 14px;
-  --font-size-xs: 12px;
+  --font-size-xxl: var(--size900);
+  --font-size-xl: var(--size800);
+  --font-size-lg: var(--size600);
+  --font-size-md: var(--size500);
+  --font-size-sm: var(--size400);
+  --font-size-xs: var(--size300);
 
   --light50: #ffffff;
   --light75: #fafafa;
@@ -55,8 +74,10 @@
   --z-index300: 300;
 
   /* Component styles */
-  --padding: 8px 16px;
-  --border-radius: 4px;
+  --base-height: var(--size1000);
+  --line-height: var(--size600);
+  --padding: var(--size200) var(--size600);
+  --border-radius: var(--size50);
 
   --status-success-color: var(--green700);
   --status-error-color: var(--red800);

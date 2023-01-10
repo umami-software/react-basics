@@ -10,7 +10,7 @@
 }
 
 .track {
-  height: 8px;
+  height: var(--size100);
   background: var(--base200);
   flex-basis: 100%;
   overflow: hidden;
@@ -18,5 +18,5 @@
 
 .fill {
   background: var(--primary400);
-  height: 8px;
+  height: var(--size100);
 }

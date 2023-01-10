@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof Slider> = args => {
   return (
     <div style={{ display: 'flex', gap: 20 }}>
       <Slider {...args} onChange={setValue} />
-      <div style={{ width: 60 }}>
+      <div style={{ width: 70 }}>
         <TextField value={`${value}`} readOnly={true} />
       </div>
     </div>

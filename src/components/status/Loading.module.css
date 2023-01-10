@@ -26,4 +26,5 @@
 .block {
   margin: auto;
   height: 300px;
+  flex-basis: 300px;
 }

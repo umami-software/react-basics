@@ -1,8 +1,7 @@
 .accordian {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  gap: 4px;
+  gap: var(--size50);
 }
 
 .group {
