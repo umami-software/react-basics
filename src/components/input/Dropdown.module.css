@@ -1,9 +1,8 @@
-.value {
-  flex: 1;
-  line-height: var(--size500);
-  min-height: var(--size500);
-}
-
 .menu {
   margin-top: var(--size100);
+  max-height: 300px;
+}
+
+.value {
+  flex: 1;
 }
