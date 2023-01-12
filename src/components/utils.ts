@@ -49,10 +49,12 @@ export function cloneChildren(
 
 export function renderChildren(
   children: ReactNode | ((item: any, index: number, array: any) => ReactNode),
-  items?: any[],
+  items: any[],
+  handler: (child: ReactElement, index: number) => object | undefined,
+  options?: { validChildren?: any[]; onlyRenderValid?: boolean },
 ): ReactNode {
   if (items && typeof children === 'function') {
-    return items.map(children);
+    return cloneChildren(items.map(children), handler, options);
   }
 
   return children as ReactNode;

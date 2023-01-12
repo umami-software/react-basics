@@ -2,7 +2,7 @@ import { useState, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Checkbox from 'components/input/Checkbox';
-import { cloneChildren, renderChildren } from 'components/utils';
+import { renderChildren } from 'components/utils';
 import styles from './CheckboxGroup.module.css';
 
 export interface CheckboxGroupProps extends CommonProps {
@@ -34,8 +34,9 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
 
   return (
     <div {...domProps} className={classNames(styles.group, className)}>
-      {cloneChildren(
-        renderChildren(children, items),
+      {renderChildren(
+        children,
+        items,
         child => {
           const key = child.key ?? child.props.children;
           return {

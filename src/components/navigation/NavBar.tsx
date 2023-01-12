@@ -1,7 +1,7 @@
 import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { cloneChildren, renderChildren } from 'components/utils';
+import { renderChildren } from 'components/utils';
 import styles from './NavBar.module.css';
 
 export interface NavBarProps extends CommonProps {
@@ -30,7 +30,7 @@ export function NavBar(props: NavBarProps) {
 
   return (
     <div {...domProps} className={classNames(styles.navbar, className)} data-theme={theme}>
-      {cloneChildren(renderChildren(children, items), child => {
+      {renderChildren(children, items, child => {
         const { children: node, disabled } = child.props;
         const key = child.key ?? node;
         return {

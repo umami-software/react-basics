@@ -2,7 +2,7 @@ import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Item from 'components/common/Item';
-import { cloneChildren, renderChildren } from 'components/utils';
+import { renderChildren } from 'components/utils';
 import styles from './Tabs.module.css';
 
 export interface TabsProps extends CommonProps {
@@ -18,7 +18,6 @@ export function Tabs(props: TabsProps) {
   const {
     items = [],
     selectedKey = '',
-    vertical,
     gap,
     quiet,
     className,
@@ -40,13 +39,13 @@ export function Tabs(props: TabsProps) {
   return (
     <div
       className={classNames(styles.tabs, className, {
-        [styles.vertical]: vertical,
         [styles.quiet]: quiet,
       })}
       style={style}
     >
-      {cloneChildren(
-        renderChildren(children, items),
+      {renderChildren(
+        children,
+        items,
         child => {
           const { children: node, disabled } = child.props;
           const key = child.key ?? node;

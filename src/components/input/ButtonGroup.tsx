@@ -1,7 +1,7 @@
 import { Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
-import { cloneChildren, renderChildren } from 'components/utils';
+import { renderChildren } from 'components/utils';
 import Button from './Button';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './ButtonGroup.module.css';
@@ -30,8 +30,9 @@ export function ButtonGroup(props: ButtonGroupProps) {
 
   return (
     <div {...domProps} className={classNames(styles.group, className, styles[`size-${size}`])}>
-      {cloneChildren(
-        renderChildren(children, items),
+      {renderChildren(
+        children,
+        items,
         child => {
           const key = child.key ?? child.props.children;
           return {

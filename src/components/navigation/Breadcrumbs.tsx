@@ -3,7 +3,7 @@ import { CommonProps } from 'types';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Item from 'components/common/Item';
-import { cloneChildren, countChildren, renderChildren } from 'components/utils';
+import { renderChildren } from 'components/utils';
 import styles from './Breadcrumbs.module.css';
 
 export interface BreadcrumbProps extends CommonProps {
@@ -26,16 +26,14 @@ export function Breadcrumbs(props: BreadcrumbProps) {
     }
   };
 
-  const nodes = renderChildren(children, items);
-
   return (
     <div className={classNames(styles.breadcrumbs, className)} style={style}>
-      {cloneChildren(
-        nodes,
-        (child, index) => {
+      {renderChildren(
+        children,
+        items,
+        child => {
           const { children: node, disabled } = child.props;
           const key = child.key ?? node;
-          const last = index === countChildren(nodes) - 1;
 
           return {
             className: classNames(styles.item, {
@@ -49,7 +47,7 @@ export function Breadcrumbs(props: BreadcrumbProps) {
                 >
                   {node}
                 </div>
-                {!last && <Icon icon={icons[divider]} className={styles.divider} />}
+                <Icon icon={icons[divider]} className={styles.divider} />
               </>
             ),
           };

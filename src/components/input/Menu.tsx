@@ -2,7 +2,7 @@ import { MouseEvent, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Item from 'components/common/Item';
-import { cloneChildren, renderChildren } from 'components/utils';
+import { renderChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Menu.module.css';
 
@@ -30,8 +30,9 @@ export function Menu(props: MenuProps) {
 
   return (
     <div {...domProps} className={classNames(styles.menu, className, styles[variant])}>
-      {cloneChildren(
-        renderChildren(children, items),
+      {renderChildren(
+        children,
+        items,
         child => {
           const { children: node, disabled, divider, className: childClassName } = child.props;
           const key = child.key ?? node;
