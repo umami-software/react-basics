@@ -48,3 +48,8 @@
 .checkbox.disabled .label {
   color: var(--disabled-color);
 }
+
+.icon {
+  width: var(--size300);
+  height: var(--size300);
+}

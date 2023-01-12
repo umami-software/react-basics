@@ -8,7 +8,7 @@ export interface TextProps extends CommonProps {
 }
 
 export function Text(props: TextProps) {
-  const { className, children, size = 'md', ...domProps } = props;
+  const { className, children, size = '', ...domProps } = props;
 
   return (
     <span {...domProps} className={classNames(className, styles[`size-${size}`])}>

@@ -12,7 +12,15 @@ export interface NavBarProps extends CommonProps {
 }
 
 export function NavBar(props: NavBarProps) {
-  const { items = [], theme = '', selectedKey = '', className, style, onSelect, children } = props;
+  const {
+    items = [],
+    theme = '',
+    selectedKey = '',
+    onSelect,
+    className,
+    children,
+    ...domProps
+  } = props;
 
   const handleClick = key => {
     if (onSelect) {
@@ -21,7 +29,7 @@ export function NavBar(props: NavBarProps) {
   };
 
   return (
-    <div className={classNames(styles.navbar, className)} style={style} data-theme={theme}>
+    <div {...domProps} className={classNames(styles.navbar, className)} data-theme={theme}>
       {cloneChildren(renderChildren(children, items), child => {
         const { children: node, disabled } = child.props;
         const key = child.key ?? node;

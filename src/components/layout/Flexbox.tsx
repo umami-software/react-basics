@@ -45,6 +45,8 @@ export interface FlexStyleProps {
     | 'safe center'
     | 'unsafe center';
   gap?: number;
+  width?: number;
+  height?: number;
   order?: number;
   flex?: number;
 }
@@ -52,12 +54,40 @@ export interface FlexStyleProps {
 export interface FlexProps extends CommonProps, FlexStyleProps {}
 
 export function Flexbox(props: FlexProps) {
-  const { className, style, children, display = 'flex', direction = 'row', ...otherProps } = props;
+  const {
+    display = 'flex',
+    direction = 'row',
+    wrap,
+    justifyContent,
+    alignContent,
+    alignItems,
+    gap,
+    width,
+    height,
+    order,
+    flex,
+    style,
+    children,
+    ...domProps
+  } = props;
 
   return (
     <div
-      className={className}
-      style={{ display, flexDirection: direction, ...otherProps, ...style }}
+      {...domProps}
+      style={{
+        display,
+        flexDirection: direction,
+        flexWrap: wrap,
+        justifyContent,
+        alignContent,
+        alignItems,
+        gap,
+        width,
+        height,
+        order,
+        flex,
+        ...style,
+      }}
     >
       {children}
     </div>

@@ -4,8 +4,8 @@
 
 .message {
   color: var(--red800);
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  line-height: var(--size800);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-top: var(--size200);
   flex: 1;
 }

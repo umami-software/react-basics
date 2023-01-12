@@ -1,19 +1,20 @@
 import { Key, MouseEvent, forwardRef, ReactNode } from 'react';
 import classNames from 'classnames';
-import Menu from 'components/input/Menu';
+import Menu, { MenuProps } from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import Field from 'components/input/Field';
 import PopupTrigger from 'components/trigger/PopupTrigger';
 import { CommonProps } from 'types';
+import { ChevronDown } from 'icons';
 import styles from './Dropdown.module.css';
 
 export interface DropdownProps extends CommonProps {
   items: any[];
   name?: string;
   value?: string;
-  onChange?: (key: Key, e: MouseEvent) => void;
   renderValue?: (value: string) => ReactNode;
-  menuClassName?: string;
+  menuProps?: MenuProps;
+  onChange?: (key: Key, e: MouseEvent) => void;
 }
 
 function _Dropdown(props: DropdownProps, ref) {
@@ -22,8 +23,9 @@ function _Dropdown(props: DropdownProps, ref) {
     name,
     value = '',
     renderValue,
-    menuClassName,
+    menuProps = {},
     onChange,
+    className,
     children,
     ...domProps
   } = props;
@@ -34,14 +36,17 @@ function _Dropdown(props: DropdownProps, ref) {
 
   return (
     <PopupTrigger position="bottom" alignment="start" action="click">
-      <Field {...domProps}>
+      <Field {...domProps} className={classNames(styles.field, className)}>
         <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
-        <Icon icon="chevron-down" size="sm" />
+        <Icon className={styles.icon}>
+          <ChevronDown />
+        </Icon>
         <input ref={ref} type="hidden" name={name} value={value} />
       </Field>
       <Menu
+        {...menuProps}
         variant="popup"
-        className={classNames(styles.menu, menuClassName)}
+        className={classNames(styles.menu, (menuProps as MenuProps)?.className)}
         items={items}
         selectedKey={value}
         onSelect={handleSelect}

@@ -16,15 +16,15 @@
 .size-xl,
 .size-xl > svg {
   font-size: var(--font-size-xl);
-  width: var(--size800);
-  height: var(--size800);
+  width: var(--size1000);
+  height: var(--size1000);
 }
 
 .size-lg,
 .size-lg > svg {
   font-size: var(--font-size-lg);
-  width: var(--size600);
-  height: var(--size600);
+  width: var(--size800);
+  height: var(--size800);
 }
 
 .size-md,
@@ -44,8 +44,8 @@
 .size-xs,
 .size-xs > svg {
   font-size: var(--font-size-xs);
-  width: var(--size200);
-  height: var(--size200);
+  width: var(--size300);
+  height: var(--size300);
 }
 
 .icon:before,

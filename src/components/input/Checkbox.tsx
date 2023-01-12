@@ -46,7 +46,7 @@ function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<any>) {
     >
       <div className={styles.box}>
         {isChecked && (
-          <Icon size="sm">
+          <Icon className={styles.icon}>
             <Check />
           </Icon>
         )}

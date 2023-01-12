@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, Key } from 'react';
+import { useState, Key } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import Checkbox from 'components/input/Checkbox';
@@ -8,7 +8,7 @@ import styles from './CheckboxGroup.module.css';
 export interface CheckboxGroupProps extends CommonProps {
   items: any[];
   selectedKeys?: Key[];
-  onChange: (e: ChangeEvent) => void;
+  onChange: (keys: Key[]) => void;
 }
 
 export function CheckboxGroup(props: CheckboxGroupProps) {
@@ -18,13 +18,18 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
   const handleSelect = (key, e) => {
     if (e.target.checked) {
       if (!selected.includes(key)) {
-        setSelected(selected.concat(key));
+        const keys = selected.concat(key);
+        setSelected(keys);
+        onChange(keys);
       }
     } else {
-      setSelected(state => state.filter(n => n !== key));
-    }
+      setSelected(state => {
+        const keys = state.filter(n => n !== key);
+        onChange(keys);
 
-    onChange(e);
+        return keys;
+      });
+    }
   };
 
   return (

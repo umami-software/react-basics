@@ -11,6 +11,7 @@ export function useToast() {
       setToast(
         <Toast
           {...(typeof props === 'string' ? { message: props } : props)}
+          timeout={0}
           onClose={closeToast}
         />,
       );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Key, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CheckboxGroup, Checkbox } from '../src';
 import { makeStory } from './utils';
@@ -15,9 +15,9 @@ const items: any[] = [
 ];
 
 const Template: ComponentStory<typeof CheckboxGroup> = args => {
-  const [selected, setSelected] = useState(args.value);
+  const [selected, setSelected] = useState<Key[]>([]);
 
-  return <CheckboxGroup {...args} value={selected} onChange={setSelected} />;
+  return <CheckboxGroup {...args} selectedKeys={selected} onChange={setSelected} />;
 };
 
 export const Basic = makeStory(Template, {

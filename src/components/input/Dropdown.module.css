@@ -1,6 +1,13 @@
 .menu {
-  margin-top: var(--size100);
-  max-height: 300px;
+  margin-top: var(--size50);
+}
+
+.field {
+  cursor: pointer;
+}
+
+.icon {
+  color: var(--base600);
 }
 
 .value {

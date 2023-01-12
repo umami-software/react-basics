@@ -46,14 +46,6 @@ export const Disabled = makeStory(Template, {
   },
 });
 
-export const Vertical = makeStory(Template, {
-  args: {
-    items,
-    children: item => <Item key={item.key}>{item.label}</Item>,
-    vertical: true,
-  },
-});
-
 export const PureTags = makeStory(Template, {
   args: {
     children: (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, Icon } from '../src';
+import { Check } from 'icons';
 import { makeStory } from './utils';
 
 export default {
@@ -62,7 +63,9 @@ export const WithIcon = makeStory(Template, {
   args: {
     children: (
       <>
-        <Icon icon="checkmark" />
+        <Icon>
+          <Check />
+        </Icon>
         <div>Button</div>
       </>
     ),
@@ -71,7 +74,11 @@ export const WithIcon = makeStory(Template, {
 
 export const IconOnly = makeStory(Template, {
   args: {
-    children: <Icon icon="checkmark" />,
+    children: (
+      <Icon>
+        <Check />
+      </Icon>
+    ),
   },
 });
 

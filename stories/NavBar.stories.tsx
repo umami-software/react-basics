@@ -33,7 +33,7 @@ const Template: ComponentStory<typeof NavBar> = args => {
 
   return (
     <Container fluid={true} style={{ backgroundColor: '#eee' }}>
-      <NavBar {...args} selectedKey={selected} onSelect={setSelected} />
+      <NavBar {...args} selectedKey={selected} onSelect={setSelected} style={{ width: 200 }} />
     </Container>
   );
 };
