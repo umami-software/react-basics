@@ -49,16 +49,3 @@ export const Disabled = makeStory(Template, {
     children: ({ label, disabled }) => <Item disabled={disabled}>{label}</Item>,
   },
 });
-
-export const PureTags = makeStory(Template, {
-  args: {
-    children: (
-      <>
-        <Item>A</Item>
-        <Item>B</Item>
-        <Item>C</Item>
-        <Item>D</Item>
-      </>
-    ),
-  },
-});

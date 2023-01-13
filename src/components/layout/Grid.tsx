@@ -1,18 +1,29 @@
 import { CommonProps } from 'types';
-import classNames from 'classnames';
-import styles from './Grid.module.css';
 
 export interface GridProps extends CommonProps {
   areas: string[];
-  columns: string[];
   rows: string[];
+  columns: string[];
+  gap?: number | string;
+  autoColumns?: string;
+  autoRows?: string;
+  autoFlow?: 'row' | 'column' | 'dense' | 'row dense' | 'column dense';
 }
 
 export function Grid(props: GridProps) {
-  const { className, style, children } = props;
+  const { areas, rows, columns, style, children, ...domProps } = props;
 
   return (
-    <div className={classNames(styles.grid, className)} style={style}>
+    <div
+      {...domProps}
+      style={{
+        ...style,
+        display: 'grid',
+        gridTemplateAreas: areas?.map(area => `'${area}'`).join(' '),
+        gridTemplateRows: rows?.join(' '),
+        gridTemplateColumns: columns?.join(' '),
+      }}
+    >
       {children}
     </div>
   );

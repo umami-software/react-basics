@@ -29,6 +29,7 @@ export * from 'components/input/Toggle';
 export * from 'components/layout/Flexbox';
 export * from 'components/layout/Column';
 export * from 'components/layout/Container';
+export * from 'components/layout/Grid';
 export * from 'components/layout/Row';
 export * from 'components/overlay/Modal';
 export * from 'components/overlay/Popup';

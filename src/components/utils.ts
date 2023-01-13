@@ -53,11 +53,11 @@ export function renderChildren(
   handler: (child: ReactElement, index: number) => object | undefined,
   options?: { validChildren?: any[]; onlyRenderValid?: boolean },
 ): ReactNode {
-  if (items && typeof children === 'function') {
-    return cloneChildren(items.map(children), handler, options);
+  if (typeof children === 'function') {
+    return items ? cloneChildren(items.map(children), handler, options) : null;
   }
 
-  return children as ReactNode;
+  return children;
 }
 
 export function countChildren(children): number {
