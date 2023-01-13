@@ -1,7 +1,6 @@
 import { createContext } from 'react';
 import { CommonProps } from 'types';
 import classNames from 'classnames';
-import { renderChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Popup.module.css';
 
@@ -20,7 +19,7 @@ export function Popup(props: PopupProps) {
       {...domProps}
       className={classNames(styles.popup, className, styles[position], styles[alignment])}
     >
-      <PopupContext.Provider value={position}>{renderChildren(children)}</PopupContext.Provider>
+      <PopupContext.Provider value={position}>{children}</PopupContext.Provider>
     </div>
   );
 }
