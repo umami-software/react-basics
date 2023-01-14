@@ -1,24 +1,21 @@
-import { Key } from 'react';
+import { Key, ReactNode, Children } from 'react';
 import { CommonProps } from 'types';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Item from 'components/common/Item';
 import { renderChildren } from 'components/utils';
 import styles from './Breadcrumbs.module.css';
+import { ChevronRight } from 'icons';
 
 export interface BreadcrumbProps extends CommonProps {
   items?: any[];
-  divider?: 'chevron' | 'slash' | 'arrow';
+  divider?: ReactNode;
   onSelect?: (key: Key) => void;
 }
 
 export function Breadcrumbs(props: BreadcrumbProps) {
-  const { items = [], divider = 'chevron', onSelect, className, style, children } = props;
-  const icons = {
-    chevron: 'chevron-right',
-    slash: 'slash',
-    arrow: 'arrow-right',
-  };
+  const { items = [], divider, onSelect, className, style, children } = props;
+  const count = Children.count(children);
 
   const handleSelect = key => {
     if (onSelect) {
@@ -47,7 +44,11 @@ export function Breadcrumbs(props: BreadcrumbProps) {
                 >
                   {node}
                 </div>
-                <Icon icon={icons[divider]} className={styles.divider} />
+                {index > count - 1 && (
+                  <Icon className={styles.divider}>
+                    <ChevronRight />
+                  </Icon>
+                )}
               </>
             ),
           };

@@ -4,6 +4,7 @@ import { CommonProps, TreeItem } from 'types';
 import Branch from './TreeBranch';
 import Leaf from './TreeLeaf';
 import Icon from 'components/common/Icon';
+import { ChevronRight, ChevronDown } from 'icons';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tree.module.css';
 
@@ -33,7 +34,7 @@ export function Tree(props: TreeProps) {
                 onClick={handleClick.bind(null, value)}
                 disabled={disabled}
               >
-                <Icon icon={expanded ? 'chevron-down' : 'chevron-right'} />
+                <Icon>={expanded ? <ChevronDown /> : <ChevronRight />}</Icon>
                 {label}
               </Branch>
             );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button, ButtonGroup, Icon } from '../src';
+import { Button, ButtonGroup, Icon, Icons } from '../src';
 import { makeStory } from './utils';
 
 export default {
@@ -15,7 +15,7 @@ const items: any[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const icons = ['checkmark', 'plus', 'cross'];
+const icons = [Icons.Check, Icons.Plus, Icons.Minus];
 
 const Template: ComponentStory<typeof ButtonGroup> = args => {
   const [{ selected }, updateArgs] = useArgs();
@@ -49,11 +49,11 @@ export const Basic = makeStory(Template, {
   },
 });
 
-export const Icons = makeStory(Template, {
+export const IconsOnly = makeStory(Template, {
   args: {
     items: items.map((item, index) => ({
       ...item,
-      label: <Icon icon={icons[index]} size="md" />,
+      label: <Icon size="md">{icons[index]}</Icon>,
     })),
     children: ({ label, value }) => <Button key={value}>{label}</Button>,
   },

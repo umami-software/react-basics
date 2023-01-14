@@ -37,10 +37,11 @@ export function SearchField(props: SearchProps): ReactElement {
 
   return (
     <TextField {...fieldProps} value={search} onChange={handleChange}>
-      <Icon className={classNames(styles.icon, styles.magnifier)} size="sm">
+      <Icon size="sm" className={classNames(styles.icon, styles.magnifier)}>
         <Search />
       </Icon>
       <Icon
+        size="xs"
         className={classNames(styles.icon, styles.close, { [styles.visible]: search })}
         onClick={resetSearch}
       >

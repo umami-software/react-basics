@@ -66,3 +66,6 @@ export * from 'hooks/useToast';
 export * from './types';
 
 import './styles/global.css';
+import * as icons from './icons';
+
+export const Icons = icons;

@@ -38,7 +38,7 @@ function _Dropdown(props: DropdownProps, ref) {
     <PopupTrigger position="bottom" alignment="start" action="click">
       <Field {...domProps} className={classNames(styles.field, className)}>
         <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
-        <Icon className={styles.icon}>
+        <Icon size="sm" className={styles.icon}>
           <ChevronDown />
         </Icon>
         <input ref={ref} type="hidden" name={name} value={value} />

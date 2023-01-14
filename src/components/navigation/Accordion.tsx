@@ -2,6 +2,7 @@ import { CommonProps, TreeItem } from 'types';
 import classNames from 'classnames';
 import { useState } from 'react';
 import Icon from 'components/common/Icon';
+import { ChevronRight, ChevronDown } from 'icons';
 import styles from './Accordion.module.css';
 
 export interface AccordianProps extends CommonProps {
@@ -53,7 +54,7 @@ export function Accordion(props: AccordianProps): JSX.Element {
               onClick={handleExpand.bind(null, value)}
             >
               <div>{label}</div>
-              <Icon icon={expand ? 'chevron-down' : 'chevron-right'} />
+              <Icon>={expand ? <ChevronDown /> : <ChevronRight />}</Icon>
             </div>
             {children && (
               <div className={classNames(styles.children, { [styles.expanded]: expand })}>
