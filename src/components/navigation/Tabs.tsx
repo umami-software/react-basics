@@ -46,9 +46,9 @@ export function Tabs(props: TabsProps) {
       {renderChildren(
         children,
         items,
-        child => {
-          const { children: node, disabled } = child.props;
-          const key = child.key ?? node;
+        (child, index) => {
+          const { disabled } = child.props;
+          const key = child.key ?? index;
           return {
             className: classNames(styles.tab, {
               [styles.selected]: selectedKey === key,

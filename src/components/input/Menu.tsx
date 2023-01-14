@@ -33,9 +33,9 @@ export function Menu(props: MenuProps) {
       {renderChildren(
         children,
         items,
-        child => {
-          const { children: node, disabled, divider, className: childClassName } = child.props;
-          const key = child.key ?? node;
+        (child, index) => {
+          const { disabled, divider, className: childClassName } = child.props;
+          const key = child.key ?? index;
           return {
             className: classNames(styles.item, childClassName, {
               [styles.selected]: selectedKey === key,

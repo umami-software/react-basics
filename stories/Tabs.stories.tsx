@@ -20,6 +20,18 @@ const Template: ComponentStory<typeof Tabs> = args => {
   return <Tabs {...args} selectedKey={selected} onSelect={setSelected} />;
 };
 
+const Template2: ComponentStory<typeof Tabs> = args => {
+  const [selected, setSelected] = useState(args.selectedKey);
+
+  return (
+    <Tabs selectedKey={selected} onSelect={setSelected}>
+      <Item key="one">One 1</Item>
+      <Item key="two">Two 2</Item>
+      <Item key="three">Three 3</Item>
+    </Tabs>
+  );
+};
+
 export const Basic = makeStory(Template, {
   args: {
     items,
@@ -46,7 +58,7 @@ export const Disabled = makeStory(Template, {
   },
 });
 
-export const PureTags = makeStory(Template, {
+export const PureTags = makeStory(Template2, {
   args: {
     children: (
       <>

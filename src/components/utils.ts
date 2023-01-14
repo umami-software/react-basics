@@ -32,8 +32,8 @@ export function cloneChildren(
 
   const { validChildren, onlyRenderValid = false } = options || {};
 
-  return Children.map(getFragmentChildren(children), (child, index) => {
-    const invalid = validChildren && !isValidChild(child, validChildren);
+  return Children.map(children, (child, index) => {
+    const invalid = validChildren && !isValidChild(child as ReactElement, validChildren);
 
     if (onlyRenderValid && invalid) {
       return null;
@@ -53,11 +53,11 @@ export function renderChildren(
   handler: (child: ReactElement, index: number) => object | undefined,
   options?: { validChildren?: any[]; onlyRenderValid?: boolean },
 ): ReactNode {
-  if (typeof children === 'function') {
-    return items ? cloneChildren(items.map(children), handler, options) : null;
+  if (typeof children === 'function' && items) {
+    return cloneChildren(items.map(children), handler, options);
   }
 
-  return children;
+  return cloneChildren(getFragmentChildren(children as ReactNode), handler, options);
 }
 
 export function countChildren(children): number {

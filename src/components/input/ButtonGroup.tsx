@@ -33,8 +33,8 @@ export function ButtonGroup(props: ButtonGroupProps) {
       {renderChildren(
         children,
         items,
-        child => {
-          const key = child.key ?? child.props.children;
+        (child, index) => {
+          const key = child.key ?? index;
           return {
             className: classNames(styles.button, { [styles.selected]: selectedKey === key }),
             onClick: key ? e => handleClick(key, e) : undefined,

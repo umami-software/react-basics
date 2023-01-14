@@ -36,8 +36,8 @@ export function RadioGroup(props: RadioGroupProps) {
       {renderChildren(
         children,
         items,
-        child => {
-          const key = child.key ?? child.props.children;
+        (child, index) => {
+          const key = child.key ?? index;
           return {
             name,
             checked: selectedKey === key,

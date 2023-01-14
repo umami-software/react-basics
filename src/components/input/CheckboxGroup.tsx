@@ -37,8 +37,8 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
       {renderChildren(
         children,
         items,
-        child => {
-          const key = child.key ?? child.props.children;
+        (child, index) => {
+          const key = child.key ?? index;
           return {
             checked: selected.includes(key),
             onChange: handleSelect.bind(null, key),

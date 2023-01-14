@@ -31,9 +31,9 @@ export function Breadcrumbs(props: BreadcrumbProps) {
       {renderChildren(
         children,
         items,
-        child => {
-          const { children: node, disabled } = child.props;
-          const key = child.key ?? node;
+        (child, index) => {
+          const { disabled, children: node } = child.props;
+          const key = child.key ?? index;
 
           return {
             className: classNames(styles.item, {

@@ -30,9 +30,9 @@ export function NavBar(props: NavBarProps) {
 
   return (
     <div {...domProps} className={classNames(styles.navbar, className)} data-theme={theme}>
-      {renderChildren(children, items, child => {
-        const { children: node, disabled } = child.props;
-        const key = child.key ?? node;
+      {renderChildren(children, items, (child, index) => {
+        const { disabled } = child.props;
+        const key = child.key ?? index;
         return {
           className: classNames(styles.item, {
             [styles.selected]: selectedKey === key,
