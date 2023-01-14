@@ -1,5 +1,6 @@
 import { CSSProperties, ReactElement, MouseEvent, ReactNode } from 'react';
 import classNames from 'classnames';
+// eslint-disable-next-line css-modules/no-unused-class
 import styles from './Icon.module.css';
 
 export type IconSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -7,6 +8,7 @@ export type IconSizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export interface IconProps {
   size?: number | IconSizes;
   variant?: 'input' | 'none';
+  rotate?: number;
   disabled?: boolean;
   className?: string;
   style?: CSSProperties;
@@ -18,8 +20,10 @@ export function Icon(props: IconProps): ReactElement {
   const {
     size = 'md',
     variant = 'none',
+    rotate,
     disabled,
     className,
+    style,
     onClick,
     children,
     ...domProps
@@ -33,6 +37,7 @@ export function Icon(props: IconProps): ReactElement {
         [styles.clickable]: onClick && !disabled,
       })}
       onClick={onClick}
+      style={{ ...style, transform: rotate ? `rotate(${rotate}deg)` : undefined }}
     >
       {children}
     </div>
