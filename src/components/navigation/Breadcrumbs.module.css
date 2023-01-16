@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--size100);
   height: var(--size600);
   flex: 1;
 }

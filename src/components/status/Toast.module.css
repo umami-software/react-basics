@@ -21,7 +21,7 @@
 }
 
 .close {
-  margin-left: var(--size600);
+  margin-left: var(--size800);
   cursor: pointer;
 }
 

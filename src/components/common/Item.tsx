@@ -1,7 +1,5 @@
 import { MouseEventHandler } from 'react';
-import classNames from 'classnames';
 import { CommonProps } from 'types';
-import styles from './Item.module.css';
 
 export interface ItemProps extends CommonProps {
   value?: string;
@@ -11,14 +9,10 @@ export interface ItemProps extends CommonProps {
 }
 
 export function Item(props: ItemProps) {
-  const { disabled, children, className, onClick, ...domProps } = props;
+  const { disabled, children, onClick, ...domProps } = props;
 
   return (
-    <div
-      {...domProps}
-      className={classNames(styles.item, className)}
-      onClick={!disabled ? onClick : undefined}
-    >
+    <div {...domProps} onClick={!disabled ? onClick : undefined}>
       {children}
     </div>
   );

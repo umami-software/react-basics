@@ -59,7 +59,7 @@ export function Toast(props: ToastProps) {
       >
         <Banner variant={variant} className={styles.toast}>
           <Text>{message}</Text>
-          <Icon className={styles.close} size="md" onClick={handleClose}>
+          <Icon className={styles.close} size="sm" onClick={handleClose}>
             <Close />
           </Icon>
         </Banner>

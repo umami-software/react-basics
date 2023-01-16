@@ -36,7 +36,6 @@ export * from 'components/overlay/Popup';
 export * from 'components/overlay/Tooltip';
 export * from 'components/navigation/Accordion';
 export * from 'components/navigation/Breadcrumbs';
-export * from 'components/navigation/NavBar';
 export * from 'components/navigation/Tabs';
 export * from 'components/navigation/Tree';
 export * from 'components/status/Banner';

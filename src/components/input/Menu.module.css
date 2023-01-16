@@ -7,8 +7,10 @@
 }
 
 .item {
+  display: flex;
+  align-items: center;
   flex: 1;
-  padding: var(--padding);
+  padding: var(--size300) var(--size600);
   white-space: nowrap;
   cursor: pointer;
   position: relative;

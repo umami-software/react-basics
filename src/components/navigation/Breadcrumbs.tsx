@@ -44,9 +44,9 @@ export function Breadcrumbs(props: BreadcrumbProps) {
                 >
                   {node}
                 </div>
-                {index > count - 1 &&
+                {index < count - 1 &&
                   (divider || (
-                    <Icon className={styles.divider} rotate={-90}>
+                    <Icon className={styles.divider} size="sm" rotate={-90}>
                       <ChevronDown />
                     </Icon>
                   ))}

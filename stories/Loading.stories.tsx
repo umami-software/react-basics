@@ -14,6 +14,6 @@ export const Basic = makeStory(Template);
 
 export const Dots = makeStory(Template, {
   args: {
-    variant: 'dots',
+    icon: 'dots',
   },
 });

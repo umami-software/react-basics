@@ -104,10 +104,6 @@
   --font-color300: var(--base600);
   --font-color400: var(--base400);
 
-  --background100: var(--base50);
-  --background200: var(--base75);
-  --background300: var(--base100);
-
   --border-color: var(--base400);
   --disabled-color: var(--base500);
   --disabled-background: var(--base100);
@@ -189,10 +185,6 @@
   --font-color200: var(--base700);
   --font-color300: var(--base600);
   --font-color400: var(--base400);
-
-  --background100: var(--base50);
-  --background200: var(--base75);
-  --background300: var(--base100);
 
   --border-color: var(--base300);
   --disabled-color: var(--base400);

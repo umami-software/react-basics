@@ -10,7 +10,7 @@ export interface MenuProps extends CommonProps {
   variant?: 'popup' | 'none';
   items?: any[];
   selectedKey?: Key;
-  onSelect: (key: Key, e: MouseEvent) => void;
+  onSelect?: (key: Key, e: MouseEvent) => void;
 }
 
 export function Menu(props: MenuProps) {
@@ -25,7 +25,7 @@ export function Menu(props: MenuProps) {
   } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
-    onSelect(key, e);
+    onSelect?.(key, e);
   }
 
   return (
@@ -42,7 +42,7 @@ export function Menu(props: MenuProps) {
               [styles.disabled]: disabled,
               [styles.divider]: divider,
             }),
-            onClick: !disabled ? handleSelect.bind(null, key) : undefined,
+            onClick: !disabled && onSelect ? handleSelect.bind(null, key) : undefined,
           };
         },
         { validChildren: [Item] },
