@@ -7,6 +7,7 @@ import Copy from './assets/copy.svg';
 import External from './assets/external.svg';
 import Hide from './assets/hide.svg';
 import Minus from './assets/minus.svg';
+import More from './assets/more.svg';
 import Plus from './assets/plus.svg';
 import Search from './assets/search.svg';
 import Show from './assets/show.svg';
@@ -21,6 +22,7 @@ export {
   External,
   Hide,
   Minus,
+  More,
   Plus,
   Search,
   Show,
