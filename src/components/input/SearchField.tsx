@@ -41,7 +41,7 @@ export function SearchField(props: SearchProps): ReactElement {
         <Search />
       </Icon>
       <Icon
-        size="xs"
+        size="sm"
         className={classNames(styles.icon, styles.close, { [styles.visible]: search })}
         onClick={resetSearch}
       >
