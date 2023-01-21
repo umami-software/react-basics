@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Modal, Button } from '../src';
+import { Modal, Button, ModalTrigger } from '../src';
 import { makeStory } from './utils';
 
 export default {
@@ -21,6 +21,15 @@ const Template: ComponentStory<typeof Modal> = args => {
   );
 };
 
+const Template2: ComponentStory<typeof ModalTrigger> = args => {
+  return (
+    <ModalTrigger {...args}>
+      <Button>Show modal</Button>
+      <Modal>Hello.</Modal>
+    </ModalTrigger>
+  );
+};
+
 export const Basic = makeStory(Template, {
   args: {
     title: 'Title',
@@ -31,4 +40,8 @@ export const Basic = makeStory(Template, {
       </>
     ),
   },
+});
+
+export const WithTrigger = makeStory(Template2, {
+  args: {},
 });

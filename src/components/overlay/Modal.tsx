@@ -11,7 +11,7 @@ const PORTAL_ID = '__react-basics-overlay';
 export interface ModalProps extends CommonProps {
   title?: ReactNode;
   portalElement?: Element;
-  onClose: EventHandler<any>;
+  onClose?: EventHandler<any>;
 }
 
 export function Modal(props: ModalProps): JSX.Element | null {
@@ -27,7 +27,9 @@ export function Modal(props: ModalProps): JSX.Element | null {
       >
         <div className={styles.window}>
           {title && <div className={styles.header}>{title}</div>}
-          <div className={styles.body}>{children(onClose)}</div>
+          <div className={styles.body}>
+            {typeof children === 'function' ? children(onClose) : children}
+          </div>
         </div>
       </animated.div>
     </Portal>

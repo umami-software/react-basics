@@ -1,3 +1,4 @@
+// Components
 export * from 'components/common/Icon';
 export * from 'components/common/Item';
 export * from 'components/common/Portal';
@@ -13,8 +14,6 @@ export * from 'components/input/ButtonGroup';
 export * from 'components/input/Checkbox';
 export * from 'components/input/CheckboxGroup';
 export * from 'components/input/CopyIcon';
-export * from 'components/trigger/CopyTrigger';
-export * from 'components/trigger/PopupTrigger';
 export * from 'components/input/Dropdown';
 export * from 'components/input/LoadingButton';
 export * from 'components/input/Menu';
@@ -53,7 +52,12 @@ export * from 'components/table/TableColumn';
 export * from 'components/table/TableHeader';
 export * from 'components/table/TableRow';
 export * from 'components/table/TableWindow';
+export * from 'components/trigger/CopyTrigger';
+export * from 'components/trigger/ModalTrigger';
+export * from 'components/trigger/PopupTrigger';
 export * from 'components/utils';
+
+// Hooks
 export * from 'hooks/useBreakpoint';
 export * from 'hooks/useCallbackRef';
 export * from 'hooks/useCombinedRefs';
@@ -62,9 +66,31 @@ export * from 'hooks/useDocumentClick';
 export * from 'hooks/useMeasure';
 export * from 'hooks/useScroll';
 export * from 'hooks/useToast';
+
+// Types
 export * from './types';
 
+// Styles
 import './styles/global.css';
+
+// Icons
 import * as icons from './icons';
 
-export const Icons = icons;
+export interface IconsLibrary {
+  Alert: SVGRectElement;
+  ArrowRight: SVGRectElement;
+  Check: SVGRectElement;
+  ChevronDown: SVGRectElement;
+  Close: SVGRectElement;
+  Copy: SVGRectElement;
+  Edit: SVGRectElement;
+  External: SVGRectElement;
+  Hide: SVGRectElement;
+  Minus: SVGRectElement;
+  More: SVGRectElement;
+  Plus: SVGRectElement;
+  Search: SVGRectElement;
+  Show: SVGRectElement;
+}
+
+export const Icons: IconsLibrary = icons;
