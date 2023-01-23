@@ -19,7 +19,7 @@ export interface TextFieldProps extends CommonProps {
   onFocus?: FocusEventHandler<HTMLInputElement>;
 }
 
-function _TextField(props: TextFieldProps, ref?: Ref<any>) {
+function _TextField(props: TextFieldProps, ref?: Ref<HTMLInputElement>) {
   const {
     name,
     value,
@@ -58,6 +58,6 @@ function _TextField(props: TextFieldProps, ref?: Ref<any>) {
   );
 }
 
-export const TextField = forwardRef(_TextField);
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(_TextField);
 
-export default TextField;
+export default TextField as typeof TextField;

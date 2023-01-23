@@ -1,4 +1,4 @@
-import { Key, MouseEvent, forwardRef, ReactNode } from 'react';
+import { Key, MouseEvent, forwardRef, ReactNode, Ref } from 'react';
 import classNames from 'classnames';
 import Menu, { MenuProps } from 'components/input/Menu';
 import Icon from 'components/common/Icon';
@@ -17,7 +17,7 @@ export interface DropdownProps extends CommonProps {
   onChange?: (key: Key, e: MouseEvent) => void;
 }
 
-function _Dropdown(props: DropdownProps, ref) {
+function _Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   const {
     items,
     name,
@@ -57,6 +57,6 @@ function _Dropdown(props: DropdownProps, ref) {
   );
 }
 
-export const Dropdown = forwardRef(_Dropdown);
+export const Dropdown = forwardRef<HTMLInputElement, DropdownProps>(_Dropdown);
 
 export default Dropdown;

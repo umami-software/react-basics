@@ -15,16 +15,16 @@ export interface CheckboxProps extends CommonProps {
   onChange?: (e: ChangeEvent) => void;
 }
 
-function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<any>) {
+function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<HTMLInputElement>) {
   const { name, value, defaultChecked, disabled, className, onChange, children, ...domProps } =
     props;
   const [isChecked, setIsChecked] = useState(defaultChecked);
-  const innerRef = useRef<any>(null);
+  const innerRef = useRef<HTMLInputElement>(null);
   const combinedRef = useCombinedRefs(forwardedRef, innerRef);
 
   const handleClick = e => {
-    if (innerRef.current.checked !== e.target.checked) {
-      innerRef.current.click();
+    if (innerRef?.current?.checked !== e.target.checked) {
+      innerRef?.current?.click();
     }
   };
 
@@ -70,6 +70,6 @@ function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<any>) {
   );
 }
 
-export const Checkbox = forwardRef(_Checkbox);
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(_Checkbox);
 
-export default Checkbox;
+export default Checkbox as typeof Checkbox;
