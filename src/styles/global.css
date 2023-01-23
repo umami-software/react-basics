@@ -15,6 +15,7 @@
   --size900: 36px;
   --size1000: 48px;
   --size1100: 60px;
+  --size1200: 80px;
   */
   --size1: 1px;
   --size25: 0.125rem;
@@ -30,8 +31,10 @@
   --size900: 2.25rem;
   --size1000: 3rem;
   --size1100: 4rem;
+  --size1200: 5rem;
 
-  --font-size-xxl: var(--size900);
+  --font-size-3xl: var(--size1100);
+  --font-size-2xl: var(--size900);
   --font-size-xl: var(--size800);
   --font-size-lg: var(--size600);
   --font-size-md: var(--size500);

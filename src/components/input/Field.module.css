@@ -6,7 +6,7 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   min-height: var(--base-height);
-  padding: var(--size300) var(--size600);
+  padding: 0 var(--size600);
   gap: var(--size200);
   width: 100%;
 }
