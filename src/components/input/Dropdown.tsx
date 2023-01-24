@@ -17,7 +17,7 @@ export interface DropdownProps extends CommonProps {
   onChange?: (key: Key, e: MouseEvent) => void;
 }
 
-function _Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
+function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   const {
     items,
     name,
@@ -57,6 +57,8 @@ function _Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   );
 }
 
-export const Dropdown = forwardRef<HTMLInputElement, DropdownProps>(_Dropdown);
+const _Dropdown = forwardRef<HTMLInputElement, DropdownProps>(Dropdown);
 
-export default Dropdown;
+export { _Dropdown as Dropdown };
+
+export default _Dropdown;

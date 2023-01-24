@@ -6,6 +6,7 @@
   line-height: inherit;
   background: transparent;
   padding: 0;
+  margin: var(--size500) 0;
   border: 0;
   outline: none;
   width: 100%;

@@ -1,4 +1,4 @@
 .wrapper {
-  display: inline-flex;
+  display: flex;
   position: relative;
 }

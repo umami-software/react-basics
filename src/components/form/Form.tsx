@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useEffect, Ref } from 'react';
+import { forwardRef, ReactNode, useEffect, Ref, useImperativeHandle } from 'react';
 import { useForm, UseFormProps, SubmitHandler, FormProvider } from 'react-hook-form';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
@@ -10,29 +10,31 @@ import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps, UseFormProps {
   values?: object;
-  autoComplete?: 'on' | 'off';
+  autoComplete?: string;
   onSubmit: SubmitHandler<any>;
   error?: string;
   children?: ReactNode | ((props: object) => ReactNode);
 }
 
-function _Form(props: FormProps, ref: Ref<HTMLFormElement>) {
+function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
   const { values, autoComplete, onSubmit, error, className, style, children, ...formProps } = props;
-  const useFormValues = useForm({ ...formProps, defaultValues: values });
-  const { handleSubmit } = useFormValues;
+  const formValues = useForm({ ...formProps, defaultValues: values });
+  const { handleSubmit } = formValues;
+
+  useImperativeHandle<HTMLFormElement, any>(ref, () => formValues);
 
   useEffect(() => {
-    useFormValues.reset(values);
+    formValues.reset(values);
   }, [values]);
 
   useEffect(() => {
-    if (useFormValues.formState.isSubmitted) {
-      useFormValues.reset(undefined, { keepDirty: true, keepValues: true });
+    if (formValues.formState.isSubmitted) {
+      formValues.reset(undefined, { keepDirty: true, keepValues: true });
     }
   }, [error]);
 
   return (
-    <FormProvider {...useFormValues}>
+    <FormProvider {...formValues}>
       {error && (
         <Banner variant="error" className={styles.error}>
           <Icon size="lg" className={styles.icon}>
@@ -48,12 +50,14 @@ function _Form(props: FormProps, ref: Ref<HTMLFormElement>) {
         style={style}
         onSubmit={handleSubmit(onSubmit)}
       >
-        {typeof children === 'function' ? children(useFormValues) : children}
+        {typeof children === 'function' ? children(formValues) : children}
       </form>
     </FormProvider>
   );
 }
 
-export const Form = forwardRef<HTMLFormElement, FormProps>(_Form);
+const _Form = forwardRef<HTMLFormElement, FormProps>(Form);
 
-export default Form;
+export { _Form as Form };
+
+export default _Form;

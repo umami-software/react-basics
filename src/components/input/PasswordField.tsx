@@ -7,7 +7,7 @@ export interface PasswordFieldProps extends TextFieldProps {
   showPassword?: boolean;
 }
 
-function _PasswordField(props: PasswordFieldProps, ref?: Ref<HTMLInputElement>) {
+function PasswordField(props: PasswordFieldProps, ref?: Ref<HTMLInputElement>) {
   const { showPassword = false, disabled, ...textFieldProps } = props;
   const [show, setShow] = useState(showPassword);
   const type = show ? 'text' : 'password';
@@ -23,6 +23,8 @@ function _PasswordField(props: PasswordFieldProps, ref?: Ref<HTMLInputElement>) 
   );
 }
 
-export const PasswordField = forwardRef<HTMLInputElement, TextFieldProps>(_PasswordField);
+const _PasswordField = forwardRef<HTMLInputElement, TextFieldProps>(PasswordField);
 
-export default PasswordField as typeof PasswordField;
+export { _PasswordField as PasswordField };
+
+export default _PasswordField;

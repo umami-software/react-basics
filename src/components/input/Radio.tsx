@@ -12,7 +12,7 @@ export interface RadioProps extends CommonProps {
   onChange?: (e: ChangeEvent) => void;
 }
 
-function _Radio(props: RadioProps, forwardedRef?: Ref<HTMLInputElement>) {
+function Radio(props: RadioProps, forwardedRef?: Ref<HTMLInputElement>) {
   const { name, checked, disabled, className, onChange, children, ...domProps } = props;
   const innerRef = useRef<HTMLInputElement>(null);
   const combinedRef = useCombinedRefs(forwardedRef, innerRef);
@@ -54,6 +54,8 @@ function _Radio(props: RadioProps, forwardedRef?: Ref<HTMLInputElement>) {
   );
 }
 
-export const Radio = forwardRef<HTMLInputElement, RadioProps>(_Radio);
+const _Radio = forwardRef<HTMLInputElement, RadioProps>(Radio);
 
-export default Radio as typeof Radio;
+export { _Radio as Radio };
+
+export default _Radio;

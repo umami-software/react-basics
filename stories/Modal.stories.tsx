@@ -22,10 +22,16 @@ const Template: ComponentStory<typeof Modal> = args => {
 };
 
 const Template2: ComponentStory<typeof ModalTrigger> = args => {
+  const Content = ({ onClose }) => (
+    <>
+      <h1>Hello.</h1>
+      <Button onClick={onClose}>Close</Button>
+    </>
+  );
   return (
     <ModalTrigger {...args}>
       <Button>Show modal</Button>
-      <Modal>Hello.</Modal>
+      {close => <Content onClose={close} />}
     </ModalTrigger>
   );
 };

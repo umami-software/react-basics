@@ -1,5 +1,5 @@
 .cell {
-  display: block;
+  display: flex;
   padding: var(--size400);
   overflow: hidden;
   flex: 1;

@@ -15,7 +15,7 @@ export interface CheckboxProps extends CommonProps {
   onChange?: (e: ChangeEvent) => void;
 }
 
-function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<HTMLInputElement>) {
+function Checkbox(props: CheckboxProps, forwardedRef?: Ref<HTMLInputElement>) {
   const { name, value, defaultChecked, disabled, className, onChange, children, ...domProps } =
     props;
   const [isChecked, setIsChecked] = useState(defaultChecked);
@@ -70,6 +70,8 @@ function _Checkbox(props: CheckboxProps, forwardedRef?: Ref<HTMLInputElement>) {
   );
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(_Checkbox);
+const _Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(Checkbox);
 
-export default Checkbox as typeof Checkbox;
+export { _Checkbox as Checkbox };
+
+export default _Checkbox;
