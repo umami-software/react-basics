@@ -9,12 +9,21 @@ import styles from './trigger.module.css';
 export interface PopupTriggerProps extends CommonProps {
   action?: 'click' | 'hover';
   delay?: number;
+  disabled?: boolean;
   popupProps?: PopupProps;
 }
 
 export function PopupTrigger(props: PopupTriggerProps) {
   const [show, setShow] = useState(false);
-  const { action = 'click', delay = 0, popupProps, children, className, ...domProps } = props;
+  const {
+    action = 'click',
+    delay = 0,
+    disabled,
+    popupProps,
+    children,
+    className,
+    ...domProps
+  } = props;
   const visible = useDebounce(show, show ? delay : 0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,9 +46,9 @@ export function PopupTrigger(props: PopupTriggerProps) {
       {...domProps}
       ref={ref}
       className={classNames(styles.wrapper, className)}
-      onClick={action === 'click' ? handleClick : undefined}
-      onMouseEnter={action === 'hover' ? handleEnter : undefined}
-      onMouseLeave={action === 'hover' ? handleLeave : undefined}
+      onClick={action === 'click' && !disabled ? handleClick : undefined}
+      onMouseEnter={action === 'hover' && !disabled ? handleEnter : undefined}
+      onMouseLeave={action === 'hover' && !disabled ? handleLeave : undefined}
     >
       {triggerElement}
       {visible && <Popup {...popupProps}>{popupElement}</Popup>}

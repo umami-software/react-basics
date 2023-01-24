@@ -5,11 +5,12 @@ export interface CopyTriggerProps extends CommonProps {
   value: any;
   message?: string;
   notification?: 'tooltip' | 'toast';
+  disabled?: boolean;
   onCopy?: (value: any) => void;
 }
 
 export function CopyTrigger(props: CopyTriggerProps) {
-  const { value, message, notification = 'toast', onCopy, children, ...domProps } = props;
+  const { value, message, notification = 'toast', disabled, onCopy, children, ...domProps } = props;
   const { toast, showToast } = useToast();
 
   const handleCopy = async () => {
@@ -25,7 +26,7 @@ export function CopyTrigger(props: CopyTriggerProps) {
   return (
     <>
       {toast}
-      <div {...domProps} onClick={handleCopy}>
+      <div {...domProps} onClick={!disabled ? handleCopy : undefined}>
         {children}
       </div>
     </>

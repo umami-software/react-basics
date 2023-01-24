@@ -8,10 +8,19 @@ export interface ModalTriggerProps extends CommonProps {
   defaultOpen?: boolean;
   onClose?: EventHandler<any>;
   modalProps?: ModalProps;
+  disabled?: boolean;
 }
 
 export function ModalTrigger(props: ModalTriggerProps) {
-  const { defaultOpen = false, onClose, modalProps, className, children, ...domProps } = props;
+  const {
+    defaultOpen = false,
+    onClose,
+    modalProps,
+    disabled,
+    className,
+    children,
+    ...domProps
+  } = props;
   const [open, setOpen] = useState(defaultOpen);
 
   const [triggerElement, modalElement] = children as [
@@ -35,7 +44,11 @@ export function ModalTrigger(props: ModalTriggerProps) {
 
   return (
     <>
-      <div {...domProps} className={classNames(styles.wrapper, className)} onClick={handleOpen}>
+      <div
+        {...domProps}
+        className={classNames(styles.wrapper, className)}
+        onClick={!disabled ? handleOpen : undefined}
+      >
         {triggerElement}
       </div>
       {open && (
