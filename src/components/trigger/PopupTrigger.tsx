@@ -4,7 +4,7 @@ import Popup, { PopupProps } from 'components/overlay/Popup';
 import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
 import { CommonProps } from 'types';
-import styles from 'styles/trigger.module.css';
+import styles from './trigger.module.css';
 
 export interface PopupTriggerProps extends CommonProps {
   action?: 'click' | 'hover';

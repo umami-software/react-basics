@@ -2,7 +2,7 @@ import { CommonProps } from 'types';
 import { EventHandler, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Modal, ModalProps } from 'components/overlay/Modal';
-import styles from 'styles/trigger.module.css';
+import styles from './trigger.module.css';
 
 export interface ModalTriggerProps extends CommonProps {
   defaultOpen?: boolean;
