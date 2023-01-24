@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createElement } from 'react';
 import { useArgs } from '@storybook/client-api';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, ButtonGroup, Icon, Icons } from '../src';
@@ -15,7 +15,7 @@ const items: any[] = [
   { value: 'three', label: 'Three' },
 ];
 
-const icons = [Icons.Check, Icons.Plus, Icons.Minus];
+const icons = [Icons.Plus, Icons.Minus, Icons.Close];
 
 const Template: ComponentStory<typeof ButtonGroup> = args => {
   const [{ selected }, updateArgs] = useArgs();
@@ -53,7 +53,7 @@ export const IconsOnly = makeStory(Template, {
   args: {
     items: items.map((item, index) => ({
       ...item,
-      label: <Icon size="md">{icons[index]}</Icon>,
+      label: <Icon size="md">{createElement(icons[index] as any)}</Icon>,
     })),
     children: ({ label, value }) => <Button key={value}>{label}</Button>,
   },

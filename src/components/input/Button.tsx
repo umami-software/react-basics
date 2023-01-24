@@ -6,7 +6,7 @@ import styles from './Button.module.css';
 
 export interface ButtonProps extends CommonProps {
   name?: string;
-  variant?: 'primary' | 'secondary' | 'quiet' | 'none';
+  variant?: 'primary' | 'secondary' | 'quiet' | 'danger' | 'none';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';

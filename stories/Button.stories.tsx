@@ -59,6 +59,13 @@ export const Quiet = makeStory(Template, {
   },
 });
 
+export const Danger = makeStory(Template, {
+  args: {
+    children: 'Button',
+    variant: 'danger',
+  },
+});
+
 export const WithIcon = makeStory(Template, {
   args: {
     children: (

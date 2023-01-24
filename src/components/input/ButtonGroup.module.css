@@ -9,6 +9,9 @@
   border: 0;
   border-radius: 0;
   background: var(--base50);
+  padding: 0 var(--size600);
+  height: var(--size800);
+  min-height: var(--size800);
 }
 
 .group .button:hover {
@@ -16,22 +19,19 @@
 }
 
 .group .button + .button {
-  border-left: var(--input-border);
+  border-left: 1px solid var(--border-color);
 }
 
 .group.size-sm .button {
   font-size: var(--font-size-xs);
-  padding: var(--size50) var(--size100);
 }
 
 .group.size-md .button {
   font-size: var(--font-size-sm);
-  padding: var(--size100) var(--size200);
 }
 
 .group.size-lg .button {
   font-size: var(--font-size-md);
-  padding: var(--size200) var(--size400);
 }
 
 .group .button.selected {

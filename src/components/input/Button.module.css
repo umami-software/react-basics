@@ -31,7 +31,7 @@
 }
 
 .button.primary {
-  color: var(--light100);
+  color: var(--light50);
   background: var(--primary400);
 }
 
@@ -69,6 +69,21 @@
 
 .button.quiet:active {
   background: var(--base200);
+}
+
+.button.danger {
+  color: var(--light50);
+  background: var(--red800);
+}
+
+.button.danger:hover {
+  color: var(--light50);
+  background: var(--red900);
+}
+
+.button.danger:active {
+  color: var(--light50);
+  background: var(--red1000);
 }
 
 .button.size-sm {

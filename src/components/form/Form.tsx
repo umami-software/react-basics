@@ -11,7 +11,7 @@ import styles from './Form.module.css';
 export interface FormProps extends CommonProps, UseFormProps {
   values?: object;
   autoComplete?: string;
-  onSubmit: SubmitHandler<any>;
+  onSubmit?: SubmitHandler<any>;
   error?: string;
   children?: ReactNode | ((props: object) => ReactNode);
 }
@@ -48,7 +48,7 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
         autoComplete={autoComplete}
         className={classNames(styles.form, className)}
         style={style}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={onSubmit ? handleSubmit(onSubmit) : undefined}
       >
         {typeof children === 'function' ? children(formValues) : children}
       </form>
