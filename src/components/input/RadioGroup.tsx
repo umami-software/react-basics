@@ -1,6 +1,6 @@
 import { Key } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import Radio from 'components/input/Radio';
 import { renderChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class

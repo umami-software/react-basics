@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Popup.module.css';

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
 import useDebounce from 'hooks/useDebounce';
-import { Search, Close } from 'icons';
+import { Search, Close } from 'components/icons';
 import styles from './SearchField.module.css';
 
 export interface SearchProps extends TextFieldProps {

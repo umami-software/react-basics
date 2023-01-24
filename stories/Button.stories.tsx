@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, Icon } from '../src';
-import { Check } from 'icons';
+import { Check } from 'components/icons';
 import { makeStory } from './utils';
 
 export default {

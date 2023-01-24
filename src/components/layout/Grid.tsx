@@ -1,4 +1,4 @@
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 
 export interface GridProps extends CommonProps {
   areas: string[];

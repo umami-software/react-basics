@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import Dots from 'components/status/Dots';
 import Spinner from 'components/status/Spinner';
 // eslint-disable-next-line css-modules/no-unused-class

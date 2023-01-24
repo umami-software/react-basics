@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 
 export interface ItemProps extends CommonProps {
   value?: string;

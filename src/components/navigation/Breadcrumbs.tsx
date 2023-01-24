@@ -1,10 +1,10 @@
 import { Key, ReactNode, Children } from 'react';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Item from 'components/common/Item';
 import { renderChildren } from 'components/utils';
-import { ChevronDown } from 'icons';
+import { ChevronDown } from 'components/icons';
 import styles from './Breadcrumbs.module.css';
 
 export interface BreadcrumbProps extends CommonProps {

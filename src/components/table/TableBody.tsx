@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import { ColumnData } from 'components/table/Table';
 import styles from './TableBody.module.css';
 

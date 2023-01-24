@@ -68,13 +68,13 @@ export * from 'hooks/useScroll';
 export * from 'hooks/useToast';
 
 // Types
-export * from './types';
+export * from './components/types';
 
 // Styles
 import './styles/global.css';
 
 // Icons
-import * as icons from './icons';
+import * as icons from './components/icons';
 
 export interface IconsLibrary {
   Alert: SVGRectElement;

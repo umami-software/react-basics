@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Popup, { PopupProps } from 'components/overlay/Popup';
 import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './trigger.module.css';
 
 export interface PopupTriggerProps extends CommonProps {

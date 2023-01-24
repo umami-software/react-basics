@@ -1,6 +1,6 @@
 import { EventHandler } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Button.module.css';
 

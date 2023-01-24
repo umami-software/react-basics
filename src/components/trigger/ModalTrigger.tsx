@@ -1,4 +1,4 @@
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import { EventHandler, ReactNode, useState } from 'react';
 import classNames from 'classnames';
 import { Modal, ModalProps } from 'components/overlay/Modal';

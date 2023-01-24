@@ -1,6 +1,6 @@
 import { MouseEvent, Key } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import Item from 'components/common/Item';
 import { renderChildren } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class

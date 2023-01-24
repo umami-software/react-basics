@@ -1,6 +1,6 @@
 import React, { MutableRefObject, ReactElement, ReactEventHandler, useRef } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './Toggle.module.css';
 
 export interface ToggleProps extends CommonProps {

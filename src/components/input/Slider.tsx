@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './Slider.module.css';
 import useCallbackRef from 'hooks/useCallbackRef';
 

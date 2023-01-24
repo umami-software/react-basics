@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 import styles from './FormRow.module.css';
 

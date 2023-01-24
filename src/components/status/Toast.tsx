@@ -5,8 +5,8 @@ import Icon from 'components/common/Icon';
 import Portal from 'components/common/Portal';
 import Banner from 'components/status/Banner';
 import Text from 'components/common/Text';
-import { Close } from 'icons';
-import { CommonProps } from 'types';
+import { Close } from 'components/icons';
+import { CommonProps } from 'components/types';
 
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Toast.module.css';

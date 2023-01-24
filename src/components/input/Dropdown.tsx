@@ -4,12 +4,12 @@ import Menu, { MenuProps } from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import Field from 'components/input/Field';
 import PopupTrigger from 'components/trigger/PopupTrigger';
-import { CommonProps } from 'types';
-import { ChevronDown } from 'icons';
+import { CommonProps } from 'components/types';
+import { ChevronDown } from 'components/icons';
 import styles from './Dropdown.module.css';
 
 export interface DropdownProps extends CommonProps {
-  items: any[];
+  items?: any[];
   name?: string;
   value?: string;
   renderValue?: (value: string) => ReactNode;

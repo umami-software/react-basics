@@ -1,6 +1,6 @@
 import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import CopyIcon from 'components/input/CopyIcon';
 import { Field } from 'components/input/Field';
 import styles from './TextArea.module.css';

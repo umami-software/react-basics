@@ -6,7 +6,7 @@ import {
   UseFormReturn,
   FieldValues,
 } from 'react-hook-form';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 import styles from './FormInput.module.css';
 

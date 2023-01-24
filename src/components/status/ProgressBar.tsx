@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './ProgressBar.module.css';
 
 export interface ProgressBarProps extends CommonProps {

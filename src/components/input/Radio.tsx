@@ -1,6 +1,6 @@
 import { ChangeEvent, Ref, forwardRef, useRef } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './Radio.module.css';
 import useCombinedRefs from 'hooks/useCombinedRefs';
 

@@ -2,7 +2,7 @@ import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import { useContext } from 'react';
 import { PopupContext } from 'components/overlay/Popup';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tooltip.module.css';
 

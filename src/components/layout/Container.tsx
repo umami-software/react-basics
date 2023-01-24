@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import useBreakpoint from 'hooks/useBreakpoint';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './Container.module.css';
 
 export interface ContainerProps extends CommonProps {

@@ -1,7 +1,7 @@
 import { EventHandler, ReactNode } from 'react';
 import { useSpring, animated } from 'react-spring';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import Portal from 'components/common/Portal';
 import useKeyPress from 'hooks/useKeyDown';
 import styles from './Modal.module.css';

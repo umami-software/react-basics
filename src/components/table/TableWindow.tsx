@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FixedSizeList as List } from 'react-window';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './TableWindow.module.css';
 
 export interface TableWindowProps extends CommonProps {

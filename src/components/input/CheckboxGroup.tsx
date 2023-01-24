@@ -1,6 +1,6 @@
 import { useState, Key } from 'react';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import Checkbox from 'components/input/Checkbox';
 import { renderChildren } from 'components/utils';
 import styles from './CheckboxGroup.module.css';

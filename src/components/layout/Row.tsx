@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { cloneChildren } from 'components/utils';
 import { Column } from 'components/layout/Column';
 import useBreakpoint from 'hooks/useBreakpoint';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import styles from './Row.module.css';
 
 const defaultColumns = 12;

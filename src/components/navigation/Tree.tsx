@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import classNames from 'classnames';
-import { CommonProps, TreeItem } from 'types';
+import { CommonProps, TreeItem } from 'components/types';
 import Branch from './TreeBranch';
 import Leaf from './TreeLeaf';
 import Icon from 'components/common/Icon';
-import { ChevronDown } from 'icons';
+import { ChevronDown } from 'components/icons';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tree.module.css';
 

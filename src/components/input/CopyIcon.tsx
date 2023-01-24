@@ -1,4 +1,4 @@
-import { Copy } from 'icons';
+import { Copy } from 'components/icons';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import CopyTrigger, { CopyTriggerProps } from 'components/trigger/CopyTrigger';

@@ -1,7 +1,7 @@
 import { useState, forwardRef, Ref } from 'react';
 import { TextField, TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
-import { Show, Hide } from 'icons';
+import { Show, Hide } from 'components/icons';
 
 export interface PasswordFieldProps extends TextFieldProps {
   showPassword?: boolean;

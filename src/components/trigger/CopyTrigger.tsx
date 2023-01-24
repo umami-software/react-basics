@@ -1,4 +1,4 @@
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import useToast from 'hooks/useToast';
 
 export interface CopyTriggerProps extends CommonProps {

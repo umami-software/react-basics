@@ -1,11 +1,11 @@
 import { forwardRef, ReactNode, useEffect, Ref, useImperativeHandle } from 'react';
 import { useForm, UseFormProps, SubmitHandler, FormProvider } from 'react-hook-form';
 import classNames from 'classnames';
-import { CommonProps } from 'types';
+import { CommonProps } from 'components/types';
 import Banner from 'components/status/Banner';
 import Text from 'components/common/Text';
 import Icon from 'components/common/Icon';
-import { Alert } from 'icons';
+import { Alert } from 'components/icons';
 import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps, UseFormProps {

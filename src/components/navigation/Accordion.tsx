@@ -1,8 +1,8 @@
-import { CommonProps, TreeItem } from 'types';
+import { CommonProps, TreeItem } from 'components/types';
 import classNames from 'classnames';
 import { useState } from 'react';
 import Icon from 'components/common/Icon';
-import { ChevronDown } from 'icons';
+import { ChevronDown } from 'components/icons';
 import styles from './Accordion.module.css';
 
 export interface AccordianProps extends CommonProps {
