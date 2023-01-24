@@ -1,3 +1,4 @@
+import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'types';
 import CopyIcon from 'components/input/CopyIcon';
@@ -19,7 +20,7 @@ export interface TextAreaProps extends CommonProps {
   onChange?: (value: string, e?: Event) => void;
 }
 
-export function TextArea(props: TextAreaProps) {
+function TextArea(props: TextAreaProps, ref: Ref<HTMLTextAreaElement>) {
   const {
     name,
     value,
@@ -45,6 +46,7 @@ export function TextArea(props: TextAreaProps) {
   return (
     <Field {...domProps} disabled={disabled} readOnly={readOnly}>
       <textarea
+        ref={ref}
         className={classNames(styles.input, { [styles.copyable]: allowCopy })}
         style={{ resize: resizeable ? undefined : 'none' }}
         name={name}
@@ -63,4 +65,8 @@ export function TextArea(props: TextAreaProps) {
   );
 }
 
-export default TextArea;
+const _TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(TextArea) as typeof TextArea;
+
+export { _TextArea as TextArea };
+
+export default _TextArea;

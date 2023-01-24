@@ -56,7 +56,7 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
   );
 }
 
-const _Form = forwardRef<HTMLFormElement, FormProps>(Form);
+const _Form = forwardRef<HTMLFormElement, FormProps>(Form) as typeof Form;
 
 export { _Form as Form };
 
