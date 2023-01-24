@@ -8,7 +8,7 @@ export default {
   component: Text,
 } as ComponentMeta<typeof Text>;
 
-const sizes = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+const sizes = ['2xl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
 const Template: ComponentStory<typeof Text> = args => {
   return (
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Text> = args => {
         return (
           <div key={size}>
             <h3>{size}</h3>
-            <Text size={size} {...args} />
+            <Text size={size as any} {...args} />
           </div>
         );
       })}

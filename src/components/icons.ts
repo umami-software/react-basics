@@ -12,6 +12,7 @@ import More from '../assets/more.svg';
 import Plus from '../assets/plus.svg';
 import Search from '../assets/search.svg';
 import Show from '../assets/show.svg';
+import Trash from '../assets/trash.svg';
 
 export {
   Alert,
@@ -28,4 +29,5 @@ export {
   Plus,
   Search,
   Show,
+  Trash,
 };

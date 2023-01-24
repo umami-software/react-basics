@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Text.module.css';
 
 export interface TextProps extends CommonProps {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
 export function Text(props: TextProps) {

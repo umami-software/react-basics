@@ -33,14 +33,21 @@ const Template2: ComponentStory<typeof Icon> = args => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
       {Object.values(Icons).map(icon => {
-        console.log({ icon });
         return (
-          <>
+          <Fragment key={icon}>
             <h3>{icon.name.replace('Svg', '')}</h3>
-            <div key={icon} style={{ display: 'flex', alignItems: 'baseline', gap: 20 }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                gap: 20,
+                paddingBottom: 20,
+                borderBottom: '1px solid #ccc',
+              }}
+            >
               {sizes.map((size, i) => {
                 return (
-                  <Fragment key={`${size}${i}`}>
+                  <Fragment key={`${icon}${size}${i}`}>
                     <Icon {...args} size={size as IconSizes}>
                       {createElement(icon)}
                     </Icon>
@@ -48,7 +55,7 @@ const Template2: ComponentStory<typeof Icon> = args => {
                 );
               })}
             </div>
-          </>
+          </Fragment>
         );
       })}
     </div>
