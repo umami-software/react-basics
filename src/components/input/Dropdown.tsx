@@ -35,7 +35,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   };
 
   return (
-    <PopupTrigger position="bottom" alignment="start" action="click">
+    <PopupTrigger action="click" popupProps={{ position: 'bottom', alignment: 'start' }}>
       <Field {...domProps} className={classNames(styles.field, className)}>
         <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
         <Icon size="sm" className={styles.icon}>
