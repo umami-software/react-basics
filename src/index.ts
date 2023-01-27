@@ -11,6 +11,7 @@ export * from 'components/form/ResetButton';
 export * from 'components/form/SubmitButton';
 export * from 'components/input/Button';
 export * from 'components/input/ButtonGroup';
+export * from 'components/input/Calendar';
 export * from 'components/input/Checkbox';
 export * from 'components/input/CheckboxGroup';
 export * from 'components/input/CopyIcon';
@@ -91,6 +92,7 @@ export interface IconsLibrary {
   Plus: SVGRectElement;
   Search: SVGRectElement;
   Show: SVGRectElement;
+  Trash: SVGRectElement;
 }
 
 export const Icons: IconsLibrary = icons;

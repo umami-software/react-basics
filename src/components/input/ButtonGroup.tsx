@@ -9,8 +9,8 @@ import styles from './ButtonGroup.module.css';
 export interface ButtonGroupProps extends CommonProps {
   items?: any[];
   selectedKey?: Key;
+  size?: 'sm' | 'md' | 'lg';
   onSelect: (key: Key, e: MouseEvent) => void;
-  size: 'sm' | 'md' | 'lg';
 }
 
 export function ButtonGroup(props: ButtonGroupProps) {

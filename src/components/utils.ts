@@ -81,3 +81,15 @@ export function filterDOMProps(props) {
 
   return filteredProps;
 }
+
+export function chunkArray(arr: any[], size: number) {
+  const chunks: any[] = [];
+
+  let index = 0;
+  while (index < arr.length) {
+    chunks.push(arr.slice(index, size + index));
+    index += size;
+  }
+
+  return chunks;
+}
