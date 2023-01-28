@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Modal, Button, ModalTrigger } from '../src';
 import { makeStory } from './utils';
+import useModal from 'hooks/useModal';
 
 export default {
   title: 'Overlay/Modal',
@@ -15,23 +16,52 @@ const Template: ComponentStory<typeof Modal> = args => {
 
   return (
     <>
-      {show && <Modal {...args} onClose={handleClose} />}
+      {show && (
+        <Modal {...args}>
+          <h1>Hello.</h1>
+          <Button onClick={handleClose}>Close</Button>
+        </Modal>
+      )}
       <Button onClick={handleShow}>Show modal</Button>
     </>
   );
 };
 
 const Template2: ComponentStory<typeof ModalTrigger> = args => {
-  const Content = ({ onClose }) => (
-    <>
-      <h1>Hello.</h1>
-      <Button onClick={onClose}>Close</Button>
-    </>
-  );
   return (
     <ModalTrigger {...args}>
       <Button>Show modal</Button>
-      {close => <Content onClose={close} />}
+      <Modal title="Title">
+        {close => {
+          return (
+            <>
+              <h1>Hello.</h1>
+              <Button onClick={close}>Close</Button>
+            </>
+          );
+        }}
+      </Modal>
+    </ModalTrigger>
+  );
+};
+
+const Template3: ComponentStory<typeof ModalTrigger> = args => {
+  const Content = () => {
+    const { close } = useModal();
+    return (
+      <>
+        <h1>Hello.</h1>
+        <Button onClick={close}>Close</Button>
+      </>
+    );
+  };
+
+  return (
+    <ModalTrigger {...args}>
+      <Button>Show modal</Button>
+      <Modal title="Title">
+        <Content />
+      </Modal>
     </ModalTrigger>
   );
 };
@@ -39,15 +69,13 @@ const Template2: ComponentStory<typeof ModalTrigger> = args => {
 export const Basic = makeStory(Template, {
   args: {
     title: 'Title',
-    children: close => (
-      <>
-        <p>Content</p>
-        <Button onClick={close}>Close</Button>
-      </>
-    ),
   },
 });
 
 export const WithTrigger = makeStory(Template2, {
+  args: {},
+});
+
+export const WithContext = makeStory(Template3, {
   args: {},
 });

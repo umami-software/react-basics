@@ -5,7 +5,7 @@ import { CommonProps } from 'components/types';
 import Banner from 'components/status/Banner';
 import Text from 'components/common/Text';
 import Icon from 'components/common/Icon';
-import { Alert } from 'components/icons';
+import Icons from 'components/icons';
 import styles from './Form.module.css';
 
 export interface FormProps extends CommonProps, UseFormProps {
@@ -38,7 +38,7 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
       {error && (
         <Banner variant="error" className={styles.error}>
           <Icon size="lg" className={styles.icon}>
-            <Alert />
+            <Icons.Alert />
           </Icon>
           <Text className={styles.text}>{error}</Text>
         </Banner>

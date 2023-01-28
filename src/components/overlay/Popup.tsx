@@ -1,4 +1,3 @@
-import { createContext } from 'react';
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
@@ -9,8 +8,6 @@ export interface PopupProps extends CommonProps {
   alignment?: 'start' | 'end' | 'none';
 }
 
-export const PopupContext = createContext('bottom');
-
 export function Popup(props: PopupProps) {
   const { position = 'bottom', alignment = 'none', className, children, ...domProps } = props;
 
@@ -19,7 +16,7 @@ export function Popup(props: PopupProps) {
       {...domProps}
       className={classNames(styles.popup, className, styles[position], styles[alignment])}
     >
-      <PopupContext.Provider value={position}>{children}</PopupContext.Provider>
+      {children}
     </div>
   );
 }

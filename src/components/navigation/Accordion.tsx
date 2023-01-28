@@ -2,7 +2,7 @@ import { CommonProps, TreeItem } from 'components/types';
 import classNames from 'classnames';
 import { useState } from 'react';
 import Icon from 'components/common/Icon';
-import { ChevronDown } from 'components/icons';
+import Icons from 'components/icons';
 import styles from './Accordion.module.css';
 
 export interface AccordianProps extends CommonProps {
@@ -55,7 +55,7 @@ export function Accordion(props: AccordianProps): JSX.Element {
             >
               <div>{label}</div>
               <Icon rotate={expand ? 0 : -90}>
-                <ChevronDown />
+                <Icons.ChevronDown />
               </Icon>
             </div>
             {children && (

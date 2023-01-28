@@ -3,7 +3,7 @@ import { addYears, setYear, subYears } from 'date-fns';
 import classNames from 'classnames';
 import Button from 'components/input/Button';
 import Icon from 'components/common/Icon';
-import { ChevronDown } from 'components/icons';
+import Icons from 'components/icons';
 import { chunkArray } from 'components/utils';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Calendar.module.css';
@@ -47,7 +47,7 @@ export function CalendarYearSelect(props: CalendarYearSelectProps) {
       <div className={styles.left}>
         <Button size="sm" variant="quiet" onClick={handlePrevClick} disabled={years[0] <= minYear}>
           <Icon>
-            <ChevronDown />
+            <Icons.ChevronDown />
           </Icon>
         </Button>
       </div>
@@ -81,7 +81,7 @@ export function CalendarYearSelect(props: CalendarYearSelectProps) {
           disabled={years[years.length - 1] > maxYear}
         >
           <Icon>
-            <ChevronDown />
+            <Icons.ChevronDown />
           </Icon>
         </Button>
       </div>

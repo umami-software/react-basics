@@ -10,22 +10,24 @@ export default {
 const Template: ComponentStory<typeof Popup> = args => {
   return (
     <div style={{ height: 300, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <PopupTrigger {...args} action="click">
+      <PopupTrigger action="click">
         <Button>
           <Text>Trigger Popup</Text>
         </Button>
-        <Text
-          size="lg"
-          style={{
-            display: 'block',
-            width: 200,
-            fontWeight: 'bold',
-            padding: 20,
-            background: 'cornsilk',
-          }}
-        >
-          Hello.
-        </Text>
+        <Popup {...args}>
+          <Text
+            size="lg"
+            style={{
+              display: 'block',
+              width: 200,
+              fontWeight: 'bold',
+              padding: 20,
+              background: 'cornsilk',
+            }}
+          >
+            Hello.
+          </Text>
+        </Popup>
       </PopupTrigger>
     </div>
   );

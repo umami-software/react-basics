@@ -1,6 +1,5 @@
-import { Children, useRef, useState } from 'react';
+import { Children, createContext, useRef, useState } from 'react';
 import classNames from 'classnames';
-import Popup, { PopupProps } from 'components/overlay/Popup';
 import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
 import { CommonProps } from 'components/types';
@@ -10,20 +9,11 @@ export interface PopupTriggerProps extends CommonProps {
   action?: 'click' | 'hover';
   delay?: number;
   disabled?: boolean;
-  popupProps?: PopupProps;
 }
 
 export function PopupTrigger(props: PopupTriggerProps) {
   const [show, setShow] = useState(false);
-  const {
-    action = 'click',
-    delay = 0,
-    disabled,
-    popupProps,
-    children,
-    className,
-    ...domProps
-  } = props;
+  const { action = 'click', delay = 0, disabled, children, className, ...domProps } = props;
   const visible = useDebounce(show, show ? delay : 0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -51,7 +41,7 @@ export function PopupTrigger(props: PopupTriggerProps) {
       onMouseLeave={action === 'hover' && !disabled ? handleLeave : undefined}
     >
       {triggerElement}
-      {visible && <Popup {...popupProps}>{popupElement}</Popup>}
+      {visible && popupElement}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, forwardRef, Ref } from 'react';
 import { TextField, TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
-import { Show, Hide } from 'components/icons';
+import Icons from 'components/icons';
 
 export interface PasswordFieldProps extends TextFieldProps {
   showPassword?: boolean;
@@ -17,7 +17,7 @@ function PasswordField(props: PasswordFieldProps, ref?: Ref<HTMLInputElement>) {
   return (
     <TextField {...(textFieldProps as TextFieldProps)} ref={ref} type={type} disabled={disabled}>
       <Icon variant="input" size="md" disabled={disabled} onClick={handleShowPassword}>
-        {show ? <Hide /> : <Show />}
+        {show ? <Icons.Hide /> : <Icons.Show />}
       </Icon>
     </TextField>
   );

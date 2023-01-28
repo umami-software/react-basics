@@ -2,7 +2,7 @@ import { Ref, ChangeEvent, forwardRef, useState, useRef, LegacyRef } from 'react
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import useCombinedRefs from 'hooks/useCombinedRefs';
-import { Check } from 'components/icons';
+import Icons from 'components/icons';
 import { CommonProps } from 'components/types';
 import styles from './Checkbox.module.css';
 
@@ -47,7 +47,7 @@ function Checkbox(props: CheckboxProps, forwardedRef?: Ref<HTMLInputElement>) {
       <div className={styles.box}>
         {isChecked && (
           <Icon className={styles.icon}>
-            <Check />
+            <Icons.Check />
           </Icon>
         )}
       </div>

@@ -4,8 +4,9 @@ import Menu, { MenuProps } from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import Field from 'components/input/Field';
 import PopupTrigger from 'components/trigger/PopupTrigger';
+import Popup from 'components/overlay/Popup';
 import { CommonProps } from 'components/types';
-import { ChevronDown } from 'components/icons';
+import Icons from 'components/icons';
 import styles from './Dropdown.module.css';
 
 export interface DropdownProps extends CommonProps {
@@ -35,24 +36,26 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   };
 
   return (
-    <PopupTrigger action="click" popupProps={{ position: 'bottom', alignment: 'start' }}>
+    <PopupTrigger action="click">
       <Field {...domProps} className={classNames(styles.field, className)}>
         <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
         <Icon size="sm" className={styles.icon}>
-          <ChevronDown />
+          <Icons.ChevronDown />
         </Icon>
         <input ref={ref} type="hidden" name={name} value={value} />
       </Field>
-      <Menu
-        {...menuProps}
-        variant="popup"
-        className={classNames(styles.menu, (menuProps as MenuProps)?.className)}
-        items={items}
-        selectedKey={value}
-        onSelect={handleSelect}
-      >
-        {children}
-      </Menu>
+      <Popup position="bottom" alignment="start">
+        <Menu
+          {...menuProps}
+          variant="popup"
+          className={classNames(styles.menu, (menuProps as MenuProps)?.className)}
+          items={items}
+          selectedKey={value}
+          onSelect={handleSelect}
+        >
+          {children}
+        </Menu>
+      </Popup>
     </PopupTrigger>
   );
 }

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Item from 'components/common/Item';
 import { renderChildren } from 'components/utils';
-import { ChevronDown } from 'components/icons';
+import Icons from 'components/icons';
 import styles from './Breadcrumbs.module.css';
 
 export interface BreadcrumbProps extends CommonProps {
@@ -47,7 +47,7 @@ export function Breadcrumbs(props: BreadcrumbProps) {
                 {index < count - 1 &&
                   (divider || (
                     <Icon className={styles.divider} size="sm" rotate={-90}>
-                      <ChevronDown />
+                      <Icons.ChevronDown />
                     </Icon>
                   ))}
               </>

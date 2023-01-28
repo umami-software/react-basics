@@ -1,32 +1,21 @@
-import { CommonProps } from 'components/types';
-import { EventHandler, ReactNode, useState } from 'react';
+import { EventHandler, ReactNode, useState, createContext } from 'react';
 import classNames from 'classnames';
-import { Modal, ModalProps } from 'components/overlay/Modal';
+import { CommonProps } from 'components/types';
 import styles from './trigger.module.css';
 
 export interface ModalTriggerProps extends CommonProps {
   defaultOpen?: boolean;
   onClose?: EventHandler<any>;
-  modalProps?: ModalProps;
   disabled?: boolean;
 }
 
+export const ModalContext = createContext<EventHandler<any> | null>(null);
+
 export function ModalTrigger(props: ModalTriggerProps) {
-  const {
-    defaultOpen = false,
-    onClose,
-    modalProps,
-    disabled,
-    className,
-    children,
-    ...domProps
-  } = props;
+  const { defaultOpen = false, onClose, disabled, className, children, ...domProps } = props;
   const [open, setOpen] = useState(defaultOpen);
 
-  const [triggerElement, modalElement] = children as [
-    ReactNode,
-    (e: EventHandler<any>) => ReactNode,
-  ];
+  const [triggerElement, modalElement] = children as [ReactNode, ReactNode];
 
   const handleOpen = () => {
     if (!open) {
@@ -43,7 +32,7 @@ export function ModalTrigger(props: ModalTriggerProps) {
   };
 
   return (
-    <>
+    <ModalContext.Provider value={handleClose}>
       <div
         {...domProps}
         className={classNames(styles.wrapper, className)}
@@ -51,12 +40,8 @@ export function ModalTrigger(props: ModalTriggerProps) {
       >
         {triggerElement}
       </div>
-      {open && (
-        <Modal {...modalProps} onClose={handleClose}>
-          {modalElement}
-        </Modal>
-      )}
-    </>
+      {open && modalElement}
+    </ModalContext.Provider>
   );
 }
 

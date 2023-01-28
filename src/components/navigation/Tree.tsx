@@ -4,7 +4,7 @@ import { CommonProps, TreeItem } from 'components/types';
 import Branch from './TreeBranch';
 import Leaf from './TreeLeaf';
 import Icon from 'components/common/Icon';
-import { ChevronDown } from 'components/icons';
+import Icons from 'components/icons';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Tree.module.css';
 
@@ -35,7 +35,7 @@ export function Tree(props: TreeProps) {
                 disabled={disabled}
               >
                 <Icon rotate={expanded ? 0 : -90} size="sm">
-                  <ChevronDown />
+                  <Icons.ChevronDown />
                 </Icon>
                 {label}
               </Branch>

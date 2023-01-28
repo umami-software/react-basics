@@ -5,7 +5,7 @@ import Icon from 'components/common/Icon';
 import Portal from 'components/common/Portal';
 import Banner from 'components/status/Banner';
 import Text from 'components/common/Text';
-import { Close } from 'components/icons';
+import Icons from 'components/icons';
 import { CommonProps } from 'components/types';
 
 // eslint-disable-next-line css-modules/no-unused-class
@@ -60,7 +60,7 @@ export function Toast(props: ToastProps) {
         <Banner variant={variant} className={styles.toast}>
           <Text>{message}</Text>
           <Icon className={styles.close} size="sm" onClick={handleClose}>
-            <Close />
+            <Icons.Close />
           </Icon>
         </Banner>
       </animated.div>

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
 import useDebounce from 'hooks/useDebounce';
-import { Search, Close } from 'components/icons';
+import Icons from 'components/icons';
 import styles from './SearchField.module.css';
 
 export interface SearchProps extends TextFieldProps {
@@ -38,14 +38,14 @@ export function SearchField(props: SearchProps): ReactElement {
   return (
     <TextField {...fieldProps} value={search} onChange={handleChange}>
       <Icon size="sm" className={classNames(styles.icon, styles.magnifier)}>
-        <Search />
+        <Icons.Search />
       </Icon>
       <Icon
         size="sm"
         className={classNames(styles.icon, styles.close, { [styles.visible]: search })}
         onClick={resetSearch}
       >
-        <Close />
+        <Icons.Close />
       </Icon>
     </TextField>
   );

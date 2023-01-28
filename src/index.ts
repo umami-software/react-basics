@@ -65,37 +65,18 @@ export * from 'hooks/useCombinedRefs';
 export * from 'hooks/useDebounce';
 export * from 'hooks/useDocumentClick';
 export * from 'hooks/useMeasure';
+export * from 'hooks/useModal';
 export * from 'hooks/useScroll';
 export * from 'hooks/useToast';
 
+// Icons
+export * from 'components/icons';
+
 // Types
-export * from './components/types';
+export * from 'components/types';
 
 // Styles
 import './styles/global.css';
-
-// Icons
-import * as icons from './components/icons';
-
-export interface IconsLibrary {
-  Alert: SVGRectElement;
-  ArrowRight: SVGRectElement;
-  Check: SVGRectElement;
-  ChevronDown: SVGRectElement;
-  Close: SVGRectElement;
-  Copy: SVGRectElement;
-  Edit: SVGRectElement;
-  External: SVGRectElement;
-  Hide: SVGRectElement;
-  Minus: SVGRectElement;
-  More: SVGRectElement;
-  Plus: SVGRectElement;
-  Search: SVGRectElement;
-  Show: SVGRectElement;
-  Trash: SVGRectElement;
-}
-
-export const Icons: IconsLibrary = icons;
 
 // Form hooks
 import {

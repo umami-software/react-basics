@@ -6,7 +6,7 @@ import Icon from 'components/common/Icon';
 import CalendarDaySelect from 'components/input/CalendarDaySelect';
 import CalendarMonthSelect from 'components/input/CalendarMonthSelect';
 import CalendarYearSelect from 'components/input/CalendarYearSelect';
-import { Close, ChevronDown } from 'components/icons';
+import Icons from 'components/icons';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Calendar.module.css';
 
@@ -61,13 +61,13 @@ export function Calendar(props: CalendarProps) {
         <div className={classNames(styles.selector)} onClick={toggleMonthSelect}>
           {month}
           <Icon className={styles.icon} size="sm">
-            {selectMonth ? <Close /> : <ChevronDown />}
+            {selectMonth ? <Icons.Close /> : <Icons.ChevronDown />}
           </Icon>
         </div>
         <div className={classNames(styles.selector)} onClick={toggleYearSelect}>
           {year}
           <Icon className={styles.icon} size="sm">
-            {selectMonth ? <Close /> : <ChevronDown />}
+            {selectMonth ? <Icons.Close /> : <Icons.ChevronDown />}
           </Icon>
         </div>
       </div>
