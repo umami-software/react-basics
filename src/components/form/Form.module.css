@@ -16,5 +16,7 @@
 
 .error {
   max-width: 600px;
+  max-height: 300px;
   margin: 0 auto var(--size600) auto;
+  overflow: auto;
 }
