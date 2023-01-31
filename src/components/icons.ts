@@ -8,6 +8,7 @@ import Edit from '../assets/edit.svg';
 import External from '../assets/external.svg';
 import Hide from '../assets/hide.svg';
 import Logout from '../assets/logout.svg';
+import Menu from '../assets/menu.svg';
 import Minus from '../assets/minus.svg';
 import More from '../assets/more.svg';
 import Plus from '../assets/plus.svg';
@@ -27,6 +28,7 @@ export const Icons = {
   External,
   Hide,
   Logout,
+  Menu,
   Minus,
   More,
   Plus,
