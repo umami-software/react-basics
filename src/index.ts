@@ -77,15 +77,3 @@ export * from 'components/types';
 
 // Styles
 import './styles/global.css';
-
-// Form hooks
-import {
-  useController,
-  useFieldArray,
-  useForm,
-  useFormContext,
-  useFormState,
-  useWatch,
-} from 'react-hook-form';
-
-export { useController, useFieldArray, useForm, useFormContext, useFormState, useWatch };

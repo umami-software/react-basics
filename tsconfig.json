@@ -10,8 +10,8 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "strict": true,
-    "outDir": "dist",
-    "target": "es5",
+    "outDir": "dist/types",
+    "target": "es6",
     "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx",
@@ -20,6 +20,6 @@
     "baseUrl": ".",
     "paths": { "*": ["src/*"] }
   },
-  "include": ["src/**/*", "stories/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
