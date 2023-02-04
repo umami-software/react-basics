@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tooltip, PopupTrigger, Button, Text } from '../src';
+import { Tooltip, Button, Text } from '../src';
 import { makeStory } from './utils';
 
 export default {
   title: 'Overlay/Tooltip',
   component: Tooltip,
-} as ComponentMeta<typeof PopupTrigger>;
+} as ComponentMeta<typeof Tooltip>;
 
 const items = [
   { text: 'One', tooltip: 'Hello One!' },
@@ -16,12 +16,11 @@ const items = [
 const Template: ComponentStory<typeof Tooltip> = args => {
   return (
     <div style={{ height: 300, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <PopupTrigger {...args} action="hover">
+      <Tooltip {...args} label="Hello!">
         <Button style={{ margin: 'auto' }}>
           <Text>Trigger Tooltip</Text>
         </Button>
-        <Tooltip>Hello world!</Tooltip>
-      </PopupTrigger>
+      </Tooltip>
     </div>
   );
 };
@@ -39,12 +38,11 @@ const Template2: ComponentStory<typeof Tooltip> = args => {
     >
       {items.map(({ text, tooltip }) => {
         return (
-          <PopupTrigger {...args} key={text} action="hover">
+          <Tooltip {...args} key={text} label={tooltip} action="hover">
             <Button style={{ margin: 'auto' }}>
               <Text>{text}</Text>
             </Button>
-            <Tooltip>{tooltip}</Tooltip>
-          </PopupTrigger>
+          </Tooltip>
         );
       })}
     </div>

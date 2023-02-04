@@ -16,7 +16,7 @@
 .body {
   font-size: var(--font-size-sm);
   color: var(--dark900);
-  background: var(--dark50);
+  background: rgba(0, 0, 0, 0.8);
   text-align: center;
   padding: var(--size100) var(--size400);
   border-radius: var(--size50);
@@ -29,7 +29,7 @@
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-top: 7px solid var(--dark50);
+  border-top: 7px solid rgba(0, 0, 0, 0.8);
   align-self: center;
   margin-bottom: var(--size50);
 }
@@ -40,7 +40,7 @@
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 7px solid var(--dark50);
+  border-bottom: 7px solid rgba(0, 0, 0, 0.8);
   align-self: center;
   margin-top: var(--size50);
 }
@@ -51,7 +51,7 @@
   height: 0;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
-  border-left: 7px solid var(--dark50);
+  border-left: 7px solid rgba(0, 0, 0, 0.8);
   align-self: center;
   margin-right: var(--size50);
 }
@@ -62,7 +62,7 @@
   height: 0;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
-  border-right: 7px solid var(--dark50);
+  border-right: 7px solid rgba(0, 0, 0, 0.8);
   align-self: center;
   margin-left: var(--size50);
 }

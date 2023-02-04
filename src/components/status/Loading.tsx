@@ -8,7 +8,7 @@ import styles from './Loading.module.css';
 export interface LoadingProps extends CommonProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   icon?: 'dots' | 'spinner';
-  position?: 'page' | 'block' | 'center' | 'inline';
+  position?: 'page' | 'center' | 'inline';
 }
 
 export function Loading(props: LoadingProps) {

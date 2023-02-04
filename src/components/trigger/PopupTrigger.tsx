@@ -1,4 +1,4 @@
-import { Children, createContext, useRef, useState } from 'react';
+import { Children, useRef, useState } from 'react';
 import classNames from 'classnames';
 import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
@@ -9,25 +9,46 @@ export interface PopupTriggerProps extends CommonProps {
   action?: 'click' | 'hover';
   delay?: number;
   disabled?: boolean;
+  onTrigger?: (show: boolean) => void;
 }
 
 export function PopupTrigger(props: PopupTriggerProps) {
+  const {
+    action = 'click',
+    delay = 0,
+    disabled,
+    onTrigger,
+    children,
+    className,
+    ...domProps
+  } = props;
   const [show, setShow] = useState(false);
-  const { action = 'click', delay = 0, disabled, children, className, ...domProps } = props;
   const visible = useDebounce(show, show ? delay : 0);
   const ref = useRef<HTMLDivElement>(null);
 
   useDocumentClick(e => {
     if (!ref.current?.contains(e.target)) {
       setShow(false);
+      onTrigger?.(false);
     }
   });
 
   const handleClick = () => {
-    setShow(state => !state);
+    setShow(state => {
+      onTrigger?.(!state);
+      return !state;
+    });
   };
-  const handleEnter = () => setShow(true);
-  const handleLeave = () => setShow(false);
+
+  const handleEnter = () => {
+    setShow(true);
+    onTrigger?.(true);
+  };
+
+  const handleLeave = () => {
+    setShow(false);
+    onTrigger?.(false);
+  };
 
   const [triggerElement, popupElement] = Children.toArray(children);
 
