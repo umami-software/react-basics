@@ -11,7 +11,7 @@
     "allowJs": true,
     "strict": true,
     "outDir": "dist/types",
-    "target": "es6",
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx",

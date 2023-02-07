@@ -1,5 +1,5 @@
 import { EventHandler, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
 import Portal from 'components/common/Portal';

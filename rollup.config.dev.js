@@ -1,44 +1,56 @@
 import path from 'path';
-import ts from 'rollup-plugin-ts';
+import dts from 'rollup-plugin-dts';
+import esbuild from 'rollup-plugin-esbuild';
+import tsconfigPaths from 'rollup-plugin-tsconfig-paths';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import postcss from 'rollup-plugin-postcss';
-import svgr from '@svgr/rollup';
-import md5 from 'md5';
+import { typescriptPaths } from 'rollup-plugin-typescript-paths';
+import alias from '@rollup/plugin-alias';
+
+const name = require('./package.json').main.replace(/\.js$/, '');
+
+const bundle = config => ({
+  ...config,
+  input: 'src/index.ts',
+  //external: [/\.css/, 'react', 'react-dom', 'react/jsx-runtime'],
+  external: id => {
+    console.log({ id });
+    return /node_modules|\.css|\.svg/.test(id);
+  },
+});
 
 export default [
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: 'dist/index.js',
-        format: 'cjs',
-        name: 'react-basics',
-      },
-      {
-        file: 'dist/esm/index.js',
-        format: 'esm',
-      },
-    ],
+  bundle({
     plugins: [
-      postcss({
-        extract: 'styles.css',
-        modules: {
-          generateScopedName: function (name, filename, css) {
-            const file = path.basename(filename, '.css').replace('.module', '');
-            const hash = Buffer.from(md5(`${name}:${filename}:${css}`))
-              .toString('base64')
-              .substring(0, 5);
-
-            return `${file}-${name}--${hash}`;
-          },
+      typescriptPaths({
+        preserveExtensions: true,
+        transform(path) {
+          console.log({ path });
+          return path;
         },
       }),
-      svgr({ icon: true }),
+      commonjs(),
       resolve(),
-      commonjs({ sourceMap: false }),
-      ts(),
+      esbuild(),
     ],
-    external: ['react', 'react-dom', 'react/jsx-runtime', 'react-spring'],
-  },
+    output: [
+      {
+        file: `${name}.js`,
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: `${name}.mjs`,
+        format: 'es',
+        sourcemap: true,
+      },
+    ],
+  }),
+  bundle({
+    plugins: [dts()],
+    output: {
+      file: `${name}.d.ts`,
+      format: 'es',
+    },
+  }),
 ];

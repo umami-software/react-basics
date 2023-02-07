@@ -40,11 +40,9 @@ const jsBundle = {
       },
     }),
     svgr({ icon: true }),
-    resolve(),
+    typescriptPaths({ preserveExtensions: true }),
+    resolve({ extensions: ['.tsx', '.ts', '.jsx', '.js'] }),
     commonjs(),
-    typescriptPaths({
-      preserveExtensions: true,
-    }),
     esbuild(),
     del({ targets: ['dist/esm/styles.css'], hook: 'closeBundle' }),
   ],
@@ -65,7 +63,15 @@ const dtsBundle = {
     }),
     dts(),
   ],
-  external: [/\.css/, 'react', 'react-dom', 'react/jsx-runtime', 'react-spring', 'react-hook-form'],
+  external: [
+    /\.css/,
+    'react',
+    'react-dom',
+    'react/jsx-runtime',
+    'react-spring',
+    'react-hook-form',
+    'date-fns',
+  ],
 };
 
 export default [jsBundle, dtsBundle];
