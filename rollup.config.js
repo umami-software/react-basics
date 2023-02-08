@@ -2,14 +2,18 @@ import path from 'path';
 import crypto from 'crypto';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import alias from '@rollup/plugin-alias';
 import postcss from 'rollup-plugin-postcss';
 import del from 'rollup-plugin-delete';
-import { typescriptPaths } from 'rollup-plugin-typescript-paths';
 import esbuild from 'rollup-plugin-esbuild';
 import dts from 'rollup-plugin-dts';
 import svgr from '@svgr/rollup';
 
 const md5 = str => crypto.createHash('md5').update(str).digest('hex');
+
+const customResolver = resolve({
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
+});
 
 const jsBundle = {
   input: 'src/index.ts',
@@ -17,16 +21,19 @@ const jsBundle = {
     {
       file: 'dist/index.js',
       format: 'cjs',
+      sourcemap: true,
     },
     {
-      file: 'dist/esm/index.js',
-      format: 'esm',
+      file: 'dist/index.mjs',
+      format: 'es',
+      sourcemap: true,
     },
   ],
   plugins: [
     del({ targets: 'dist/*', runOnce: true }),
     postcss({
       extract: 'styles.css',
+      sourceMap: true,
       minimize: true,
       modules: {
         generateScopedName: function (name, filename, css) {
@@ -40,13 +47,18 @@ const jsBundle = {
       },
     }),
     svgr({ icon: true }),
-    typescriptPaths({ preserveExtensions: true }),
-    resolve({ extensions: ['.tsx', '.ts', '.jsx', '.js'] }),
+    alias({
+      entries: [
+        { find: /^components/, replacement: path.resolve('./src/components') },
+        { find: /^hooks/, replacement: path.resolve('./src/hooks') },
+      ],
+      customResolver,
+    }),
+    resolve(),
     commonjs(),
     esbuild(),
-    del({ targets: ['dist/esm/styles.css'], hook: 'closeBundle' }),
   ],
-  external: ['react', 'react-dom', 'react/jsx-runtime', 'react-spring'],
+  external: ['react', 'react-dom', 'react/jsx-runtime'],
 };
 
 const dtsBundle = {
@@ -56,22 +68,18 @@ const dtsBundle = {
     format: 'es',
   },
   plugins: [
+    alias({
+      entries: [
+        { find: /^components/, replacement: path.resolve('./src/components') },
+        { find: /^hooks/, replacement: path.resolve('./src/hooks') },
+      ],
+      customResolver,
+    }),
     resolve(),
     commonjs(),
-    typescriptPaths({
-      preserveExtensions: true,
-    }),
     dts(),
   ],
-  external: [
-    /\.css/,
-    'react',
-    'react-dom',
-    'react/jsx-runtime',
-    'react-spring',
-    'react-hook-form',
-    'date-fns',
-  ],
+  external: [/\.css/, 'react', 'react-dom', 'react/jsx-runtime'],
 };
 
 export default [jsBundle, dtsBundle];
