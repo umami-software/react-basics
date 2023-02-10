@@ -47,6 +47,7 @@ function Radio(props: RadioProps, forwardedRef?: Ref<HTMLInputElement>) {
       <input
         className={styles.input}
         ref={combinedRef as Ref<any>}
+        name={name}
         type="radio"
         onChange={handleChange}
       />

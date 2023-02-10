@@ -25,11 +25,15 @@ export function RadioGroup(props: RadioGroupProps) {
     children,
     ...domProps
   } = props;
+
   const handleChange = key => {
+    console.log({ key });
     if (onSelect) {
       onSelect(key);
     }
   };
+
+  console.log({ selectedKey });
 
   return (
     <div {...domProps} className={classNames(styles.group, className, styles[layout])}>
@@ -41,7 +45,7 @@ export function RadioGroup(props: RadioGroupProps) {
           return {
             name,
             checked: selectedKey === key,
-            onChange: key ? handleChange.bind(null, key) : undefined,
+            onChange: handleChange.bind(null, key),
           };
         },
         { validChildren: [Radio] },
