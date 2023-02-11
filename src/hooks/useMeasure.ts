@@ -1,6 +1,12 @@
-import { useState, useCallback, useLayoutEffect } from 'react';
+import { useState, useCallback, useLayoutEffect, Ref } from 'react';
 
-export function useMeasure() {
+export interface UseMeasureResults {
+  ref: Ref<any>;
+  dimensions: object;
+  measure: () => void;
+}
+
+export function useMeasure(): UseMeasureResults {
   const [dimensions, setDimensions] = useState({});
   const [node, setNode] = useState<HTMLElement | null>(null);
 
