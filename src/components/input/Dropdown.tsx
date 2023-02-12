@@ -15,6 +15,8 @@ export interface DropdownProps extends CommonProps {
   value?: string;
   renderValue?: (value: string) => ReactNode;
   menuProps?: MenuProps;
+  position?: 'top' | 'bottom' | 'left' | 'right';
+  alignment?: 'start' | 'end' | 'none';
   onChange?: (key: Key, e: MouseEvent) => void;
 }
 
@@ -25,6 +27,8 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     value = '',
     renderValue,
     menuProps = {},
+    position = 'bottom',
+    alignment = 'start',
     onChange,
     className,
     children,
@@ -44,7 +48,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
         </Icon>
         <input ref={ref} type="hidden" name={name} value={value} />
       </Field>
-      <Popup position="bottom" alignment="start">
+      <Popup position={position} alignment={alignment}>
         <Menu
           {...menuProps}
           variant="popup"

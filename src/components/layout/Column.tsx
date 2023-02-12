@@ -68,7 +68,7 @@ export function Column(props: ColumnProps) {
     breakpoint = '',
     defaultSize,
     order,
-    columns = 1,
+    columns = 12,
     ordering,
     variant,
   } = props;
