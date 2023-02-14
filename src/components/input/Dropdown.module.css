@@ -13,3 +13,7 @@
 .value {
   flex: 1;
 }
+
+.placeholder {
+  color: var(--font-color400);
+}

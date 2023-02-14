@@ -17,6 +17,7 @@ export interface DropdownProps extends CommonProps {
   menuProps?: MenuProps;
   position?: 'top' | 'bottom' | 'left' | 'right';
   alignment?: 'start' | 'end' | 'none';
+  placeholder?: string;
   onChange?: (key: Key, e: MouseEvent) => void;
 }
 
@@ -29,6 +30,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     menuProps = {},
     position = 'bottom',
     alignment = 'start',
+    placeholder,
     onChange,
     className,
     children,
@@ -42,7 +44,10 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   return (
     <PopupTrigger action="click">
       <Field {...domProps} className={classNames(styles.field, className)}>
-        <div className={styles.value}>{renderValue ? renderValue(value) : value}</div>
+        <div className={styles.value}>
+          {value && renderValue ? renderValue(value) : value}
+          {!value && <span className={styles.placeholder}>{placeholder}</span>}
+        </div>
         <Icon size="sm" className={styles.icon}>
           <Icons.ChevronDown />
         </Icon>
