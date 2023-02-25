@@ -47,7 +47,7 @@
 
 .button.secondary {
   border: 1px solid var(--border-color);
-  background: transparent;
+  background: var(--base50);
 }
 
 .button.secondary:hover {

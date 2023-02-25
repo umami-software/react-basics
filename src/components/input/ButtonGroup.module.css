@@ -36,4 +36,5 @@
 
 .group .button.selected {
   font-weight: 600;
+  background: var(--base75);
 }
