@@ -1,0 +1,15 @@
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--base75);
+  border: 1px solid var(--base200);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.description {
+  flex: 1;
+}
