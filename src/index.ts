@@ -69,6 +69,7 @@ export * from 'hooks/useMeasure';
 export * from 'hooks/useModal';
 export * from 'hooks/useScroll';
 export * from 'hooks/useToast';
+export * from 'hooks/useVisible';
 
 // Icons
 export * from 'components/icons';

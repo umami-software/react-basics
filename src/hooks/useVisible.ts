@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function useVisible() {
+export function useVisible() {
   const [visible, setVisible] = useState(true);
   const ref = useRef(null);
 
@@ -24,3 +24,5 @@ export default function useVisible() {
 
   return { ref, visible };
 }
+
+export default useVisible;
