@@ -16,8 +16,8 @@ export function useBreakpoint() {
       setBreakpoint(
         Object.keys(breakpoints).find(key => {
           const width = window.innerWidth;
-          const points = breakpoints[key];
-          return width >= points[0] && width < points[1];
+          const [min, max] = breakpoints[key];
+          return width >= min && width < max;
         }) || 'xl',
       );
     };
