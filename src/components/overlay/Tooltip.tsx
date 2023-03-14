@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { animated, Spring } from '@react-spring/web';
 import classNames from 'classnames';
 import PopupTrigger from 'components/trigger/PopupTrigger';
@@ -7,10 +7,10 @@ import Popup, { PopupProps } from 'components/overlay/Popup';
 import styles from './Tooltip.module.css';
 
 export interface TooltipProps extends PopupProps {
-  label: string;
+  label: ReactNode;
   delay?: number;
   disabled?: boolean;
-  action?: 'hover' | 'click';
+  action?: 'hover' | 'click' | 'none';
 }
 
 export function Tooltip(props: TooltipProps) {
@@ -27,12 +27,22 @@ export function Tooltip(props: TooltipProps) {
     ...domProps
   } = props;
 
-  const [show, setShow] = useState();
+  const defaultShow = action === 'none';
+  const [show, setShow] = useState(defaultShow);
 
-  const handleTrigger = value => setShow(value);
+  const handleTrigger = value => {
+    if (!defaultShow) {
+      setShow(value);
+    }
+  };
 
   return (
-    <PopupTrigger action={action} disabled={disabled} onTrigger={handleTrigger}>
+    <PopupTrigger
+      action={action}
+      defaultShow={defaultShow}
+      disabled={disabled}
+      onTrigger={handleTrigger}
+    >
       {children}
       {show && (
         <Popup position={position} alignment={alignment}>

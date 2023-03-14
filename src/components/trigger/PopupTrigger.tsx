@@ -6,9 +6,10 @@ import { CommonProps } from 'components/types';
 import styles from './trigger.module.css';
 
 export interface PopupTriggerProps extends CommonProps {
-  action?: 'click' | 'hover';
+  action?: 'click' | 'hover' | 'none';
   delay?: number;
   disabled?: boolean;
+  defaultShow?: boolean;
   onTrigger?: (show: boolean) => void;
 }
 
@@ -20,9 +21,10 @@ export function PopupTrigger(props: PopupTriggerProps) {
     onTrigger,
     children,
     className,
+    defaultShow,
     ...domProps
   } = props;
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(defaultShow);
   const visible = useDebounce(show, show ? delay : 0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -62,7 +64,7 @@ export function PopupTrigger(props: PopupTriggerProps) {
       onMouseLeave={action === 'hover' && !disabled ? handleLeave : undefined}
     >
       {triggerElement}
-      {visible && popupElement}
+      {(visible || defaultShow) && popupElement}
     </div>
   );
 }

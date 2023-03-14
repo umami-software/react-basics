@@ -9,7 +9,9 @@ export interface ItemProps extends CommonProps {
 }
 
 export function Item(props: ItemProps) {
-  const { disabled, children, onClick, ...domProps } = props;
+  const { disabled, onClick, children, ...domProps } = props;
+
+  delete domProps.divider;
 
   return (
     <div {...domProps} onClick={!disabled ? onClick : undefined}>
