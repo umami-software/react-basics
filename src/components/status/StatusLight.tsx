@@ -5,18 +5,20 @@ import styles from './StatusLight.module.css';
 
 export interface StatusLightProps extends CommonProps {
   color?: string;
-  variant?: 'success' | 'warning' | 'error' | 'active' | 'none';
+  variant?: 'success' | 'warning' | 'error' | 'active' | 'inactive' | 'none';
 }
 
 export function StatusLight(props: StatusLightProps) {
-  const { color, variant = 'none', children, className, ...domProps } = props;
+  const { color, variant = 'inactive', children, className, ...domProps } = props;
 
   return (
     <div {...domProps} className={classNames(styles.statuslight, className)}>
-      <div
-        className={classNames(styles.status, styles[variant])}
-        style={{ backgroundColor: color }}
-      />
+      <div className={styles.bg}>
+        <div
+          className={classNames(styles.status, styles[variant])}
+          style={{ backgroundColor: color }}
+        />
+      </div>
       {children}
     </div>
   );

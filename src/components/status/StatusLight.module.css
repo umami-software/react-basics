@@ -4,11 +4,13 @@
   gap: 12px;
 }
 
-.status {
+.status,
+.bg {
   width: 10px;
   height: 10px;
   border-radius: 100%;
-  background: var(--status-inactive-color);
+  background: #fff;
+  position: relative;
 }
 
 .status.success {
@@ -25,4 +27,8 @@
 
 .status.active {
   background: var(--status-active-color);
+}
+
+.status.inactive {
+  background: var(--status-inactive-color);
 }
