@@ -1,3 +1,4 @@
+import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import { cloneChildren } from 'components/utils';
 import useBreakpoint from 'hooks/useBreakpoint';
@@ -11,12 +12,16 @@ export interface RowProps extends CommonProps {
   justifyContent?: string;
 }
 
-export function Row(props: RowProps) {
+function Row(props: RowProps, ref: Ref<HTMLDivElement>) {
   const { className, style, children, columns = defaultColumns, justifyContent } = props;
   const breakpoint = useBreakpoint();
 
   return (
-    <div className={classNames(styles.row, className)} style={{ justifyContent, ...style }}>
+    <div
+      ref={ref}
+      className={classNames(styles.row, className)}
+      style={{ justifyContent, ...style }}
+    >
       {cloneChildren(
         typeof children === 'function' ? children(breakpoint, columns) : children,
         () => {
@@ -30,4 +35,8 @@ export function Row(props: RowProps) {
   );
 }
 
-export default Row;
+const _Row = forwardRef<HTMLDivElement, RowProps>(Row) as typeof Row;
+
+export { _Row as Row };
+
+export default _Row;

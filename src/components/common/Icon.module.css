@@ -23,8 +23,8 @@
 .size-lg,
 .size-lg > svg {
   font-size: var(--font-size-lg);
-  width: var(--size800);
-  height: var(--size800);
+  width: var(--size700);
+  height: var(--size700);
 }
 
 .size-md,

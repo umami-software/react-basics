@@ -1,3 +1,4 @@
+import { forwardRef, Ref } from 'react';
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 import styles from './Column.module.css';
@@ -60,7 +61,7 @@ const variants = {
   },
 };
 
-export function Column(props: ColumnProps) {
+function Column(props: ColumnProps, ref: Ref<HTMLDivElement>) {
   const {
     className,
     style,
@@ -116,6 +117,7 @@ export function Column(props: ColumnProps) {
 
   return (
     <div
+      ref={ref}
       className={classNames(styles.column, className)}
       style={{ ...style, ...getSizeStyle(), ...getOrderStyle() }}
     >
@@ -124,4 +126,8 @@ export function Column(props: ColumnProps) {
   );
 }
 
-export default Column;
+const _Column = forwardRef<HTMLDivElement, ColumnProps>(Column) as typeof Column;
+
+export { _Column as Column };
+
+export default _Column;
