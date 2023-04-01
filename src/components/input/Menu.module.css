@@ -3,7 +3,6 @@
   flex-direction: column;
   overflow: auto;
   position: relative;
-  z-index: var(--z-index100);
 }
 
 .item {

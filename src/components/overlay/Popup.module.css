@@ -1,7 +1,7 @@
 .popup {
   position: absolute;
   margin: auto;
-  z-index: var(--z-index300);
+  z-index: var(--z-index-popup);
 }
 
 .top {

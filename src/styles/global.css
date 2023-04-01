@@ -72,9 +72,10 @@
   --primary600: var(--base700);
   --primary700: var(--base600);
 
-  --z-index100: 100;
-  --z-index200: 200;
-  --z-index300: 300;
+  --z-index-top: 100;
+  --z-index-overlay: 200;
+  --z-index-modal: 300;
+  --z-index-popup: 400;
 
   /* Component styles */
   --base-height: var(--size1000);

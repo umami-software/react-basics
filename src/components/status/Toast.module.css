@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  z-index: var(--z-index100);
+  z-index: var(--z-index-popup);
   pointer-events: none;
 }
 
@@ -16,7 +16,7 @@
   align-items: center;
   width: auto;
   padding: var(--size400);
-  z-index: var(--z-index300);
+  z-index: var(--z-index-popup);
   pointer-events: auto;
 }
 
