@@ -19,7 +19,7 @@
   background: var(--base50);
   transition: all 0.2s;
   cursor: pointer;
-  z-index: var(--z-index-top);
+  z-index: var(--z-index-above);
 }
 
 .label {

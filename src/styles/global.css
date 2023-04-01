@@ -72,7 +72,8 @@
   --primary600: var(--base700);
   --primary700: var(--base600);
 
-  --z-index-top: 100;
+  --z-index-below: -100;
+  --z-index-above: 100;
   --z-index-overlay: 200;
   --z-index-modal: 300;
   --z-index-popup: 400;
