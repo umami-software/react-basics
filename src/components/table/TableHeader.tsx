@@ -11,11 +11,11 @@ export function TableHeader(props: TableHeaderProps) {
   const { columns, className, children, ...domProps } = props;
 
   return (
-    <thead {...domProps} className={classNames(styles.header, className)}>
-      <tr className={styles.row}>
+    <div {...domProps} className={classNames(styles.header, className)}>
+      <div className={styles.row}>
         {typeof children === 'function' && columns ? columns.map(children) : children}
-      </tr>
-    </thead>
+      </div>
+    </div>
   );
 }
 

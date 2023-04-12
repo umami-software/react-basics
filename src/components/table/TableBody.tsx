@@ -13,11 +13,11 @@ export function TableBody(props: TableBodyProps) {
   const keys = columns?.map(({ name }) => name);
 
   return (
-    <tbody {...domProps} className={classNames(styles.body, className)}>
+    <div {...domProps} className={classNames(styles.body, className)}>
       {typeof children === 'function' && Array.isArray(rows) && keys
         ? rows.map((row, index) => children(row, keys, index))
         : children}
-    </tbody>
+    </div>
   );
 }
 

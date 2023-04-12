@@ -11,13 +11,13 @@ export interface TableColumnProps extends CommonProps {
 export function TableColumn(props: TableColumnProps) {
   const { flex, width, textAlign, className, style, children, ...domProps } = props;
   return (
-    <th
+    <div
       {...domProps}
       className={classNames(styles.column, className)}
       style={{ flex, width, textAlign, ...style }}
     >
       {children}
-    </th>
+    </div>
   );
 }
 

@@ -15,7 +15,7 @@ import { faker } from '@faker-js/faker';
 faker.seed(123);
 
 const rows = [...Array(100)].map(() => ({
-  id: faker.mersenne.rand(),
+  id: faker.random.numeric(),
   name: faker.name.fullName(),
   email: faker.internet.email(),
 }));
@@ -95,7 +95,7 @@ export const ColumnWidths = makeStory(Template, {
             <TableColumn style={{ ...widthStyles[index] }}>{column.label}</TableColumn>
           )}
         </TableHeader>
-        <TableBody rows={rows.slice(0, 5)}>
+        <TableBody rows={rows.slice(0, 5)} columns={columns}>
           {(row, keys) => (
             <TableRow data={row} keys={keys}>
               {(item, key, index) => (

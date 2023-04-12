@@ -6,10 +6,10 @@
   display: flex;
 }
 
-.row th:first-child {
+.row div:first-child {
   padding-left: 0;
 }
 
-.row th:last-child {
+.row div:last-child {
   padding-right: 0;
 }

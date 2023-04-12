@@ -24,7 +24,7 @@ export function Table(props: TableProps) {
   const autoRender = !children && rows && columns;
 
   return (
-    <table {...domProps} className={classNames(styles.table, className)}>
+    <div {...domProps} className={classNames(styles.table, className)}>
       {autoRender && (
         <TableHeader columns={columns}>
           {column => <TableColumn>{column?.label || column?.name}</TableColumn>}
@@ -51,7 +51,7 @@ export function Table(props: TableProps) {
         },
         { validChildren: [TableHeader, TableBody, TableWindow] },
       )}
-    </table>
+    </div>
   );
 }
 
