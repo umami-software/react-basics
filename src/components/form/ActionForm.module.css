@@ -1,7 +1,7 @@
 .body {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   background: var(--base75);
   border: 1px solid var(--base200);
   border-radius: var(--border-radius);
@@ -12,4 +12,23 @@
 
 .description {
   flex: 1;
+}
+
+.action {
+  display: flex;
+}
+
+@media screen and (max-width: 992px) {
+  .body {
+    flex-direction: column;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .action {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
