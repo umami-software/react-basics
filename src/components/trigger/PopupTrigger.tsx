@@ -1,4 +1,4 @@
-import { Children, useRef, useState } from 'react';
+import { Children, cloneElement, useRef, useState } from 'react';
 import classNames from 'classnames';
 import useDebounce from 'hooks/useDebounce';
 import useDocumentClick from 'hooks/useDocumentClick';
@@ -27,6 +27,8 @@ export function PopupTrigger(props: PopupTriggerProps) {
   const [show, setShow] = useState(defaultShow);
   const visible = useDebounce(show, show ? delay : 0);
   const ref = useRef<HTMLDivElement>(null);
+  const clickEnabled = !disabled && action === 'click';
+  const hoverEnabled = !disabled && action === 'hover';
 
   useDocumentClick(e => {
     if (!ref.current?.contains(e.target)) {
@@ -35,11 +37,13 @@ export function PopupTrigger(props: PopupTriggerProps) {
     }
   });
 
-  const handleClick = () => {
-    setShow(state => {
-      onTrigger?.(!state);
-      return !state;
-    });
+  const handleClick = e => {
+    if (ref.current?.contains(e.target)) {
+      setShow(state => {
+        onTrigger?.(!state);
+        return !state;
+      });
+    }
   };
 
   const handleEnter = () => {
@@ -55,16 +59,15 @@ export function PopupTrigger(props: PopupTriggerProps) {
   const [triggerElement, popupElement] = Children.toArray(children);
 
   return (
-    <div
-      {...domProps}
-      ref={ref}
-      className={classNames(styles.wrapper, className)}
-      onClick={action === 'click' && !disabled ? handleClick : undefined}
-      onMouseEnter={action === 'hover' && !disabled ? handleEnter : undefined}
-      onMouseLeave={action === 'hover' && !disabled ? handleLeave : undefined}
-    >
-      {triggerElement}
-      {(visible || defaultShow) && popupElement}
+    <div {...domProps} ref={ref} className={classNames(styles.wrapper, className)}>
+      {cloneElement(triggerElement as any, {
+        className: classNames({ [styles.clickable]: clickEnabled }),
+        onClick: clickEnabled ? handleClick : undefined,
+        onMouseEnter: hoverEnabled ? handleEnter : undefined,
+        onMouseLeave: hoverEnabled ? handleLeave : undefined,
+      })}
+      {(visible || defaultShow) &&
+        cloneElement(popupElement as any, { onClick: e => e.stopPropagation() })}
     </div>
   );
 }
