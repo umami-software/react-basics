@@ -76,8 +76,7 @@ export function PopupTrigger(props: PopupTriggerProps) {
           onMouseEnter: hoverEnabled ? handleEnter : undefined,
           onMouseLeave: hoverEnabled ? handleLeave : undefined,
         })}
-        {(visible || defaultShow) &&
-          cloneElement(popupElement as any, { onClick: e => e.stopPropagation() })}
+        {(visible || defaultShow) && popupElement}
       </div>
     </PopupContext.Provider>
   );

@@ -37,8 +37,9 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     ...domProps
   } = props;
 
-  const handleSelect = (key: Key, e: MouseEvent) => {
+  const handleSelect = (key: Key, e: MouseEvent, close: () => void) => {
     onChange?.(key, e);
+    close();
   };
 
   return (
@@ -54,16 +55,20 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
         <input ref={ref} type="hidden" name={name} value={value} />
       </Field>
       <Popup position={position} alignment={alignment}>
-        <Menu
-          {...menuProps}
-          variant="popup"
-          className={classNames(styles.menu, (menuProps as MenuProps)?.className)}
-          items={items}
-          selectedKey={value}
-          onSelect={handleSelect}
-        >
-          {children}
-        </Menu>
+        {close => {
+          return (
+            <Menu
+              {...menuProps}
+              variant="popup"
+              className={classNames(styles.menu, (menuProps as MenuProps)?.className)}
+              items={items}
+              selectedKey={value}
+              onSelect={(key, e) => handleSelect(key, e, close)}
+            >
+              {children}
+            </Menu>
+          );
+        }}
       </Popup>
     </PopupTrigger>
   );
