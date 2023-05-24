@@ -26,16 +26,14 @@ export function ModalTrigger(props: ModalTriggerProps) {
   const handleClose = e => {
     setOpen(false);
 
-    if (onClose) {
-      onClose(e);
-    }
+    onClose?.(e);
   };
 
   return (
-    <ModalContext.Provider value={handleClose}>
+    <ModalContext.Provider value={{ close: handleClose } as any}>
       <div
         {...domProps}
-        className={classNames(styles.wrapper, className)}
+        className={classNames(styles.wrapper, className, { [styles.clickable]: !disabled })}
         onClick={!disabled ? handleOpen : undefined}
       >
         {triggerElement}

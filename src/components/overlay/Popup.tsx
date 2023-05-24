@@ -1,5 +1,6 @@
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
+import usePopup from 'hooks/usePopup';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Popup.module.css';
 
@@ -9,6 +10,7 @@ export interface PopupProps extends CommonProps {
 }
 
 export function Popup(props: PopupProps) {
+  const { close } = usePopup();
   const { position = 'bottom', alignment = 'none', className, children, ...domProps } = props;
 
   return (
@@ -16,7 +18,7 @@ export function Popup(props: PopupProps) {
       {...domProps}
       className={classNames(styles.popup, className, styles[position], styles[alignment])}
     >
-      {children}
+      {typeof children === 'function' ? children(close) : children}
     </div>
   );
 }
