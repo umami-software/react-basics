@@ -66,7 +66,6 @@ export * from 'hooks/useCombinedRefs';
 export * from 'hooks/useDebounce';
 export * from 'hooks/useDocumentClick';
 export * from 'hooks/useMeasure';
-export * from 'hooks/useModal';
 export * from 'hooks/useScroll';
 export * from 'hooks/useToast';
 export * from 'hooks/useVisible';

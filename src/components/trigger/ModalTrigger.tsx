@@ -1,4 +1,4 @@
-import { EventHandler, ReactNode, useState, createContext } from 'react';
+import { EventHandler, ReactNode, useState, cloneElement } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
 import styles from './trigger.module.css';
@@ -8,8 +8,6 @@ export interface ModalTriggerProps extends CommonProps {
   onClose?: EventHandler<any>;
   disabled?: boolean;
 }
-
-export const ModalContext = createContext<EventHandler<any> | null>(null);
 
 export function ModalTrigger(props: ModalTriggerProps) {
   const { defaultOpen = false, onClose, disabled, className, children, ...domProps } = props;
@@ -30,7 +28,7 @@ export function ModalTrigger(props: ModalTriggerProps) {
   };
 
   return (
-    <ModalContext.Provider value={{ close: handleClose } as any}>
+    <>
       <div
         {...domProps}
         className={classNames(styles.wrapper, className, { [styles.clickable]: !disabled })}
@@ -38,8 +36,8 @@ export function ModalTrigger(props: ModalTriggerProps) {
       >
         {triggerElement}
       </div>
-      {open && modalElement}
-    </ModalContext.Provider>
+      {open && cloneElement(modalElement as any, { onClose: handleClose })}
+    </>
   );
 }
 

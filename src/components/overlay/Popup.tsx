@@ -1,3 +1,4 @@
+import { forwardRef, Ref } from 'react';
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 import usePopup from 'hooks/usePopup';
@@ -9,13 +10,14 @@ export interface PopupProps extends CommonProps {
   alignment?: 'start' | 'end' | 'none';
 }
 
-export function Popup(props: PopupProps) {
+function Popup(props: PopupProps, forwardedRef?: Ref<HTMLDivElement>) {
   const { close } = usePopup();
   const { position = 'bottom', alignment = 'none', className, children, ...domProps } = props;
 
   return (
     <div
       {...domProps}
+      ref={forwardedRef}
       className={classNames(styles.popup, className, styles[position], styles[alignment])}
     >
       {typeof children === 'function' ? children(close) : children}
@@ -23,4 +25,8 @@ export function Popup(props: PopupProps) {
   );
 }
 
-export default Popup;
+const _Popup = forwardRef<HTMLDivElement, PopupProps>(Popup) as typeof Popup;
+
+export { _Popup as Popup };
+
+export default _Popup;

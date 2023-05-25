@@ -37,7 +37,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     ...domProps
   } = props;
 
-  const handleSelect = (key: Key, e: MouseEvent, close: () => void) => {
+  const handleSelect = (close: () => void, key: Key, e: MouseEvent) => {
     onChange?.(key, e);
     close();
   };
@@ -63,7 +63,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
               className={classNames(styles.menu, (menuProps as MenuProps)?.className)}
               items={items}
               selectedKey={value}
-              onSelect={(key, e) => handleSelect(key, e, close)}
+              onSelect={handleSelect.bind(null, close)}
             >
               {children}
             </Menu>
