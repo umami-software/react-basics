@@ -76,10 +76,11 @@ export function PopupTrigger(props: PopupTriggerProps) {
         onMouseEnter={hoverEnabled ? handleEnter : undefined}
         onMouseLeave={hoverEnabled ? handleLeave : undefined}
       >
-        {cloneElement(triggerElement as any, {
-          className: classNames({ [styles.clickable]: clickEnabled }),
-        })}
-        {show && cloneElement(popupElement, { ref: popupRef })}
+        {triggerElement &&
+          cloneElement(triggerElement as any, {
+            className: classNames({ [styles.clickable]: clickEnabled }),
+          })}
+        {show && popupElement && cloneElement(popupElement, { ref: popupRef })}
       </div>
     </PopupContext.Provider>
   );

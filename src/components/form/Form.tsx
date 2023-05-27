@@ -17,7 +17,16 @@ export interface FormProps extends CommonProps, UseFormProps {
 }
 
 function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
-  const { values, autoComplete, onSubmit, error, className, style, children, ...formProps } = props;
+  const {
+    values,
+    autoComplete,
+    onSubmit = () => {},
+    error,
+    className,
+    style,
+    children,
+    ...formProps
+  } = props;
   const formValues = useForm({ ...formProps, defaultValues: values });
   const { handleSubmit } = formValues;
 

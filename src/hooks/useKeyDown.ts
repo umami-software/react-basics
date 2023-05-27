@@ -1,20 +1,23 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { ensureArray } from 'components/utils';
 
 export function useKeyPress(targetKey, handler) {
-  function downHandler({ key }) {
-    if (ensureArray(targetKey).includes(key)) {
-      handler(key);
-    }
-  }
+  const keyHandler = useCallback(
+    ({ key }) => {
+      if (ensureArray(targetKey).includes(key)) {
+        handler(key);
+      }
+    },
+    [targetKey, handler],
+  );
 
   useEffect(() => {
-    window.addEventListener('keydown', downHandler);
+    window.addEventListener('keydown', keyHandler);
 
     return () => {
-      window.removeEventListener('keydown', downHandler);
+      window.removeEventListener('keydown', keyHandler);
     };
-  }, []);
+  }, [keyHandler]);
 
   return null;
 }

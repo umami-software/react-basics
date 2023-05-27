@@ -38,6 +38,7 @@ export function Tooltip(props: TooltipProps) {
 
   return (
     <PopupTrigger
+      className={className}
       action={action}
       defaultShow={defaultShow}
       disabled={disabled}
@@ -50,7 +51,7 @@ export function Tooltip(props: TooltipProps) {
             {values => (
               <animated.div
                 {...domProps}
-                className={classNames(styles.tooltip, className, styles[position])}
+                className={classNames(styles.tooltip, styles[position])}
                 style={{ ...values, ...style }}
               >
                 <div className={styles.body}>{label}</div>

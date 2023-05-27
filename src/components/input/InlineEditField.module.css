@@ -1,0 +1,14 @@
+.text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  display: none;
+}
+
+.field:hover .logo {
+  display: block;
+}

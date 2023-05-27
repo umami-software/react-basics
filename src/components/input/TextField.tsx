@@ -4,6 +4,7 @@ import { CommonProps } from 'components/types';
 import CopyIcon from 'components/input/CopyIcon';
 import Field from 'components/input/Field';
 import styles from './TextField.module.css';
+import { KeyboardEventHandler } from 'react/index';
 
 export interface TextFieldProps extends CommonProps {
   name?: string;
@@ -14,9 +15,12 @@ export interface TextFieldProps extends CommonProps {
   disabled?: boolean;
   placeholder?: string;
   autoComplete?: string;
+  autoFocus?: boolean;
   allowCopy?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   onFocus?: FocusEventHandler<HTMLInputElement>;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
   ref?: Ref<HTMLInputElement>;
 }
 
@@ -30,9 +34,12 @@ function TextField(props: TextFieldProps, ref?: Ref<HTMLInputElement>) {
     disabled,
     placeholder,
     autoComplete,
+    autoFocus,
     allowCopy = false,
     onChange,
     onFocus,
+    onBlur,
+    onKeyDown,
     children,
     ...domProps
   } = props;
@@ -51,7 +58,10 @@ function TextField(props: TextFieldProps, ref?: Ref<HTMLInputElement>) {
         placeholder={placeholder}
         onChange={onChange}
         autoComplete={autoComplete}
+        autoFocus={autoFocus}
         onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
       />
       {children}
       {allowCopy && <CopyIcon value={value} className={styles.icon} />}
