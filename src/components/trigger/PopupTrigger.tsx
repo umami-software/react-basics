@@ -27,26 +27,22 @@ export function PopupTrigger(props: PopupTriggerProps) {
   } = props;
   const [show, setShow] = useState(defaultShow);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const popupRef = useRef<HTMLDivElement>(null);
   const clickEnabled = !disabled && action === 'click';
   const hoverEnabled = !disabled && action === 'hover';
 
   useKeyPress('Escape', () => setShow(false));
 
   useDocumentClick(e => {
-    if (e.target.contains(wrapperRef.current)) {
-      setShow(false);
-      onTrigger?.(false, e);
-    }
+    setShow(false);
+    onTrigger?.(false, e);
   });
 
   const handleClick = e => {
-    if (!popupRef.current?.contains(e.target)) {
-      setShow(state => {
-        onTrigger?.(!state, e);
-        return !state;
-      });
-    }
+    e.stopPropagation();
+    setShow(state => {
+      onTrigger?.(!state, e);
+      return !state;
+    });
   };
 
   const handleEnter = e => {
@@ -80,7 +76,7 @@ export function PopupTrigger(props: PopupTriggerProps) {
           cloneElement(triggerElement as any, {
             className: classNames({ [styles.clickable]: clickEnabled }),
           })}
-        {show && popupElement && cloneElement(popupElement, { ref: popupRef })}
+        {show && popupElement && cloneElement(popupElement, { parentElement: wrapperRef.current })}
       </div>
     </PopupContext.Provider>
   );

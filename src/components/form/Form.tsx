@@ -57,7 +57,7 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
         autoComplete={autoComplete}
         className={classNames(styles.form, className)}
         style={style}
-        onSubmit={onSubmit ? handleSubmit(onSubmit) : undefined}
+        onSubmit={handleSubmit(onSubmit)}
       >
         {typeof children === 'function' ? children(formValues) : children}
       </form>

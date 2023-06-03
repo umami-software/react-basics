@@ -1,7 +1,6 @@
 .wrapper {
   display: inline-flex;
   position: relative;
-  align-self: flex-start;
 }
 
 .clickable {

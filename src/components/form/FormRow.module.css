@@ -5,9 +5,8 @@
 
 .label {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   font-weight: 700;
-  margin-bottom: var(--size200);
 }
 
 .header {
@@ -16,4 +15,5 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-bottom: var(--size200);
 }

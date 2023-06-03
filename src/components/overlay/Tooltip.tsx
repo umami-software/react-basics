@@ -20,7 +20,7 @@ export function Tooltip(props: TooltipProps) {
     disabled = false,
     action = 'hover',
     position = 'top',
-    alignment = 'none',
+    alignment = 'center',
     className,
     style,
     children,
