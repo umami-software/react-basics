@@ -16,7 +16,7 @@ export interface DropdownProps extends CommonProps {
   renderValue?: (value: string) => ReactNode;
   menuProps?: MenuProps;
   position?: 'top' | 'bottom' | 'left' | 'right';
-  alignment?: 'start' | 'end' | 'none';
+  alignment?: 'start' | 'end' | 'center';
   placeholder?: string;
   onChange?: (key: Key, e: MouseEvent) => void;
 }

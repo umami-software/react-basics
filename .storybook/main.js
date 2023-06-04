@@ -1,37 +1,42 @@
 const path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
-  stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    'storybook-css-modules',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
   },
-  webpackFinal: async config => {
-    config.resolve.modules = [...config.resolve.modules, path.resolve(__dirname, '../src')];
+  docs: {
+    autodocs: true,
+  },
+  webpackFinal: async (config, { configType }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      components: path.resolve(__dirname, '../components'),
+      hooks: path.resolve(__dirname, '../hooks'),
+      styles: path.resolve(__dirname, '../styles'),
+      assets: path.resolve(__dirname, '../assets'),
+    };
 
-    const cssLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.css'));
+    config.resolve.plugins = [
+      ...(config.resolve.plugins || []),
+      new TsconfigPathsPlugin({
+        extensions: config.resolve.extensions,
+      }),
+    ];
 
-    for (const { loader, options } of cssLoaderRule.use) {
-      if (loader?.includes('css-loader') && options) {
-        options.modules = {
-          mode: 'local',
-          localIdentName: '[name]__[local]--[hash:base64:5]',
-        };
-      }
-    }
+    const rule = config.module.rules.find(({ test }) => test.test('.svg'));
+    rule.exclude = /\.svg$/;
 
-    // Remove svg from existing rule
-    const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
-    fileLoaderRule.exclude = /\.svg$/;
-
-    config.module.rules.push({
+    config.module.rules.unshift({
       test: /\.svg$/,
+      issuer: /\.{js|jsx|ts|tsx}$/,
       use: ['@svgr/webpack'],
     });
 
