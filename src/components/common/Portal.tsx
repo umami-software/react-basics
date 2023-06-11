@@ -1,22 +1,20 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-
-const PORTAL_ID = '__react-basics-portal';
+import { getRandomChars } from 'components/utils';
 
 export interface PortalProps {
-  portalId?: string;
   portalElement?: Element;
   children?: ReactNode;
 }
 
 export function Portal(props: PortalProps): JSX.Element | null {
-  const { portalId = PORTAL_ID, portalElement, children } = props;
+  const { portalElement, children } = props;
   const [element, setElement] = useState(portalElement);
 
   useEffect(() => {
     if (!element) {
       const portal = document.createElement('div');
-      portal.setAttribute('id', portalId);
+      portal.setAttribute('id', `__portal-${getRandomChars(8)}`);
 
       document.body.appendChild(portal);
 

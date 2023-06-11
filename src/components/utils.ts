@@ -93,3 +93,15 @@ export function chunkArray(arr: any[], size: number) {
 
   return chunks;
 }
+
+export function getRandomChars(
+  n,
+  chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+) {
+  const arr = chars.split('');
+  let s = '';
+  for (let i = 0; i < n; i++) {
+    s += arr[Math.floor(Math.random() * arr.length)];
+  }
+  return s;
+}

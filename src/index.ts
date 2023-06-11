@@ -71,6 +71,9 @@ export * from 'hooks/useScroll';
 export * from 'hooks/useToast';
 export * from 'hooks/useVisible';
 
+// Context
+export * from 'components/context';
+
 // Icons
 export * from 'components/icons';
 

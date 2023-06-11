@@ -11,8 +11,6 @@ import { CommonProps } from 'components/types';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Toast.module.css';
 
-const PORTAL_ID = '__react-basics-toast';
-
 export interface ToastProps extends CommonProps {
   message: string;
   timeout?: number;
@@ -51,7 +49,7 @@ export function Toast(props: ToastProps) {
   }, []);
 
   return (
-    <Portal portalId={PORTAL_ID}>
+    <Portal>
       <animated.div
         {...domProps}
         className={classNames(styles.wrapper, className, styles[variant], styles[position])}

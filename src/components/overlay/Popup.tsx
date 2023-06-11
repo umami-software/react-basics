@@ -7,8 +7,6 @@ import usePopup from 'hooks/usePopup';
 import styles from './Popup.module.css';
 import useCallbackRef from 'hooks/useCallbackRef';
 
-const PORTAL_ID = '__react-basics-overlay';
-
 export interface PopupProps extends CommonProps {
   position?: 'top' | 'bottom' | 'left' | 'right';
   alignment?: 'start' | 'end' | 'center';
@@ -77,7 +75,7 @@ export function Popup(props: PopupProps) {
   }, [ref]);
 
   return (
-    <Portal portalId={PORTAL_ID} portalElement={portalElement}>
+    <Portal portalElement={portalElement}>
       <div
         {...domProps}
         ref={setRef as any}

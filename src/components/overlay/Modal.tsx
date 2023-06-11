@@ -6,8 +6,6 @@ import Portal from 'components/common/Portal';
 import useKeyPress from 'hooks/useKeyDown';
 import styles from './Modal.module.css';
 
-const PORTAL_ID = '__react-basics-overlay';
-
 export interface ModalProps extends CommonProps {
   title?: ReactNode;
   portalElement?: Element;
@@ -21,7 +19,7 @@ export function Modal(props: ModalProps) {
   useKeyPress('Escape', onClose);
 
   return (
-    <Portal portalId={PORTAL_ID} portalElement={portalElement}>
+    <Portal portalElement={portalElement}>
       <animated.div
         className={classNames(styles.modal, className)}
         style={{ ...styleProps, ...style }}

@@ -17,6 +17,7 @@ export function InlineEditField(props: InlineEditProps): ReactElement {
   const {
     value: defaultValue = '',
     defaultEdit,
+    placeholder,
     onCommit,
     onCancel,
     onChange,
@@ -68,7 +69,7 @@ export function InlineEditField(props: InlineEditProps): ReactElement {
       )}
       {!edit && (
         <div className={styles.text} onClick={handleEdit}>
-          <Text>{value}</Text>
+          <Text>{value || placeholder}</Text>
           <Icon className={styles.logo}>
             <Icons.Edit />
           </Icon>

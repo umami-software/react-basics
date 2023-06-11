@@ -7,7 +7,7 @@ export interface FieldProps extends CommonProps {
   readOnly?: boolean;
 }
 
-export function Field(props) {
+export function Field(props: FieldProps) {
   const { disabled, readOnly, className, children, ...domProps } = props;
 
   return (
