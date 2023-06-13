@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
+}

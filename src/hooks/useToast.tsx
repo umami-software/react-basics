@@ -17,7 +17,7 @@ export function useToast() {
     },
     [setToast],
   );
-  ASDF;
+
   return { toast, showToast };
 }
 
