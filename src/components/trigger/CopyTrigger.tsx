@@ -1,5 +1,5 @@
 import { CommonProps } from 'components/types';
-import useToast from 'hooks/useToast';
+import { useToasts } from 'hooks/useToasts';
 
 export interface CopyTriggerProps extends CommonProps {
   value: any;
@@ -11,7 +11,7 @@ export interface CopyTriggerProps extends CommonProps {
 
 export function CopyTrigger(props: CopyTriggerProps) {
   const { value, message, notification = 'toast', disabled, onCopy, children, ...domProps } = props;
-  const { toast, showToast } = useToast();
+  const { showToast } = useToasts();
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(value);
@@ -25,7 +25,6 @@ export function CopyTrigger(props: CopyTriggerProps) {
 
   return (
     <>
-      {toast}
       <div {...domProps} onClick={!disabled ? handleCopy : undefined}>
         {children}
       </div>

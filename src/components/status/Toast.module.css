@@ -1,15 +1,3 @@
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: var(--z-index-popup);
-  pointer-events: none;
-}
-
 .toast {
   display: flex;
   justify-content: space-between;

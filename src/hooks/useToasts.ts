@@ -1,17 +1,17 @@
-import { useState, createContext } from 'react';
-
-export const ToastContext = createContext([]);
+import { useContext } from 'react';
+import { ReactBasicsContext } from 'components/context/ReactBasicsProvider';
+import { getRandomChars } from 'components/utils';
 
 export function useToasts() {
-  const [toasts, setToasts] = useState([]);
+  const { toasts, setToasts } = useContext(ReactBasicsContext);
 
-  const success = props => {
-    setToasts(state => state.concat({ ...props, variant: 'success' }));
+  const showToast = props => {
+    setToasts(state => state.concat({ ...props, id: `__toast_${getRandomChars(8)}` }));
   };
 
-  const error = props => {
-    setToasts(state => state.concat({ ...props, variant: 'error' }));
+  const removeToast = id => {
+    setToasts(state => state.filter(item => item.id !== id));
   };
 
-  return { success, error, toasts };
+  return { toasts, showToast, removeToast };
 }

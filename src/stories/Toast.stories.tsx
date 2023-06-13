@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { Toast, Button } from '../index';
+import { Toast, Button, useToasts, ReactBasicsProvider } from '../index';
 import { makeStory } from './utils';
 
 export default {
   title: 'Status/Toast',
   component: Toast,
+  decorators: [
+    Story => (
+      <ReactBasicsProvider>
+        <Story />
+      </ReactBasicsProvider>
+    ),
+  ],
 } as Meta<typeof Toast>;
 
 const Template: StoryFn<typeof Toast> = args => {
-  const [show, setShow] = useState(false);
+  const { showToast } = useToasts();
 
-  const handleClick = () => setShow(true);
-  const handleClose = () => setShow(false);
+  const handleClick = () => showToast({ ...args });
 
   return (
     <>
-      {show && <Toast {...args} onClose={handleClose} />}
       <Button onClick={handleClick}>Show toast</Button>
     </>
   );
@@ -46,13 +50,5 @@ export const NoTimeout = makeStory(Template, {
   args: {
     message: 'You must close this message yourself.',
     timeout: 0,
-  },
-});
-
-export const PositionBottom = makeStory(Template, {
-  args: {
-    message: 'This appears at the bottom.',
-    timeout: 0,
-    position: 'bottom',
   },
 });

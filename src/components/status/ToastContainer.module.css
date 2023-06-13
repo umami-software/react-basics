@@ -1,14 +1,21 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: var(--size100);
   position: fixed;
-  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: var(--z-index-popup);
+  pointer-events: none;
 }
 
 .top {
-  top: 0;
+  top: 30px;
 }
 
 .bottom {
-  bottom: 0;
+  bottom: 30px;
 }
