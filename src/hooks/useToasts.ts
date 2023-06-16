@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ReactBasicsContext } from 'components/context/ReactBasicsProvider';
+import { ReactBasicsContext } from 'components/context';
 import { getRandomChars } from 'components/utils';
 
 export function useToasts() {
@@ -15,3 +15,5 @@ export function useToasts() {
 
   return { toasts, showToast, removeToast };
 }
+
+export default useToasts;

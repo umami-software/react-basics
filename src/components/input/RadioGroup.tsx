@@ -27,13 +27,10 @@ export function RadioGroup(props: RadioGroupProps) {
   } = props;
 
   const handleChange = key => {
-    console.log({ key });
     if (onSelect) {
       onSelect(key);
     }
   };
-
-  console.log({ selectedKey });
 
   return (
     <div {...domProps} className={classNames(styles.group, className, styles[layout])}>

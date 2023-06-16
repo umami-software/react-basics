@@ -76,7 +76,7 @@ export function PopupTrigger(props: PopupTriggerProps) {
           cloneElement(triggerElement as any, {
             className: classNames({ [styles.clickable]: clickEnabled }),
           })}
-        {show && popupElement && cloneElement(popupElement, { parentElement: wrapperRef.current })}
+        {show && popupElement}
       </div>
     </PopupContext.Provider>
   );

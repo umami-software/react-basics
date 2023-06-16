@@ -18,8 +18,6 @@ const items: any[] = [
 const Template: StoryFn<typeof RadioGroup> = args => {
   const [selected, setSelected] = useState(args.selectedKey);
 
-  console.log({ selected });
-
   return <RadioGroup {...args} selectedKey={selected} onSelect={setSelected} />;
 };
 

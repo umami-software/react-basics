@@ -3,3 +3,53 @@
   margin: auto;
   z-index: var(--z-index-popup);
 }
+
+.top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.top.start,
+.bottom.start {
+  left: 0;
+  transform: translateX(0);
+}
+
+.top.end,
+.bottom.end {
+  right: 0;
+  left: auto;
+  transform: translateX(0);
+}
+
+.left.start,
+.right.start {
+  top: 0;
+  transform: translateY(0);
+}
+
+.left.end,
+.right.end {
+  top: auto;
+  bottom: 0;
+  transform: translateY(0);
+}

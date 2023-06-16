@@ -37,6 +37,7 @@ export * from 'components/layout/Row';
 export * from 'components/overlay/Modal';
 export * from 'components/overlay/Popup';
 export * from 'components/overlay/Tooltip';
+export * from 'components/overlay/TooltipPopup';
 export * from 'components/navigation/Accordion';
 export * from 'components/navigation/Breadcrumbs';
 export * from 'components/navigation/Tabs';
@@ -78,6 +79,9 @@ export * from 'components/icons';
 
 // Types
 export * from 'components/types';
+
+// Context
+export * from 'components/context';
 
 // Styles
 import './styles/global.css';

@@ -1,16 +1,7 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer } from 'components/status/ToastContainer';
 import { ToastProps } from 'components/status/Toast';
-
-export interface ReactBasicsContextData {
-  toasts: ToastProps[];
-  setToasts: (value: any) => void;
-}
-
-export const ReactBasicsContext = createContext<ReactBasicsContextData>({
-  toasts: [],
-  setToasts: () => {},
-});
+import { ReactBasicsContext } from 'components/context';
 
 export function ReactBasicsProvider({ children }) {
   const [toasts, setToasts] = useState<ToastProps[]>([]);

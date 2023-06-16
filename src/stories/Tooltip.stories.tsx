@@ -1,11 +1,11 @@
 import { StoryFn, Meta } from '@storybook/react';
-import { Tooltip, Button, Text } from '../index';
+import { Tooltip, TooltipPopup, Button, Text } from '../index';
 import { makeStory } from './utils';
 
 export default {
   title: 'Overlay/Tooltip',
-  component: Tooltip,
-} as Meta<typeof Tooltip>;
+  component: TooltipPopup,
+} as Meta<typeof TooltipPopup>;
 
 const items = [
   { text: 'One', tooltip: 'Hello One!' },
@@ -16,11 +16,11 @@ const items = [
 const Template: StoryFn<typeof Tooltip> = args => {
   return (
     <div style={{ height: 300, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Tooltip {...args} label="Hello!">
+      <TooltipPopup {...args} label="Hello!">
         <Button style={{ margin: 'auto' }}>
           <Text>Trigger Tooltip</Text>
         </Button>
-      </Tooltip>
+      </TooltipPopup>
     </div>
   );
 };
@@ -38,11 +38,11 @@ const Template2: StoryFn<typeof Tooltip> = args => {
     >
       {items.map(({ text, tooltip }) => {
         return (
-          <Tooltip {...args} key={text} label={tooltip} action="hover">
+          <TooltipPopup {...args} key={text} label={tooltip} action="hover">
             <Button style={{ margin: 'auto' }}>
               <Text>{text}</Text>
             </Button>
-          </Tooltip>
+          </TooltipPopup>
         );
       })}
     </div>

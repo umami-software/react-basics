@@ -38,6 +38,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   } = props;
 
   const handleSelect = (close: () => void, key: Key, e: MouseEvent) => {
+    e.stopPropagation();
     onChange?.(key, e);
     close();
   };
