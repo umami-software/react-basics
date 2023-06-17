@@ -13,3 +13,5 @@ export function ReactBasicsProvider({ children }) {
     </ReactBasicsContext.Provider>
   );
 }
+
+export default ReactBasicsProvider;

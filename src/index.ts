@@ -51,6 +51,8 @@ export * from 'components/status/Spinner';
 export * from 'components/status/StatusLight';
 export * from 'components/status/Toast';
 export * from 'components/status/ToastContainer';
+export * from 'components/table/GridColumn';
+export * from 'components/table/GridTable';
 export * from 'components/table/Table';
 export * from 'components/table/TableBody';
 export * from 'components/table/TableCell';
