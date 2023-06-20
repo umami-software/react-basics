@@ -29,3 +29,16 @@ export const Basic = makeStory(Template, {
     ),
   },
 });
+
+export const ColumnWidths = makeStory(Template, {
+  args: {
+    data,
+    children: (
+      <>
+        <GridColumn name="id" label="ID" width="50px" />
+        <GridColumn name="name" label="Name" width="100px" />
+        <GridColumn name="email" label="Email" />
+      </>
+    ),
+  },
+});

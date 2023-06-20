@@ -21,9 +21,16 @@ export function isValidChild(child: ReactElement, types: FC | FC[]) {
   return (Array.isArray(types) ? types : [types]).find(type => type === child.type);
 }
 
+export function mapChildren(
+  children: ReactNode,
+  handler: (child: ReactElement, index: number) => any,
+) {
+  return Children.map(getFragmentChildren(children), handler);
+}
+
 export function cloneChildren(
   children: ReactNode,
-  handler: (child: ReactElement, index: number) => object | undefined,
+  handler: (child: ReactElement, index: number) => any,
   options?: { validChildren?: any[]; onlyRenderValid?: boolean },
 ): ReactNode {
   if (!children) {
@@ -32,7 +39,7 @@ export function cloneChildren(
 
   const { validChildren, onlyRenderValid = false } = options || {};
 
-  return Children.map(children, (child, index) => {
+  return mapChildren(children, (child, index) => {
     const invalid = validChildren && !isValidChild(child as ReactElement, validChildren);
 
     if (onlyRenderValid && invalid) {

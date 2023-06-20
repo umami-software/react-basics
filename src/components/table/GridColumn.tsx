@@ -1,22 +1,17 @@
-import { createElement, ReactNode } from 'react';
-import styles from './GridColumn.module.css';
+import { ReactNode } from 'react';
+import { CommonProps } from 'components/types';
 
-export interface GridColumnProps {
+export interface GridColumnProps extends CommonProps {
   name: string;
   label: string;
-  as?: string;
-  render?: (row: any, name: string, index: number) => Element;
-  children?: (row: any, name: string, index: number) => Element;
+  width?: string;
+  children?: (row: any, name: string, index: number) => ReactNode;
 }
 
-const defaultRender = (row, name, index) => {
-  return <td key={index}>{row[name]}</td>;
-};
-
 export function GridColumn(props: GridColumnProps) {
-  const { render, as = 'td', children, ...domProps } = props;
+  const { label } = props;
 
-  return createElement(as, { ...domProps }, children || render || defaultRender);
+  return label;
 }
 
 export default GridColumn;

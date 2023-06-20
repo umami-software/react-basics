@@ -1,3 +1,42 @@
 .table {
   display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+}
+
+.table thead,
+.table tbody,
+.table tr {
+  display: contents;
+}
+
+.header.row .cell {
+  border-bottom: 1px solid var(--base400);
+}
+
+.row .cell {
+  border-bottom: 1px solid var(--base300);
+}
+
+.row .cell:first-child {
+  padding-left: 0;
+}
+
+.row .cell:last-child {
+  padding-right: 0;
+}
+
+.cell {
+  display: flex;
+  padding: var(--size400);
+  overflow: hidden;
+  flex: 1;
+}
+
+.cell:first-child {
+  padding-left: 0;
+}
+
+.cell:last-child {
+  padding-right: 0;
 }

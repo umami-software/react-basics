@@ -1,48 +1,57 @@
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
-import { renderChildren, cloneChildren } from 'components/utils';
-import { GridColumn } from 'components/table/GridColumn';
+import { mapChildren } from 'components/utils';
 import styles from './GridTable.module.css';
+
+const defaultWidth = `minmax(120px, 1fr)`;
 
 export interface GridTableProps extends CommonProps {
   data: any[];
 }
 
 export function GridTable(props: GridTableProps) {
-  const { data, className, children, ...domProps } = props;
+  const { data, className, style, children, ...domProps } = props;
+
+  const gridTemplateColumns = mapChildren(children, ({ props }) => props.width ?? defaultWidth)
+    .join(' ')
+    .trim();
 
   return (
-    <table {...domProps} className={classNames(styles.table, className)}>
+    <table
+      {...domProps}
+      className={classNames(styles.table, className)}
+      style={{
+        ...style,
+        gridTemplateColumns,
+      }}
+    >
       <thead>
-        <tr>
-          {cloneChildren(
-            children,
-            child => {
-              const { label } = child.props;
-              return {
-                render: (row, name) => {
-                  return <th key={name}>{label}</th>;
-                },
-              };
-            },
-            { validChildren: [GridColumn] },
-          )}
+        <tr className={classNames(styles.header, styles.row)}>
+          {mapChildren(children, child => {
+            const { name, label } = child.props;
+
+            return (
+              <th key={name} className={styles.cell}>
+                {label}
+              </th>
+            );
+          })}
         </tr>
       </thead>
       <tbody>
-        {renderChildren(
-          children,
-          data,
-          (child, index) => {
-            const { name, children } = child.props;
-            return {
-              render: (row, name) => {
-                return <td key={name}>{row[name]}</td>;
-              },
-            };
-          },
-          { validChildren: [GridColumn] },
-        )}
+        {data.map((row, index) => (
+          <tr key={index} className={styles.row}>
+            {mapChildren(children, (child, index) => {
+              const { name, children, className, ...domProps } = child.props;
+
+              return (
+                <td {...domProps} key={name} className={classNames(styles.cell, className)}>
+                  {typeof children === 'function' ? children(row, name, index) : row[name]}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
       </tbody>
     </table>
   );
