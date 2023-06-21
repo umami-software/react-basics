@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
-import Portal from 'components/common/Portal';
+import Portal from 'components/overlay/Portal';
 import useKeyPress from 'hooks/useKeyDown';
 import styles from './Modal.module.css';
 

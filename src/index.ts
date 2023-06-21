@@ -1,7 +1,6 @@
 // Components
 export * from 'components/common/Icon';
 export * from 'components/common/Item';
-export * from 'components/common/Portal';
 export * from 'components/common/Text';
 export * from 'components/context/ReactBasicsProvider';
 export * from 'components/form/ActionForm';
@@ -36,6 +35,7 @@ export * from 'components/layout/Grid';
 export * from 'components/layout/Row';
 export * from 'components/overlay/Modal';
 export * from 'components/overlay/Popup';
+export * from 'components/overlay/Portal';
 export * from 'components/overlay/Tooltip';
 export * from 'components/overlay/TooltipPopup';
 export * from 'components/navigation/Accordion';

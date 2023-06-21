@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useTransition, animated } from '@react-spring/web';
 import { CommonProps } from 'components/types';
 import { useToasts } from 'hooks/useToasts';
-import Portal from 'components/common/Portal';
+import Portal from 'components/overlay/Portal';
 import Toast from 'components/status/Toast';
 import styles from './ToastContainer.module.css';
 

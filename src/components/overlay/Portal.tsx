@@ -18,7 +18,7 @@ export function Portal(props: PortalProps): JSX.Element | null {
 
       if (!portal) {
         portal = document.createElement('div');
-        portal.setAttribute('id', portalId || `__portal-${getRandomChars(8)}`);
+        portal.setAttribute('id', portalId || `__portal_${getRandomChars(8)}`);
         document.body.appendChild(portal);
       }
 
