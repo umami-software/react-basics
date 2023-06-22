@@ -5,11 +5,13 @@ import { getRandomChars } from 'components/utils';
 export interface PortalProps {
   portalId?: string;
   portalElement?: Element;
+  className?: string;
+  style?: string;
   children?: ReactNode;
 }
 
 export function Portal(props: PortalProps): JSX.Element | null {
-  const { portalId = '', portalElement, children } = props;
+  const { portalId = '', portalElement, className = '', style = '', children } = props;
   const [element, setElement] = useState(portalElement);
 
   useEffect(() => {
@@ -19,6 +21,8 @@ export function Portal(props: PortalProps): JSX.Element | null {
       if (!portal) {
         portal = document.createElement('div');
         portal.setAttribute('id', portalId || `__portal_${getRandomChars(8)}`);
+        portal.setAttribute('class', className);
+        portal.setAttribute('style', style);
         document.body.appendChild(portal);
       }
 
