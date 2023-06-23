@@ -9,6 +9,7 @@ import styles from './InlineEditField.module.css';
 export interface InlineEditProps extends TextFieldProps {
   defaultValue?: string;
   defaultEdit?: boolean;
+  placeholder?: string;
   onCommit?: (value: string) => void;
   onCancel?: () => void;
 }

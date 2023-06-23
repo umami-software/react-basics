@@ -25,9 +25,9 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
     className,
     style,
     children,
-    ...formProps
+    ...domProps
   } = props;
-  const formValues = useForm({ ...formProps, defaultValues: values });
+  const formValues = useForm({ defaultValues: values });
   const { handleSubmit } = formValues;
 
   useImperativeHandle<HTMLFormElement, any>(ref, () => formValues);
@@ -53,6 +53,7 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
         </Banner>
       )}
       <form
+        {...domProps}
         ref={ref}
         autoComplete={autoComplete}
         className={classNames(styles.form, className)}
