@@ -1,4 +1,4 @@
-import { forwardRef, Ref } from 'react';
+import { forwardRef, ReactNode, Ref } from 'react';
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 import usePopup from 'hooks/usePopup';
@@ -8,11 +8,19 @@ import styles from './Popup.module.css';
 export interface PopupProps extends CommonProps {
   position?: 'top' | 'bottom' | 'left' | 'right';
   alignment?: 'start' | 'end' | 'center';
+  popupElement?: ReactNode;
 }
 
 function Popup(props: PopupProps, forwardedRef?: Ref<HTMLDivElement>) {
   const { close } = usePopup();
-  const { position = 'bottom', alignment = 'center', className, children, ...domProps } = props;
+  const {
+    position = 'bottom',
+    alignment = 'center',
+    popupElement,
+    className,
+    children,
+    ...domProps
+  } = props;
 
   return (
     <div
@@ -20,7 +28,7 @@ function Popup(props: PopupProps, forwardedRef?: Ref<HTMLDivElement>) {
       ref={forwardedRef}
       className={classNames(styles.popup, className, styles[position], styles[alignment])}
     >
-      {typeof children === 'function' ? children(close) : children}
+      {typeof children === 'function' ? children(close, popupElement) : children}
     </div>
   );
 }
