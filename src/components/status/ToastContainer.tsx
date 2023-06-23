@@ -1,12 +1,10 @@
+import { createPortal } from 'react-dom';
 import classNames from 'classnames';
 import { useTransition, animated } from '@react-spring/web';
 import { CommonProps } from 'components/types';
 import { useToasts } from 'hooks/useToasts';
-import Portal from 'components/overlay/Portal';
 import Toast from 'components/status/Toast';
 import styles from './ToastContainer.module.css';
-
-const portalId = '__react-basics-toasts';
 
 export interface ToastContainerProps extends CommonProps {
   position?: 'top' | 'bottom';
@@ -22,21 +20,20 @@ export function ToastContainer(props: ToastContainerProps) {
     leave: { opacity: 0, transform: `translate3d(0,${position === 'top' ? '-40px' : '40px'},0)` },
   });
 
-  return (
-    <Portal portalId={portalId}>
-      <div
-        {...domProps}
-        className={classNames(styles.container, className, {
-          [styles.top]: position === 'top',
-          [styles.bottom]: position === 'bottom',
-        })}
-      >
-        {transitions((style, item) => (
-          <animated.div style={style}>
-            <Toast {...item} onClose={() => removeToast(item.id)} />
-          </animated.div>
-        ))}
-      </div>
-    </Portal>
+  return createPortal(
+    <div
+      {...domProps}
+      className={classNames(styles.container, className, {
+        [styles.top]: position === 'top',
+        [styles.bottom]: position === 'bottom',
+      })}
+    >
+      {transitions((style, item) => (
+        <animated.div style={style}>
+          <Toast {...item} onClose={() => removeToast(item.id)} />
+        </animated.div>
+      ))}
+    </div>,
+    document.body,
   );
 }

@@ -35,7 +35,6 @@ export * from 'components/layout/Grid';
 export * from 'components/layout/Row';
 export * from 'components/overlay/Modal';
 export * from 'components/overlay/Popup';
-export * from 'components/overlay/Portal';
 export * from 'components/overlay/Tooltip';
 export * from 'components/overlay/TooltipPopup';
 export * from 'components/navigation/Accordion';

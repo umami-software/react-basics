@@ -1,37 +1,35 @@
 import { ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
-import Portal from 'components/overlay/Portal';
 import useKeyPress from 'hooks/useKeyDown';
 import styles from './Modal.module.css';
 
 export interface ModalProps extends CommonProps {
   title?: ReactNode;
-  portalElement?: Element;
   onClose?: () => void;
 }
 
 export function Modal(props: ModalProps) {
-  const { title, portalElement, onClose = () => {}, className, style, children } = props;
+  const { title, onClose = () => {}, className, style, children } = props;
   const styleProps = useSpring({ opacity: 1, from: { opacity: 0 } });
 
   useKeyPress('Escape', onClose);
 
-  return (
-    <Portal portalElement={portalElement}>
-      <animated.div
-        className={classNames(styles.modal, className)}
-        style={{ ...styleProps, ...style }}
-      >
-        <div className={styles.window}>
-          {title && <div className={styles.header}>{title}</div>}
-          <div className={styles.body}>
-            {typeof children === 'function' ? children(onClose) : children}
-          </div>
+  return createPortal(
+    <animated.div
+      className={classNames(styles.modal, className)}
+      style={{ ...styleProps, ...style }}
+    >
+      <div className={styles.window}>
+        {title && <div className={styles.header}>{title}</div>}
+        <div className={styles.body}>
+          {typeof children === 'function' ? children(onClose) : children}
         </div>
-      </animated.div>
-    </Portal>
+      </div>
+    </animated.div>,
+    document.body,
   );
 }
 
