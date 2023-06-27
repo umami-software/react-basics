@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { ensureArray } from 'components/utils';
 
-export function useKeyPress(targetKey, handler) {
+export function useKeyDown(targetKey, handler) {
   const keyHandler = useCallback(
     ({ key }) => {
       if (ensureArray(targetKey).includes(key)) {
@@ -22,4 +22,4 @@ export function useKeyPress(targetKey, handler) {
   return null;
 }
 
-export default useKeyPress;
+export default useKeyDown;

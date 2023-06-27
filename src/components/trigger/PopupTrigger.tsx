@@ -1,7 +1,7 @@
 import { cloneElement, createContext, EventHandler, useRef, useState } from 'react';
 import classNames from 'classnames';
 import useDocumentClick from 'hooks/useDocumentClick';
-import useKeyPress from 'hooks/useKeyDown';
+import useKeyDown from 'hooks/useKeyDown';
 import { CommonProps } from 'components/types';
 import styles from './trigger.module.css';
 
@@ -30,7 +30,7 @@ export function PopupTrigger(props: PopupTriggerProps) {
   const clickEnabled = !disabled && action === 'click';
   const hoverEnabled = !disabled && action === 'hover';
 
-  useKeyPress('Escape', () => setShow(false));
+  useKeyDown('Escape', () => setShow(false));
 
   useDocumentClick(e => {
     setShow(false);

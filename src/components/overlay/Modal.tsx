@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { useSpring, animated } from '@react-spring/web';
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
-import useKeyPress from 'hooks/useKeyDown';
+import useKeyDown from 'hooks/useKeyDown';
 import styles from './Modal.module.css';
 
 export interface ModalProps extends CommonProps {
@@ -15,7 +15,7 @@ export function Modal(props: ModalProps) {
   const { title, onClose = () => {}, className, style, children } = props;
   const styleProps = useSpring({ opacity: 1, from: { opacity: 0 } });
 
-  useKeyPress('Escape', onClose);
+  useKeyDown('Escape', onClose);
 
   return createPortal(
     <animated.div
