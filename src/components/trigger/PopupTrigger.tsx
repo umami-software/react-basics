@@ -33,12 +33,13 @@ export function PopupTrigger(props: PopupTriggerProps) {
   useKeyDown('Escape', () => setShow(false));
 
   useDocumentClick(e => {
-    setShow(false);
-    onTrigger?.(false, e);
+    if (!wrapperRef?.current?.contains(e.target)) {
+      setShow(false);
+      onTrigger?.(false, e);
+    }
   });
 
   const handleClick = e => {
-    e.stopPropagation();
     setShow(state => {
       onTrigger?.(!state, e);
       return !state;

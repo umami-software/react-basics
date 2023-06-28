@@ -4,7 +4,7 @@ import { ensureArray } from 'components/utils';
 export function useKeyDown(targetKey, handler) {
   const keyHandler = useCallback(
     ({ key }) => {
-      if (ensureArray(targetKey).includes(key)) {
+      if (handler && ensureArray(targetKey).includes(key)) {
         handler(key);
       }
     },
