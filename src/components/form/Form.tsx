@@ -13,6 +13,7 @@ export interface FormProps extends CommonProps, UseFormProps {
   autoComplete?: string;
   onSubmit?: SubmitHandler<any>;
   error?: string;
+  preventSubmit?: boolean;
   children?: ReactNode | ((props: object) => ReactNode);
 }
 
@@ -20,15 +21,18 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
   const {
     values,
     autoComplete,
-    onSubmit = () => {},
+    onSubmit,
     error,
     className,
     style,
     children,
+    preventSubmit = false,
     ...domProps
   } = props;
   const formValues = useForm({ defaultValues: values });
   const { handleSubmit } = formValues;
+  const onKeyDown =
+    !onSubmit || preventSubmit ? e => e.key === 'Enter' && e.preventDefault() : undefined;
 
   useImperativeHandle<HTMLFormElement, any>(ref, () => formValues);
 
@@ -58,7 +62,8 @@ function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
         autoComplete={autoComplete}
         className={classNames(styles.form, className)}
         style={style}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={onSubmit ? handleSubmit(onSubmit) : undefined}
+        onKeyDown={onKeyDown}
       >
         {typeof children === 'function' ? children(formValues) : children}
       </form>
