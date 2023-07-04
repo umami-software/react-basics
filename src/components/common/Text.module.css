@@ -21,3 +21,9 @@
 .size-xs {
   font-size: var(--font-size-xs);
 }
+
+.overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
