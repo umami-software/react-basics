@@ -5,6 +5,7 @@ export interface GridColumnProps extends CommonProps {
   name: string;
   label: string;
   width?: string;
+  hidden?: boolean;
   children?: (row: any, name: string, index: number) => ReactNode;
 }
 
