@@ -6,13 +6,13 @@ export interface GridColumnProps extends CommonProps {
   label: string;
   width?: string;
   hidden?: boolean;
+  alignment?: 'start' | 'center' | 'end';
   children?: (row: any, name: string, index: number) => ReactNode;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function GridColumn(props: GridColumnProps) {
-  const { label } = props;
-
-  return label;
+  return null;
 }
 
 export default GridColumn;

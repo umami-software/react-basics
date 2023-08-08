@@ -40,3 +40,15 @@
 .cell:last-child {
   padding-right: 0;
 }
+
+.start {
+  justify-content: flex-start;
+}
+
+.center {
+  justify-content: center;
+}
+
+.end {
+  justify-content: flex-end;
+}

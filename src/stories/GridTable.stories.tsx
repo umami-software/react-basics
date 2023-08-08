@@ -42,3 +42,16 @@ export const ColumnWidths = makeStory(Template, {
     ),
   },
 });
+
+export const Alignment = makeStory(Template, {
+  args: {
+    data,
+    children: (
+      <>
+        <GridColumn name="id" label="ID" alignment="start" />
+        <GridColumn name="name" label="Name" alignment="center" />
+        <GridColumn name="email" label="Email" alignment="end" />
+      </>
+    ),
+  },
+});
