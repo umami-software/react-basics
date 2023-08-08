@@ -25,7 +25,12 @@ export function SearchField(props: SearchProps): ReactElement {
     }
   };
 
-  const resetSearch = () => setSearch('');
+  const resetSearch = () => {
+    setSearch('');
+    if (onChange) {
+      onChange('' as any);
+    }
+  };
 
   useEffect(() => {
     if (delay > 0 && searchValue) {
