@@ -11,19 +11,20 @@ import {
 } from 'date-fns';
 import { chunkArray } from 'components/utils';
 import classNames from 'classnames';
+import { MIN_DATE, MAX_DATE } from 'components/constants';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Calendar.module.css';
 
 export interface CalendarMonthSelectProps {
   date: Date;
-  minDate: Date;
-  maxDate: Date;
-  locale: Locale;
+  minDate?: Date;
+  maxDate?: Date;
+  locale?: Locale;
   onSelect: (date: Date) => void;
 }
 
 export function CalendarMonthSelect(props: CalendarMonthSelectProps) {
-  const { date, minDate, maxDate, locale, onSelect } = props;
+  const { date, minDate = MIN_DATE, maxDate = MAX_DATE, locale, onSelect } = props;
   const start = startOfYear(date);
   const months: Date[] = [];
   for (let i = 0; i < 12; i++) {
@@ -45,7 +46,7 @@ export function CalendarMonthSelect(props: CalendarMonthSelectProps) {
               return (
                 <td
                   key={j}
-                  className={classNames(locale, {
+                  className={classNames({
                     [styles.selected]: month.getMonth() === date.getMonth(),
                     [styles.disabled]: disabled,
                   })}

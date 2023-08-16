@@ -90,5 +90,8 @@ export * from 'components/types';
 // Context
 export * from 'components/context';
 
+// Constants
+export * from 'components/constants';
+
 // Styles
 import './styles/global.css';

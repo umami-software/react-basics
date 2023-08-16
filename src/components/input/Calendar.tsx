@@ -7,6 +7,7 @@ import CalendarDaySelect from 'components/input/CalendarDaySelect';
 import CalendarMonthSelect from 'components/input/CalendarMonthSelect';
 import CalendarYearSelect from 'components/input/CalendarYearSelect';
 import Icons from 'components/icons';
+import { MIN_DATE, MAX_DATE, DAY, MONTH, YEAR } from 'components/constants';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Calendar.module.css';
 
@@ -17,12 +18,6 @@ export interface CalendarProps {
   locale?: Locale;
   onChange: (date: Date) => void;
 }
-
-const MIN_DATE = new Date(-8640000000000000);
-const MAX_DATE = new Date(8640000000000000);
-const DAY = 'day';
-const MONTH = 'month';
-const YEAR = 'year';
 
 export function Calendar(props: CalendarProps) {
   const {

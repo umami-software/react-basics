@@ -11,19 +11,20 @@ import {
 } from 'date-fns';
 import classNames from 'classnames';
 import { chunkArray } from 'components/utils';
+import { MIN_DATE, MAX_DATE } from 'components/constants';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Calendar.module.css';
 
 export interface CalendarDaySelectProps {
   date: Date;
-  minDate: Date;
-  maxDate: Date;
-  locale: Locale;
+  minDate?: Date;
+  maxDate?: Date;
+  locale?: Locale;
   onSelect: (date: Date) => void;
 }
 
 export function CalendarDaySelect(props) {
-  const { date, minDate, maxDate, locale, onSelect } = props;
+  const { date, minDate = MIN_DATE, maxDate = MAX_DATE, locale, onSelect } = props;
   const weekStartsOn = locale?.options?.weekStartsOn || 0;
   const startWeek = startOfWeek(date, {
     locale,

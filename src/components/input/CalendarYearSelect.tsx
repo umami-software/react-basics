@@ -5,19 +5,19 @@ import Button from 'components/input/Button';
 import Icon from 'components/common/Icon';
 import Icons from 'components/icons';
 import { chunkArray } from 'components/utils';
+import { MIN_DATE, MAX_DATE } from 'components/constants';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Calendar.module.css';
 
 export interface CalendarYearSelectProps {
   date: Date;
-  minDate: Date;
-  maxDate: Date;
+  minDate?: Date;
+  maxDate?: Date;
   onSelect: (date: Date) => void;
 }
 
 export function CalendarYearSelect(props: CalendarYearSelectProps) {
-  const { date, minDate, maxDate, onSelect } = props;
-  console.log({ props });
+  const { date, minDate = MIN_DATE, maxDate = MAX_DATE, onSelect } = props;
   const [currentDate, setCurrentDate] = useState(date);
   const year = date.getFullYear();
   const currentYear = currentDate.getFullYear();
