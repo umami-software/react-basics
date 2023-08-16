@@ -17,6 +17,7 @@ export interface CalendarYearSelectProps {
 
 export function CalendarYearSelect(props: CalendarYearSelectProps) {
   const { date, minDate, maxDate, onSelect } = props;
+  console.log({ props });
   const [currentDate, setCurrentDate] = useState(date);
   const year = date.getFullYear();
   const currentYear = currentDate.getFullYear();

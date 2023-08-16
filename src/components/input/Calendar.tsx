@@ -20,6 +20,9 @@ export interface CalendarProps {
 
 const MIN_DATE = new Date(-8640000000000000);
 const MAX_DATE = new Date(8640000000000000);
+const DAY = 'day';
+const MONTH = 'month';
+const YEAR = 'year';
 
 export function Calendar(props: CalendarProps) {
   const {
@@ -30,25 +33,16 @@ export function Calendar(props: CalendarProps) {
     onChange,
   } = props;
 
-  const [selectMonth, setSelectMonth] = useState(false);
-  const [selectYear, setSelectYear] = useState(false);
-
+  const [select, setSelect] = useState(DAY);
   const month = format(date, 'MMMM', { locale });
   const year = date.getFullYear();
 
-  function toggleMonthSelect() {
-    setSelectYear(false);
-    setSelectMonth(state => !state);
-  }
-
-  function toggleYearSelect() {
-    setSelectMonth(false);
-    setSelectYear(state => !state);
+  function handleSelect(value) {
+    setSelect(state => (state !== value ? value : DAY));
   }
 
   function handleChange(value) {
-    setSelectMonth(false);
-    setSelectYear(false);
+    setSelect(DAY);
     if (value) {
       onChange(value);
     }
@@ -58,21 +52,21 @@ export function Calendar(props: CalendarProps) {
     <div className={styles.calendar}>
       <div className={styles.header}>
         <div>{date.getDate()}</div>
-        <div className={classNames(styles.selector)} onClick={toggleMonthSelect}>
+        <div className={classNames(styles.selector)} onClick={() => handleSelect(MONTH)}>
           {month}
           <Icon className={styles.icon} size="sm">
-            {selectMonth ? <Icons.Close /> : <Icons.ChevronDown />}
+            {select === MONTH ? <Icons.Close /> : <Icons.ChevronDown />}
           </Icon>
         </div>
-        <div className={classNames(styles.selector)} onClick={toggleYearSelect}>
+        <div className={classNames(styles.selector)} onClick={() => handleSelect(YEAR)}>
           {year}
           <Icon className={styles.icon} size="sm">
-            {selectMonth ? <Icons.Close /> : <Icons.ChevronDown />}
+            {select === YEAR ? <Icons.Close /> : <Icons.ChevronDown />}
           </Icon>
         </div>
       </div>
       <div className={styles.body}>
-        {!selectMonth && !selectYear && (
+        {select === DAY && (
           <CalendarDaySelect
             date={date}
             minDate={minDate}
@@ -81,7 +75,7 @@ export function Calendar(props: CalendarProps) {
             onSelect={handleChange}
           />
         )}
-        {selectMonth && (
+        {select === MONTH && (
           <CalendarMonthSelect
             date={date}
             minDate={minDate}
@@ -90,7 +84,7 @@ export function Calendar(props: CalendarProps) {
             onSelect={handleChange}
           />
         )}
-        {selectYear && (
+        {select === YEAR && (
           <CalendarYearSelect
             date={date}
             minDate={minDate}
