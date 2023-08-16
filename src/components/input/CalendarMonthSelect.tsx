@@ -36,7 +36,7 @@ export function CalendarMonthSelect(props: CalendarMonthSelectProps) {
   }
 
   return (
-    <table>
+    <table className={styles.table}>
       <tbody>
         {chunkArray(months, 3).map((row, i) => (
           <tr key={i}>
@@ -46,7 +46,7 @@ export function CalendarMonthSelect(props: CalendarMonthSelectProps) {
               return (
                 <td
                   key={j}
-                  className={classNames({
+                  className={classNames(styles.cell, locale, {
                     [styles.selected]: month.getMonth() === date.getMonth(),
                     [styles.disabled]: disabled,
                   })}

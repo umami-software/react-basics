@@ -46,11 +46,11 @@ export function CalendarDaySelect(props) {
   }
 
   return (
-    <table>
+    <table className={styles.table}>
       <thead>
         <tr>
           {daysOfWeek.map((day, i) => (
-            <th key={i} className={locale}>
+            <th key={i} className={classNames(styles.cell, locale)}>
               {format(day, 'EEE', { locale })}
             </th>
           ))}
@@ -64,7 +64,7 @@ export function CalendarDaySelect(props) {
               return (
                 <td
                   key={j}
-                  className={classNames({
+                  className={classNames(styles.cell, {
                     [styles.selected]: isSameDay(date, day),
                     [styles.faded]: day.getMonth() !== month || day.getFullYear() !== year,
                     [styles.disabled]: disabled,

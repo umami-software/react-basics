@@ -53,14 +53,14 @@ export function CalendarYearSelect(props: CalendarYearSelectProps) {
         </Button>
       </div>
       <div className={styles.middle}>
-        <table>
+        <table className={styles.table}>
           <tbody>
             {chunkArray(years, 5).map((row, i) => (
               <tr key={i}>
                 {row.map((n, j) => (
                   <td
                     key={j}
-                    className={classNames({
+                    className={classNames(styles.cell, {
                       [styles.selected]: n === year,
                       [styles.disabled]: n < minYear || n > maxYear,
                     })}
