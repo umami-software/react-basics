@@ -14,8 +14,9 @@
   cursor: pointer;
   text-align: center;
   vertical-align: center;
-  height: 40px;
-  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  padding: 10px;
   border-radius: 5px;
   border: 1px solid transparent;
 }
