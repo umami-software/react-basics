@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { LoadingButton, Icon } from '../index';
+import { LoadingButton } from '../index';
 import { makeStory } from './utils';
 
 export default {
@@ -10,13 +10,13 @@ export default {
 
 const Template: StoryFn<typeof LoadingButton> = args => (
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 20 }}>
-    <LoadingButton loading={true} {...args} size="sm">
+    <LoadingButton isLoading={true} {...args} size="sm">
       Small
     </LoadingButton>
-    <LoadingButton loading={true} {...args} size="md">
+    <LoadingButton isLoading={true} {...args} size="md">
       Medium
     </LoadingButton>
-    <LoadingButton loading={true} {...args} size="lg">
+    <LoadingButton isLoading={true} {...args} size="lg">
       Large
     </LoadingButton>
   </div>

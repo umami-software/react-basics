@@ -2,17 +2,17 @@ import Button, { ButtonProps } from 'components/input/Button';
 import Loading from 'components/status/Loading';
 
 export interface LoadingButtonProps extends ButtonProps {
-  loading?: boolean;
+  isLoading?: boolean;
   icon?: 'dots' | 'spinner';
   loaderSize?: 'sm' | 'md' | 'lg';
 }
 
 export function LoadingButton(props: LoadingButtonProps) {
-  const { loading, icon = 'spinner', loaderSize, size, children, ...buttonProps } = props;
+  const { isLoading, icon = 'spinner', loaderSize, size, children, ...buttonProps } = props;
 
   return (
     <Button size={size} {...buttonProps}>
-      {loading ? (
+      {isLoading ? (
         <Loading position="center" icon={icon} size={loaderSize || size || 'sm'} />
       ) : (
         children
