@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import { SearchField } from '../index';
+import { Flexbox, SearchField, TextField } from '../index';
 import { makeStory } from './utils';
 
 export default {
@@ -8,9 +8,16 @@ export default {
   component: SearchField,
 } as Meta<typeof SearchField>;
 
-const Template: StoryFn<typeof SearchField> = args => (
-  <SearchField {...args} style={{ width: 300 }} />
-);
+const Template: StoryFn<typeof SearchField> = args => {
+  const [value, setValue] = useState('');
+
+  return (
+    <Flexbox direction="column" gap={20} width={300}>
+      <SearchField {...args} onChange={setValue as any} autoFocus />
+      <TextField value={value} readOnly />
+    </Flexbox>
+  );
+};
 
 export const Basic = makeStory(Template);
 

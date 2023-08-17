@@ -16,27 +16,23 @@ export function SearchField(props: SearchProps): ReactElement {
   const searchValue = useDebounce(search, delay);
 
   const handleChange = e => {
-    setSearch(e.target.value);
+    const { value } = e.target;
 
-    if (delay === 0) {
-      if (onChange) {
-        onChange(e.target.value);
-      }
+    setSearch(value);
+
+    if (delay === 0 || value === '') {
+      onChange?.(value);
     }
   };
 
   const resetSearch = () => {
     setSearch('');
-    if (onChange) {
-      onChange('' as any);
-    }
+    onChange?.('' as any);
   };
 
   useEffect(() => {
-    if (delay > 0 && searchValue) {
-      if (onChange) {
-        onChange(searchValue);
-      }
+    if (delay > 0) {
+      onChange?.(searchValue);
     }
   }, [searchValue]);
 
