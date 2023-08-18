@@ -29,19 +29,21 @@ export function CalendarYearSelect(props: CalendarYearSelectProps) {
     years.push(currentYear - 7 + i);
   }
 
-  function handleSelect(value) {
+  const handleSelect = value => {
     if (value >= minYear && value <= maxYear) {
       onSelect(setYear(date, value));
     }
-  }
+  };
 
-  function handlePrevClick() {
+  const handlePrevClick = e => {
+    e.stopPropagation();
     setCurrentDate(state => subYears(state, 15));
-  }
+  };
 
-  function handleNextClick() {
+  const handleNextClick = e => {
+    e.stopPropagation();
     setCurrentDate(state => addYears(state, 15));
-  }
+  };
 
   return (
     <div className={styles.pager}>

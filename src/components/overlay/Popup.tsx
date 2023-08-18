@@ -27,6 +27,7 @@ function Popup(props: PopupProps, forwardedRef?: Ref<HTMLDivElement>) {
       {...domProps}
       ref={forwardedRef}
       className={classNames(styles.popup, className, styles[position], styles[alignment])}
+      onClick={e => e.stopPropagation()}
     >
       {typeof children === 'function' ? children(close, popupElement) : children}
     </div>
