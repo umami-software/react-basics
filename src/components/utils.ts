@@ -25,10 +25,12 @@ export function mapChildren(
   children: ReactNode,
   handler: (child: ReactElement, index: number) => any,
 ) {
-  return Children.map(
-    Children.toArray(getFragmentChildren(children)).filter(Boolean) as ReactElement[],
-    handler,
-  );
+  return Children.map(getFragmentChildren(children) as ReactElement[], (child, index) => {
+    if (!child?.props) {
+      return null;
+    }
+    return handler(child, index);
+  });
 }
 
 export function cloneChildren(
