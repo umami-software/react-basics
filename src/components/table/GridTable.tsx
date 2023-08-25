@@ -12,9 +12,9 @@ export interface GridTableProps extends CommonProps {
 export function GridTable(props: GridTableProps) {
   const { data, className, style, children, ...domProps } = props;
 
-  const gridTemplateColumns = mapChildren(children, ({ props }) =>
-    props.hidden ? '' : props.width ?? defaultWidth,
-  )
+  const gridTemplateColumns = mapChildren(children, ({ props }) => {
+    return props.hidden ? '' : props.width ?? defaultWidth;
+  })
     .join(' ')
     .trim();
 
