@@ -14,12 +14,6 @@ export interface GridTableProps extends CommonProps {
 export function GridTable(props: GridTableProps) {
   const { data, className, style, children, cardMode, ...domProps } = props;
 
-  const gridTemplateColumns = mapChildren(children, ({ props }) => {
-    return props.hidden ? '' : props.width ?? defaultWidth;
-  })
-    .join(' ')
-    .trim();
-
   if (cardMode) {
     return (
       <div className={classNames(styles.cards, className)}>
@@ -33,6 +27,8 @@ export function GridTable(props: GridTableProps) {
                 hidden,
                 label,
                 alignment = 'start',
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                width,
                 ...domProps
               } = child.props;
 
@@ -58,6 +54,12 @@ export function GridTable(props: GridTableProps) {
       </div>
     );
   }
+
+  const gridTemplateColumns = mapChildren(children, ({ props }) => {
+    return props.hidden ? '' : props.width ?? defaultWidth;
+  })
+    .join(' ')
+    .trim();
 
   return (
     <table
@@ -95,6 +97,8 @@ export function GridTable(props: GridTableProps) {
                 className,
                 hidden,
                 alignment = 'start',
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                width,
                 ...domProps
               } = child.props;
 
