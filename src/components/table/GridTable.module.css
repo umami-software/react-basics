@@ -63,11 +63,11 @@
   gap: 10px;
   grid-template-columns: max-content 1fr;
   padding: 20px 0;
-  border-bottom: 1px solid var(--base400);
+  border-top: 1px solid var(--base400);
 }
 
 .card:last-child {
-  border-bottom: 0;
+  border-bottom: 1px solid var(--base400);
 }
 
 .label {
