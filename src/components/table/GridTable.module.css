@@ -52,3 +52,24 @@
 .end {
   justify-content: flex-end;
 }
+
+.cards {
+  padding: 20px 0;
+}
+
+.card {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  grid-template-columns: max-content 1fr;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--base400);
+}
+
+.card:last-child {
+  border-bottom: 0;
+}
+
+.label {
+  font-weight: 700;
+}

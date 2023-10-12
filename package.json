@@ -1,6 +1,6 @@
 {
   "name": "react-basics",
-  "version": "0.100.0",
+  "version": "0.101.0",
   "description": "Everyday components for React",
   "license": "MIT",
   "repository": {
@@ -53,10 +53,10 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.3",
     "classnames": "^2.3.1",
     "date-fns": "^2.29.3",
     "react-hook-form": "^7.34.2",
-    "react-spring": "^9.5.5",
     "react-window": "^1.8.6"
   },
   "devDependencies": {

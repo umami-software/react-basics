@@ -11,6 +11,8 @@ import svgr from '@svgr/rollup';
 
 const md5 = str => crypto.createHash('md5').update(str).digest('hex');
 
+const external = ['react', 'react-dom', 'react/jsx-runtime', 'react-spring'];
+
 const customResolver = resolve({
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
 });
@@ -58,7 +60,7 @@ const jsBundle = {
     commonjs(),
     esbuild(),
   ],
-  external: ['react', 'react-dom', 'react/jsx-runtime'],
+  external,
 };
 
 const dtsBundle = {
@@ -79,7 +81,7 @@ const dtsBundle = {
     commonjs(),
     dts(),
   ],
-  external: [/\.css/, 'react', 'react-dom', 'react/jsx-runtime'],
+  external: [/\.css/, ...external],
 };
 
 export default [jsBundle, dtsBundle];

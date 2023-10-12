@@ -8,8 +8,8 @@
   left: 0;
   right: 0;
   margin: auto;
-  z-index: var(--z-index-popup);
   pointer-events: none;
+  z-index: var(--z-index-popup);
 }
 
 .top {
