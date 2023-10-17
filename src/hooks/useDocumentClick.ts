@@ -1,13 +1,13 @@
 import { useCallback, useEffect } from 'react';
 
 export function useDocumentClick(handler) {
-  const onClick = useCallback(handler, []);
+  const onClick = useCallback(handler, [handler]);
 
   useEffect(() => {
-    document.addEventListener('click', onClick);
+    document.body.addEventListener('click', onClick);
 
     return () => {
-      document.removeEventListener('click', onClick);
+      document.body.removeEventListener('click', onClick);
     };
   }, [onClick]);
 

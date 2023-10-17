@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { PopupContext } from 'components/trigger/PopupTrigger';
 
 export function usePopup() {
-  const { close } = useContext<any>(PopupContext);
+  const { close, wrapperElement } = useContext<any>(PopupContext);
 
-  return { close };
+  return { close, wrapperElement };
 }
 
 export default usePopup;

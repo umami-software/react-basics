@@ -25,6 +25,7 @@ export function Menu(props: MenuProps) {
   } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
+    e.stopPropagation();
     onSelect?.(key, e);
   }
 

@@ -1,4 +1,4 @@
-import { cloneElement, createContext, EventHandler, useRef, useState } from 'react';
+import { cloneElement, createContext, EventHandler, useCallback, useRef, useState } from 'react';
 import classNames from 'classnames';
 import useDocumentClick from 'hooks/useDocumentClick';
 import useKeyDown from 'hooks/useKeyDown';
@@ -29,42 +29,67 @@ export function PopupTrigger(props: PopupTriggerProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const clickEnabled = !disabled && action === 'click';
   const hoverEnabled = !disabled && action === 'hover';
+  const [triggerElement, popupElement] = children;
+
+  console.log({ triggerElement, popupElement });
 
   useKeyDown('Escape', () => setShow(false));
 
-  useDocumentClick(e => {
-    if (!wrapperRef?.current?.contains(e.target)) {
+  useDocumentClick(
+    useCallback(
+      e => {
+        if (show && !wrapperRef?.current?.contains(e.target)) {
+          setShow(false);
+          onTrigger?.(false, e);
+        }
+      },
+      [show],
+    ),
+  );
+
+  const handleClick = useCallback(
+    e => {
+      setShow(state => {
+        onTrigger?.(!state, e);
+        return !state;
+      });
+    },
+    [triggerElement],
+  );
+
+  const handleEnter = useCallback(
+    e => {
+      setShow(true);
+      onTrigger?.(true, e);
+    },
+    [triggerElement],
+  );
+
+  const handleLeave = useCallback(
+    e => {
       setShow(false);
       onTrigger?.(false, e);
-    }
-  });
+    },
+    [triggerElement],
+  );
 
-  const handleClick = e => {
-    setShow(state => {
-      onTrigger?.(!state, e);
-      return !state;
-    });
-  };
-
-  const handleEnter = e => {
-    setShow(true);
-    onTrigger?.(true, e);
-  };
-
-  const handleLeave = e => {
-    setShow(false);
-    onTrigger?.(false, e);
-  };
-
-  const handleClose = e => {
-    setShow(false);
-    onTrigger?.(false, e);
-  };
-
-  const [triggerElement, popupElement] = children;
+  const handleClose = useCallback(
+    e => {
+      setShow(false);
+      onTrigger?.(false, e);
+    },
+    [triggerElement],
+  );
 
   return (
-    <PopupContext.Provider value={{ close: handleClose } as any}>
+    <PopupContext.Provider
+      value={
+        {
+          close: handleClose,
+          wrapperElement: wrapperRef.current,
+        } as any
+      }
+    >
       <div
         {...domProps}
         ref={wrapperRef}
@@ -74,12 +99,12 @@ export function PopupTrigger(props: PopupTriggerProps) {
         onMouseLeave={hoverEnabled ? handleLeave : undefined}
       >
         {triggerElement &&
-          cloneElement(triggerElement as any, {
+          cloneElement(triggerElement, {
             className: classNames(triggerElement.props.className, {
               [styles.clickable]: clickEnabled,
             }),
           })}
-        {show && cloneElement(popupElement as any, { popupElement: wrapperRef.current })}
+        {show && popupElement}
       </div>
     </PopupContext.Provider>
   );
