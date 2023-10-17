@@ -31,8 +31,6 @@ export function PopupTrigger(props: PopupTriggerProps) {
   const hoverEnabled = !disabled && action === 'hover';
   const [triggerElement, popupElement] = children;
 
-  console.log({ triggerElement, popupElement });
-
   useKeyDown('Escape', () => setShow(false));
 
   useDocumentClick(
