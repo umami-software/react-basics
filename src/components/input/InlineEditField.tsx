@@ -1,4 +1,4 @@
-import { ReactElement, useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Text from 'components/common/Text';
@@ -14,7 +14,7 @@ export interface InlineEditProps extends TextFieldProps {
   onCancel?: () => void;
 }
 
-export function InlineEditField(props: InlineEditProps): ReactElement {
+export function InlineEditField(props: InlineEditProps) {
   const {
     value: defaultValue = '',
     defaultEdit,

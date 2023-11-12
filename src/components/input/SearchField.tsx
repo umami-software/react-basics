@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
@@ -10,7 +10,7 @@ export interface SearchProps extends TextFieldProps {
   delay?: number;
 }
 
-export function SearchField(props: SearchProps): ReactElement {
+export function SearchField(props: SearchProps) {
   const { delay = 0, value, onChange, ...fieldProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);

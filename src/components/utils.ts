@@ -72,7 +72,7 @@ export function renderChildren(
   return cloneChildren(getFragmentChildren(children as ReactNode), handler, options);
 }
 
-export function countChildren(children): number {
+export function countChildren(children: ReactNode): number {
   return Children.count(getFragmentChildren(children));
 }
 
@@ -82,7 +82,7 @@ export function ensureArray(arr?: any): any[] {
   return [arr];
 }
 
-export function filterDOMProps(props) {
+export function filterDOMProps(props: { [key: string]: any }) {
   const filteredProps = {};
 
   for (const prop in props) {

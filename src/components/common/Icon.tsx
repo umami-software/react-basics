@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, MouseEvent, ReactNode } from 'react';
+import { CSSProperties, MouseEvent, ReactNode } from 'react';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Icon.module.css';
@@ -16,7 +16,7 @@ export interface IconProps {
   children?: ReactNode;
 }
 
-export function Icon(props: IconProps): ReactElement {
+export function Icon(props: IconProps) {
   const {
     size = 'md',
     variant = 'none',
