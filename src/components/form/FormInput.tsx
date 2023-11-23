@@ -25,7 +25,7 @@ export function FormInput(props: FormInputProps) {
 
   return (
     <div {...domProps} className={classNames(styles.input, className)}>
-      {typeof child === 'object' && cloneElement(child, field)}
+      {typeof child === 'function' ? child(field) : cloneElement(child, field)}
       {message && <div className={styles.message}>{message}</div>}
     </div>
   );
