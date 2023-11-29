@@ -9,6 +9,7 @@
   width: 100%;
   text-align: center;
   overflow: hidden;
+  gap: 20px;
 }
 
 .success {
