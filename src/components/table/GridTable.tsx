@@ -8,7 +8,7 @@ const defaultWidth = `minmax(120px, 1fr)`;
 
 export interface GridTableProps extends CommonProps {
   data: any[];
-  cardMode: boolean;
+  cardMode?: boolean;
 }
 
 export function GridTable(props: GridTableProps) {
