@@ -1,3 +1,5 @@
+import { FunctionComponent, SVGProps } from 'react';
+
 import Alert from '../assets/alert.svg';
 import ArrowRight from '../assets/arrow-right.svg';
 import Check from '../assets/check.svg';
@@ -17,7 +19,11 @@ import Search from '../assets/search.svg';
 import Show from '../assets/show.svg';
 import Trash from '../assets/trash.svg';
 
-export const Icons = {
+export interface SVGIconComponent extends FunctionComponent<SVGProps<SVGSVGElement>> {
+  title?: string;
+}
+
+export const Icons: { [key: string]: SVGIconComponent } = {
   Alert,
   ArrowRight,
   Check,
