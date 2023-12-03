@@ -12,7 +12,7 @@ export interface FormProps extends CommonProps, UseFormProps {
   values?: object;
   autoComplete?: string;
   onSubmit?: SubmitHandler<any>;
-  error?: string;
+  error?: string | Error;
   preventSubmit?: boolean;
   children?: ReactNode | ((props: object) => ReactNode);
   ref?: Ref<HTMLFormElement>;
