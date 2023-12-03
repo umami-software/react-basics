@@ -12,7 +12,7 @@ export interface SearchProps extends TextFieldProps {
 }
 
 export function SearchField(props: SearchProps) {
-  const { delay = 0, value, onChange, onSearch, ...fieldProps } = props;
+  const { delay = 0, value, onSearch, ...fieldProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);
 
@@ -22,19 +22,18 @@ export function SearchField(props: SearchProps) {
     setSearch(value);
 
     if (delay === 0 || value === '') {
-      onChange?.(e);
       onSearch?.(value);
     }
   };
 
   const resetSearch = () => {
     setSearch('');
-    onChange?.('' as any);
+    onSearch?.('');
   };
 
   useEffect(() => {
     if (delay > 0) {
-      onChange?.(searchValue);
+      onSearch?.(searchValue);
     }
   }, [searchValue]);
 
