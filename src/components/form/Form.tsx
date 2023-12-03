@@ -15,6 +15,7 @@ export interface FormProps extends CommonProps, UseFormProps {
   error?: string;
   preventSubmit?: boolean;
   children?: ReactNode | ((props: object) => ReactNode);
+  ref?: Ref<HTMLFormElement>;
 }
 
 function Form(props: FormProps, ref: Ref<HTMLFormElement>) {
