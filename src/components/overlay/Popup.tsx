@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from 'react';
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
-import usePopup from 'hooks/usePopup';
+import usePopup from 'components/hooks/usePopup';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Popup.module.css';
 

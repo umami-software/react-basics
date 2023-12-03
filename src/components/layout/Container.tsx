@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import useBreakpoint from 'hooks/useBreakpoint';
+import useBreakpoint from 'components/hooks/useBreakpoint';
 import { CommonProps } from 'components/types';
 import styles from './Container.module.css';
 

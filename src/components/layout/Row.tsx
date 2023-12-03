@@ -1,7 +1,7 @@
 import { forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import { cloneChildren } from 'components/utils';
-import useBreakpoint from 'hooks/useBreakpoint';
+import useBreakpoint from 'components/hooks/useBreakpoint';
 import { CommonProps } from 'components/types';
 import styles from './Row.module.css';
 

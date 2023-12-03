@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
-import useDebounce from 'hooks/useDebounce';
+import useDebounce from 'components/hooks/useDebounce';
 import Icons from 'components/icons';
 import styles from './SearchField.module.css';
 

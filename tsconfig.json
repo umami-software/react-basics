@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "declaration": true,
+    "declaration": false,
     "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "noImplicitAny": false,
@@ -17,8 +17,18 @@
     "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": { "*": ["src/*"] }
+    "baseUrl": "./src",
+    "paths": {
+      "assets/*": [
+        "./assets/*"
+      ],
+      "components/*": [
+        "./components/*"
+      ],
+      "styles/*": [
+        "./styles/*"
+      ]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

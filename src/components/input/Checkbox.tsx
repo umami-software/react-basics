@@ -1,7 +1,7 @@
 import { Ref, ChangeEvent, forwardRef, useState, useRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import Icon from 'components/common/Icon';
-import useCombinedRefs from 'hooks/useCombinedRefs';
+import useCombinedRefs from 'components/hooks/useCombinedRefs';
 import Icons from 'components/icons';
 import { CommonProps } from 'components/types';
 import styles from './Checkbox.module.css';

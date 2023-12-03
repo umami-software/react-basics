@@ -69,17 +69,17 @@ export * from 'components/trigger/PopupTrigger';
 export * from 'components/utils';
 
 // Hooks
-export * from 'hooks/useBreakpoint';
-export * from 'hooks/useCallbackRef';
-export * from 'hooks/useCombinedRefs';
-export * from 'hooks/useDebounce';
-export * from 'hooks/useDocumentClick';
-export * from 'hooks/useKeyDown';
-export * from 'hooks/useMeasure';
-export * from 'hooks/usePopup';
-export * from 'hooks/useScroll';
-export * from 'hooks/useToasts';
-export * from 'hooks/useVisible';
+export * from 'components/hooks/useBreakpoint';
+export * from 'components/hooks/useCallbackRef';
+export * from 'components/hooks/useCombinedRefs';
+export * from 'components/hooks/useDebounce';
+export * from 'components/hooks/useDocumentClick';
+export * from 'components/hooks/useKeyDown';
+export * from 'components/hooks/useMeasure';
+export * from 'components/hooks/usePopup';
+export * from 'components/hooks/useScroll';
+export * from 'components/hooks/useToasts';
+export * from 'components/hooks/useVisible';
 
 // Icons
 export * from 'components/icons';

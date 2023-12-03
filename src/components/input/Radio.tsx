@@ -2,7 +2,7 @@ import { ChangeEvent, Ref, forwardRef, useRef } from 'react';
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
 import styles from './Radio.module.css';
-import useCombinedRefs from 'hooks/useCombinedRefs';
+import useCombinedRefs from 'components/hooks/useCombinedRefs';
 
 export interface RadioProps extends CommonProps {
   name?: string;

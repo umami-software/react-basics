@@ -1,7 +1,7 @@
 import { cloneElement, createContext, EventHandler, useCallback, useRef, useState } from 'react';
 import classNames from 'classnames';
-import useDocumentClick from 'hooks/useDocumentClick';
-import useKeyDown from 'hooks/useKeyDown';
+import useDocumentClick from 'components/hooks/useDocumentClick';
+import useKeyDown from 'components/hooks/useKeyDown';
 import { CommonProps } from 'components/types';
 import styles from './trigger.module.css';
 

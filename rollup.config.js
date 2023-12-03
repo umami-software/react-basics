@@ -71,10 +71,7 @@ const dtsBundle = {
   },
   plugins: [
     alias({
-      entries: [
-        { find: /^components/, replacement: path.resolve('./src/components') },
-        { find: /^hooks/, replacement: path.resolve('./src/hooks') },
-      ],
+      entries: [{ find: /^components/, replacement: path.resolve('./src/components') }],
       customResolver,
     }),
     resolve(),

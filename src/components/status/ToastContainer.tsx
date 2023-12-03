@@ -2,7 +2,7 @@ import { createPortal } from 'react-dom';
 import classNames from 'classnames';
 import { useTransition, animated } from '@react-spring/web';
 import { CommonProps } from 'components/types';
-import { useToasts } from 'hooks/useToasts';
+import { useToasts } from 'components/hooks/useToasts';
 import Toast from 'components/status/Toast';
 import styles from './ToastContainer.module.css';
 
@@ -10,7 +10,7 @@ export interface ToastContainerProps extends CommonProps {
   position?: 'top' | 'bottom';
 }
 
-export function ToastContainer(props: ToastContainerProps) {
+export function ToastContainer(props: ToastContainerProps): any {
   const { position = 'top', className, ...domProps } = props;
   const { toasts, removeToast } = useToasts();
 
