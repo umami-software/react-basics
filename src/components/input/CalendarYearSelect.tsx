@@ -29,18 +29,18 @@ export function CalendarYearSelect(props: CalendarYearSelectProps) {
     years.push(currentYear - 7 + i);
   }
 
-  const handleSelect = value => {
+  const handleSelect = (value: number) => {
     if (value >= minYear && value <= maxYear) {
       onSelect(setYear(date, value));
     }
   };
 
-  const handlePrevClick = e => {
+  const handlePrevClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     setCurrentDate(state => subYears(state, 15));
   };
 
-  const handleNextClick = e => {
+  const handleNextClick = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     setCurrentDate(state => addYears(state, 15));
   };

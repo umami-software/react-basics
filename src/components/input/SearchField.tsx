@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import classNames from 'classnames';
 import TextField, { TextFieldProps } from 'components/input/TextField';
 import Icon from 'components/common/Icon';
@@ -8,20 +8,22 @@ import styles from './SearchField.module.css';
 
 export interface SearchProps extends TextFieldProps {
   delay?: number;
+  onSearch?: (query: string) => void;
 }
 
 export function SearchField(props: SearchProps) {
-  const { delay = 0, value, onChange, ...fieldProps } = props;
+  const { delay = 0, value, onChange, onSearch, ...fieldProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
 
     setSearch(value);
 
     if (delay === 0 || value === '') {
-      onChange?.(value);
+      onChange?.(e);
+      onSearch?.(value);
     }
   };
 
