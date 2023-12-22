@@ -6,12 +6,12 @@ import useDebounce from 'components/hooks/useDebounce';
 import Icons from 'components/icons';
 import styles from './SearchField.module.css';
 
-export interface SearchProps extends TextFieldProps {
+export interface SearchFieldProps extends TextFieldProps {
   delay?: number;
   onSearch?: (query: string) => void;
 }
 
-export function SearchField(props: SearchProps) {
+export function SearchField(props: SearchFieldProps) {
   const { delay = 0, value, onSearch, ...fieldProps } = props;
   const [search, setSearch] = useState(value);
   const searchValue = useDebounce(search, delay);

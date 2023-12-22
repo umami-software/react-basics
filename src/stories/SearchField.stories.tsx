@@ -11,9 +11,11 @@ export default {
 const Template: StoryFn<typeof SearchField> = args => {
   const [value, setValue] = useState('');
 
+  console.log({ value });
+
   return (
     <Flexbox direction="column" gap={20} width={300}>
-      <SearchField {...args} onChange={setValue as any} autoFocus />
+      <SearchField {...args} onSearch={setValue as any} autoFocus />
       <TextField value={value} readOnly />
     </Flexbox>
   );
