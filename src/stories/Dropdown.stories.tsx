@@ -1,4 +1,4 @@
-import React, { Key, useState } from 'react';
+import { useState } from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import { makeStory } from './utils';
 import { Item, Dropdown } from '../index';
@@ -16,17 +16,24 @@ export default {
 
 const Template: StoryFn<typeof Dropdown> = args => {
   const [value, setValue] = useState<any>(args.value);
+  const [search, setSearch] = useState('');
 
   const renderValue = v => items.find(e => e.value === v)?.label;
+
+  const filteredItems = search
+    ? items.filter(({ label }) => label.toLowerCase().includes(search.toLowerCase()))
+    : items;
 
   return (
     <div style={{ width: 200 }}>
       <Dropdown
         {...args}
+        items={filteredItems}
         renderValue={renderValue}
         name="dropdown"
         value={value}
         onChange={setValue}
+        onSearch={setSearch}
       />
     </div>
   );
@@ -34,15 +41,28 @@ const Template: StoryFn<typeof Dropdown> = args => {
 
 export const Basic = makeStory(Template, {
   args: {
-    items,
     children: ({ value, label }) => <Item key={value}>{label}</Item>,
   },
 });
 
 export const Preselect = makeStory(Template, {
   args: {
-    items,
     value: 'two',
+    children: ({ value, label }) => <Item key={value}>{label}</Item>,
+  },
+});
+
+export const WithSearch = makeStory(Template, {
+  args: {
+    allowSearch: true,
+    children: ({ value, label }) => <Item key={value}>{label}</Item>,
+  },
+});
+
+export const IsLoading = makeStory(Template, {
+  args: {
+    isLoading: true,
+    allowSearch: true,
     children: ({ value, label }) => <Item key={value}>{label}</Item>,
   },
 });

@@ -1,5 +1,5 @@
 .menu {
-  margin-top: var(--size50);
+  border-top: 1px solid var(--border-color);
 }
 
 .field {
@@ -16,4 +16,22 @@
 
 .placeholder {
   color: var(--font-color400);
+}
+
+.popup {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--base50);
+  min-width: 200px;
+  margin-top: var(--size25);
+  overflow: hidden;
+}
+
+.search {
+  border: 0;
+}
+
+.loading {
+  border-top: 1px solid var(--border-color);
+  height: 40px;
 }

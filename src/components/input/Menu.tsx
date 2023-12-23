@@ -7,30 +7,25 @@ import { renderChildren } from 'components/utils';
 import styles from './Menu.module.css';
 
 export interface MenuProps extends CommonProps {
-  variant?: 'popup' | 'none';
   items?: any[];
   selectedKey?: Key;
   onSelect?: (key: Key, e: MouseEvent) => void;
 }
 
 export function Menu(props: MenuProps) {
-  const {
-    variant = 'none',
-    items = [],
-    selectedKey,
-    onSelect,
-    className,
-    children,
-    ...domProps
-  } = props;
+  const { items = [], selectedKey, onSelect, className, children, ...domProps } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
     e.stopPropagation();
     onSelect?.(key, e);
   }
 
+  if (!children || !items.length) {
+    return null;
+  }
+
   return (
-    <div {...domProps} className={classNames(styles.menu, className, styles[variant])}>
+    <div {...domProps} className={classNames(styles.menu, className)}>
       {renderChildren(
         children,
         items,
