@@ -16,6 +16,7 @@ export interface DropdownProps extends CommonProps {
   name?: string;
   value?: string;
   renderValue?: (value: string) => ReactNode;
+  renderEmpty?: (search: string) => ReactNode;
   menuProps?: MenuProps;
   searchProps?: SearchFieldProps;
   position?: 'top' | 'bottom' | 'left' | 'right';
@@ -23,7 +24,7 @@ export interface DropdownProps extends CommonProps {
   allowSearch?: boolean;
   isLoading?: boolean;
   placeholder?: string;
-  onChange?: (key: Key, e: MouseEvent) => void;
+  onSelect?: (key: Key, e: MouseEvent) => void;
   onSearch?: (value: string) => void;
 }
 
@@ -33,6 +34,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     name,
     value = '',
     renderValue,
+    renderEmpty,
     menuProps = {},
     searchProps = {},
     position = 'bottom',
@@ -40,7 +42,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     allowSearch = false,
     isLoading,
     placeholder,
-    onChange,
+    onSelect,
     onSearch,
     className,
     children,
@@ -50,7 +52,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
 
   const handleSelect = (close: () => void, key: Key, e: MouseEvent) => {
     e.stopPropagation();
-    onChange?.(key, e);
+    onSelect?.(key, e);
     close();
   };
 
@@ -86,16 +88,17 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
               )}
               {isLoading ? (
                 <Loading className={styles.loading} icon="dots" position="center" />
-              ) : (
+              ) : items?.length ? (
                 <Menu
                   {...menuProps}
-                  className={classNames(styles.menu, menuProps?.className)}
                   items={items}
                   selectedKey={value}
                   onSelect={handleSelect.bind(null, close)}
                 >
                   {children}
                 </Menu>
+              ) : (
+                renderEmpty?.(search)
               )}
             </div>
           );
