@@ -20,7 +20,7 @@ export function Menu(props: MenuProps) {
     onSelect?.(key, e);
   }
 
-  if (!children || !items.length) {
+  if (!children) {
     return null;
   }
 

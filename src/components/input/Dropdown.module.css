@@ -30,6 +30,5 @@
 }
 
 .loading {
-  border-top: 1px solid var(--border-color);
   height: 40px;
 }
