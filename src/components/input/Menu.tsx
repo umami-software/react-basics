@@ -8,12 +8,21 @@ import styles from './Menu.module.css';
 
 export interface MenuProps extends CommonProps {
   items?: any[];
+  variant?: 'none' | 'popup';
   selectedKey?: Key;
   onSelect?: (key: Key, e: MouseEvent) => void;
 }
 
 export function Menu(props: MenuProps) {
-  const { items = [], selectedKey, onSelect, className, children, ...domProps } = props;
+  const {
+    items = [],
+    variant = 'none',
+    selectedKey,
+    onSelect,
+    className,
+    children,
+    ...domProps
+  } = props;
 
   function handleSelect(key: Key, e: MouseEvent) {
     e.stopPropagation();
@@ -25,7 +34,7 @@ export function Menu(props: MenuProps) {
   }
 
   return (
-    <div {...domProps} className={classNames(styles.menu, className)}>
+    <div {...domProps} className={classNames(styles.menu, className, styles[variant])}>
       {renderChildren(
         children,
         items,

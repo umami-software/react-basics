@@ -39,3 +39,12 @@
   right: 0;
   border-top: 1px solid var(--border-color);
 }
+
+.popup {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--base50);
+  min-width: 200px;
+  margin-top: var(--size25);
+  overflow: hidden;
+}
