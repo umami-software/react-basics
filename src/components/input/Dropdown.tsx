@@ -24,7 +24,7 @@ export interface DropdownProps extends CommonProps {
   allowSearch?: boolean;
   isLoading?: boolean;
   placeholder?: string;
-  onSelect?: (key: Key, e: MouseEvent) => void;
+  onChange?: (key: Key, e: MouseEvent) => void;
   onSearch?: (value: string) => void;
 }
 
@@ -42,7 +42,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     allowSearch = false,
     isLoading,
     placeholder,
-    onSelect,
+    onChange,
     onSearch,
     className,
     children,
@@ -52,7 +52,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
 
   const handleSelect = (close: () => void, key: Key, e: MouseEvent) => {
     e.stopPropagation();
-    onSelect?.(key, e);
+    onChange?.(key, e);
     close();
   };
 
