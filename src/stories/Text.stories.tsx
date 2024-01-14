@@ -30,10 +30,3 @@ export const Basic = makeStory(Template, {
     children: 'Text',
   },
 });
-
-export const Overflow = makeStory(Template, {
-  args: {
-    children: 'This is long text that should be cut off.',
-    overflow: true,
-  },
-});

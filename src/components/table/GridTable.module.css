@@ -10,6 +10,10 @@
   display: contents;
 }
 
+.table td {
+  min-width: 0;
+}
+
 .header.row .cell {
   border-bottom: 1px solid var(--base400);
 }
