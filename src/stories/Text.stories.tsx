@@ -27,7 +27,13 @@ const Template: StoryFn<typeof Text> = args => {
 
 export const Basic = makeStory(Template, {
   args: {
-    value: 'value',
     children: 'Text',
+  },
+});
+
+export const Overflow = makeStory(Template, {
+  args: {
+    children: 'This is long text that should be cut off.',
+    overflow: true,
   },
 });

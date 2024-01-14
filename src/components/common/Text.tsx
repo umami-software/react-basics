@@ -1,23 +1,22 @@
+import { ElementType } from 'react';
 import { CommonProps } from 'components/types';
 import classNames from 'classnames';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Text.module.css';
 
 export interface TextProps extends CommonProps {
+  as?: ElementType;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
-  overflow?: boolean;
 }
 
 export function Text(props: TextProps) {
-  const { className, children, size = '', overflow = false, ...domProps } = props;
+  const { className, children, as = 'span', size = '', ...domProps } = props;
+  const Tag = as;
 
   return (
-    <span
-      {...domProps}
-      className={classNames(className, styles[`size-${size}`], { [styles.overflow]: overflow })}
-    >
+    <Tag {...domProps} className={classNames(className, styles[`size-${size}`])}>
       {children}
-    </span>
+    </Tag>
   );
 }
 

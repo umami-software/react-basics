@@ -2,6 +2,7 @@
 export * from 'components/common/Icon';
 export * from 'components/common/Item';
 export * from 'components/common/Text';
+export * from 'components/common/TextOverflow';
 export * from 'components/context/ReactBasicsProvider';
 export * from 'components/form/ActionForm';
 export * from 'components/form/Form';

@@ -1,0 +1,11 @@
+.wrapper {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+
+.overflow {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
