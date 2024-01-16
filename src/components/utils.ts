@@ -65,7 +65,7 @@ export function renderChildren(
   handler: (child: ReactElement, index: number) => object | undefined,
   options?: { validChildren?: any[]; onlyRenderValid?: boolean },
 ): ReactNode {
-  if (typeof children === 'function' && items) {
+  if (typeof children === 'function' && items?.length > 0) {
     return cloneChildren(items.map(children), handler, options);
   }
 

@@ -86,9 +86,8 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
                   autoFocus={true}
                 />
               )}
-              {isLoading ? (
-                <Loading className={styles.loading} icon="dots" position="center" />
-              ) : items?.length ? (
+              {isLoading && <Loading className={styles.loading} icon="dots" position="center" />}
+              {!isLoading && (
                 <Menu
                   {...menuProps}
                   items={items}
@@ -97,9 +96,8 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
                 >
                   {children}
                 </Menu>
-              ) : (
-                renderEmpty?.(search)
               )}
+              {!isLoading && search && items?.length === 0 && renderEmpty?.(search)}
             </div>
           );
         }}

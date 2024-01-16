@@ -19,11 +19,16 @@ const Template: StoryFn<typeof Dropdown> = args => {
   const [selected, setSelected] = useState<any>(value);
   const [search, setSearch] = useState('');
 
-  const renderValue = v => items?.find(e => e.value === v)?.label;
+  const renderValue = (value: string) => {
+    console.log({ value });
+    return items?.find(e => e.value === value)?.label;
+  };
 
   const filteredItems = search
     ? items?.filter(({ label }) => label.toLowerCase().includes(search.toLowerCase()))
     : items;
+
+  console.log({ selected });
 
   return (
     <div style={{ width: 200 }}>
@@ -33,7 +38,7 @@ const Template: StoryFn<typeof Dropdown> = args => {
         renderValue={renderValue}
         name="dropdown"
         value={selected}
-        onSelect={setSelected}
+        onChange={setSelected}
         onSearch={setSearch}
         renderEmpty={() => <div style={{ textAlign: 'center', padding: 20 }}>No results.</div>}
       />
@@ -53,6 +58,19 @@ export const Preselect = makeStory(Template, {
     items,
     value: 'two',
     children: ({ value, label }) => <Item key={value}>{label}</Item>,
+  },
+});
+
+export const NoItemsProp = makeStory(Template, {
+  args: {
+    items,
+    children: (
+      <>
+        <Item key="one">One</Item>
+        <Item key="two">Two</Item>
+        <Item key="three">Three</Item>
+      </>
+    ),
   },
 });
 
