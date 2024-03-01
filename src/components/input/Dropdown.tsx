@@ -4,7 +4,7 @@ import Menu, { MenuProps } from 'components/input/Menu';
 import Icon from 'components/common/Icon';
 import Field from 'components/input/Field';
 import PopupTrigger from 'components/trigger/PopupTrigger';
-import Popup from 'components/overlay/Popup';
+import Popup, { PopupProps } from 'components/overlay/Popup';
 import Loading from 'components/status/Loading';
 import SearchField, { SearchFieldProps } from 'components/input/SearchField';
 import { CommonProps } from 'components/types';
@@ -17,6 +17,7 @@ export interface DropdownProps extends CommonProps {
   value?: string;
   renderValue?: (value: string) => ReactNode;
   renderEmpty?: (search: string) => ReactNode;
+  popupProps?: PopupProps;
   menuProps?: MenuProps;
   searchProps?: SearchFieldProps;
   position?: 'top' | 'bottom' | 'left' | 'right';
@@ -35,6 +36,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
     value = '',
     renderValue,
     renderEmpty,
+    popupProps = {},
     menuProps = {},
     searchProps = {},
     position = 'bottom',
@@ -73,7 +75,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
         </Icon>
         <input ref={ref} type="hidden" name={name} value={value} />
       </Field>
-      <Popup position={position} alignment={alignment}>
+      <Popup {...popupProps} position={position} alignment={alignment}>
         {(close: () => void) => {
           return (
             <div className={styles.popup}>
