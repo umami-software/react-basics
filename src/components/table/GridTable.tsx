@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { CommonProps } from 'components/types';
 import { mapChildren } from 'components/utils';
+import { useBreakpoint } from 'components/hooks/useBreakpoint';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './GridTable.module.css';
 
@@ -13,8 +14,10 @@ export interface GridTableProps extends CommonProps {
 
 export function GridTable(props: GridTableProps) {
   const { data, className, style, children, cardMode, ...domProps } = props;
+  const breakpoint = useBreakpoint();
+  const responsive = ['xs', 'sm', 'md'].includes(breakpoint);
 
-  if (cardMode) {
+  if (cardMode || responsive) {
     return (
       <div className={classNames(styles.cards, className)}>
         {data.map((row, index) => (
