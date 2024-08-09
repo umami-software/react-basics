@@ -13,11 +13,11 @@ export interface GridTableProps extends CommonProps {
 }
 
 export function GridTable(props: GridTableProps) {
-  const { data, className, style, children, cardMode, ...domProps } = props;
+  const { data, className, style, children, cardMode = true, ...domProps } = props;
   const breakpoint = useBreakpoint();
   const responsive = ['xs', 'sm', 'md'].includes(breakpoint);
 
-  if (cardMode || responsive) {
+  if (cardMode && responsive) {
     return (
       <div className={classNames(styles.cards, className)}>
         {data.map((row, index) => (
