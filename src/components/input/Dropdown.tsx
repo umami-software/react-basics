@@ -108,7 +108,7 @@ function Dropdown(props: DropdownProps, ref: Ref<HTMLInputElement>) {
   );
 }
 
-const _Dropdown = forwardRef<HTMLInputElement, DropdownProps>(Dropdown) as typeof Dropdown;
+const _Dropdown = forwardRef<HTMLInputElement, DropdownProps>(Dropdown);
 
 export { _Dropdown as Dropdown };
 

@@ -74,7 +74,7 @@ function TextField(props: TextFieldProps, ref?: Ref<HTMLInputElement>) {
   );
 }
 
-const _TextField = forwardRef<HTMLInputElement, TextFieldProps>(TextField) as typeof TextField;
+const _TextField = forwardRef<HTMLInputElement, TextFieldProps>(TextField);
 
 export { _TextField as TextField };
 

@@ -23,9 +23,7 @@ function PasswordField(props: PasswordFieldProps, ref?: Ref<HTMLInputElement>) {
   );
 }
 
-const _PasswordField = forwardRef<HTMLInputElement, TextFieldProps>(
-  PasswordField,
-) as typeof PasswordField;
+const _PasswordField = forwardRef<HTMLInputElement, TextFieldProps>(PasswordField);
 
 export { _PasswordField as PasswordField };
 

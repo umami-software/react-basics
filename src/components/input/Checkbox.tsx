@@ -70,7 +70,7 @@ function Checkbox(props: CheckboxProps, forwardedRef?: Ref<HTMLInputElement>) {
   );
 }
 
-const _Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(Checkbox) as typeof Checkbox;
+const _Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(Checkbox);
 
 export { _Checkbox as Checkbox };
 

@@ -65,7 +65,7 @@ function TextArea(props: TextAreaProps, ref: Ref<HTMLTextAreaElement>) {
   );
 }
 
-const _TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(TextArea) as typeof TextArea;
+const _TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(TextArea);
 
 export { _TextArea as TextArea };
 

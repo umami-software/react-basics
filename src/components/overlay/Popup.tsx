@@ -26,7 +26,7 @@ function Popup(props: PopupProps, forwardedRef?: Ref<HTMLDivElement>) {
   );
 }
 
-const _Popup = forwardRef<HTMLDivElement, PopupProps>(Popup) as typeof Popup;
+const _Popup = forwardRef<HTMLDivElement, PopupProps>(Popup);
 
 export { _Popup as Popup };
 

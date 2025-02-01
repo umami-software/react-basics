@@ -55,7 +55,7 @@ function Radio(props: RadioProps, forwardedRef?: Ref<HTMLInputElement>) {
   );
 }
 
-const _Radio = forwardRef<HTMLInputElement, RadioProps>(Radio) as typeof Radio;
+const _Radio = forwardRef<HTMLInputElement, RadioProps>(Radio);
 
 export { _Radio as Radio };
 

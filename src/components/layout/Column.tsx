@@ -126,7 +126,7 @@ function Column(props: ColumnProps, ref: Ref<HTMLDivElement>) {
   );
 }
 
-const _Column = forwardRef<HTMLDivElement, ColumnProps>(Column) as typeof Column;
+const _Column = forwardRef<HTMLDivElement, ColumnProps>(Column);
 
 export { _Column as Column };
 

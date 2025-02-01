@@ -35,7 +35,7 @@ function Row(props: RowProps, ref: Ref<HTMLDivElement>) {
   );
 }
 
-const _Row = forwardRef<HTMLDivElement, RowProps>(Row) as typeof Row;
+const _Row = forwardRef<HTMLDivElement, RowProps>(Row);
 
 export { _Row as Row };
 
